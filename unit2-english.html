@@ -92,20 +92,28 @@ button, select {
     background: rgba(15,23,42,.95);
     border-bottom-color: rgba(255,255,255,0.08);
 }
-.topbar-right, .topbar-left {
+.topbar-right {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
 }
 .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    flex-wrap: nowrap;
-    flex-shrink: 1;
-    min-width: 0;
+    scrollbar-width: thin;
+    max-width: 100%;
+    padding: 4px 0;
 }
-.topbar-left::-webkit-scrollbar { display: none; }
+.topbar-left::-webkit-scrollbar {
+    height: 4px;
+}
+.topbar-left::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
 .back-btn-top {
     display: inline-flex;
     align-items: center;
@@ -132,13 +140,14 @@ button, select {
     white-space: nowrap;
 }
 .tlogo span { color: var(--accent); }
+/* Action buttons */
 .top-action-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 15px;
+    padding: 7px 13px;
     border-radius: 10px;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 800;
     font-family: 'Tajawal', sans-serif;
     color: #fff !important;
@@ -146,20 +155,33 @@ button, select {
     white-space: nowrap;
     border: none;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.18s ease, filter 0.18s ease;
     flex-shrink: 0;
 }
 .top-action-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 .top-action-btn:active { transform: translateY(0); }
-.top-action-btn.yt       { background: #ef4444; box-shadow: 0 3px 10px rgba(239,68,68,.3); }
-.top-action-btn.student  { background: #0284c7; box-shadow: 0 3px 10px rgba(2,132,199,.3); }
-.top-action-btn.workbook { background: #0d9488; box-shadow: 0 3px 10px rgba(13,148,136,.3); }
 .top-action-btn.ws       { background: #4f46e5; box-shadow: 0 3px 10px rgba(79,70,229,.3); }
 .top-action-btn.pr       { background: #10b981; box-shadow: 0 3px 10px rgba(16,185,129,.3); }
 .top-action-btn.ppt      { background: #f59e0b; box-shadow: 0 3px 10px rgba(245,158,11,.3); }
 .top-action-btn.wheel    { background: #ec4899; box-shadow: 0 3px 10px rgba(236,72,153,.3); }
-.top-action-btn.rep      { background: #8b5cf6; box-shadow: 0 3px 10px rgba(139,92,246,.3); }
+@media (max-width: 768px) {
+    .topbar {
+        padding: 0 10px;
+    }
+    .topbar-right .prog-pill {
+        display: none;
+    }
+    .top-action-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 480px) {
+    .tlogo {
+        display: none;
+    }
+}
 .prog-pill {
     display: inline-flex;
     align-items: center;
@@ -2019,14 +2041,10 @@ button, select {
     <div class="prog-pill">التقدم: <b id="prog">0%</b></div>
   </div>
   <div class="topbar-left">
-    <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" rel="noopener noreferrer" class="top-action-btn yt">🎬 شرح يوتيوب</a>
-    <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7/" target="_blank" rel="noopener noreferrer" class="top-action-btn student">📘 كتاب الطالب</a>
-    <a href="https://www.wajibati.net/35824-2/" target="_blank" rel="noopener noreferrer" class="top-action-btn workbook">📗 كتاب النشاط</a>
     <a href="unit2-worksheets.html" target="_blank" class="top-action-btn ws">📝 أوراق العمل</a>
     <a href="unit2-printables.html" target="_blank" class="top-action-btn pr">🖨️ المطبوعات</a>
     <a href="unit2-presentation.html" target="_blank" class="top-action-btn ppt">💻 العروض</a>
     <a href="wheel.html" target="_blank" class="top-action-btn wheel">🎯 عجلة الأسماء</a>
-    <a href="report.html" target="_blank" class="top-action-btn rep">📋 تقرير الدرس</a>
     <button class="theme-btn" id="tbtn" onclick="tgl()" aria-label="تبديل المظهر">🌙</button>
   </div>
 </nav>
