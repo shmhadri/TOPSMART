@@ -1,0 +1,52 @@
+[
+  {
+    "q": "______ chores does your brother do?",
+    "choices": [
+      "What",
+      "Which",
+      "Who",
+      "Where"
+    ],
+    "ans": "What"
+  },
+  {
+    "q": "Do you wash the dishes? -> Yes, I ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "do too"
+    ],
+    "ans": "do"
+  },
+  {
+    "q": "Does she set the table? -> Yes, she ______.",
+    "choices": [
+      "does",
+      "do",
+      "doesn't",
+      "doing"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "I clean my room, ______.",
+    "choices": [
+      "too",
+      "to",
+      "two",
+      "so"
+    ],
+    "ans": "too"
+  },
+  {
+    "q": "What chores ______ they do?",
+    "choices": [
+      "do",
+      "does",
+      "are",
+      "do they"
+    ],
+    "ans": "do"
+  }
+]

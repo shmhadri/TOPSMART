@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - مقدمة المنهج: Welcome & Family Events - إنجليزي الصف الرابع | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --radius: 20px;
+    --radius-sm: 12px;
+    --tr: .25s ease;
+}
+
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr);
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9);
+}
+
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+
+/* NAVIGATION TABS */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    border: 2px solid var(--border);
+    transition: var(--tr);
+    background: var(--bg-card);
+    cursor: pointer;
+}
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.main-wrap {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.sheet-container {
+    display: none;
+}
+.sheet-container.active {
+    display: block;
+}
+
+/* A4 SHEET LOOK (Keep white background on screen and print for worksheets) */
+.a4-sheet {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    min-height: 1100px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* HEADER */
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.header-school {
+    font-size: 14px;
+    font-weight: 800;
+    color: #475569;
+    text-align: right;
+    line-height: 1.5;
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-title-box h2 {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    margin-top: 4px;
+}
+.header-logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-student-info {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px dashed var(--primary);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+}
+.student-field span {
+    font-weight: normal;
+    color: #64748b;
+}
+
+/* BLOOM TAXONOMY SECTIONS */
+.bloom-section {
+    margin-bottom: 24px;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    background: #fafafb;
+}
+.bloom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+}
+.bloom-label {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.08);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+.bloom-desc {
+    font-size: 12px;
+    color: #475569;
+    font-weight: 700;
+}
+
+.q-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1e293b;
+}
+
+/* SPACIOUS KID-FRIENDLY INPUTS */
+.kid-input-box {
+    border: 3px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    background-color: #ffffff;
+    width: 160px;
+    text-align: center;
+    outline: none;
+    transition: all var(--tr);
+    font-family: 'Outfit', sans-serif;
+}
+.kid-input-box:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+}
+.kid-input-box.correct, .handwriting-line.correct, select.correct {
+    border-color: var(--accent) !important;
+    background-color: #ecfdf5 !important;
+    color: #065f46 !important;
+}
+.kid-input-box.wrong, .handwriting-line.wrong, select.wrong {
+    border-color: var(--danger) !important;
+    background-color: #fff1f2 !important;
+    color: #9f1239 !important;
+}
+
+.handwriting-line {
+    border: none;
+    border-bottom: 3px dashed #475569;
+    background: transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    width: 200px;
+    text-align: center;
+    outline: none;
+    color: #0f172a;
+    transition: var(--tr);
+}
+.handwriting-line:focus {
+    border-bottom-color: var(--primary);
+}
+
+/* EMOJI CARDS */
+.emoji-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.emoji-card {
+    background: #ffffff;
+    border: 2.5px solid #e2e8f0;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+    transition: var(--tr);
+}
+.emoji-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+}
+.emoji-display {
+    font-size: 64px;
+    line-height: 1;
+    user-select: none;
+}
+
+/* MATCHING AND MULTIPLE CHOICE */
+.choices-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.choice-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr);
+    text-align: right;
+    width: 100%;
+}
+.choice-btn:hover {
+    border-color: var(--primary);
+    background: #f8fafc;
+}
+.choice-btn.selected {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+}
+
+.eval-check {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* DRAWING BOX placeholder */
+.drawing-arena {
+    height: 140px;
+    border: 3px dashed #cbd5e1;
+    border-radius: var(--radius-sm);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 700;
+    user-select: none;
+}
+
+/* HANDWRITING PRACTICE */
+.trace-dots {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    color: #cbd5e1;
+    border-bottom: 2px dashed #cbd5e1;
+    padding: 0 12px;
+    letter-spacing: 2px;
+    text-decoration: underline dotted #94a3b8;
+}
+
+/* GAME CONTAINERS */
+.game-container {
+    background: #eff6ff;
+    border: 2px solid #bfdbfe;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    margin-top: 24px;
+}
+.game-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+/* SCRABBLED WORD GAME */
+.scramble-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bfdbfe;
+}
+.scramble-letters {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+/* MAZE GAME */
+.maze-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+.maze-cell {
+    background: #fff;
+    border: 2px solid #bfdbfe;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.maze-cell.active-path {
+    background: #3b82f6;
+    color: #fff;
+    border-color: #3b82f6;
+}
+.maze-cell.correct-step {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* WORD SEARCH */
+.wordsearch-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    max-width: 350px;
+    margin: 15px auto;
+}
+.ws-cell {
+    background: #fff;
+    border: 1.5px solid #cbd5e1;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    transition: var(--tr);
+}
+.ws-cell.selected {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.ws-cell.found {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* DOMINO MATCHING */
+.domino-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 10px;
+}
+.domino-card {
+    background: #fff;
+    border: 2px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.domino-card.selected {
+    border-color: var(--primary);
+    background: #e0e7ff;
+}
+.domino-card.matched {
+    background: #ecfdf5;
+    border-color: var(--accent);
+    color: #065f46;
+    cursor: default;
+}
+
+/* ACTIONS */
+.sheet-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed #cbd5e1;
+}
+.btn-c {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.btn-c:hover {
+    background: var(--primary-light);
+}
+.btn-accent {
+    background: var(--accent);
+}
+.btn-accent:hover {
+    background: #0d9488;
+}
+.fb-indicator {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: none;
+}
+.fb-correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #047857;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.fb-wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+/* TABLE FOR EXPORT */
+.word-export-table {
+    display: none;
+}
+
+/* Sibling style for print placeholders */
+.select-print-placeholder {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    border-bottom: 2px dashed #4f46e5;
+    padding: 0 10px;
+    margin-right: 10px;
+    display: none;
+}
+
+/* PAPER/PRINT MODE STYLE OVERRIDES */
+body.paper-mode .select-print-placeholder,
+@media print {
+    .select-print-placeholder {
+        display: inline !important;
+    }
+    select.kid-input-box {
+        display: none !important;
+    }
+    .sheet-actions button:not(.btn-paper-toggle):not(.btn-pdf-print) {
+        display: none !important;
+    }
+    .fb-indicator {
+        display: none !important;
+    }
+    input[type="text"].kid-input-box,
+    input[type="text"].handwriting-line {
+        border: none !important;
+        border-bottom: 2px dashed #4f46e5 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        color: transparent !important; /* Hide prefilled or user text */
+        box-shadow: none !important;
+    }
+    input[type="text"][style*="width:30px"],
+    input[type="text"][style*="width: 30px"] {
+        border-bottom: 1.5px solid #000 !important;
+        width: 30px !important;
+    }
+    input[type="radio"].eval-check {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        width: 18px !important;
+        height: 18px !important;
+        border: 2px solid #4f46e5 !important;
+        border-radius: 50% !important;
+        background-color: #ffffff !important;
+        display: inline-block !important;
+        outline: none !important;
+        cursor: default !important;
+    }
+    .choice-btn {
+        background: #ffffff !important;
+        border: 2px solid #cbd5e1 !important;
+        color: #1e293b !important;
+        cursor: default !important;
+        box-shadow: none !important;
+    }
+    .choice-btn.selected {
+        background: #ffffff !important;
+        border-color: #cbd5e1 !important;
+    }
+    
+    /* Games styling in paper mode */
+    .game-container {
+        background: #ffffff !important;
+        border: 2.5px dashed #cbd5e1 !important;
+        color: #1e293b !important;
+        margin-top: 15px !important;
+        padding: 15px !important;
+        page-break-inside: avoid;
+    }
+    .game-title {
+        color: #4f46e5 !important;
+    }
+    .ws-cell,
+    .maze-cell,
+    .domino-card {
+        background: #ffffff !important;
+        color: #1e293b !important;
+        border: 2px solid #cbd5e1 !important;
+        cursor: default !important;
+    }
+    .ws-cell.selected,
+    .ws-cell.found,
+    .maze-cell.active-path,
+    .maze-cell.correct-step,
+    .domino-card.selected,
+    .domino-card.matched {
+        background: #ffffff !important;
+        color: #1e293b !important;
+        border-color: #cbd5e1 !important;
+    }
+    .drawing-arena {
+        border: 2.5px dashed #cbd5e1 !important;
+        background: #ffffff !important;
+    }
+}
+
+/* PRINT MEDIA QUERIES (A4 PRINT OPTIMIZATIONS) */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding-bottom: 0 !important;
+    }
+    .topbar, .tabs-nav, .sheet-actions, .fb-indicator, .theme-btn {
+        display: none !important;
+    }
+    .main-wrap {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+    }
+    .sheet-container {
+        display: none !important;
+    }
+    .sheet-container.active {
+        display: block !important;
+    }
+    .a4-sheet {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-height: auto !important;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    .bloom-section {
+        page-break-inside: avoid;
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+    }
+    .emoji-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+    }
+    .kid-input-box {
+        border: 1px solid #000000 !important;
+        background: #ffffff !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div>
+    <a href="grade4-unit1-english.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div style="display:flex; gap: 10px;">
+    <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b;">🎯 عجلة الأسماء</a>
+    <button class="back-btn-top btn-paper-toggle" onclick="togglePaperMode()" style="border-color:#10b981; color:#10b981; font-weight: 800;">🖨️ وضع الطباعة (النسخة الورقية)</button>
+    <button class="back-btn-top" onclick="tgl()">🌓</button>
+  </div>
+</nav>
+
+<!-- NAVIGATION TABS -->
+<div class="tabs-nav">
+  <button class="tab-btn active" id="tab0" onclick="sw(0)">📝 ورقة 1: أنشودة الترحيب</button>
+  <button class="tab-btn" id="tab1" onclick="sw(1)">📝 ورقة 2: الصفات والأعداد</button>
+  <button class="tab-btn" id="tab2" onclick="sw(2)">📝 ورقة 3: مقارنة الزملاء</button>
+  <button class="tab-btn" id="tab3" onclick="sw(3)">📝 ورقة 4: ظروف التكرار والماضي</button>
+  <button class="tab-btn" id="tab4" onclick="sw(4)">📝 ورقة 5: مناسبات العائلة</button>
+  <button class="tab-btn" id="tab5" onclick="sw(5)">📝 ورقة 6: قواعد تكرار الزيارة</button>
+  <button class="tab-btn" id="tab6" onclick="sw(6)">🏆 ورقة 7: المراجعة الشاملة</button>
+</div>
+
+<div class="main-wrap">
+
+  <!-- ==================== WORKSHEET 1 ==================== -->
+  <div class="sheet-container active" id="sheet1">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 1: أنشودة الترحيب ومصطلحات الصف 🎉</h1>
+            <h2>Unit 1: Welcome Song (We Can 3 - Page 4-5)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remembering -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">اكتب اسم الكلمة المناسبة لكل رمز تعبيري</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Look and Write:</div>
+          <div class="emoji-card-grid">
+            <div class="emoji-card">
+              <span class="emoji-display">🎒</span>
+              <input type="text" class="kid-input-box" id="p1-q1" data-correct="backpack">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">📓</span>
+              <input type="text" class="kid-input-box" id="p1-q2" data-correct="notebook">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">🎸</span>
+              <input type="text" class="kid-input-box" id="p1-q3" data-correct="guitar">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">🛝</span>
+              <input type="text" class="kid-input-box" id="p1-q4" data-correct="playground">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understanding -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الرد المناسب عند العودة إلى المدرسة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct reply:</div>
+          <div style="font-size:18px; margin-bottom:12px;">What do you say to your classmate after holidays?</div>
+          <div class="choices-layout">
+            <label class="choice-btn"><input type="radio" name="p1-choice" id="p1-c1" class="eval-check">&nbsp; Good night!</label>
+            <label class="choice-btn"><input type="radio" name="p1-choice" id="p1-c2" class="eval-check">&nbsp; Welcome back!</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Applying -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والخط (Applying)</span>
+          <span class="bloom-desc">تتبع كتابة العبارة التالية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy the sentence:</div>
+          <div style="line-height:3; direction: ltr; text-align: left; padding-left: 20px;">
+            <span class="trace-dots">We have new notebooks, pens, and backpacks.</span>
+            <div style="margin-top: 10px;">
+              <input type="text" class="handwriting-line" id="p1-q3-copy" style="width: 100%; text-align: left;" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Evaluating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقييم والتهجئة (Evaluating)</span>
+          <span class="bloom-desc">أكمل الأحرف الناقصة للكلمات تفاعلياً</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Complete the missing letters:</div>
+          <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
+            <div>• b <input type="text" class="handwriting-line" id="p1-sp1" data-correct="a" style="width:30px;"> c k p <input type="text" class="handwriting-line" id="p1-sp2" data-correct="a" style="width:30px;"> c k</div>
+            <div>• p l <input type="text" class="handwriting-line" id="p1-sp3" data-correct="a" style="width:30px;"> y g r <input type="text" class="handwriting-line" id="p1-sp4" data-correct="o" style="width:30px;"> u n d</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 لعبة فك شفرة الكلمات (Word Unscramble Game)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">رتب الحروف المبعثرة لتكوين كلمة صحيحة:</p>
+        <div class="scramble-box">
+          <span class="scramble-letters">s u b</span>
+          <input type="text" class="kid-input-box" id="p1-game1" data-correct="bus">
+        </div>
+        <div class="scramble-box">
+          <span class="scramble-letters">m a r e a c</span>
+          <input type="text" class="kid-input-box" id="p1-game2" data-correct="camera">
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb1"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Worksheet1_Welcome.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet1', 'Worksheet1_Welcome.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet1()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 2 ==================== -->
+  <div class="sheet-container" id="sheet2">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 2: الصفات والأعداد الترتيبية 🔢</h1>
+            <h2>Unit 1: Adjectives & Ordinals (We Can 3 - Page 6-7)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remembering -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">اكتب الصفة المناسبة تحت الرموز التعبيرية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the adjective:</div>
+          <div class="emoji-card-grid">
+            <div class="emoji-card">
+              <span class="emoji-display">😨</span>
+              <input type="text" class="kid-input-box" id="p2-q1" data-correct="afraid">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">🌟</span>
+              <input type="text" class="kid-input-box" id="p2-q2" data-correct="brilliant">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">⚠️</span>
+              <input type="text" class="kid-input-box" id="p2-q3" data-correct="dangerous">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">🤮</span>
+              <input type="text" class="kid-input-box" id="p2-q4" data-correct="terrible">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understanding -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر المطابقة الصحيحة للأعداد الترتيبية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Match the ordinals to their names:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+              <p>1st</p>
+              <select class="kid-input-box" id="p2-m1" data-correct="first" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="first">first</option>
+                <option value="second">second</option>
+                <option value="third">third</option>
+                <option value="twentieth">twentieth</option>
+              </select>
+            </div>
+            <div>
+              <p>3rd</p>
+              <select class="kid-input-box" id="p2-m2" data-correct="third" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="first">first</option>
+                <option value="second">second</option>
+                <option value="third">third</option>
+                <option value="twentieth">twentieth</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Applying -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والخط (Applying)</span>
+          <span class="bloom-desc">تتبع كتابة الجملة التالية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy the sentence:</div>
+          <div style="line-height:3; direction: ltr; text-align: left;">
+            <span class="trace-dots">Adel was the first student in class today.</span>
+            <div style="margin-top: 10px;">
+              <input type="text" class="handwriting-line" id="p2-q3-copy" style="width: 100%; text-align: left;" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Analyzing -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 4: التحليل (Analyzing)</span>
+          <span class="bloom-desc">حدد الكلمة الصحيحة لإتمام الجملة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Choose the correct adjective:</div>
+          <div style="font-size: 18px; margin-bottom: 12px;">A lion is a ________ animal.</div>
+          <div class="choices-layout">
+            <label class="choice-btn"><input type="radio" name="p2-q4-opt" id="p2-q4-opt1" class="eval-check">&nbsp; naughty</label>
+            <label class="choice-btn"><input type="radio" name="p2-q4-opt" id="p2-q4-opt2" class="eval-check">&nbsp; dangerous</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 متاهة الأعداد الترتيبية (Ordinal Maze)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">انقر على الأعداد بالترتيب الصحيح (1st ➔ 2nd ➔ 3rd ➔ 4th ➔ 5th) للوصول للمدرسة:</p>
+        <div class="maze-grid" id="maze-grid-p2">
+          <div class="maze-cell" onclick="clickMazeCell(this, '1st', 1)">1st</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '3rd', 9)">3rd</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '20th', 9)">20th</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '10th', 9)">10th</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '2nd', 2)">2nd</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '3rd', 3)">3rd</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '4th', 4)">4th</div>
+          <div class="maze-cell" onclick="clickMazeCell(this, '5th', 5)">5th 🏫</div>
+        </div>
+        <div id="maze-feedback" style="text-align:center; font-weight:800; color: #1e40af; margin-top: 10px;"></div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb2"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet2', 'Worksheet2_Adjectives.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet2', 'Worksheet2_Adjectives.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet2()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 3 ==================== -->
+  <div class="sheet-container" id="sheet3">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 3: مقارنة الصفات والمفاضلة 📏</h1>
+            <h2>Unit 1: Classmate Comparatives (We Can 3 - Page 8)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remembering -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل جدول تصريف الصفات</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Complete the adjectives table:</div>
+          <table style="width: 100%; border-collapse: collapse; text-align: center; border: 2px solid var(--border);">
+            <thead>
+              <tr style="background: #f1f5f9;">
+                <th style="padding: 10px; border: 1px solid var(--border);">Adjective (الصفة)</th>
+                <th style="padding: 10px; border: 1px solid var(--border);">Comparative (مقارنة)</th>
+                <th style="padding: 10px; border: 1px solid var(--border);">Superlative (تفضيل)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border); font-weight:700;">tall</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">taller</td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><input type="text" class="kid-input-box" id="p3-t1" data-correct="tallest" style="width:100px;"></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border); font-weight:700;">good</td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><input type="text" class="kid-input-box" id="p3-t2" data-correct="better" style="width:100px;"></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">best</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border); font-weight:700;">bad</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">worse</td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><input type="text" class="kid-input-box" id="p3-t3" data-correct="worst" style="width:100px;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q2: Understanding -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">أكمل الفراغات بالصفة الصحيحة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Fill in the blanks:</div>
+          <div style="font-size:18px; line-height:2.5;">
+            • My backpack is <input type="text" class="handwriting-line" id="p3-q2-1" data-correct="smaller" style="width:120px;"> than yours. (small) <br>
+            • Math is <input type="text" class="handwriting-line" id="p3-q2-2" data-correct="more difficult" style="width:180px;"> than history. (difficult)
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Applying -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والخط (Applying)</span>
+          <span class="bloom-desc">تتبع واكتب الجملة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy:</div>
+          <div style="line-height:3; direction: ltr; text-align: left;">
+            <span class="trace-dots">Asma is the tallest girl in our class.</span>
+            <div style="margin-top: 10px;">
+              <input type="text" class="handwriting-line" id="p3-q3-copy" style="width: 100%; text-align: left;" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Evaluating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقييم (Evaluating)</span>
+          <span class="bloom-desc">حدد صحة أو خطأ العبارات التالية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. True or False:</div>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px; font-weight:700;">1. "longer" is comparative, "longest" is superlative.</td>
+              <td><label><input type="radio" name="p3-tf1" id="p3-tf1-t" class="eval-check"> True</label></td>
+              <td><label><input type="radio" name="p3-tf1" id="p3-tf1-f" class="eval-check"> False</label></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; font-weight:700;">2. The comparative form of "bad" is "badder".</td>
+              <td><label><input type="radio" name="p3-tf2" id="p3-tf2-t" class="eval-check"> True</label></td>
+              <td><label><input type="radio" name="p3-tf2" id="p3-tf2-f" class="eval-check"> False</label></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 لعبة أحجار الدومينو للمقارنات (Comparative Dominoes)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">انقر على الصفة باليسار ثم ما يناسبها باليمين لمطابقتها:</p>
+        <div class="domino-grid">
+          <div class="domino-card" id="dom-l-good" onclick="selectDomino('l', 'good')">good</div>
+          <div class="domino-card" id="dom-r-better" onclick="selectDomino('r', 'better')">better</div>
+          <div class="domino-card" id="dom-l-bad" onclick="selectDomino('l', 'bad')">bad</div>
+          <div class="domino-card" id="dom-r-worst" onclick="selectDomino('r', 'worst')">worst</div>
+        </div>
+        <div id="domino-feedback" style="text-align:center; font-weight:800; color: #1e40af; margin-top: 10px;"></div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb3"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet3', 'Worksheet3_Comparatives.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet3', 'Worksheet3_Comparatives.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet3()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 4 ==================== -->
+  <div class="sheet-container" id="sheet4">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 4: ظروف التكرار وزمن الماضي 🗓️</h1>
+            <h2>Unit 1: Frequency & Was/Were (We Can 3 - Page 9)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remembering -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">طابق ظروف التكرار مع نسبها المئوية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Match adverbs with percentages:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+              <p>always (100%)</p>
+              <select class="kid-input-box" id="p4-m1" data-correct="100" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="100">100%</option>
+                <option value="75">75%</option>
+                <option value="0">0%</option>
+              </select>
+            </div>
+            <div>
+              <p>never (0%)</p>
+              <select class="kid-input-box" id="p4-m2" data-correct="0" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="100">100%</option>
+                <option value="75">75%</option>
+                <option value="0">0%</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understanding -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">أكمل الجمل باستخدام was أو were</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Complete using (was / were):</div>
+          <div style="font-size:18px; line-height:2.5;">
+            • They <input type="text" class="handwriting-line" id="p4-q2-1" data-correct="were" style="width:80px;"> happy at the celebration. <br>
+            • The food <input type="text" class="handwriting-line" id="p4-q2-2" data-correct="was" style="width:80px;"> delicious.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Applying -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والخط (Applying)</span>
+          <span class="bloom-desc">تتبع واكتب الجملة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy:</div>
+          <div style="line-height:3; direction: ltr; text-align: left;">
+            <span class="trace-dots">I always have art class on Tuesday.</span>
+            <div style="margin-top: 10px;">
+              <input type="text" class="handwriting-line" id="p4-q3-copy" style="width: 100%; text-align: left;" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Evaluating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقييم والترتيب (Evaluating)</span>
+          <span class="bloom-desc">أعد ترتيب الكلمات لتكوين جملة صحيحة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Reorder the words to make a sentence:</div>
+          <div style="font-size:17px; margin-bottom:10px; font-weight:700;">makes / My dad / dinner / often</div>
+          <input type="text" class="kid-input-box" id="p4-q4" data-correct="My dad often makes dinner" style="width: 100%; text-align: right;" placeholder="">
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 حسّاس الكلمات (Adverb Word Search)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">جد الكلمة المخفية: ALWAYS (انقر على الحروف لتحديدها باللون الأخضر):</p>
+        <div class="wordsearch-grid" id="ws-grid">
+          <div class="ws-cell" onclick="toggleWsCell(this, 'A')">A</div>
+          <div class="ws-cell" onclick="toggleWsCell(this, 'L')">L</div>
+          <div class="ws-cell" onclick="toggleWsCell(this, 'W')">W</div>
+          <div class="ws-cell" onclick="toggleWsCell(this, 'A')">A</div>
+          <div class="ws-cell" onclick="toggleWsCell(this, 'Y')">Y</div>
+          <div class="ws-cell" onclick="toggleWsCell(this, 'S')">S</div>
+          <div class="ws-cell" onclick="toggleWsCell(this, 'X')">X</div>
+        </div>
+        <div id="ws-feedback" style="text-align:center; font-weight:800; color: #1e40af; margin-top: 10px;"></div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb4"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet4', 'Worksheet4_Frequency.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet4', 'Worksheet4_Frequency.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet4()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 5 ==================== -->
+  <div class="sheet-container" id="sheet5">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 5: مناسبات وشجرة العائلة 👩‍👩‍👦</h1>
+            <h2>Unit 1: Family Photos (We Can 3 - Page 10-11)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remembering -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">اكتب الاسم المناسب لكل رمز عائلي</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the correct family member (aunt / uncle / cousin):</div>
+          <div class="emoji-card-grid">
+            <div class="emoji-card">
+              <span class="emoji-display">👩‍🌾</span>
+              <input type="text" class="kid-input-box" id="p5-q1" data-correct="aunt">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">👨‍💼</span>
+              <input type="text" class="kid-input-box" id="p5-q2" data-correct="uncle">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">👦</span>
+              <input type="text" class="kid-input-box" id="p5-q3" data-correct="cousin">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understanding -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">صل الكلمة بالتعريف المناسب لها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Complete the definitions:</div>
+          <div style="font-size:18px; line-height:2.5;">
+            • Your father's brother is your <input type="text" class="handwriting-line" id="p5-def1" data-correct="uncle" style="width:120px;">. <br>
+            • Your mother's sister is your <input type="text" class="handwriting-line" id="p5-def2" data-correct="aunt" style="width:120px;">.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Applying -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والخط (Applying)</span>
+          <span class="bloom-desc">تتبع واكتب الجملة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy:</div>
+          <div style="line-height:3; direction: ltr; text-align: left;">
+            <span class="trace-dots">I see my cousins on Fridays.</span>
+            <div style="margin-top: 10px;">
+              <input type="text" class="handwriting-line" id="p5-q3-copy" style="width: 100%; text-align: left;" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Evaluating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقييم (Evaluating)</span>
+          <span class="bloom-desc">اختر المعنى العربي الصحيح للكلمة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Choose the Arabic meaning:</div>
+          <div style="font-size:18px; margin-bottom:10px;">What is the meaning of "grown-ups"?</div>
+          <div class="choices-layout">
+            <label class="choice-btn"><input type="radio" name="p5-q4-opt" id="p5-q4-opt1" class="eval-check">&nbsp; البالغون / الكبار</label>
+            <label class="choice-btn"><input type="radio" name="p5-q4-opt" id="p5-q4-opt2" class="eval-check">&nbsp; الأطفال الصغار</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 لعبة ترتيب شجرة العائلة (Family Unscramble)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">رتب الحروف التالية لتحصل على كلمة عائلية:</p>
+        <div class="scramble-box">
+          <span class="scramble-letters">n u c e l</span>
+          <input type="text" class="kid-input-box" id="p5-game1" data-correct="uncle">
+        </div>
+        <div class="scramble-box">
+          <span class="scramble-letters">t u n a</span>
+          <input type="text" class="kid-input-box" id="p5-game2" data-correct="aunt">
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb5"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet5', 'Worksheet5_Family.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet5', 'Worksheet5_Family.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet5()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 6 ==================== -->
+  <div class="sheet-container" id="sheet6">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 6: قواعد كم مرة (How Often) ⏰</h1>
+            <h2>Unit 1: How Often (We Can 3 - Page 12-13)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remembering -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغ باستخدام (do / does)</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Complete the questions using (do / does):</div>
+          <div style="font-size:18px; line-height:2.5;">
+            • How often <input type="text" class="handwriting-line" id="p6-q1-1" data-correct="does" style="width:100px;"> your brother play football? <br>
+            • How often <input type="text" class="handwriting-line" id="p6-q1-2" data-correct="do" style="width:100px;"> you see your cousins?
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understanding -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">طابق السؤال بالإجابة المناسبة له</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct response:</div>
+          <div style="font-size:18px; margin-bottom:10px;">"How often do you wash your hands?"</div>
+          <div class="choices-layout">
+            <label class="choice-btn"><input type="radio" name="p6-q2-opt" id="p6-q2-opt1" class="eval-check">&nbsp; Once a day.</label>
+            <label class="choice-btn"><input type="radio" name="p6-q2-opt" id="p6-q2-opt2" class="eval-check">&nbsp; At home.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Applying -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والخط (Applying)</span>
+          <span class="bloom-desc">تتبع واكتب السؤال</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy the question:</div>
+          <div style="line-height:3; direction: ltr; text-align: left;">
+            <span class="trace-dots">How often does she visit her aunt?</span>
+            <div style="margin-top: 10px;">
+              <input type="text" class="handwriting-line" id="p6-q3-copy" style="width: 100%; text-align: left;" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Evaluating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقييم والتهجئة (Evaluating)</span>
+          <span class="bloom-desc">أكمل الأحرف الناقصة لكلمات التكرار الزمنية</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Spelling: Complete the time expressions:</div>
+          <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
+            <div>• o <input type="text" class="handwriting-line" id="p6-sp1" data-correct="n" style="width:30px;"> c e (مرة واحدة)</div>
+            <div>• t w <input type="text" class="handwriting-line" id="p6-sp2" data-correct="i" style="width:30px;"> c e (مرتان)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 لعبة إكس أو القواعد (Tic-Tac-Toe Grammar)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">اختر الكلمة الصحيحة في المربعات لتثبيت إشارتك:</p>
+        <div class="maze-grid">
+          <div class="maze-cell" id="ttt-1" onclick="playTtt(1, 'does')">he (do/does)</div>
+          <div class="maze-cell" id="ttt-2" onclick="playTtt(2, 'do')">they (do/does)</div>
+          <div class="maze-cell" id="ttt-3" onclick="playTtt(3, 'does')">she (do/does)</div>
+        </div>
+        <div id="ttt-feedback" style="text-align:center; font-weight:800; color: #1e40af; margin-top: 10px;"></div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb6"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet6', 'Worksheet6_HowOften.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet6', 'Worksheet6_HowOften.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet6()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 7 (REVIEW - 8 QUESTIONS) ==================== -->
+  <div class="sheet-container" id="sheet7">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الرابع الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 7: ورقة المراجعة الشاملة للوحدة الأولى 🏆</h1>
+            <h2>Unit 1: Comprehensive Term Review (Lessons 1-6)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Vocab Match -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 1: مفردات ورموز</span>
+          <span class="bloom-desc">اكتب الكلمة الصحيحة للرمز (backpack / playground / afraid / uncle)</span>
+        </div>
+        <div class="bloom-body">
+          <div class="emoji-card-grid">
+            <div class="emoji-card">
+              <span class="emoji-display">🎒</span>
+              <input type="text" class="kid-input-box" id="p7-q1-1" data-correct="backpack">
+            </div>
+            <div class="emoji-card">
+              <span class="emoji-display">😨</span>
+              <input type="text" class="kid-input-box" id="p7-q1-2" data-correct="afraid">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Past Simple -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 2: قواعد الماضي البسيط</span>
+          <span class="bloom-desc">أكمل الفراغات بـ was أو were</span>
+        </div>
+        <div class="bloom-body">
+          <div style="font-size: 18px; line-height: 2.2;">
+            Yesterday <input type="text" class="handwriting-line" id="p7-q2-1" data-correct="was" style="width: 100px;"> Sunday. We <input type="text" class="handwriting-line" id="p7-q2-2" data-correct="were" style="width: 100px;"> happy.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Comparatives -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 3: الصفات والمقارنات</span>
+          <span class="bloom-desc">أكمل بالصفة المناسبة بين القوسين</span>
+        </div>
+        <div class="bloom-body">
+          <div style="font-size: 18px; line-height: 2.2;">
+            • A lion is <input type="text" class="handwriting-line" id="p7-q3-1" data-correct="bigger" style="width: 120px;"> than a cat. (big) <br>
+            • Asma is the <input type="text" class="handwriting-line" id="p7-q3-2" data-correct="best" style="width: 120px;"> student in class. (good)
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: How Often -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 4: صياغة الأسئلة</span>
+          <span class="bloom-desc">أكمل بـ do أو does</span>
+        </div>
+        <div class="bloom-body">
+          <div style="font-size: 18px; line-height: 2.2;">
+            • How often <input type="text" class="handwriting-line" id="p7-q4-1" data-correct="does" style="width: 100px;"> your dad make dinner? <br>
+            • How often <input type="text" class="handwriting-line" id="p7-q4-2" data-correct="do" style="width: 100px;"> they play tennis?
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: Adverbs -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 5: ظروف التكرار</span>
+          <span class="bloom-desc">طابق الظرف بالنسبة المئوية</span>
+        </div>
+        <div class="bloom-body">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+              <p>always</p>
+              <select class="kid-input-box" id="p7-q5-1" data-correct="100%" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="100%">100%</option>
+                <option value="0%">0%</option>
+              </select>
+            </div>
+            <div>
+              <p>never</p>
+              <select class="kid-input-box" id="p7-q5-2" data-correct="0%" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="100%">100%</option>
+                <option value="0%">0%</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6: Ordinals -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 6: الأعداد الترتيبية</span>
+          <span class="bloom-desc">طابق الرقم بالكلمة المناسبة</span>
+        </div>
+        <div class="bloom-body">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+              <p>1st</p>
+              <select class="kid-input-box" id="p7-q6-1" data-correct="first" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="first">first</option>
+                <option value="third">third</option>
+              </select>
+            </div>
+            <div>
+              <p>3rd</p>
+              <select class="kid-input-box" id="p7-q6-2" data-correct="third" style="width: 100%;">
+                <option value="">اختر...</option>
+                <option value="first">first</option>
+                <option value="third">third</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7: Reorder -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 7: تركيب الجمل</span>
+          <span class="bloom-desc">أعد ترتيب الكلمات لتكوين جملة صحيحة</span>
+        </div>
+        <div class="bloom-body">
+          <p style="font-weight:700; margin-bottom: 8px;">at / We / school / sometimes / celebrations / have</p>
+          <input type="text" class="kid-input-box" id="p7-q7" data-correct="We sometimes have celebrations at school" style="width: 100%; text-align: right;">
+        </div>
+      </div>
+
+      <!-- Q8: Spelling -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">سؤال 8: تهجئة الكلمات</span>
+          <span class="bloom-desc">اكتب التهجئة الصحيحة للكلمات التالية</span>
+        </div>
+        <div class="bloom-body">
+          <div style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;">
+            <div>• t e r r i b l e ➔ <input type="text" class="handwriting-line" id="p7-q8-1" data-correct="terrible" style="width:150px;"></div>
+            <div>• b r i l l i a n t ➔ <input type="text" class="handwriting-line" id="p7-q8-2" data-correct="brilliant" style="width:150px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game at bottom -->
+      <div class="game-container">
+        <div class="game-title">🎮 لوحة البحث عن الكلمات المفقودة (Word Finder)</div>
+        <p style="font-size:14px; color:#1e40af; margin-bottom:10px;">ابحث عن كلمة: BUS (انقر الحروف بالترتيب):</p>
+        <div class="wordsearch-grid" id="ws-grid-p7">
+          <div class="ws-cell" onclick="toggleWsCell7(this, 'B')">B</div>
+          <div class="ws-cell" onclick="toggleWsCell7(this, 'U')">U</div>
+          <div class="ws-cell" onclick="toggleWsCell7(this, 'S')">S</div>
+          <div class="ws-cell" onclick="toggleWsCell7(this, 'X')">X</div>
+          <div class="ws-cell" onclick="toggleWsCell7(this, 'Y')">Y</div>
+        </div>
+        <div id="ws7-feedback" style="text-align:center; font-weight:800; color: #1e40af; margin-top: 10px;"></div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb7"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet7', 'Worksheet7_Review.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet7', 'Worksheet7_Review.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet7()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+/* Theme Toggle */
+function tgl() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+}
+
+/* Switch Tabs */
+function sw(idx) {
+    const sheets = document.querySelectorAll('.sheet-container');
+    const btns = document.querySelectorAll('.tab-btn');
+    
+    sheets.forEach(s => s.classList.remove('active'));
+    btns.forEach(b => b.classList.remove('active'));
+
+    sheets[idx].classList.add('active');
+    btns[idx].classList.add('active');
+}
+
+/* Confetti trigger */
+function runConfetti() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 80,
+            spread: 60,
+            origin: { y: 0.8 }
+        });
+    }
+}
+
+/* Interactive Answer Verifications */
+function checkSheet1() {
+    let correct = true;
+    
+    // Q1
+    const q1Inputs = ['p1-q1', 'p1-q2', 'p1-q3', 'p1-q4'];
+    q1Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q2
+    const q2Checked = document.getElementById('p1-c2').checked;
+    if (!q2Checked) correct = false;
+
+    // Q4
+    const spIds = ['p1-sp1', 'p1-sp2', 'p1-sp3', 'p1-sp4'];
+    spIds.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Game
+    const gameIds = ['p1-game1', 'p1-game2'];
+    gameIds.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    const fb = document.getElementById('fb1');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! جميع الإجابات صحيحة في ورقة العمل الأولى!';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ بعض الإجابات غير صحيحة، حاول مجدداً!';
+    }
+}
+
+function checkSheet2() {
+    let correct = true;
+
+    // Q1
+    const q1Inputs = ['p2-q1', 'p2-q2', 'p2-q3', 'p2-q4'];
+    q1Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q2
+    const mIds = ['p2-m1', 'p2-m2'];
+    mIds.forEach(id => {
+        const select = document.getElementById(id);
+        select.classList.remove('correct', 'wrong');
+        if (select.value === select.getAttribute('data-correct')) {
+            select.classList.add('correct');
+        } else {
+            select.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q4
+    const q4Checked = document.getElementById('p2-q4-opt2').checked;
+    if (!q4Checked) correct = false;
+
+    const fb = document.getElementById('fb2');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ عمل رائع! جميع الإجابات والربط صحيحة!';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ يوجد بعض الأخطاء، حاول التحقق والحل مجدداً.';
+    }
+}
+
+// Maze logic for Sheet 2
+let mazePath = [];
+function clickMazeCell(cell, val, step) {
+    if (step === 9) {
+        document.getElementById('maze-feedback').textContent = '❌ طريق خاطئ!';
+        return;
+    }
+    cell.classList.add('correct-step');
+    if (!mazePath.includes(val)) {
+        mazePath.push(val);
+    }
+    if (mazePath.length === 5) {
+        document.getElementById('maze-feedback').textContent = '🎉 أحسنت! نجحت في حل المتاهة بنجاح!';
+        runConfetti();
+    }
+}
+
+function checkSheet3() {
+    let correct = true;
+
+    // Q1
+    const tIds = ['p3-t1', 'p3-t2', 'p3-t3'];
+    tIds.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q2
+    const q2Inputs = ['p3-q2-1', 'p3-q2-2'];
+    q2Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q4
+    const tf1 = document.getElementById('p3-tf1-t').checked;
+    const tf2 = document.getElementById('p3-tf2-f').checked;
+    if (!tf1 || !tf2) correct = false;
+
+    const fb = document.getElementById('fb3');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! مقارنات الصفات والتقييمات صحيحة بالكامل!';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ أوه، بعض الإجابات غير دقيقة. حاول مرة أخرى.';
+    }
+}
+
+// Domino game logic for Sheet 3
+let dominoSelected = null;
+function selectDomino(side, val) {
+    if (!dominoSelected) {
+        dominoSelected = { side, val };
+        document.getElementById(`dom-${side}-${val}`).classList.add('selected');
+    } else {
+        if (dominoSelected.side !== side) {
+            const isMatch = (dominoSelected.val === 'good' && val === 'better') ||
+                            (dominoSelected.val === 'better' && val === 'good') ||
+                            (dominoSelected.val === 'bad' && val === 'worst') ||
+                            (dominoSelected.val === 'worst' && val === 'bad');
+            if (isMatch) {
+                document.getElementById(`dom-${dominoSelected.side}-${dominoSelected.val}`).className = 'domino-card matched';
+                document.getElementById(`dom-${side}-${val}`).className = 'domino-card matched';
+                document.getElementById('domino-feedback').textContent = '✅ تطابق صحيح!';
+                runConfetti();
+            } else {
+                document.getElementById(`dom-${dominoSelected.side}-${dominoSelected.val}`).classList.remove('selected');
+                document.getElementById('domino-feedback').textContent = '❌ حاول مجدداً!';
+            }
+        } else {
+            document.getElementById(`dom-${dominoSelected.side}-${dominoSelected.val}`).classList.remove('selected');
+        }
+        dominoSelected = null;
+    }
+}
+
+function checkSheet4() {
+    let correct = true;
+
+    // Q1
+    const m1 = document.getElementById('p4-m1');
+    const m2 = document.getElementById('p4-m2');
+    m1.classList.remove('correct', 'wrong');
+    m2.classList.remove('correct', 'wrong');
+    if (m1.value === m1.getAttribute('data-correct')) m1.classList.add('correct'); else { m1.classList.add('wrong'); correct = false; }
+    if (m2.value === m2.getAttribute('data-correct')) m2.classList.add('correct'); else { m2.classList.add('wrong'); correct = false; }
+
+    // Q2
+    const q2Inputs = ['p4-q2-1', 'p4-q2-2'];
+    q2Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q4
+    const q4Inp = document.getElementById('p4-q4');
+    q4Inp.classList.remove('correct', 'wrong');
+    const rawVal = q4Inp.value.trim().replace(/[.!?]/g, '').toLowerCase();
+    const correctVal = q4Inp.getAttribute('data-correct').toLowerCase();
+    if (rawVal === correctVal) {
+        q4Inp.classList.add('correct');
+    } else {
+        q4Inp.classList.add('wrong');
+        correct = false;
+    }
+
+    const fb = document.getElementById('fb4');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ رائع جداً! ظروف التكرار و was/were صحيحة!';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ يوجد بعض الأخطاء في الإدخال، يرجى التثبت والتحقق.';
+    }
+}
+
+// Word Search logic for Sheet 4
+let wsFound = [];
+function toggleWsCell(cell, char) {
+    cell.classList.toggle('selected');
+    if (cell.classList.contains('selected')) {
+        wsFound.push(char);
+    } else {
+        wsFound = wsFound.filter(c => c !== char);
+    }
+    if (wsFound.join('') === 'ALWAYS') {
+        document.getElementById('ws-feedback').textContent = '🎉 أحسنت! وجدت كلمة ALWAYS!';
+        document.querySelectorAll('#ws-grid .ws-cell').forEach(c => {
+            if (c.classList.contains('selected')) {
+                c.className = 'ws-cell found';
+            }
+        });
+        runConfetti();
+    }
+}
+
+function checkSheet5() {
+    let correct = true;
+
+    // Q1
+    const q1Inputs = ['p5-q1', 'p5-q2', 'p5-q3'];
+    q1Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q2
+    const defInputs = ['p5-def1', 'p5-def2'];
+    defInputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q4
+    const q4Checked = document.getElementById('p5-q4-opt1').checked;
+    if (!q4Checked) correct = false;
+
+    // Game
+    const gameInputs = ['p5-game1', 'p5-game2'];
+    gameInputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    const fb = document.getElementById('fb5');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! علاقات شجرة العائلة صحيحة بنسبة 100%!';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ الإجابات غير مكتملة أو خاطئة. حاول مرة أخرى.';
+    }
+}
+
+function checkSheet6() {
+    let correct = true;
+
+    // Q1
+    const q1Inputs = ['p6-q1-1', 'p6-q1-2'];
+    q1Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q2
+    const q2Checked = document.getElementById('p6-q2-opt1').checked;
+    if (!q2Checked) correct = false;
+
+    // Q4
+    const spInputs = ['p6-sp1', 'p6-sp2'];
+    spInputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    const fb = document.getElementById('fb6');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ أحسنت صنعاً! إجابات الدرس السادس صحيحة بالكامل!';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ يوجد خطأ في المدخلات. يرجى المراجعة والتحقق.';
+    }
+}
+
+// Tic Tac Toe logic for Sheet 6
+let tttCount = 0;
+function playTtt(num, ans) {
+    const cell = document.getElementById(`ttt-${num}`);
+    cell.classList.add('correct-step');
+    cell.textContent = 'X';
+    tttCount++;
+    if (tttCount === 3) {
+        document.getElementById('ttt-feedback').textContent = '🎉 رائع! فزت في لعبة إكس أو القواعد!';
+        runConfetti();
+    }
+}
+
+function checkSheet7() {
+    let correct = true;
+
+    // Q1
+    const q1Inputs = ['p7-q1-1', 'p7-q1-2'];
+    q1Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q2
+    const q2Inputs = ['p7-q2-1', 'p7-q2-2'];
+    q2Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q3
+    const q3Inputs = ['p7-q3-1', 'p7-q3-2'];
+    q3Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q4
+    const q4Inputs = ['p7-q4-1', 'p7-q4-2'];
+    q4Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q5
+    const q5Inputs = ['p7-q5-1', 'p7-q5-2'];
+    q5Inputs.forEach(id => {
+        const select = document.getElementById(id);
+        select.classList.remove('correct', 'wrong');
+        if (select.value === select.getAttribute('data-correct')) {
+            select.classList.add('correct');
+        } else {
+            select.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q6
+    const q6Inputs = ['p7-q6-1', 'p7-q6-2'];
+    q6Inputs.forEach(id => {
+        const select = document.getElementById(id);
+        select.classList.remove('correct', 'wrong');
+        if (select.value === select.getAttribute('data-correct')) {
+            select.classList.add('correct');
+        } else {
+            select.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    // Q7
+    const q7Inp = document.getElementById('p7-q7');
+    q7Inp.classList.remove('correct', 'wrong');
+    const rawVal = q7Inp.value.trim().replace(/[.!?]/g, '').toLowerCase();
+    const correctVal = q7Inp.getAttribute('data-correct').toLowerCase();
+    if (rawVal === correctVal) {
+        q7Inp.classList.add('correct');
+    } else {
+        q7Inp.classList.add('wrong');
+        correct = false;
+    }
+
+    // Q8
+    const q8Inputs = ['p7-q8-1', 'p7-q8-2'];
+    q8Inputs.forEach(id => {
+        const inp = document.getElementById(id);
+        inp.classList.remove('correct', 'wrong');
+        if (inp.value.trim().toLowerCase() === inp.getAttribute('data-correct')) {
+            inp.classList.add('correct');
+        } else {
+            inp.classList.add('wrong');
+            correct = false;
+        }
+    });
+
+    const fb = document.getElementById('fb7');
+    fb.style.display = 'block';
+    if (correct) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '🏆 تهانينا الحارة! لقد أنهيت المراجعة الشاملة للوحدة الأولى بنجاح تام! 🌟';
+        runConfetti();
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ يوجد بعض الأخطاء في المراجعة الشاملة. راجع الحلول.';
+    }
+}
+
+// Word Search logic for Sheet 7
+let ws7Found = [];
+function toggleWsCell7(cell, char) {
+    cell.classList.toggle('selected');
+    if (cell.classList.contains('selected')) {
+        ws7Found.push(char);
+    } else {
+        ws7Found = ws7Found.filter(c => c !== char);
+    }
+    if (ws7Found.join('') === 'BUS') {
+        document.getElementById('ws7-feedback').textContent = '🎉 رائع! وجدت كلمة BUS في شبكة البحث!';
+        document.querySelectorAll('#ws-grid-p7 .ws-cell').forEach(c => {
+            if (c.classList.contains('selected')) {
+                c.className = 'ws-cell found';
+            }
+        });
+        runConfetti();
+    }
+}
+
+/* PDF Download */
+function downloadPDF(sheetId, filename) {
+    const body = document.body;
+    const isAlreadyPaper = body.classList.contains('paper-mode');
+    if (!isAlreadyPaper) {
+        body.classList.add('paper-mode');
+    }
+
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        html, body, .main-wrap, .sheet-container {
+            overflow: visible !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .fb-indicator {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+        if (!isAlreadyPaper) {
+            body.classList.remove('paper-mode');
+        }
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+        if (!isAlreadyPaper) {
+            body.classList.remove('paper-mode');
+        }
+    });
+}
+
+/* Paper / Printable Mode Toggler */
+function togglePaperMode() {
+    const body = document.body;
+    body.classList.toggle('paper-mode');
+    const isPaper = body.classList.contains('paper-mode');
+    
+    // Update button text and styles
+    const btns = document.querySelectorAll('.btn-paper-toggle');
+    btns.forEach(btn => {
+        if (isPaper) {
+            btn.innerHTML = '🖥️ الوضع التفاعلي (رقمي)';
+            btn.style.borderColor = '#4f46e5';
+            btn.style.color = '#4f46e5';
+        } else {
+            btn.innerHTML = '🖨️ وضع الطباعة (النسخة الورقية)';
+            btn.style.borderColor = '#10b981';
+            btn.style.color = '#10b981';
+        }
+    });
+
+    if (isPaper) {
+        // Backup user radio input selections
+        document.querySelectorAll('input[type="radio"]').forEach(r => {
+            r.dataset.userState = r.checked;
+            r.checked = false;
+        });
+        document.querySelectorAll('.choice-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        // Reset interactive highlights
+        document.querySelectorAll('.ws-cell').forEach(c => {
+            c.classList.remove('selected', 'found');
+        });
+        document.querySelectorAll('.maze-cell').forEach(c => {
+            c.classList.remove('active-path', 'correct-step');
+        });
+        document.querySelectorAll('.domino-card').forEach(c => {
+            c.classList.remove('selected', 'matched');
+        });
+        
+        // Reset Tic-Tac-Toe cells
+        document.querySelectorAll('#ttt-1, #ttt-2, #ttt-3').forEach(c => {
+            c.classList.remove('correct-step');
+            c.textContent = c.dataset.origText || c.textContent;
+        });
+    } else {
+        // Restore radio button user states
+        document.querySelectorAll('input[type="radio"]').forEach(r => {
+            if (r.dataset.userState === 'true') {
+                r.checked = true;
+                const parentLabel = r.closest('.choice-btn');
+                if (parentLabel) parentLabel.classList.add('selected');
+            }
+        });
+    }
+}
+
+/* Initialize Printable Select Option placeholders */
+function initPrintPlaceholders() {
+    document.querySelectorAll('select.kid-input-box').forEach(select => {
+        if (select.nextElementSibling && select.nextElementSibling.classList.contains('select-print-placeholder')) {
+            return;
+        }
+        const options = Array.from(select.options)
+            .map(opt => opt.text)
+            .filter(txt => txt && txt !== 'اختر...' && txt !== 'Select...');
+        
+        const placeholder = document.createElement('span');
+        placeholder.className = 'select-print-placeholder';
+        placeholder.innerHTML = ` ( ${options.join(' / ')} ) ................................`;
+        select.parentNode.insertBefore(placeholder, select.nextSibling);
+    });
+}
+
+// Auto-run on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initPrintPlaceholders();
+        document.querySelectorAll('#ttt-1, #ttt-2, #ttt-3').forEach(c => {
+            c.dataset.origText = c.textContent;
+        });
+    });
+} else {
+    initPrintPlaceholders();
+    document.querySelectorAll('#ttt-1, #ttt-2, #ttt-3').forEach(c => {
+        c.dataset.origText = c.textContent;
+    });
+}
+
+/* Word Export (Preserving Layouts with Strict Embedded Styles) */
+function downloadWord(sheetId, filename) {
+    const header = "<" + "html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+          "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+          "xmlns='http://www.w3.org/TR/REC-html40'>"+
+          "<head><meta charset='utf-8'><title>Export HTML to Word</title><style>"+
+          "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; }"+
+          ".a4-sheet { padding: 20px; }"+
+          ".sheet-header { border-bottom: 3px double #4f46e5; padding-bottom: 20px; margin-bottom: 24px; }"+
+          ".header-row-1 { display: flex; justify-content: space-between; align-items: center; }"+
+          ".header-title-box { text-align: center; }"+
+          ".header-title-box h1 { font-size: 22px; font-weight: bold; color: #4f46e5; }"+
+          ".header-student-info { display: table; width: 100%; background: #f8fafc; padding: 12px; border: 1px dashed #4f46e5; margin-top: 15px; }"+
+          ".bloom-section { border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 20px; padding: 15px; background: #fafafb; }"+
+          ".bloom-header { border-bottom: 1px solid #cbd5e1; padding-bottom: 8px; margin-bottom: 12px; }"+
+          ".bloom-label { font-weight: bold; color: #4f46e5; background: #eef2ff; padding: 3px 8px; }"+
+          ".bloom-desc { font-size: 11px; color: #475569; }"+
+          ".q-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; }"+
+          ".handwriting-line { border: none; border-bottom: 2px dashed #4f46e5; width: 150px; display: inline-block; text-align: center; }"+
+          ".trace-dots { text-decoration: underline dotted #64748b; font-size: 24px; color: #cbd5e1; }"+
+          ".sheet-actions, .fb-indicator, .game-container { display: none !important; }"+
+          "</" + "style></" + "head><body>";
+    const footer = "</" + "body></" + "html>";
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const html = header + element.innerHTML + footer;
+    
+    const blob = new Blob(['\ufeff' + html], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

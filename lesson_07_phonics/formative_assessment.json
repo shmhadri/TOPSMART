@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Look at this p______ of shoes. (زوج)",
+    "choices": [
+      "air",
+      "ear",
+      "ere",
+      "are"
+    ],
+    "ans": "air"
+  },
+  {
+    "q": "I'd like to sit on that ch______. (كرسي)",
+    "choices": [
+      "air",
+      "ear",
+      "ere",
+      "are"
+    ],
+    "ans": "air"
+  },
+  {
+    "q": "He is w______ing a coat. (يرتدي)",
+    "choices": [
+      "ear",
+      "air",
+      "ere",
+      "are"
+    ],
+    "ans": "ear"
+  }
+]

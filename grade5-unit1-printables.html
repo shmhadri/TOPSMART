@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطبوعات ووسائل التدريس - Unit 1: We have different interests - الصف الخامس | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --radius: 20px;
+    --radius-sm: 12px;
+    --tr: .25s ease;
+}
+
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr);
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9);
+}
+
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.top-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: var(--tr);
+}
+.top-action-btn.lesson { background: #4f46e5; }
+.top-action-btn.ws { background: #10b981; }
+.top-action-btn.ppt { background: #f59e0b; }
+.top-action-btn.wheel { background: #ec4899; }
+.top-action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+/* MAIN CONTAINER */
+.main-wrap {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* SECTION CARD */
+.tool-section {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.tool-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.tool-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.tool-title h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+}
+.export-btns {
+    display: flex;
+    gap: 10px;
+}
+.btn-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: var(--tr);
+}
+.btn-export.pdf { background: var(--primary); }
+.btn-export.word { background: #2563eb; }
+.btn-export:hover { transform: translateY(-2px); opacity: 0.95; }
+
+/* FLASHCARDS GRID */
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+.flashcard-fold {
+    border: 2px dashed #94a3b8;
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    background: #fff;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+.fold-line {
+    border-top: 1.5px dashed #cbd5e1;
+    position: relative;
+    margin: 8px 0;
+    text-align: center;
+}
+.fold-line::after {
+    content: "✂️ اثنِ البطاقة هنا (Fold here)";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0 8px;
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 700;
+}
+.card-front {
+    text-align: center;
+    padding: 10px;
+}
+.card-front .fc-emoji { font-size: 40px; margin-bottom: 6px; }
+.card-front .fc-word { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 900; color: var(--primary); }
+.card-front .fc-phonetic { font-size: 13px; color: #64748b; font-family: monospace; }
+.card-back {
+    text-align: center;
+    padding: 10px;
+    background: rgba(79, 70, 229, 0.04);
+    border-radius: 8px;
+}
+.card-back .fc-ar { font-size: 17px; font-weight: 800; color: #0f172a; }
+.card-back .fc-sentence { font-size: 13px; color: #475569; font-style: italic; font-family: 'Outfit', sans-serif; margin-top: 4px; }
+
+/* DOMINO CARDS GRID */
+.domino-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+.domino-tile {
+    border: 2.5px solid #1e293b;
+    border-radius: 12px;
+    background: #fff;
+    color: #0f172a;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+.domino-half {
+    flex: 1;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 90px;
+}
+.domino-half.left {
+    background: #f8fafc;
+    border-left: 2px solid #1e293b;
+}
+.domino-half.right {
+    background: #ffffff;
+}
+.dom-eng { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 15px; color: var(--primary); }
+.dom-ar { font-size: 13px; font-weight: 800; color: #0f172a; }
+
+/* MINGLING SHEET */
+.mingle-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+}
+.mingle-table th, .mingle-table td {
+    border: 1.5px solid #cbd5e1;
+    padding: 12px;
+    text-align: right;
+}
+.mingle-table th {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    font-weight: 900;
+}
+
+/* PRINT STYLES */
+@media print {
+    .topbar, .export-btns, .theme-btn {
+        display: none !important;
+    }
+    body {
+        background: #fff !important;
+        padding: 0 !important;
+    }
+    .tool-section {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        page-break-after: always;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+    <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="grade5-unit1-english.html" class="back-btn-top">
+            <span>←</span> الدرس
+        </a>
+        <div class="tlogo">Smart<span>Printables</span></div>
+    </div>
+    
+    <div class="top-actions">
+        <a href="grade5-unit1-english.html" class="top-action-btn lesson">📖 الدرس</a>
+        <a href="grade5-unit1-worksheets.html" class="top-action-btn ws">📝 أوراق العمل</a>
+        <a href="grade5-unit1-presentation.html" class="top-action-btn ppt">💻 العرض</a>
+        <a href="wheel.html" class="top-action-btn wheel">🎯 العجلة</a>
+    </div>
+</header>
+
+<main class="main-wrap">
+
+    <!-- ==================== TOOL 1: FLASHCARDS ==================== -->
+    <section class="tool-section" id="flashcardsSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🎴</span>
+                <div>
+                    <h2>البطاقات التعليمية ثنائية الأوجه (Double-Sided Flashcards)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">14 بطاقة فلاش للقص والثني تشمل الصفات، الرموز، والترجمة ونماذج الجمل</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('flashcardsSection', 'Grade5_Unit1_Flashcards')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="flashcards-grid">
+            <!-- Card 1 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🌟</div>
+                    <div class="fc-word">popular</div>
+                    <div class="fc-phonetic">/ˈpɒpjʊlə/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">شائع / محبوب / شهير</div>
+                    <div class="fc-sentence">"The most popular youth center"</div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">💡</div>
+                    <div class="fc-word">interesting</div>
+                    <div class="fc-phonetic">/ˈɪntrəstɪŋ/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">ممتع / شائق</div>
+                    <div class="fc-sentence">"Find out about interesting events"</div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🕷️</div>
+                    <div class="fc-word">frightening</div>
+                    <div class="fc-phonetic">/ˈfraɪtnɪŋ/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">مخيف / مرعب</div>
+                    <div class="fc-sentence">"Frightening horror movie nights"</div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🍀</div>
+                    <div class="fc-word">lucky</div>
+                    <div class="fc-phonetic">/ˈlʌki/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">محظوظ</div>
+                    <div class="fc-sentence">"You might be lucky and win"</div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">✨</div>
+                    <div class="fc-word">special</div>
+                    <div class="fc-phonetic">/ˈspeʃl/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">خاص / مميز</div>
+                    <div class="fc-sentence">"Win a special prize"</div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">😍</div>
+                    <div class="fc-word">wonderful</div>
+                    <div class="fc-phonetic">/ˈwʌndəfl/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">رائع / بديع</div>
+                    <div class="fc-sentence">"Have a wonderful time"</div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🤩</div>
+                    <div class="fc-word">amazing</div>
+                    <div class="fc-phonetic">/əˈmeɪzɪŋ/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">مذهل / رائع جداً</div>
+                    <div class="fc-sentence">"The games were amazing"</div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">😄</div>
+                    <div class="fc-word">friendly</div>
+                    <div class="fc-phonetic">/ˈfrendli/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">ودود / لطيف</div>
+                    <div class="fc-sentence">"Everyone is friendly"</div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">👍</div>
+                    <div class="fc-word">excellent</div>
+                    <div class="fc-phonetic">/ˈeksələnt/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">ممتاز / فائق</div>
+                    <div class="fc-sentence">"Leave with excellent memories"</div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">⚠️</div>
+                    <div class="fc-word">important</div>
+                    <div class="fc-phonetic">/ɪmˈpɔːtnt/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">مهم / ضروري</div>
+                    <div class="fc-sentence">"It is so important to meet people"</div>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🥰</div>
+                    <div class="fc-word">lovely</div>
+                    <div class="fc-phonetic">/ˈlʌvli/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">جميل / لطيف</div>
+                    <div class="fc-sentence">"Full of lovely people"</div>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">↔️</div>
+                    <div class="fc-word">enormous</div>
+                    <div class="fc-phonetic">/ɪˈnɔːməs/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">ضخم جداً / هائل</div>
+                    <div class="fc-sentence">"The building is enormous"</div>
+                </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🧼</div>
+                    <div class="fc-word">tidy</div>
+                    <div class="fc-phonetic">/ˈtaɪdi/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">مرتب / نظيف</div>
+                    <div class="fc-sentence">"Make sure the space is tidy"</div>
+                </div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🫨</div>
+                    <div class="fc-word">noisy</div>
+                    <div class="fc-phonetic">/ˈnɔɪzi/</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar">صاخب / مليء بالضجيج</div>
+                    <div class="fc-sentence">"It gets a little noisy"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 2: DOMINO MATCHING GAME ==================== -->
+    <section class="tool-section" id="dominoSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🀄</span>
+                <div>
+                    <h2>لعبة دومينو الكلمات الصفية (Domino Adjective Chain)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">قطع دومينو صفية للطباعة والقص للعب في مجموعات طلابية صغيرة</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('dominoSection', 'Grade5_Unit1_Domino')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="domino-grid">
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">popular 🌟</span></div>
+                <div class="domino-half right"><span class="dom-ar">مخيف / مرعب</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">frightening 🕷️</span></div>
+                <div class="domino-half right"><span class="dom-ar">محظوظ</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">lucky 🍀</span></div>
+                <div class="domino-half right"><span class="dom-ar">ضخم جداً</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">enormous ↔️</span></div>
+                <div class="domino-half right"><span class="dom-ar">مرتب ونظيف</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">tidy 🧼</span></div>
+                <div class="domino-half right"><span class="dom-ar">صاخب ومزعج</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">noisy 🫨</span></div>
+                <div class="domino-half right"><span class="dom-ar">ممتع وشائق</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">interesting 💡</span></div>
+                <div class="domino-half right"><span class="dom-ar">رائع وبديع</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">wonderful 😍</span></div>
+                <div class="domino-half right"><span class="dom-ar">ودود ولطيف</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">friendly 😄</span></div>
+                <div class="domino-half right"><span class="dom-ar">مهم وضروري</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">important ⚠️</span></div>
+                <div class="domino-half right"><span class="dom-ar">شائع ومحبوب</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 3: CLASSROOM MINGLING ==================== -->
+    <section class="tool-section" id="mingleSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🤝</span>
+                <div>
+                    <h2>نشاط التحدث الصفي: ابحث عن زميل (Find Someone Who...)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">نشاط تواصلي تفاعلي لتطبيق الصفات والمحادثة الشفهية في الفصل</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('mingleSection', 'Grade5_Unit1_FindSomeoneWho')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <table class="mingle-table">
+            <thead>
+                <tr>
+                    <th style="width: 60%;">Find someone who... (ابحث عن زميل...)</th>
+                    <th style="width: 40%;">Classmate's Name (اسم الزميل)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. thinks horror movies are <b>frightening</b>. 🕷️</td>
+                    <td>................................................</td>
+                </tr>
+                <tr>
+                    <td>2. has an <b>enormous</b> collection of books or games. 📚</td>
+                    <td>................................................</td>
+                </tr>
+                <tr>
+                    <td>3. always keeps his/her bedroom <b>tidy</b>. 🧼</td>
+                    <td>................................................</td>
+                </tr>
+                <tr>
+                    <td>4. thinks playing football is <b>amazing</b>. ⚽</td>
+                    <td>................................................</td>
+                </tr>
+                <tr>
+                    <td>5. feels <b>lucky</b> when playing board games. 🍀</td>
+                    <td>................................................</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ==================== TOOL 4: PRESENT VS PAST VERB FLASHCARDS (PAGE 12) ==================== -->
+    <section class="tool-section" id="verbFlashcardsSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🎴</span>
+                <div>
+                    <h2>بطاقات فلاش كارد: تصريف أفعال المضارع والماضي (Page 12 Verb Cards)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات مزدوجة الوجه (الوجه: المضارع البسيط | الظهر: الماضي البسيط ومثال الجملة)</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('verbFlashcardsSection', 'Grade5_Unit1_VerbFlashcards')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="flashcards-grid">
+            <!-- Card V1: LOVE -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">❤️</div>
+                    <div class="fc-word">love (Present)</div>
+                    <div class="fc-phonetic">"I love playing hockey"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:20px;">loved (Past)</div>
+                    <div class="fc-sentence">"I loved the game on Saturday"</div>
+                </div>
+            </div>
+
+            <!-- Card V2: WIN -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🏆</div>
+                    <div class="fc-word">win (Present)</div>
+                    <div class="fc-phonetic">"I win a lot of games"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:20px;">won (Past)</div>
+                    <div class="fc-sentence">"My team won last Saturday"</div>
+                </div>
+            </div>
+
+            <!-- Card V3: PAINT -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🎨</div>
+                    <div class="fc-word">paints (Present)</div>
+                    <div class="fc-phonetic">"She paints pictures"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:20px;">painted (Past)</div>
+                    <div class="fc-sentence">"She painted a landscape yesterday"</div>
+                </div>
+            </div>
+
+            <!-- Card V4: NOT WATCH -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🚫📺</div>
+                    <div class="fc-word">don't watch</div>
+                    <div class="fc-phonetic">"I don't watch on Mondays"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--danger); font-size:20px;">didn't watch</div>
+                    <div class="fc-sentence">"I didn't watch because I was busy"</div>
+                </div>
+            </div>
+
+            <!-- Card V5: GO -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🏃‍♂️</div>
+                    <div class="fc-word">go (Present)</div>
+                    <div class="fc-phonetic">"I go nearly every day"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:20px;">went (Past)</div>
+                    <div class="fc-sentence">"I went last Thursday"</div>
+                </div>
+            </div>
+
+            <!-- Card V6: WATCH -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🍿</div>
+                    <div class="fc-word">watch (Present)</div>
+                    <div class="fc-phonetic">"They watch movies"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:20px;">watched (Past)</div>
+                    <div class="fc-sentence">"They watched frightening movies"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 5: GRAMMAR TENSE DOMINO (PAGE 12) ==================== -->
+    <section class="tool-section" id="grammarDominoSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🀄</span>
+                <div>
+                    <h2>لعبة دومينو الأزمنة النحوية (Present vs. Past Domino Chain)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">مطابقة الفعل في المضارع مع تصريفه الصحيح في الماضي</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('grammarDominoSection', 'Grade5_Unit1_GrammarDomino')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="domino-grid">
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">love ❤️</span></div>
+                <div class="domino-half right"><span class="dom-ar">won (فاز)</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">win 🏆</span></div>
+                <div class="domino-half right"><span class="dom-ar">painted (رسم)</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">paint 🎨</span></div>
+                <div class="domino-half right"><span class="dom-ar">went (ذهب)</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">go 🏃‍♂️</span></div>
+                <div class="domino-half right"><span class="dom-ar">didn't watch (لم يشاهد)</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">don't watch 🚫</span></div>
+                <div class="domino-half right"><span class="dom-ar">loved (أحب)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 6: TEACHING STRATEGIES GUIDE ==================== -->
+    <section class="tool-section" id="strategiesSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🧑‍🏫</span>
+                <div>
+                    <h2>دليل استراتيجيات التعلم النشط للدرس الثالث (Lesson 3 Active Learning Guide)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">إرشادات تطبيقية للمعلم لتنفيذ درس القواعد والمحادثة بكفاءة</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('strategiesSection', 'Grade5_Unit1_TeachingStrategies')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div style="line-height:1.9; font-size:16px;">
+            <div style="background: rgba(79,70,229,0.05); border-right: 4px solid var(--primary); padding: 14px; border-radius: 8px; margin-bottom: 14px;">
+                <b style="color:var(--primary);">1. استراتيجية تمثيل الأدوار (Roleplay Strategy):</b>
+                <p>قسّم الطلاب إلى ثنائيات لتمثيل محادثة <b>Carter & Aurora</b>. يرتدي أحد الطلاب شارة Aurora والآخر شارة Carter، ويتبادلان السؤال: <i>"When do you go to the youth center?"</i> مع التركيز على نغمة السؤال والماضي <i>"I went last Thursday"</i>.</p>
+            </div>
+
+            <div style="background: rgba(16,185,129,0.05); border-right: 4px solid var(--accent); padding: 14px; border-radius: 8px; margin-bottom: 14px;">
+                <b style="color:var(--accent);">2. استراتيجية خط الزمن الحركي (Physical Timeline Strategy):</b>
+                <p>ارسم خطاً على أرضية الفصل؛ الجهة اليمنى تمثل <b>Regular Routines (المضارع)</b> والجهة اليسرى تمثل <b>Moments Before Now (الماضي)</b>. عندما ينطق المعلم جملة، يقفز الطلاب إلى الجهة الزمنية المناسبة.</p>
+            </div>
+
+            <div style="background: rgba(245,158,11,0.05); border-right: 4px solid #f59e0b; padding: 14px; border-radius: 8px;">
+                <b style="color:#d97706;">3. استراتيجية عجلة الأسماء والتغذية الراجعة الفورية:</b>
+                <p>استخدم رابط <b>عجلة الأسماء التفاعلية (wheel.html)</b> لاختيار طالب عشوائياً لتحويل جملة من المضارع إلى الماضي، مع تعزيز الطلاب بالنقاط والشهادات التقديرية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 7: CHANT & STORY FLASHCARDS (PAGES 13-14) ==================== -->
+    <section class="tool-section" id="storyFlashcardsSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🎴</span>
+                <div>
+                    <h2>بطاقات فلاش كارد: أنشودة الأنشطة وقصة الصداقة (Pages 13-14 Cards)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات مزدوجة الوجه للأنشطة الأسبوعية ومهارات تكوين الصداقات</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('storyFlashcardsSection', 'Grade5_Unit1_StoryFlashcards')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="flashcards-grid">
+            <!-- Card S1 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🎡</div>
+                    <div class="fc-word">Adventure Park</div>
+                    <div class="fc-phonetic">"حديقة المغامرات"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--primary); font-size:18px;">Last week</div>
+                    <div class="fc-sentence">"Last week I went to an adventure park."</div>
+                </div>
+            </div>
+
+            <!-- Card S2 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🗣️</div>
+                    <div class="fc-word">Have Debates</div>
+                    <div class="fc-phonetic">"عقد مناظرات ونقاشات"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:18px;">Wednesdays</div>
+                    <div class="fc-sentence">"We learn how to have debates."</div>
+                </div>
+            </div>
+
+            <!-- Card S3 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🏎️🎮</div>
+                    <div class="fc-word">Racing Game</div>
+                    <div class="fc-phonetic">"لعبة سباق سيارات"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#ec4899; font-size:18px;">Lia's favorite</div>
+                    <div class="fc-sentence">"Ava was putting a new racing game on."</div>
+                </div>
+            </div>
+
+            <!-- Card S4 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🤝</div>
+                    <div class="fc-word">Make New Friends</div>
+                    <div class="fc-phonetic">"تكوين صداقات جديدة"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:18px;">Smile & Listen</div>
+                    <div class="fc-sentence">"When I meet someone new, I smile and say hello."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 8: FRIENDSHIP & SEL DOMINO ==================== -->
+    <section class="tool-section" id="selDominoSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🀄</span>
+                <div>
+                    <h2>لعبة دومينو الصداقة والتعلم الاجتماعي (SEL Domino Chain)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">مطابقة مواقف الصداقة مع السلوك الإيجابي المناسب</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('selDominoSection', 'Grade5_Unit1_SELDomino')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="domino-grid">
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">Meet someone new 🤝</span></div>
+                <div class="domino-half right"><span class="dom-ar">Smile and say hello 😊</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">Feeling shy 🙈</span></div>
+                <div class="domino-half right"><span class="dom-ar">Be kind and listen 👂</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">New guest arriving 🏠</span></div>
+                <div class="domino-half right"><span class="dom-ar">Make house tidy ✨</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">Sharing a game 🎮</span></div>
+                <div class="domino-half right"><span class="dom-ar">Two best friends! 💖</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 9: INTERVIEW & PROFESSION FLASHCARDS (PAGE 15) ==================== -->
+    <section class="tool-section" id="interviewFlashcardsSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🎴</span>
+                <div>
+                    <h2>بطاقات فلاش كارد: مقابلة الكاتبة أوتمن سميث والمهن (Page 15 Cards)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات مزدوجة الوجه لمفردات المقابلة والمهن والاهتمامات</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('interviewFlashcardsSection', 'Grade5_Unit1_InterviewFlashcards')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="flashcards-grid">
+            <!-- Card I1 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">✍️</div>
+                    <div class="fc-word">Writer / Author</div>
+                    <div class="fc-phonetic">"كاتب / مؤلف"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--primary); font-size:18px;">Autumn Smith</div>
+                    <div class="fc-sentence">"Autumn Smith is a famous writer."</div>
+                </div>
+            </div>
+
+            <!-- Card I2 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">📓</div>
+                    <div class="fc-word">Notebook</div>
+                    <div class="fc-phonetic">"دفتر الملاحظات والقصص"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--accent); font-size:18px;">Write ideas down</div>
+                    <div class="fc-sentence">"Her teacher told her to write ideas down."</div>
+                </div>
+            </div>
+
+            <!-- Card I3 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🎙️</div>
+                    <div class="fc-word">Interviewer</div>
+                    <div class="fc-phonetic">"محاور صحفي"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#06b6d4; font-size:18px;">Ask Questions</div>
+                    <div class="fc-sentence">"What do you do? When did you start?"</div>
+                </div>
+            </div>
+
+            <!-- Card I4 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">💃🎵</div>
+                    <div class="fc-word">Music & Dance</div>
+                    <div class="fc-phonetic">"موسيقى ورقص"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#ec4899; font-size:18px;">Other Interests</div>
+                    <div class="fc-sentence">"She listens to music and loves to dance!"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 10: INTERVIEW Q&A DOMINO ==================== -->
+    <section class="tool-section" id="interviewDominoSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🀄</span>
+                <div>
+                    <h2>لعبة دومينو أسئلة وأجوبة المقابلة الصحفية (Interview Q&A Domino)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">مطابقة السؤال الصحفي مع الإجابة المناسبة</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('interviewDominoSection', 'Grade5_Unit1_InterviewDomino')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="domino-grid">
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">What do you do? 🎙️</span></div>
+                <div class="domino-half right"><span class="dom-ar">I'm a writer / author ✍️</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">When did you start? ⏰</span></div>
+                <div class="domino-half right"><span class="dom-ar">When I was in school 🏫</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">Why did you start? 💡</span></div>
+                <div class="domino-half right"><span class="dom-ar">I loved making up stories 💭</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">What other interests? 🎨</span></div>
+                <div class="domino-half right"><span class="dom-ar">I love music and dancing 💃</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 11: STATE VS ACTION VERBS FLASHCARDS (PAGE 17) ==================== -->
+    <section class="tool-section" id="stateActionFlashcardsSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">⚡</span>
+                <div>
+                    <h2>بطاقات فلاش كارد: أفعال الحالة والحركة (State vs. Action Verbs Cards - Page 17)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات مزدوجة الوجه للتمييز بين أفعال المشاعر والحركة</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('stateActionFlashcardsSection', 'Grade5_Unit1_StateActionFlashcards')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="flashcards-grid">
+            <!-- Card SA1 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">💚</div>
+                    <div class="fc-word">love / like</div>
+                    <div class="fc-phonetic">"State Verb (فعل حالة)"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#047857; font-size:18px;">Feeling / State</div>
+                    <div class="fc-sentence">"I love fairs. I like books."</div>
+                </div>
+            </div>
+
+            <!-- Card SA2 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🏃</div>
+                    <div class="fc-word">play / walk</div>
+                    <div class="fc-phonetic">"Action Verb (فعل حركة)"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--primary); font-size:18px;">Physical Action</div>
+                    <div class="fc-sentence">"She is playing outside."</div>
+                </div>
+            </div>
+
+            <!-- Card SA3 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">💭</div>
+                    <div class="fc-word">want / know</div>
+                    <div class="fc-phonetic">"State Verb (فعل حالة)"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#047857; font-size:18px;">Thought / Need</div>
+                    <div class="fc-sentence">"I want to go again!"</div>
+                </div>
+            </div>
+
+            <!-- Card SA4 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">✍️</div>
+                    <div class="fc-word">write / send</div>
+                    <div class="fc-phonetic">"Action Verb (فعل حركة)"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:var(--primary); font-size:18px;">Physical Action</div>
+                    <div class="fc-sentence">"She is sending photos right now."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 12: PREFIX UN- DOMINO CHAIN (PAGE 19) ==================== -->
+    <section class="tool-section" id="prefixDominoSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🀄</span>
+                <div>
+                    <h2>لعبة دومينو بادئة النفي un- (Prefix un- Domino Game - Page 19)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">مطابقة الصفة الإيجابية مع صفتها المنفية بـ un-</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('prefixDominoSection', 'Grade5_Unit1_PrefixDomino')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="domino-grid">
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">kind (حنون) ❤️</span></div>
+                <div class="domino-half right"><span class="dom-ar">unkind (قاسٍ) 👿</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">friendly (ودود) 😊</span></div>
+                <div class="domino-half right"><span class="dom-ar">unfriendly (غير ودود) 😠</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">tidy (مرتب) ✨</span></div>
+                <div class="domino-half right"><span class="dom-ar">untidy (غير مرتب) 🗑️</span></div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left"><span class="dom-eng">lucky (محظوظ) 🍀</span></div>
+                <div class="domino-half right"><span class="dom-ar">unlucky (غير محظوظ) 🌧️</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 13: WORLD HOBBIES FLASHCARDS (PAGE 20) ==================== -->
+    <section class="tool-section" id="worldHobbiesSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🌍</span>
+                <div>
+                    <h2>بطاقات فلاش كارد: اهتمامات العالم الغريبة (World Hobbies - Page 20)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات دراسات اجتماعية مزدوجة الوجه للثقافات والهوايات</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('worldHobbiesSection', 'Grade5_Unit1_WorldHobbiesFlashcards')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div class="flashcards-grid">
+            <!-- Card WH1 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🧶</div>
+                    <div class="fc-word">Yarn Bombing</div>
+                    <div class="fc-phonetic">"USA (Texas)"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#3b82f6; font-size:18px;">تزيين الشوارع بالصوف</div>
+                    <div class="fc-sentence">"Crochet colored yarn around trees."</div>
+                </div>
+            </div>
+
+            <!-- Card WH2 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🧸</div>
+                    <div class="fc-word">Toy Voyaging</div>
+                    <div class="fc-phonetic">"France (Movie)"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#ef4444; font-size:18px;">سياحة الألعاب</div>
+                    <div class="fc-sentence">"Take photos of toys in special places."</div>
+                </div>
+            </div>
+
+            <!-- Card WH3 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🧼</div>
+                    <div class="fc-word">Soap Carving</div>
+                    <div class="fc-phonetic">"Thailand"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#f59e0b; font-size:18px;">نحت الصابون</div>
+                    <div class="fc-sentence">"Make amazing art and flowers with soap."</div>
+                </div>
+            </div>
+
+            <!-- Card WH4 -->
+            <div class="flashcard-fold">
+                <div class="card-front">
+                    <div class="fc-emoji">🎥</div>
+                    <div class="fc-word">News Bombing</div>
+                    <div class="fc-phonetic">"Global / Street"</div>
+                </div>
+                <div class="fold-line"></div>
+                <div class="card-back">
+                    <div class="fc-ar" style="color:#10b981; font-size:18px;">الظهور خلف المراسلين</div>
+                    <div class="fc-sentence">"Stand behind reporters and make funny faces."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOL 14: UNIT 1 BOARD GAME ==================== -->
+    <section class="tool-section" id="unit1BoardGameSection">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🎲</span>
+                <div>
+                    <h2>لوحة لعبة وتحديات الوحدة الأولى (Unit 1 Board Game Challenge)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">لعبة صفية بنرد ومربعات للأسئلة والتحديات لجميع دروس الوحدة</p>
+                </div>
+            </div>
+            <div class="export-btns">
+                <button class="btn-export word" onclick="exportPrintableToWord('unit1BoardGameSection', 'Grade5_Unit1_BoardGame')">📄 Word</button>
+                <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة PDF</button>
+            </div>
+        </div>
+
+        <div style="background:var(--bg-card); border:2px solid var(--border); border-radius:var(--radius); padding:20px; text-align:center;">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:10px; font-weight:800;">
+                <div style="background:#4f46e5; color:#fff; padding:12px; border-radius:8px;">1. START 🏁</div>
+                <div style="background:rgba(79,70,229,0.1); padding:12px; border-radius:8px;">2. Say 3 Adjectives</div>
+                <div style="background:rgba(16,185,129,0.1); padding:12px; border-radius:8px;">3. Past of GO?</div>
+                <div style="background:rgba(245,158,11,0.1); padding:12px; border-radius:8px;">4. Negative of lucky?</div>
+                <div style="background:rgba(244,63,94,0.1); padding:12px; border-radius:8px;">5. State or Action: LOVE</div>
+                <div style="background:rgba(14,165,233,0.1); padding:12px; border-radius:8px;">6. Who is Autumn Smith?</div>
+                <div style="background:rgba(139,92,246,0.1); padding:12px; border-radius:8px;">7. What is Origami?</div>
+                <div style="background:#10b981; color:#fff; padding:12px; border-radius:8px;">8. WINNER! 🏆</div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+function exportPrintableToWord(elementId, filename) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    const htmlContent = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+            <meta charset='utf-8'>
+            <title>${filename}</title>
+            <style>
+                body { font-family: 'Arial', sans-serif; direction: rtl; text-align: right; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+                td, th { border: 1px solid #4f46e5; padding: 10px; }
+                .header-box { border: 2px solid #4f46e5; padding: 12px; margin-bottom: 20px; text-align: center; }
+            </style>
+        </head>
+        <body>
+            <div class="header-box">
+                <h2>المملكة العربية السعودية - وزارة التعليم</h2>
+                <h3>SmartLearning - Grade 5 Unit 1 Printables & Teaching Strategies</h3>
+            </div>
+            ${el.innerHTML}
+        </body>
+        </html>
+    `;
+
+    const blob = new Blob(['\ufeff', htmlContent], {
+        type: 'application/msword'
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${filename}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

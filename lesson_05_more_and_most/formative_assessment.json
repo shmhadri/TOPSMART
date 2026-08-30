@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Running is ______ boring than football.",
+    "choices": [
+      "more",
+      "most",
+      "the most",
+      "less"
+    ],
+    "ans": "more"
+  },
+  {
+    "q": "Football is the ______ popular sport.",
+    "choices": [
+      "more",
+      "most",
+      "many",
+      "much"
+    ],
+    "ans": "most"
+  },
+  {
+    "q": "Pottery is more difficult ______ painting.",
+    "choices": [
+      "than",
+      "then",
+      "to",
+      "for"
+    ],
+    "ans": "than"
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "title": "Check Your Chores (Survey)",
+  "desc": "Check your chore frequency score: Always (2 points), Sometimes (1 point), Never (0 points).",
+  "vocab": [
+    {
+      "word": "always",
+      "type": "frequency",
+      "ar": "دائماً (نقطتان)"
+    },
+    {
+      "word": "sometimes",
+      "type": "frequency",
+      "ar": "أحياناً (نقطة واحدة)"
+    },
+    {
+      "word": "never",
+      "type": "frequency",
+      "ar": "أبداً (صفر نقطة)"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "Do you feed the fish?",
+      "ar": "هل تطعم السمك؟"
+    },
+    {
+      "en": "Yes, I do sometimes.",
+      "ar": "نعم، أفعل ذلك أحياناً."
+    },
+    {
+      "en": "I'm a great helper at home.",
+      "ar": "أنا مساعد رائع في المنزل."
+    }
+  ]
+}

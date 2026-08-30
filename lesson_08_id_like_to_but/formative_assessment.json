@@ -1,0 +1,32 @@
+[
+  {
+    "q": "I'd like to try rock climbing, but there is no ______.",
+    "choices": [
+      "rock",
+      "sea",
+      "plane",
+      "falcon"
+    ],
+    "ans": "rock"
+  },
+  {
+    "q": "I'd like to try sky diving, but there is no ______.",
+    "choices": [
+      "plane",
+      "sea",
+      "rock",
+      "racket"
+    ],
+    "ans": "plane"
+  },
+  {
+    "q": "I'd like to try cooking, but I ______ know how.",
+    "choices": [
+      "don't",
+      "doesn't",
+      "am not",
+      "no"
+    ],
+    "ans": "don't"
+  }
+]

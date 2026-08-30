@@ -1,0 +1,36 @@
+{
+  "title": "Phonics",
+  "desc": "Learn the r-controlled vowel sounds: -ar, -or, and -er.",
+  "vocab": [
+    {
+      "word": "car",
+      "type": "phonics",
+      "ar": "سيارة (-ar)"
+    },
+    {
+      "word": "fork",
+      "type": "phonics",
+      "ar": "شوكة (-or)"
+    },
+    {
+      "word": "teacher",
+      "type": "phonics",
+      "ar": "معلم (-er)"
+    },
+    {
+      "word": "doctor",
+      "type": "phonics",
+      "ar": "طبيب (-or)"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "A teacher is in the car.",
+      "ar": "المعلم في السيارة."
+    },
+    {
+      "en": "I eat with a fork.",
+      "ar": "أنا آكل بالشوكة."
+    }
+  ]
+}

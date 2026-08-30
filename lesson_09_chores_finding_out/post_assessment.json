@@ -1,0 +1,52 @@
+[
+  {
+    "q": "What chores do you do? -> I ______.",
+    "choices": [
+      "feed the fish",
+      "feeds the fish",
+      "feeding fish",
+      "feed fish"
+    ],
+    "ans": "feed the fish"
+  },
+  {
+    "q": "What chores does your sister do? -> She ______.",
+    "choices": [
+      "folds the laundry",
+      "fold the laundry",
+      "folding laundry",
+      "laundry"
+    ],
+    "ans": "folds the laundry"
+  },
+  {
+    "q": "Which chore means 'أذهب للتسوق'?",
+    "choices": [
+      "go shopping",
+      "set the table",
+      "vacuum the floor",
+      "fold the laundry"
+    ],
+    "ans": "go shopping"
+  },
+  {
+    "q": "Does she vacuum the floor? -> Yes, she ______.",
+    "choices": [
+      "does",
+      "do",
+      "doesn't",
+      "doing"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "What is 'trash' in Arabic?",
+    "choices": [
+      "قمامة",
+      "سمك",
+      "مائدة",
+      "أطباق"
+    ],
+    "ans": "قمامة"
+  }
+]

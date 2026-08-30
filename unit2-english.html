@@ -1,0 +1,3175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الوحدة الثانية: الأشياء التي نرتديها (Things We Wear) - إنجليزي - الصف الثاني الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 / #6366f1 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): تدرجات Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 4px 20px rgba(79, 70, 229, 0.06);
+    --shadow-lg: 0 10px 30px rgba(79, 70, 229, 0.12);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: 0 4px 20px rgba(0,0,0,.3);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,.4)
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+html {
+    scroll-behavior: smooth
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    font-size: 18px; /* تكبير الخط الافتراضي */
+    transition: background var(--tr), color var(--tr)
+}
+a {
+    color: inherit;
+    text-decoration: none
+}
+button, select {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    outline: none
+}
+
+/* -- TOPBAR -- */
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 2px 16px rgba(79,70,229,0.06);
+    transition: background var(--tr);
+}
+[data-theme=dark] .topbar {
+    background: rgba(15,23,42,.95);
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+.topbar-right, .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.topbar-left {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+}
+.topbar-left::-webkit-scrollbar { display: none; }
+.back-btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    transition: var(--tr);
+    white-space: nowrap;
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+    white-space: nowrap;
+}
+.tlogo span { color: var(--accent); }
+.top-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    font-family: 'Tajawal', sans-serif;
+    color: #fff !important;
+    text-decoration: none !important;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transition: transform 0.18s ease, filter 0.18s ease;
+    flex-shrink: 0;
+}
+.top-action-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.top-action-btn:active { transform: translateY(0); }
+.top-action-btn.yt       { background: #ef4444; box-shadow: 0 3px 10px rgba(239,68,68,.3); }
+.top-action-btn.student  { background: #0284c7; box-shadow: 0 3px 10px rgba(2,132,199,.3); }
+.top-action-btn.workbook { background: #0d9488; box-shadow: 0 3px 10px rgba(13,148,136,.3); }
+.top-action-btn.ws       { background: #4f46e5; box-shadow: 0 3px 10px rgba(79,70,229,.3); }
+.top-action-btn.pr       { background: #10b981; box-shadow: 0 3px 10px rgba(16,185,129,.3); }
+.top-action-btn.ppt      { background: #f59e0b; box-shadow: 0 3px 10px rgba(245,158,11,.3); }
+.top-action-btn.wheel    { background: #ec4899; box-shadow: 0 3px 10px rgba(236,72,153,.3); }
+.top-action-btn.rep      { background: #8b5cf6; box-shadow: 0 3px 10px rgba(139,92,246,.3); }
+.prog-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+.prog-pill b { color: var(--primary); }
+.theme-btn {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    background: var(--bg-card);
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--tr);
+    flex-shrink: 0;
+}
+.theme-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+/* MAIN LAYOUT */
+.main-wrap {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 70px;
+}
+
+/* SIDEBAR TOC */
+.ls {
+    width: 290px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border-left: 2px solid var(--border);
+    padding: 24px 16px;
+    transition: background var(--tr)
+}
+@media(max-width:960px) {
+    .ls {
+        display: none
+    }
+}
+.ls-hd {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border)
+}
+.toc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+    margin-bottom: 4px
+}
+.toc:hover, .toc.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary)
+}
+.toc-n {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    flex-shrink: 0;
+    transition: var(--tr)
+}
+.toc.active .toc-n, .toc.done .toc-n {
+    background: var(--primary);
+    color: #fff
+}
+
+/* CONTENT COLUMN */
+.lc {
+    flex: 1;
+    max-width: 960px;
+    padding: 40px 32px;
+    width: 100%
+}
+@media(max-width:600px) {
+    .lc {
+        padding: 20px 16px
+    }
+}
+
+/* MOBILE DROPDOWN LESSON SELECTOR */
+.mobile-nav-container {
+    display: none;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    align-items: center;
+    gap: 12px
+}
+@media(max-width:960px) {
+    .mobile-nav-container {
+        display: flex
+    }
+}
+.mobile-nav-label {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary);
+    white-space: nowrap
+}
+.mobile-nav-select {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    transition: var(--tr)
+}
+.mobile-nav-select:focus {
+    border-color: var(--primary)
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: var(--shadow-lg)
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,.08);
+    border-radius: 50%
+}
+.hbadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.2);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    backdrop-filter: blur(4px)
+}
+.hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1
+}
+.hero p {
+    font-size: 18px;
+    opacity: .9;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.8
+}
+.hero-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1
+}
+.hstat {
+    background: rgba(255,255,255,.15);
+    border-radius: 12px;
+    padding: 10px 18px;
+    backdrop-filter: blur(4px)
+}
+.hstat .v {
+    font-size: 24px;
+    font-weight: 900;
+    display: block
+}
+.hstat .l {
+    font-size: 13px;
+    opacity: .9
+}
+
+/* SECTION HEADER */
+.ls-sec {
+    margin-bottom: 56px
+}
+.sh {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px
+}
+.sico {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    border: 2px solid rgba(79, 70, 229, 0.15)
+}
+.sh h2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text)
+}
+.sh p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 2px
+}
+
+/* DIALOGUE BOX */
+.dbox {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow)
+}
+.dhd {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    padding: 18px 24px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+.dbody {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+.dline {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    transition: transform var(--tr);
+    max-width: 90%;
+    width: fit-content
+}
+.dline:hover {
+    transform: translateX(-6px)
+}
+.dline.r {
+    flex-direction: row-reverse;
+    text-align: right;
+    align-self: flex-end
+}
+.dline.r:hover {
+    transform: translateX(6px)
+}
+.sav {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    background: rgba(79, 70, 229, 0.1);
+    border: 2px solid var(--primary)
+}
+.bub {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    border-top-right-radius: 4px;
+    padding: 14px 20px;
+    box-shadow: var(--shadow)
+}
+.dline.r .bub {
+    background: rgba(79, 70, 229, 0.04);
+    border-color: rgba(79, 70, 229, 0.15);
+    border-radius: 16px;
+    border-top-left-radius: 4px
+}
+.ben {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+.bar {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 500
+}
+
+/* VOCAB GRID (Clothes) */
+.vgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px
+}
+.vcard {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+    user-select: none;
+    box-shadow: var(--shadow)
+}
+.vcard:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px)
+}
+.vcard.flip {
+    background: var(--primary);
+    border-color: var(--primary)
+}
+.vcard.flip .ven, .vcard.flip .var {
+    color: #fff
+}
+.vemo {
+    font-size: 56px;
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1
+}
+.ven {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 6px
+}
+.var {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 700
+}
+
+/* CLOTHING LINE GAME */
+.gline-box {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    text-align: center
+}
+.gline-arena {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+    margin: 32px 0;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    direction: ltr
+}
+.gkid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--tr);
+    min-width: 100px;
+    padding: 8px;
+    border-radius: var(--radius-sm)
+}
+.gkid:hover {
+    transform: scale(1.15)
+}
+.gkid-avatar {
+    font-size: 48px;
+    margin-bottom: 8px
+}
+.gkid-label {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    white-space: nowrap
+}
+.gkid.active-kid .gkid-label {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+/* ORDINAL GRID */
+.ogrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px
+}
+.ocard {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+    box-shadow: var(--shadow)
+}
+.ocard:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg)
+}
+.ocard.active-ord {
+    border-color: var(--accent);
+    background: rgba(16,185,129,0.06)
+}
+.onum {
+    font-family: 'Outfit', sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--primary);
+    display: block
+}
+.oword {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    display: block;
+    margin-top: 4px
+}
+.oar {
+    font-size: 14px;
+    color: var(--text-muted);
+    display: block;
+    font-weight: 700
+}
+
+/* CHANT BOX */
+.cbox {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden
+}
+.cbox-line {
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--border);
+    cursor: pointer;
+    transition: var(--tr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px
+}
+.cbox-line:hover {
+    background: rgba(79, 70, 229, .04)
+}
+.cbox-line:last-child {
+    border-bottom: none
+}
+.cline-en {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary)
+}
+.cline-ar {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 700
+}
+
+/* PHONICS GRID */
+.pgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 16px
+}
+.pcard {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+    box-shadow: var(--shadow)
+}
+.pcard:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px)
+}
+.pimg {
+    font-size: 56px;
+    margin-bottom: 12px;
+    display: block
+}
+.pword {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text)
+}
+.pword span {
+    color: var(--danger);
+    font-weight: 900
+}
+.par {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 700
+}
+
+/* EXERCISES & QUESTIONS */
+.exc {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px
+}
+.exnum {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px
+}
+.exq {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--text)
+}
+.eximg {
+    text-align: center;
+    font-size: 72px;
+    margin-bottom: 24px
+}
+
+/* WARMUP AREA */
+.warmup-box {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 32px
+}
+.warmup-q {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 20px
+}
+.warmup-choices {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap
+}
+.warmup-btn {
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr);
+    background: var(--bg);
+    color: var(--text)
+}
+.warmup-btn:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+    color: var(--primary)
+}
+.warmup-btn.correct {
+    background: rgba(16,185,129,0.1);
+    border-color: var(--accent);
+    color: var(--accent)
+}
+.warmup-btn.wrong {
+    background: rgba(244,63,94,0.1);
+    border-color: var(--danger);
+    color: var(--danger)
+}
+
+/* OPTION BUTTONS */
+.cgrid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px
+}
+@media(max-width:480px) {
+    .cgrid2 {
+        grid-template-columns: 1fr
+    }
+}
+.cbtn {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr)
+}
+.cbtn:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+    color: var(--primary)
+}
+.cbtn.correct {
+    border-color: var(--accent);
+    background: rgba(16,185,129,0.08);
+    color: var(--accent)
+}
+.cbtn.wrong {
+    border-color: var(--danger);
+    background: rgba(244,63,94,0.08);
+    color: var(--danger)
+}
+
+/* FILL IN THE BLANK INPUT */
+.fill-s {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 2.2
+}
+.binput {
+    display: inline-block;
+    min-width: 140px;
+    border: none;
+    border-bottom: 4px solid var(--primary);
+    background: transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+    outline: none;
+    padding: 0 8px;
+    transition: var(--tr)
+}
+.binput.correct {
+    border-color: var(--accent);
+    color: var(--accent)
+}
+.binput.wrong {
+    border-color: var(--danger);
+    color: var(--danger)
+}
+.check-btn {
+    padding: 14px 32px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: 18px;
+    font-weight: 700;
+    transition: var(--tr);
+    margin-top: 14px;
+    box-shadow: var(--shadow)
+}
+.check-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg)
+}
+
+/* MATCH GAME AREA */
+.match-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px
+}
+.match-ct {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 10px
+}
+.mitem {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+.mitem:hover:not(.disabled):not(.matched):not(.selected) {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05)
+}
+.mitem.selected {
+    border-color: var(--primary-light);
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary)
+}
+.mitem.matched {
+    border-color: var(--accent);
+    background: rgba(16,185,129,0.08);
+    color: var(--accent);
+    cursor: default
+}
+.mitem.wrong {
+    border-color: var(--danger);
+    background: rgba(244,63,94,0.08);
+    animation: shake .4s
+}
+
+/* WORD SCRAMBLE GAME */
+.scramble-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-muted);
+    letter-spacing: 8px;
+    text-align: center;
+    margin: 20px 0;
+    min-height: 52px
+}
+.scramble-hint {
+    text-align: center;
+    font-size: 56px;
+    margin-bottom: 10px
+}
+.scramble-hint-ar {
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 700
+}
+.letter-tiles {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    min-height: 68px;
+    direction: ltr
+}
+.ltile {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: var(--primary);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--tr);
+    border: 3px solid transparent;
+    user-select: none
+}
+.ltile:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg)
+}
+.ltile.used {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: default;
+    transform: none
+}
+.answer-slots {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    min-height: 68px;
+    direction: ltr
+}
+.aslot {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: var(--bg-card);
+    border: 3px dashed var(--border);
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    transition: var(--tr)
+}
+.aslot.correct-slot {
+    border-color: var(--accent);
+    background: rgba(16,185,129,0.08)
+}
+
+/* MEMORY GAME */
+.mem-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 600px;
+    margin: 0 auto
+}
+@media(max-width:500px) {
+    .mem-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+.mem-card {
+    height: 100px;
+    border-radius: 14px;
+    cursor: pointer;
+    perspective: 600px;
+    position: relative;
+    user-select: none
+}
+.mem-front, .mem-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden
+}
+.mem-front {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    font-size: 32px
+}
+.mem-back {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    transform: rotateY(180deg);
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px;
+    color: var(--text)
+}
+.mem-card.matched .mem-back {
+    border-color: var(--accent);
+    background: rgba(16,185,129,0.08);
+    color: var(--accent)
+}
+
+/* BALLOON GAME */
+.balloon-arena {
+    position: relative;
+    height: 380px;
+    background: linear-gradient(180deg, #dbeafe, #ede9fe);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid var(--border);
+    margin-bottom: 20px
+}
+.balloon {
+    position: absolute;
+    bottom: -90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--tr);
+    animation: rise var(--dur,8s) linear forwards
+}
+.balloon-body {
+    width: 76px;
+    height: 90px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.15)
+}
+.balloon-string {
+    width: 2px;
+    height: 28px;
+    background: rgba(0,0,0,.2);
+    margin-top: 2px
+}
+
+/* POST LESSON QUIZ */
+.qsec {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border-radius: 24px;
+    padding: 44px 32px;
+    color: #fff;
+    margin-bottom: 56px;
+    position: relative;
+    overflow: hidden
+}
+.qsec h2 {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 8px
+}
+.qq {
+    margin-bottom: 24px;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1)
+}
+.qq-t {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+.qcbtn {
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.06);
+    border: 2px solid transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: var(--tr);
+    text-align: center
+}
+.qcbtn:hover:not(:disabled) {
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.2)
+}
+.qcbtn.correct {
+    border-color: var(--accent);
+    background: rgba(16,185,129,.25)
+}
+.qcbtn.wrong {
+    border-color: var(--danger);
+    background: rgba(244,63,94,.25)
+}
+.qcbtn.sel {
+    border-color: var(--primary-light);
+    background: rgba(79,70,229,0.3)
+}
+
+/* FEEDBACK ELEMENT */
+.fb {
+    margin-top: 14px;
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 16px;
+    display: none;
+    align-items: center;
+    gap: 10px
+}
+.fb.correct {
+    background: rgba(16,185,129,0.1);
+    color: var(--accent);
+    border: 2px solid rgba(16,185,129,0.3)
+}
+.fb.wrong {
+    background: rgba(244,63,94,0.1);
+    color: var(--danger);
+    border: 2px solid rgba(244,63,94,0.3)
+}
+
+/* VOICE ICON SPK */
+.spk {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(79, 70, 229, 0.1);
+    border: none;
+    color: var(--primary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--tr);
+    margin-top: 8px
+}
+.spk:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.15)
+}
+
+/* ADDED styles for games and animations */
+.conf-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+.cp {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    animation: fall linear forwards;
+}
+@keyframes fall {
+    to { transform: translateY(105vh) rotate(360deg); }
+}
+
+.scramble-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.scr-btn {
+    padding: 14px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 18px;
+    font-weight: 700;
+    transition: var(--tr);
+    border: 2px solid transparent;
+}
+.scr-spk {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+.scr-spk:hover {
+    background: var(--primary);
+    color: #fff;
+}
+.scr-check {
+    background: var(--accent);
+    color: #fff;
+}
+.scr-check:hover {
+    background: #059669;
+}
+.scr-skip {
+    background: var(--bg);
+    color: var(--text-muted);
+    border-color: var(--border);
+}
+.scr-skip:hover {
+    background: var(--border);
+    color: var(--text);
+}
+.scr-progress {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.mem-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+}
+.mem-stat-val {
+    color: var(--primary);
+}
+.mem-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.mem-card.flipped .mem-inner {
+    transform: rotateY(180deg);
+}
+
+.balloon-score {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+}
+.bscore-val {
+    color: var(--primary);
+}
+.balloon-q {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.balloon-q-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--primary);
+}
+.balloon-q-ar {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-top: 4px;
+}
+@keyframes rise {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-500px); }
+}
+.balloon.pop {
+    animation: none;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.q-start-btn {
+    padding: 16px 36px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    transition: var(--tr);
+}
+.q-start-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+.q-sub-btn {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: 18px;
+    font-weight: 700;
+    transition: var(--tr);
+}
+.q-sub-btn:hover {
+    background: #059669;
+}
+.q-retry-btn {
+    padding: 12px 28px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 700;
+    transition: var(--tr);
+}
+.q-retry-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+}
+.qresult {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 28px;
+}
+.qresult.show {
+    display: flex;
+}
+.score-c {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent) var(--pct, 0deg), rgba(255,255,255,0.1) 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-lg);
+}
+.score-i {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.score-pct {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+}
+.score-lbl {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+.cta {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-top: 56px;
+}
+.cta-e {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+}
+.cta-t {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+.cta-p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    transition: var(--tr);
+}
+.cta-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.qchoices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+    direction: ltr;
+}
+@media(max-width:480px) {
+    .qchoices {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* VIDEO HUB & EMBEDDED PLAYER & YOUTUBE PRO CARD */
+.video-hub-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--tr);
+}
+.video-hub-card:hover {
+    border-color: rgba(79, 70, 229, 0.4);
+}
+.video-hub-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+}
+.video-hub-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.video-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+    flex-shrink: 0;
+}
+.video-hub-text h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text);
+    margin: 0;
+}
+.video-hub-text p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-weight: 600;
+}
+.video-hub-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.btn-yt-external-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 22px;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: #ffffff !important;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none !important;
+    transition: all .3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+.btn-yt-external-main:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+    background: linear-gradient(135deg, #ff1a1a, #e60000);
+}
+.btn-yt-external-main svg {
+    animation: ytPulse 2s infinite ease-in-out;
+}
+@keyframes ytPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+/* SMART YOUTUBE POSTER CARD */
+.video-poster-card {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0f172a;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    text-decoration: none !important;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+.video-poster-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1), opacity .3s ease;
+}
+.video-poster-card:hover .video-poster-bg {
+    transform: scale(1.04);
+    opacity: 0.95;
+}
+.video-poster-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    transition: background .3s ease;
+}
+.video-poster-card:hover .video-poster-overlay {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.6) 100%);
+}
+.poster-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.poster-badge {
+    background: rgba(239, 68, 68, 0.9);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+.poster-quality {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    color: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+.poster-center-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+.poster-play-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0.25), 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all .35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.video-poster-card:hover .poster-play-btn {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 18px rgba(255, 0, 0, 0.35), 0 14px 40px rgba(255, 0, 0, 0.6);
+    background: linear-gradient(135deg, #ff1a1a, #e60000);
+}
+.poster-play-btn svg {
+    margin-left: -4px;
+}
+.poster-play-hint {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: var(--tr);
+}
+.video-poster-card:hover .poster-play-hint {
+    background: rgba(239, 68, 68, 0.9);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(2px);
+}
+.poster-bottom-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.poster-lesson-info h4 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+    margin: 0 0 4px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+.poster-lesson-info p {
+    color: #cbd5e1;
+    font-size: 13px;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.video-player-container {
+    display: none;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #0f172a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 14px;
+}
+.video-player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.btn-toggle-embed {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--tr);
+    margin-top: 12px;
+}
+.btn-toggle-embed:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+.video-topics-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+.video-topic-pill {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    transition: var(--tr);
+}
+.video-topic-pill:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+.video-topic-pill span.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+}
+/* WORKBOOK SOLUTION BUTTON */
+.btn-workbook-solution {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(79, 70, 229, 0.08));
+    border: 2px solid rgba(16, 185, 129, 0.35);
+    border-radius: 16px;
+    padding: 14px 22px;
+    margin: 20px 0 26px;
+    text-decoration: none !important;
+    color: var(--text);
+    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+.btn-workbook-solution:hover {
+    border-color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(79, 70, 229, 0.12));
+}
+.wb-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+.wb-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    margin: 0 16px;
+}
+.wb-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    color: #059669;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 2px 8px;
+    border-radius: 6px;
+    width: fit-content;
+}
+[data-theme=dark] .wb-badge {
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.25);
+}
+.wb-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+}
+.wb-arrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #10b981;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    transition: var(--tr);
+}
+.btn-workbook-solution:hover .wb-arrow {
+    background: #059669;
+    transform: translateX(-4px);
+}
+@media(max-width: 600px) {
+    .btn-workbook-solution {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+    }
+    .wb-info {
+        margin: 0;
+    }
+    .wb-arrow {
+        align-self: stretch;
+        justify-content: center;
+    }
+}
+
+/* BOOKS HUB HERO CARDS (كتاب الطالب + كتاب النشاط) */
+.books-hub-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 22px 0 26px;
+}
+@media(max-width: 768px) {
+    .books-hub-row {
+        grid-template-columns: 1fr;
+    }
+}
+.book-solution-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    text-decoration: none !important;
+    color: var(--text);
+    transition: all .25s ease;
+    box-shadow: var(--shadow);
+}
+.book-solution-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+.book-solution-card.student-book {
+    border-color: rgba(79, 70, 229, 0.35);
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(99, 102, 241, 0.03));
+}
+.book-solution-card.student-book:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.18);
+}
+.book-solution-card.workbook {
+    border-color: rgba(16, 185, 129, 0.35);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(5, 150, 105, 0.03));
+}
+.book-solution-card.workbook:hover {
+    border-color: #10b981;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.18);
+}
+.bsc-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+.student-book .bsc-icon {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+.workbook .bsc-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+.bsc-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    margin: 0 14px;
+    text-align: right;
+}
+.bsc-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+    width: fit-content;
+}
+.student-book .bsc-badge {
+    background: rgba(79, 70, 229, 0.12);
+    color: var(--primary);
+}
+.workbook .bsc-badge {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+}
+.bsc-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+}
+.bsc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+    transition: var(--tr);
+}
+.student-book .bsc-btn {
+    background: var(--primary);
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25);
+}
+.workbook .bsc-btn {
+    background: #10b981;
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.25);
+}
+</style>
+</head>
+<body>
+
+<div class="conf-wrap" id="conf"></div>
+
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="index.html" class="back-btn-top">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      الرئيسية
+    </a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+    <div class="prog-pill">التقدم: <b id="prog">0%</b></div>
+  </div>
+  <div class="topbar-left">
+    <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" rel="noopener noreferrer" class="top-action-btn yt">🎬 شرح يوتيوب</a>
+    <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7/" target="_blank" rel="noopener noreferrer" class="top-action-btn student">📘 كتاب الطالب</a>
+    <a href="https://www.wajibati.net/35824-2/" target="_blank" rel="noopener noreferrer" class="top-action-btn workbook">📗 كتاب النشاط</a>
+    <a href="unit2-worksheets.html" target="_blank" class="top-action-btn ws">📝 أوراق العمل</a>
+    <a href="unit2-printables.html" target="_blank" class="top-action-btn pr">🖨️ المطبوعات</a>
+    <a href="unit2-presentation.html" target="_blank" class="top-action-btn ppt">💻 العروض</a>
+    <a href="wheel.html" target="_blank" class="top-action-btn wheel">🎯 عجلة الأسماء</a>
+    <a href="report.html" target="_blank" class="top-action-btn rep">📋 تقرير الدرس</a>
+    <button class="theme-btn" id="tbtn" onclick="tgl()" aria-label="تبديل المظهر">🌙</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- SIDEBAR (لشاشات الكومبيوتر) -->
+  <aside class="ls">
+    <div class="ls-hd">محتوى الدرس 1 و 2</div>
+    <div class="toc active" id="t1" onclick="gs('s1')"><div class="toc-n">1</div>التمهيد والتهيئة</div>
+    <div class="toc" id="t2" onclick="gs('s2')"><div class="toc-n">2</div>المحادثة التفاعلية 🔊</div>
+    <div class="toc" id="t3" onclick="gs('s3')"><div class="toc-n">3</div>طابور الملابس (Wear Line) 👕</div>
+    <div class="toc" id="t4" onclick="gs('s4')"><div class="toc-n">4</div>ملابسنا ومفرداتها 🔊</div>
+    <div class="toc" id="t5" onclick="gs('s5')"><div class="toc-n">5</div>الأرقام الترتيبية 🔢</div>
+    <div class="toc" id="t6" onclick="gs('s6')"><div class="toc-n">6</div>الأنشودة التفاعلية 🎵</div>
+    <div class="toc" id="t7" onclick="gs('s7')"><div class="toc-n">7</div>أصوات الحروف (Phonics)</div>
+    <div class="toc" id="t8" onclick="gs('s8')"><div class="toc-n">8</div>لعبة المطابقة</div>
+    <div class="toc" id="t9" onclick="gs('s9')"><div class="toc-n">9</div>🔤 ترتيب الحروف</div>
+    <div class="toc" id="t10" onclick="gs('s10')"><div class="toc-n">10</div>🧠 لعبة الذاكرة</div>
+    <div class="toc" id="t11" onclick="gs('s11')"><div class="toc-n">11</div>🎈 لعبة البالونات</div>
+    <div class="toc" id="t12" onclick="gs('s12')"><div class="toc-n">12</div>🏆 الاختبار النهائي</div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="lc">
+
+    <!-- قائمة الدروس المنسدلة للجوال -->
+    <div class="mobile-nav-container">
+      <span class="mobile-nav-label">انتقل إلى القسم:</span>
+      <select class="mobile-nav-select" id="mobileSelect" onchange="gs(this.value)">
+        <option value="s1">1. التمهيد والتهيئة</option>
+        <option value="s2">2. المحادثة التفاعلية 🔊</option>
+        <option value="s3">3. طابور الملابس (Wear Line) 👕</option>
+        <option value="s4">4. ملابسنا ومفرداتها 🔊</option>
+        <option value="s5">5. الأرقام الترتيبية 🔢</option>
+        <option value="s6">6. الأنشودة التفاعلية 🎵</option>
+        <option value="s7">7. أصوات الحروف (Phonics)</option>
+        <option value="s8">8. لعبة المطابقة</option>
+        <option value="s9">9. 🔤 ترتيب الحروف</option>
+        <option value="s10">10. 🧠 لعبة الذاكرة</option>
+        <option value="s11">11. 🎈 لعبة البالونات</option>
+        <option value="s12">12. 🏆 الاختبار النهائي</option>
+      </select>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hbadge">📚 إنجليزي | الصف الثاني الابتدائي | الفصل الأول</div>
+      <h1>Unit 2: Things We Wear!</h1>
+      <p>مرحباً بك في الدرسين الأول والثاني من الوحدة الثانية! سنتعلم اليوم أسماء الملابس وكيف نسأل عن ملكيتها بالإنجليزية، والأرقام الترتيبية، وننشد أنشودة الملابس الجميلة ونميز الأصوات بشكل صحيح.</p>
+      <div class="hero-stats">
+        <div class="hstat"><span class="v">7</span><span class="l">أقسام تفاعلية</span></div>
+        <div class="hstat"><span class="v">15+</span><span class="l">كلمة وعبارة ناطقة 🔊</span></div>
+        <div class="hstat"><span class="v">4</span><span class="l">ألعاب تعليمية</span></div>
+        <div class="hstat"><span class="v">🏆</span><span class="l">تقييم واختبار</span></div>
+      </div>
+    </div>
+
+    <!-- BOOKS HUB ROW: بطاقات حلول كتاب الطالب وكتاب النشاط المعتمدة -->
+    <div class="books-hub-row">
+      <!-- 1. حل كتاب الطالب -->
+      <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7/" target="_blank" rel="noopener noreferrer" class="book-solution-card student-book" title="فتح حل كتاب الطالب إنجليزي ثاني ابتدائي ف1 على موقع واجباتي">
+        <div class="bsc-icon">📘</div>
+        <div class="bsc-info">
+          <span class="bsc-badge">حل معتمد 💯 • واجباتي</span>
+          <span class="bsc-title">حل كتاب الطالب <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:var(--primary);">(Student's Book)</bdi></span>
+        </div>
+        <div class="bsc-btn">
+          <span>فتح الحلول ↗</span>
+        </div>
+      </a>
+
+      <!-- 2. حل كتاب النشاط -->
+      <a href="https://www.wajibati.net/35824-2/" target="_blank" rel="noopener noreferrer" class="book-solution-card workbook" title="فتح حل كتاب التمارين والنشاط إنجليزي ثاني ابتدائي ف1 على موقع واجباتي">
+        <div class="bsc-icon">📗</div>
+        <div class="bsc-info">
+          <span class="bsc-badge">حل معتمد 💯 • واجباتي</span>
+          <span class="bsc-title">حل كتاب النشاط <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:#059669;">(Workbook)</bdi></span>
+        </div>
+        <div class="bsc-btn">
+          <span>فتح الحلول ↗</span>
+        </div>
+      </a>
+    </div>8A-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7/" target="_blank" rel="noopener noreferrer" class="book-solution-card student-book" title="فتح حل كتاب الطالب إنجليزي ثاني ابتدائي ف1 على موقع واجباتي">
+        <div class="bsc-icon">📘</div>
+        <div class="bsc-info">
+          <span class="bsc-badge">حل معتمد 💯 • واجباتي</span>
+          <span class="bsc-title">حل كتاب الطالب (Student's Book)</span>
+        </div>
+        <div class="bsc-btn">
+          <span>فتح الحلول ↗</span>
+        </div>
+      </a>
+
+      <!-- 2. حل كتاب النشاط -->
+      <a href="https://www.wajibati.net/35824-2/" target="_blank" rel="noopener noreferrer" class="book-solution-card workbook" title="فتح حل كتاب التمارين والنشاط إنجليزي ثاني ابتدائي ف1 على موقع واجباتي">
+        <div class="bsc-icon">📗</div>
+        <div class="bsc-info">
+          <span class="bsc-badge">حل معتمد 💯 • واجباتي</span>
+          <span class="bsc-title">حل كتاب النشاط (Workbook)</span>
+        </div>
+        <div class="bsc-btn">
+          <span>فتح الحلول ↗</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- VIDEO HUB: الشرح المرئي التفاعلي المعتمد للدرس الثاني -->
+    <div class="video-hub-card" id="videoHub">
+      <div class="video-hub-header">
+        <div class="video-hub-title">
+          <div class="video-icon-badge">🎬</div>
+          <div class="video-hub-text">
+            <h3>الشرح المرئي التفاعلي للدرس (Video Lesson)</h3>
+            <p>الصف الثاني الابتدائي • Unit 2: Things We Wear • Talk Time (Pages 10-11)</p>
+          </div>
+        </div>
+        <div class="video-hub-actions">
+          <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" rel="noopener noreferrer" class="btn-yt-external-main" title="فتح الشرح بجودة عالية في YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>تشغيل على YouTube ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- بطاقة العرض التفاعلية الذكية لليوتيوب (Smart Interactive Poster Card) -->
+      <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" rel="noopener noreferrer" class="video-poster-card" id="ytPosterCard" title="انقر لتشغيل شرح الدرس مباشرة بجودة عالية على YouTube">
+        <img class="video-poster-bg" src="https://img.youtube.com/vi/dL5selzbXzg/hqdefault.jpg" alt="غلاف شرح درس إنجليزي ثاني ابتدائي الوحدة الثانية">
+        <div class="video-poster-overlay">
+          <div class="poster-top-bar">
+            <span class="poster-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              شرح معتمد • Unit 2
+            </span>
+            <span class="poster-quality">1080p HD</span>
+          </div>
+
+          <div class="poster-center-play">
+            <div class="poster-play-btn">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <span class="poster-play-hint">انقر هنا لتشغيل الشرح على YouTube 🎬</span>
+          </div>
+
+          <div class="poster-bottom-bar">
+            <div class="poster-lesson-info">
+              <h4>Grade 2 - Unit 2: Things We Wear (Talk Time)</h4>
+              <p>شرح محادثات الملابس، السؤال عن الملكية Whose، ونطق الكلمات وحل التمارين</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- خيار تجربة المشغل المضمن (اختياري) -->
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:8px;">
+        <button class="btn-toggle-embed" onclick="toggleEmbedPlayer()">
+          <span id="embedToggleIcon">⚙️</span>
+          <span id="embedToggleText">تجربة المشغل المدمج داخل الصفحة</span>
+        </button>
+      </div>
+
+      <!-- مشغل الفيديو المتجاوب المدمج داخل الصفحة -->
+      <div class="video-player-container" id="embeddedPlayerBox">
+        <iframe 
+          id="ytPlayerFrame"
+          src="https://www.youtube.com/embed/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- شريط محتويات ومحاور الفيديو التوضيحية -->
+      <div class="video-topics-strip">
+        <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" class="video-topic-pill" style="text-decoration:none;">
+          <span class="dot"></span>
+          <span>👕 1. السؤال عن الملكية: Whose hat is this?</span>
+        </a>
+        <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" class="video-topic-pill" style="text-decoration:none;">
+          <span class="dot"></span>
+          <span>👒 2. الإجابة والتعبير: It's mine. Thank you!</span>
+        </a>
+        <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" class="video-topic-pill" style="text-decoration:none;">
+          <span class="dot"></span>
+          <span>👟 3. ملابس وألوان: Green shoes & blue cap!</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- S1: WARMUP -->
+    <section class="ls-sec" id="s1">
+      <div class="sh"><div class="sico">🎯</div><div><h2>التمهيد والتهيئة – Warm-up</h2><p>دعنا نستعد للدرس بسؤال تمهيدي بسيط!</p></div></div>
+      <div class="warmup-box">
+        <div class="warmup-q">عندما يكون الجو مشمساً وحاراً، ماذا نرتدي على الرأس لحمايتنا؟ (What do we wear on our head when it is sunny?)</div>
+        <div class="warmup-choices" id="warmup-c">
+          <button class="warmup-btn" onclick="chkWarmup(this, 'w')">Shoes 👟</button>
+          <button class="warmup-btn" onclick="chkWarmup(this, 'c')">A Cap 🧢</button>
+          <button class="warmup-btn" onclick="chkWarmup(this, 'w')">Jacket 🧥</button>
+        </div>
+        <div class="fb" id="warmup-fb"></div>
+      </div>
+    </section>
+
+    <!-- S2: TALK TIME -->
+    <section class="ls-sec" id="s2">
+      <div class="sh"><div class="sico">💬</div><div><h2>Talk Time – وقت التحدث</h2><p>اضغط على الفقاعات للاستماع إلى نطق الجمل والعبارات بالإنجليزية للسؤال عن ملكية الملابس!</p></div></div>
+      <div class="dbox">
+        <div class="dhd">💬 محادثة الملكية التفاعلية – Whose is it?</div>
+        <div class="dbody">
+          <div class="dline" onclick="speak('Whose hat is this?')">
+            <div class="sav sa">👦</div>
+            <div class="bub">
+              <div class="ben">Whose hat is this? 🔊</div>
+              <div class="bar">لمن هذه القبعة؟</div>
+            </div>
+          </div>
+          <div class="dline r" onclick="speak('It\'s mine. Thank you!')">
+            <div class="sav sb">👧</div>
+            <div class="bub">
+              <div class="ben">It's mine. Thank you! 🔊</div>
+              <div class="bar">إنها لي (ملكي). شكراً لك!</div>
+            </div>
+          </div>
+          <div class="dline" onclick="speak('Whose T-shirt is this?')">
+            <div class="sav sa">👦</div>
+            <div class="bub">
+              <div class="ben">Whose T-shirt is this? 🔊</div>
+              <div class="bar">لمن هذا القميص؟</div>
+            </div>
+          </div>
+          <div class="dline r" onclick="speak('It\'s not mine. It\'s Ahmad\'s.')">
+            <div class="sav sb">👧</div>
+            <div class="bub">
+              <div class="ben">It's not mine. It's Ahmad's. 🔊</div>
+              <div class="bar">إنه ليس لي. إنه لأحمد.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exc" style="margin-top:24px" id="e1">
+        <div class="exnum">📝 سؤال أثناء الشرح 1</div>
+        <div class="exq">How do you ask: "لمن هذه السترة؟" in English?</div>
+        <div class="cgrid2" id="e1c">
+          <button class="cbtn" onclick="cc(this,'e1','w')">What is this jacket?</button>
+          <button class="cbtn" onclick="cc(this,'e1','c')">Whose jacket is this? 🔊</button>
+          <button class="cbtn" onclick="cc(this,'e1','w')">Is this a jacket?</button>
+          <button class="cbtn" onclick="cc(this,'e1','w')">Who has a jacket?</button>
+        </div>
+        <div class="fb" id="e1f"></div>
+      </div>
+    </section>
+
+    <!-- S3: WEAR LINE GAME -->
+    <section class="ls-sec" id="s3">
+      <div class="sh"><div class="sico">👕</div><div><h2>Wear Line – لعبة طابور الملابس</h2><p>اضغط على الأطفال بالترتيب لتعرف ماذا يرتدون وترتيبهم في الطابور!</p></div></div>
+      <div class="gline-box">
+        <div class="warmup-q">اضغط على كل طالب بالترتيب لسماع الوصف:</div>
+        <div class="gline-arena">
+          <div class="gkid" id="gkid0" onclick="playKid(0)">
+            <div class="gkid-avatar">👦🧢</div>
+            <div class="gkid-label">الأول - 1st (Cap)</div>
+          </div>
+          <div class="gkid" id="gkid1" onclick="playKid(1)">
+            <div class="gkid-avatar">👧👗</div>
+            <div class="gkid-label">الثاني - 2nd (Dress)</div>
+          </div>
+          <div class="gkid" id="gkid2" onclick="playKid(2)">
+            <div class="gkid-avatar">👦👕</div>
+            <div class="gkid-label">الثالث - 3rd (T-shirt)</div>
+          </div>
+          <div class="gkid" id="gkid3" onclick="playKid(3)">
+            <div class="gkid-avatar">👧🧣</div>
+            <div class="gkid-label">الرابع - 4th (Scarf)</div>
+          </div>
+          <div class="gkid" id="gkid4" onclick="playKid(4)">
+            <div class="gkid-avatar">👦👟</div>
+            <div class="gkid-label">الخامس - 5th (Shoes)</div>
+          </div>
+          <div class="gkid" id="gkid5" onclick="playKid(5)">
+            <div class="gkid-avatar">🐼👕</div>
+            <div class="gkid-label">المنتهي - Finished!</div>
+          </div>
+        </div>
+        <div id="gline-bubble" style="font-weight:800; font-size:20px; color:var(--primary); min-height:32px;"></div>
+      </div>
+    </section>
+
+    <!-- S4: CLOTHES VOCAB -->
+    <section class="ls-sec" id="s4">
+      <div class="sh"><div class="sico">🧥</div><div><h2>Clothes Vocab – ملابسنا ومفرداتها</h2><p>اضغط على كل بطاقة ملابس لتتعلم نطقها بالإنجليزية وترجمتها العربية!</p></div></div>
+      <div class="vgrid" id="vg"></div>
+    </section>
+
+    <!-- S5: ORDINAL NUMBERS -->
+    <section class="ls-sec" id="s5">
+      <div class="sh"><div class="sico">🔢</div><div><h2>Ordinal Numbers – الأرقام الترتيبية (1 - 10)</h2><p>اضغط على الأرقام الترتيبية لتستمع إلى نطقها الصحيح باللغة الإنجليزية!</p></div></div>
+      <div class="ogrid" id="og"></div>
+
+      <div class="exc" style="margin-top:28px" id="e4">
+        <div class="exnum">📝 سؤال أثناء الشرح 2</div>
+        <div class="fill-s">The first month of the year is January. <br>What is the second month? It is <input class="binput" id="f1" type="text" placeholder="___" autocomplete="off">. 📅 (January, ...)</div>
+        <div class="fill-s">In the Wear Line, who is wearing shoes? The <input class="binput" id="f2" type="text" placeholder="___" autocomplete="off"> person in the line.</div>
+        <button class="check-btn" onclick="chkFill()">تحقق من الإجابة ✔️</button>
+        <div class="fb" id="e4f"></div>
+      </div>
+    </section>
+
+    <!-- S6: CLOTHES CHANT -->
+    <section class="ls-sec" id="s6">
+      <div class="sh"><div class="sico">🎵</div><div><h2>Chant – أنشودة الملابس التفاعلية</h2><p>أنشودة "Whose is this?" للملابس الجميلة. اضغط على أي شطر لسماعه وتكراره!</p></div></div>
+      <div class="cbox">
+        <div class="cbox-line" onclick="speak('I\'m wearing a cap, T shirt, and pants!')">
+          <div>
+            <div class="cline-en">I'm wearing a cap, T-shirt, and pants! 🔊</div>
+            <div class="cline-ar">أنا أرتدي قبعة، قميصاً، وبنطالاً!</div>
+          </div>
+          <div class="cline-action"><span style="font-size:28px">🧢👕</span></div>
+        </div>
+        <div class="cbox-line" onclick="speak('She\'s wearing a beautiful pink dress!')">
+          <div>
+            <div class="cline-en">She's wearing a beautiful pink dress! 🔊</div>
+            <div class="cline-ar">هي ترتدي فستاناً زهرياً جميلاً!</div>
+          </div>
+          <div class="cline-action"><span style="font-size:28px">👗</span></div>
+        </div>
+        <div class="cbox-line" onclick="speak('Whose hat is this? It\'s mine! Thank you.')">
+          <div>
+            <div class="cline-en">Whose hat is this? It's mine! Thank you. 🔊</div>
+            <div class="cline-ar">لمن هذه القبعة؟ إنها لي! شكراً لك.</div>
+          </div>
+          <div class="cline-action"><span style="font-size:28px">👒</span></div>
+        </div>
+        <div class="cbox-line" onclick="speak('We are all wearing socks and shoes!')">
+          <div>
+            <div class="cline-en">We are all wearing socks and shoes! 🔊</div>
+            <div class="cline-ar">نحن جميعنا نرتدي جوارب وأحذية!</div>
+          </div>
+          <div class="cline-action"><span style="font-size:28px">🧦👟</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S7: PHONICS & SOUNDS -->
+    <section class="ls-sec" id="s7">
+      <div class="sh"><div class="sico">🗣️</div><div><h2>Phonics & Sounds – أصوات الحروف (sh vs sk)</h2><p>استمع للكلمات وانتبه للفرق بين صوت (sh) الممدود وصوت (sk) المرقق:</p></div></div>
+      <div class="pgrid" id="pg"></div>
+    </section>
+
+    <!-- S8: MATCHING -->
+    <section class="ls-sec" id="s8">
+      <div class="sh"><div class="sico">🎯</div><div><h2>Matching Game – لعبة المطابقة</h2><p>طابق كل كلمة ملابس إنجليزية بالترجمة العربية الصحيحة لها.</p></div></div>
+      <div class="exc">
+        <div class="exnum">🎮 اضغط الكلمة الإنجليزية ثم مقابلها العربي</div>
+        <div id="mscore" style="font-weight:800;color:var(--success);margin-bottom:10px;min-height:24px"></div>
+        <div class="match-area">
+          <div><div class="match-ct">🇬🇧 English</div><div id="men"></div></div>
+          <div><div class="match-ct">🇸🇦 Arabic</div><div id="mar"></div></div>
+        </div>
+        <button class="check-btn" style="margin-top:14px" onclick="buildMatch()">🔄 إعادة اللعبة</button>
+      </div>
+    </section>
+
+    <!-- S9: WORD SCRAMBLE -->
+    <section class="ls-sec" id="s9">
+      <div class="sh"><div class="sico">🔤</div><div><h2>Word Scramble – ترتيب الحروف</h2><p>رتّب الحروف لتكوين الكلمة الصحيحة للملابس أو الأصوات!</p></div></div>
+      <div class="exc">
+        <div class="scr-progress" id="scr-prog">كلمة 1 / 8</div>
+        <div class="scramble-hint" id="scr-hint">👕</div>
+        <div class="scramble-hint-ar" id="scr-hint-ar">قميص</div>
+        <div class="answer-slots" id="scr-answer"></div>
+        <div class="letter-tiles" id="scr-tiles"></div>
+        <div class="fb" id="scr-fb"></div>
+        <div class="scramble-controls">
+          <button class="scr-btn scr-spk" onclick="spkScramble()">🔊 نطق الكلمة</button>
+          <button class="scr-btn scr-check" onclick="checkScramble()">تحقق ✔️</button>
+          <button class="scr-btn scr-skip" onclick="nextScramble()">التالي ⏭️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- S10: MEMORY GAME -->
+    <section class="ls-sec" id="s10">
+      <div class="sh"><div class="sico">🧠</div><div><h2>Memory Game – لعبة الذاكرة</h2><p>طابق كل كلمة إنجليزية برمزها التعبيري لتنشيط ذاكرتك!</p></div></div>
+      <div class="exc">
+        <div class="mem-stats">
+          <div>المحاولات: <span class="mem-stat-val" id="mem-tries">0</span></div>
+          <div>الأزواج: <span class="mem-stat-val" id="mem-pairs">0</span> / 6</div>
+        </div>
+        <div class="mem-grid" id="mem-grid"></div>
+        <div style="text-align:center;margin-top:16px">
+          <button class="check-btn" onclick="buildMemory()">🔄 إعادة اللعبة</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- S11: BALLOON GAME -->
+    <section class="ls-sec" id="s11">
+      <div class="sh"><div class="sico">🎈</div><div><h2>Balloon Pop – لعبة البالونات</h2><p>اضغط وفرقع البالون الذي يحتوي على الكلمة أو الإجابة الصحيحة!</p></div></div>
+      <div class="exc">
+        <div class="balloon-score">
+          <div>النقاط: <span class="bscore-val" id="bscore">0</span></div>
+          <div>الجولة: <span class="bscore-val" id="bround">1</span> / 8</div>
+        </div>
+        <div class="balloon-q" id="balloon-q">
+          <div class="balloon-q-text" id="balloon-q-text">اضغط ابدأ للعب</div>
+          <div class="balloon-q-ar" id="balloon-q-ar">ابحث عن الإجابة في البالونات المرتفعة</div>
+        </div>
+        <div class="balloon-arena" id="balloon-arena"></div>
+        <div style="text-align:center;margin-top:14px;display:flex;gap:12px;justify-content:center">
+          <button class="check-btn" onclick="startBalloon()">🎈 ابدأ اللعبة</button>
+          <button class="check-btn" style="background:var(--text-muted)" onclick="startBalloon()">🔄 إعادة</button>
+        </div>
+        <div class="fb" id="balloon-fb"></div>
+      </div>
+    </section>
+
+    <!-- S12: QUIZ -->
+    <section class="ls-sec" id="s12">
+      <div class="qsec">
+        <h2>🏆 الاختبار النهائي – Post-lesson Quiz</h2>
+        <p>اختبر ما تعلمته في درسي اليوم – 5 أسئلة متنوعة حول الملابس والملكيات والترتيب</p>
+        <div id="qstart" style="text-align:center"><button class="q-start-btn" onclick="startQ()">ابدأ الاختبار 🚀</button></div>
+        <div id="qqs" style="display:none"></div>
+        <div id="qsub" style="display:none;text-align:center;margin-top:20px"><button class="q-sub-btn" onclick="submitQ()">عرض النتيجة 📊</button></div>
+        <div class="qresult" id="qres">
+          <div class="score-c" id="scircle" style="--pct:0deg"><div class="score-i"><span class="score-pct" id="snum">0%</span><span class="score-lbl">النتيجة</span></div></div>
+          <div id="smsg" style="font-size:24px;font-weight:900;margin-bottom:6px"></div>
+          <div id="ssub" style="opacity:.65;margin-bottom:22px"></div>
+          <button class="q-retry-btn" onclick="retryQ()">🔄 إعادة الاختبار</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta">
+      <span class="cta-e">🎉</span>
+      <div class="cta-t">رائع! لقد أتممت الوحدة الثانية بنجاح!</div>
+      <div class="cta-p">واصل رحلتك التعليمية الممتعة وتعرف على وحدات ودروس أخرى.</div>
+      <a href="index.html" class="cta-btn">العودة لمنصة التعلم الذكي <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+/* THEME MANAGEMENT */
+(function(){
+    const s = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', s);
+    document.getElementById('tbtn').textContent = s === 'dark' ? '☀️' : '🌙';
+})();
+function tgl(){
+    const c = document.documentElement.getAttribute('data-theme'),
+          n = c === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+    localStorage.setItem('theme', n);
+    document.getElementById('tbtn').textContent = n === 'dark' ? '☀️' : '🌙';
+}
+
+/* TOC SCROLL SPY & LINK DROPVAL */
+function gs(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+    const mobileSelect = document.getElementById('mobileSelect');
+    if(mobileSelect) mobileSelect.value = id;
+}
+const obs = new IntersectionObserver(es => {
+    es.forEach(e => {
+        if(e.isIntersecting){
+            const n = e.target.id.replace('s','');
+            document.querySelectorAll('.toc').forEach(t => t.classList.remove('active'));
+            const t = document.getElementById('t'+n);
+            if(t) t.classList.add('active');
+            
+            const mobileSelect = document.getElementById('mobileSelect');
+            if(mobileSelect) mobileSelect.value = 's' + n;
+        }
+    });
+}, {rootMargin: '-20% 0px -70% 0px'});
+for(let i=1; i<=12; i++){
+    const el = document.getElementById('s'+i);
+    if(el) obs.observe(el);
+}
+
+/* PROGRESS TRACKING */
+const done = new Set();
+const TOT = 12;
+function mark(id){
+    done.add(id);
+    const p = Math.round(done.size / TOT * 100);
+    document.getElementById('prog').textContent = p + '%';
+    const t = document.getElementById('t'+id);
+    if(t){
+        t.classList.add('done');
+        t.classList.remove('active');
+    }
+}
+
+/* PREVENT VOICE INTERFERENCE */
+function speak(txt, rate = 0.8) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    setTimeout(() => {
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'en-US';
+        u.rate = rate;
+        window.speechSynthesis.speak(u);
+    }, 50);
+}
+
+/* WARMUP HANDLER */
+function chkWarmup(btn, res) {
+    const parent = document.getElementById('warmup-c');
+    const fb = document.getElementById('warmup-fb');
+    parent.querySelectorAll('.warmup-btn').forEach(b => b.disabled = true);
+    if(res === 'c') {
+        btn.classList.add('correct');
+        fb.className = 'fb correct show';
+        fb.innerHTML = '✅ إجابة رائعة وصحيحة! نرتدي على الرأس في الشمس: A Cap 🧢';
+        conf();
+        mark(1);
+    } else {
+        btn.classList.add('wrong');
+        fb.className = 'fb wrong show';
+        fb.innerHTML = '❌ الإجابة الصحيحة هي القبعة لحماية الرأس: A Cap 🧢';
+        parent.querySelectorAll('.warmup-btn').forEach(b => {
+            if(b.textContent.includes("Cap")) b.classList.add('correct');
+        });
+    }
+}
+
+/* WEAR LINE GAME */
+const kidTexts = [
+    "I'm first. I'm wearing a cap!",
+    "I'm second. I'm wearing a dress!",
+    "I'm third. I'm wearing a T-shirt!",
+    "I'm fourth. I'm wearing a scarf!",
+    "I'm fifth. I'm wearing shoes!",
+    "I'm finished describing my clothes!"
+];
+const kidArTexts = [
+    "أنا الأول، وأرتدي قبعة!",
+    "أنا الثاني، وأرتدي فستاناً!",
+    "أنا الثالث، وأرتدي قميصاً!",
+    "أنا الرابع، وأرتدي وشاحاً!",
+    "أنا الخامس، وأرتدي حذاءً رياضياً!",
+    "لقد انتهيت من وصف ملابسي!"
+];
+let lastPlayedKid = -1;
+function playKid(idx) {
+    speak(kidTexts[idx]);
+    document.querySelectorAll('.gkid').forEach(k => k.classList.remove('active-kid'));
+    document.getElementById('gkid'+idx).classList.add('active-kid');
+    document.getElementById('gline-bubble').innerHTML = `💬 English: "${kidTexts[idx]}" <br> <span style="font-size:16px; color:var(--text-muted)">العربية: "${kidArTexts[idx]}"</span>`;
+    
+    if (idx === lastPlayedKid + 1) {
+        lastPlayedKid = idx;
+        if(idx === 5) {
+            conf();
+            mark(3);
+        }
+    } else {
+        lastPlayedKid = (idx === 0) ? 0 : -1;
+    }
+}
+
+/* CLOTHES VOCABULARY CARD POPULATION */
+const vocab = [
+    {e:'🧢', en:'Cap', ar:'قبعة'},
+    {e:'👕', en:'T-shirt', ar:'قميص صيفي'},
+    {e:'🧥', en:'Jacket', ar:'سترة / جاكيت'},
+    {e:'👖', en:'Pants', ar:'بنطال'},
+    {e:'🧦', en:'Socks', ar:'جوارب'},
+    {e:'👟', en:'Shoes', ar:'حذاء رياضية'},
+    {e:'👗', en:'Dress', ar:'فستان'},
+    {e:'🧣', en:'Scarf', ar:'وشاح'}
+];
+const vg = document.getElementById('vg');
+vocab.forEach((v, index) => {
+    const c = document.createElement('div');
+    c.className = 'vcard';
+    c.innerHTML = `<span class="vemo">${v.e}</span><div class="ven">${v.en}</div><div class="var">${v.ar}</div><button class="spk" onclick="event.stopPropagation();speak('${v.en}')">🔊</button>`;
+    c.addEventListener('click', () => {
+        c.classList.toggle('flip');
+        speak(v.en);
+        if(index === vocab.length - 1) mark(4);
+    });
+    vg.appendChild(c);
+});
+
+/* ORDINAL NUMBERS POPULATION */
+const ords = [
+    {num:'1st', w:'First', ar:'الأول'},
+    {num:'2nd', w:'Second', ar:'الثاني'},
+    {num:'3rd', w:'Third', ar:'الثالث'},
+    {num:'4th', w:'Fourth', ar:'الرابع'},
+    {num:'5th', w:'Fifth', ar:'الخامس'},
+    {num:'6th', w:'Sixth', ar:'السادس'},
+    {num:'7th', w:'Seventh', ar:'السابع'},
+    {num:'8th', w:'Eighth', ar:'الثامن'},
+    {num:'9th', w:'Ninth', ar:'التاسع'},
+    {num:'10th', w:'Tenth', ar:'العاشر'}
+];
+const og = document.getElementById('og');
+ords.forEach((o, index) => {
+    const d = document.createElement('div');
+    d.className = 'ocard';
+    d.innerHTML = `<span class="onum">${o.num}</span><span class="oword">${o.w}</span><span class="oar">${o.ar}</span>`;
+    d.addEventListener('click', () => {
+        speak(o.w);
+        document.querySelectorAll('.ocard').forEach(oc => oc.classList.remove('active-ord'));
+        d.classList.add('active-ord');
+        if(index === ords.length - 1) mark(5);
+    });
+    og.appendChild(d);
+});
+
+/* ORDINAL QUESTIONS HANDLER */
+function chkFill() {
+    const f1 = document.getElementById('f1'),
+          f2 = document.getElementById('f2'),
+          fb = document.getElementById('e4f');
+    const a1 = f1.value.trim().toLowerCase(),
+          a2 = f2.value.trim().toLowerCase();
+    
+    const o1 = a1 === 'february' || a1 === '2nd',
+          o2 = a2 === 'fifth' || a2 === '5th';
+          
+    f1.className = 'binput ' + (o1 ? 'correct' : 'wrong');
+    f2.className = 'binput ' + (o2 ? 'correct' : 'wrong');
+    
+    if (o1 && o2) {
+        fb.className = 'fb correct show';
+        fb.innerHTML = '✅ ممتاز جداً! الإجابات صحيحة (February / fifth) 🌟';
+        mark(5);
+        conf();
+    } else {
+        fb.className = 'fb wrong show';
+        let h = '';
+        if(!o1) h += '• الشهر الثاني في السنة هو شهر فبراير: February <br>';
+        if(!o2) h += '• الشخص الذي يرتدي الحذاء هو الخامس: fifth';
+        fb.innerHTML = '❌ راجع إجابتك وجرب مرة أخرى:<br>' + h;
+    }
+}
+
+/* PHONICS & SOUNDS POPULATION (sh vs sk) */
+const phonics = [
+    {e:'👕', word:'shirt', ar:'قميص', p:'sh'},
+    {e:'👗', word:'skirt', ar:'تنورة', p:'sk'},
+    {e:'👟', word:'shoes', ar:'حذاء', p:'sh'},
+    {e:'🐑', word:'sheep', ar:'خروف', p:'sh'}
+];
+const pg = document.getElementById('pg');
+phonics.forEach((p, index) => {
+    const d = document.createElement('div');
+    d.className = 'pcard';
+    d.innerHTML = `<span class="pimg">${p.e}</span><div class="pword"><span>${p.p}</span>${p.word.slice(p.p.length)}</div><div class="par">${p.ar}</div>`;
+    d.addEventListener('click', () => {
+        speak(p.word);
+        if(index === phonics.length - 1) mark(7);
+    });
+    pg.appendChild(d);
+});
+
+/* DIALOGUE & CHECK EXERCISE */
+function cc(btn, id, r) {
+    const cs = document.getElementById(id+'c');
+    const fb = document.getElementById(id+'f');
+    cs.querySelectorAll('.cbtn').forEach(b => b.disabled = true);
+    if (r === 'c') {
+        btn.classList.add('correct');
+        fb.className = 'fb correct show';
+        fb.innerHTML = '✅ صواب! للسؤال عن ملكية الملابس نستخدم: Whose jacket is this? 🎉';
+        mark(2);
+        conf();
+    } else {
+        btn.classList.add('wrong');
+        fb.className = 'fb wrong show';
+        fb.innerHTML = '❌ حاول مرة أخرى. الجواب الصحيح مميز بالأخضر.';
+        cs.querySelectorAll('.cbtn').forEach(b => {
+            if(b.getAttribute('onclick').includes("'c'")) b.classList.add('correct');
+        });
+    }
+}
+
+/* ============ MATCHING GAME ============ */
+const md = [
+    {en:'Cap', ar:'قبعة'},
+    {en:'Jacket', ar:'جاكيت'},
+    {en:'Shoes', ar:'حذاء'},
+    {en:'Dress', ar:'فستان'},
+    {en:'Socks', ar:'جوارب'},
+    {en:'Scarf', ar:'وشاح'}
+];
+let selM = null, mOk = 0;
+function buildMatch(){
+    const me = document.getElementById('men'),
+          ma = document.getElementById('mar'),
+          ms = document.getElementById('mscore');
+    me.innerHTML = ''; ma.innerHTML = ''; ms.textContent = '';
+    selM = null; mOk = 0;
+    const sh = [...md].sort(() => Math.random() - .5);
+    md.forEach(x => {
+        const d = document.createElement('div');
+        d.className = 'mitem';
+        d.dataset.k = x.en;
+        d.innerHTML = `🇬🇧 ${x.en}`;
+        d.addEventListener('click', () => onM(d));
+        me.appendChild(d);
+    });
+    sh.forEach(x => {
+        const d = document.createElement('div');
+        d.className = 'mitem';
+        d.dataset.k = x.en;
+        d.innerHTML = `🇸🇦 ${x.ar}`;
+        d.addEventListener('click', () => onM(d));
+        ma.appendChild(d);
+    });
+}
+function onM(el){
+    if(el.classList.contains('matched')) return;
+    if(!selM){
+        selM = el;
+        el.classList.add('selected');
+    } else {
+        if(selM === el){
+            selM.classList.remove('selected');
+            selM = null;
+            return;
+        }
+        if(selM.dataset.k === el.dataset.k){
+            selM.classList.remove('selected');
+            selM.classList.add('matched');
+            el.classList.add('matched');
+            mOk++;
+            document.getElementById('mscore').textContent = `✅ صواب! ${mOk} / ${md.length}`;
+            selM = null;
+            if(mOk === md.length){
+                document.getElementById('mscore').textContent = '🏆 أحسنت! أكملت لعبة المطابقة بنجاح!';
+                mark(8);
+                conf();
+            }
+        } else {
+            el.classList.add('wrong');
+            selM.classList.add('wrong');
+            setTimeout(() => {
+                el.classList.remove('wrong');
+                selM.classList.remove('selected', 'wrong');
+                selM = null;
+            }, 800);
+        }
+    }
+}
+buildMatch();
+
+/* ============ WORD SCRAMBLE ============ */
+const scrWords = [
+    {word:'CAP', hint:'🧢', ar:'قبعة'},
+    {word:'JACKET', hint:'🧥', ar:'سترة / جاكيت'},
+    {word:'SHOES', hint:'👟', ar:'حذاء رياضي'},
+    {word:'DRESS', hint:'👗', ar:'فستان'},
+    {word:'PANTS', hint:'👖', ar:'بنطال'},
+    {word:'SOCKS', hint:'🧦', ar:'جوارب'},
+    {word:'SCARF', hint:'🧣', ar:'وشاح'},
+    {word:'SHIRT', hint:'👕', ar:'قميص'}
+];
+let scrIdx = 0, scrAnswer = [], scrUsed = [];
+function loadScramble(){
+    const w = scrWords[scrIdx];
+    const letters = w.word.split('').sort(() => Math.random() - .5);
+    scrAnswer = new Array(w.word.length).fill(null);
+    scrUsed = new Array(w.word.length).fill(false);
+    document.getElementById('scr-hint').textContent = w.hint;
+    document.getElementById('scr-hint-ar').textContent = w.ar;
+    document.getElementById('scr-prog').textContent = `كلمة ${scrIdx+1} / ${scrWords.length}`;
+    document.getElementById('scr-fb').className = 'fb';
+    const ans = document.getElementById('scr-answer');
+    ans.innerHTML = '';
+    for(let i=0; i<w.word.length; i++){
+        const sl = document.createElement('div');
+        sl.className = 'aslot';
+        sl.dataset.idx = i;
+        sl.addEventListener('click', () => removeFromSlot(i));
+        ans.appendChild(sl);
+    }
+    const tiles = document.getElementById('scr-tiles');
+    tiles.innerHTML = '';
+    letters.forEach((l, i) => {
+        const t = document.createElement('div');
+        t.className = 'ltile';
+        t.textContent = l;
+        t.dataset.tileIdx = i;
+        t.addEventListener('click', () => addToSlot(i, l));
+        tiles.appendChild(t);
+    });
+}
+function addToSlot(tileIdx, letter){
+    if(scrUsed[tileIdx]) return;
+    const emptySlot = scrAnswer.findIndex(s => s === null);
+    if(emptySlot === -1) return;
+    scrAnswer[emptySlot] = letter;
+    scrUsed[tileIdx] = true;
+    const tileEl = document.querySelector(`.ltile[data-tile-idx="${tileIdx}"]`);
+    if(tileEl) tileEl.classList.add('used');
+    updateSlots();
+}
+function removeFromSlot(slotIdx){
+    if(scrAnswer[slotIdx] === null) return;
+    const letter = scrAnswer[slotIdx];
+    scrAnswer[slotIdx] = null;
+    const tiles = document.querySelectorAll('.ltile');
+    for(const t of tiles){
+        if(t.classList.contains('used') && t.textContent === letter && scrUsed[t.dataset.tileIdx]){
+            scrUsed[t.dataset.tileIdx] = false;
+            t.classList.remove('used');
+            break;
+        }
+    }
+    updateSlots();
+}
+function updateSlots(){
+    const slots = document.querySelectorAll('.aslot');
+    slots.forEach((sl, i) => {
+        sl.textContent = scrAnswer[i] || '';
+        sl.classList.toggle('correct-slot', scrAnswer[i] !== null);
+    });
+}
+function checkScramble(){
+    const w = scrWords[scrIdx].word;
+    const ans = scrAnswer.join('');
+    const fb = document.getElementById('scr-fb');
+    if(ans.length < w.length){
+        fb.className = 'fb wrong show';
+        fb.innerHTML = '❌ رتّب جميع الحروف لتكمل الكلمة أولاً!';
+        return;
+    }
+    if(ans === w){
+        fb.className = 'fb correct show';
+        fb.innerHTML = `✅ ممتاز! الكلمة الصحيحة هي: <b>${w}</b> 🎉`;
+        speak(w);
+        conf();
+        mark(9);
+        setTimeout(() => nextScramble(), 1800);
+    } else {
+        fb.className = 'fb wrong show';
+        fb.innerHTML = `❌ الترتيب غير صحيح. حاول مرة أخرى!`;
+    }
+}
+function nextScramble(){
+    scrIdx = (scrIdx + 1) % scrWords.length;
+    loadScramble();
+}
+function spkScramble(){
+    speak(scrWords[scrIdx].word);
+}
+loadScramble();
+
+/* ============ MEMORY GAME ============ */
+const memPairs = [
+    {en:'Cap', ar:'🧢'},
+    {en:'Jacket', ar:'🧥'},
+    {en:'Shoes', ar:'👟'},
+    {en:'Dress', ar:'👗'},
+    {en:'Pants', ar:'👖'},
+    {en:'Scarf', ar:'🧣'}
+];
+let memCards = [], memFlipped = [], memLocked = false, memTries = 0, memMatched = 0;
+function buildMemory(){
+    memCards = []; memFlipped = []; memLocked = false; memTries = 0; memMatched = 0;
+    document.getElementById('mem-tries').textContent = '0';
+    document.getElementById('mem-pairs').textContent = '0';
+    const grid = document.getElementById('mem-grid');
+    grid.innerHTML = '';
+    const pairs = [];
+    memPairs.forEach((p, i) => {
+        pairs.push({id:i, side:'en', text:p.en, match:i});
+        pairs.push({id:i+100, side:'ar', text:p.ar, match:i});
+    });
+    pairs.sort(() => Math.random() - .5);
+    pairs.forEach((p, i) => {
+        const card = document.createElement('div');
+        card.className = 'mem-card';
+        card.dataset.match = p.match;
+        card.dataset.side = p.side;
+        card.dataset.cardId = i;
+        card.innerHTML = `<div class="mem-inner"><div class="mem-front">❓</div><div class="mem-back" style="font-size:${p.side==='ar'?'40px':'18px'}">${p.text}</div></div>`;
+        card.addEventListener('click', () => flipMem(card, p));
+        grid.appendChild(card);
+        memCards.push(card);
+    });
+}
+function flipMem(card, p){
+    if(memLocked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    card.classList.add('flipped');
+    if(p.side === 'en') speak(p.text);
+    memFlipped.push({card, p});
+    if(memFlipped.length === 2){
+        memLocked = true; memTries++;
+        document.getElementById('mem-tries').textContent = memTries;
+        const [a, b] = memFlipped;
+        if(a.p.match === b.p.match && a.p.side !== b.p.side){
+            a.card.classList.add('matched');
+            b.card.classList.add('matched');
+            memMatched++;
+            document.getElementById('mem-pairs').textContent = memMatched;
+            memFlipped = []; memLocked = false;
+            if(memMatched === memPairs.length){
+                conf();
+                mark(10);
+            }
+        } else {
+            setTimeout(() => {
+                a.card.classList.remove('flipped');
+                b.card.classList.remove('flipped');
+                memFlipped = []; memLocked = false;
+            }, 1000);
+        }
+    }
+}
+buildMemory();
+
+/* ============ BALLOON GAME ============ */
+const balloonQs = [
+    {q:'How do you ask "لمن هذا القميص؟"', ar:'اختر السؤال المناسب للملكية', ans:'Whose T-shirt is this?', opts:['Whose T-shirt is this?', 'What T-shirt is this?', 'Is this T-shirt?', 'Where is T-shirt?'], em:'💬'},
+    {q:'What does 🧥 mean?', ar:'ماذا يعني هذا الرمز؟', ans:'Jacket', opts:['Cap', 'Jacket', 'Dress', 'Pants'], em:'🧥'},
+    {q:'What comes after Third (3rd)?', ar:'ما الرقم الترتيبي الذي يأتي بعد الثالث؟', ans:'Fourth', opts:['Second', 'Fourth', 'Fifth', 'First'], em:'🔢'},
+    {q:'Which word starts with "sh" and means 👟?', ar:'ما الكلمة التي تبدأ بـ sh وتناسب الرمز؟', ans:'shoes', opts:['skirt', 'shirt', 'shoes', 'sheep'], em:'👟'},
+    {q:'Which word starts with "sk" and means 👗 (skirt)?', ar:'ما الكلمة التي تبدأ بـ sk وتعني تنورة؟', ans:'skirt', opts:['skirt', 'shirt', 'shoes', 'sheep'], em:'👗'},
+    {q:'What does 🧣 mean?', ar:'ماذا يعني هذا الرمز؟', ans:'Scarf', opts:['Cap', 'Scarf', 'Dress', 'Socks'], em:'🧣'},
+    {q:'This hat is ___ (لي/ملكي).', ar:'أكمل الفراغ للتعبير عن ملكيتك للقبعة', ans:'mine', opts:['me', 'mine', 'my', 'I'], em:'👒'},
+    {q:'Who comes first in the Wear Line?', ar:'من هو الأول في طابور الملابس؟', ans:'Cap 👦', opts:['Dress 👧', 'Cap 👦', 'Shoes 👦', 'Scarf 👧'], em:'🚶‍♂️'}
+];
+const balloonColors = ['#4f46e5', '#10b981', '#f43f5e', '#64748b', '#6366f1', '#0f172a', '#1e293b', '#4f46e5'];
+let bScore = 0, bRound = 0, bTimer = null, bBalloons = [];
+function startBalloon(){
+    bScore = 0; bRound = 0; clearBalloons();
+    document.getElementById('bscore').textContent = '0';
+    document.getElementById('balloon-fb').className = 'fb';
+    nextBalloonRound();
+}
+function clearBalloons(){
+    if(bTimer) clearInterval(bTimer);
+    const arena = document.getElementById('balloon-arena');
+    arena.innerHTML = '';
+    bBalloons = [];
+}
+function nextBalloonRound(){
+    if(bRound >= balloonQs.length){
+        document.getElementById('balloon-q-text').textContent = '🏆 انتهت لعبة البالونات!';
+        document.getElementById('balloon-q-ar').textContent = `نقاطك المحققة: ${bScore} من أصل ${balloonQs.length}`;
+        clearBalloons();
+        if(bScore >= 6) conf();
+        mark(11);
+        return;
+    }
+    const q = balloonQs[bRound];
+    document.getElementById('balloon-q-text').textContent = `${q.em} ${q.q}`;
+    document.getElementById('balloon-q-ar').textContent = q.ar;
+    document.getElementById('bround').textContent = bRound + 1;
+    clearBalloons();
+    const arena = document.getElementById('balloon-arena');
+    const opts = [...q.opts].sort(() => Math.random() - .5);
+    opts.forEach((opt, i) => {
+        const bal = document.createElement('div');
+        bal.className = 'balloon';
+        const dur = 6 + Math.random() * 4;
+        bal.style.cssText = `left:${8 + i * 22}%; --dur:${dur}s; animation-delay:${i * 0.3}s`;
+        const color = balloonColors[i % balloonColors.length];
+        bal.innerHTML = `<div class="balloon-body" style="background:${color}">${opt}</div><div class="balloon-string"></div>`;
+        bal.addEventListener('click', () => popBalloon(bal, opt, q.ans));
+        arena.appendChild(bal);
+        bBalloons.push(bal);
+    });
+}
+function popBalloon(el, chosen, correct){
+    el.classList.add('pop');
+    const fb = document.getElementById('balloon-fb');
+    if(chosen === correct){
+        bScore++;
+        document.getElementById('bscore').textContent = bScore;
+        fb.className = 'fb correct show';
+        fb.innerHTML = '🎉 إجابة صحيحة! فرقعة رائعة!';
+        speak('Correct!');
+    } else {
+        fb.className = 'fb wrong show';
+        fb.innerHTML = `❌ الإجابة الصحيحة هي: <b>${correct}</b>`;
+        speak('Incorrect!');
+    }
+    bRound++;
+    setTimeout(() => {
+        fb.className = 'fb';
+        nextBalloonRound();
+    }, 1400);
+}
+
+/* ============ POST-LESSON FINAL QUIZ ============ */
+const qs = [
+    {
+        q: 'To ask about clothes ownership, we say: "____ hat is this?"',
+        opts: ['Who', 'Whose', 'What', 'Where'],
+        a: 1,
+        em: '🤝'
+    },
+    {
+        q: 'Which word starts with the sound "sh" and means clothes we wear on our feet?',
+        opts: ['shirt', 'skirt', 'shoes', 'sheep'],
+        a: 2,
+        em: '👟'
+    },
+    {
+        q: 'What is the correct reply to: "Whose T-shirt is this?" if it belongs to you?',
+        opts: ['It\'s mine.', 'It\'s not mine.', 'Thank you.', 'It\'s second.'],
+        a: 0,
+        em: '👕'
+    },
+    {
+        q: 'What is the 3rd (third) month of the year?',
+        opts: ['January', 'February', 'March', 'April'],
+        a: 2,
+        em: '📅'
+    },
+    {
+        q: 'Which word starts with "sk"?',
+        opts: ['shirt', 'skirt', 'shoes', 'sheep'],
+        a: 1,
+        em: '🗣️'
+    }
+];
+let qAns = [], qActive = false;
+function startQ(){
+    qActive = true;
+    qAns = new Array(qs.length).fill(null);
+    document.getElementById('qstart').style.display = 'none';
+    document.getElementById('qres').classList.remove('show');
+    const qc = document.getElementById('qqs');
+    qc.innerHTML = '';
+    qc.style.display = 'block';
+    qs.forEach((q, i) => {
+        const d = document.createElement('div');
+        d.className = 'qq';
+        d.id = 'qq' + i;
+        const chs = q.opts.map((o, j) => `<button class="qcbtn" id="qc${i}_${j}" onclick="sa(${i},${j})">${o}</button>`).join('');
+        d.innerHTML = `<div class="qq-t"><span>${q.em}</span><span>سؤال ${i+1}: ${q.q}</span></div><div class="qchoices">${chs}</div>`;
+        qc.appendChild(d);
+    });
+    document.getElementById('qsub').style.display = 'block';
+}
+function sa(i, j){
+    qAns[i] = j;
+    qs[i].opts.forEach((_, k) => {
+        const b = document.getElementById('qc'+i+'_'+k);
+        b.className = 'qcbtn';
+    });
+    document.getElementById('qc'+i+'_'+j).classList.add('sel');
+}
+function submitQ(){
+    if (qAns.includes(null)) {
+        alert("يرجى الإجابة على جميع الأسئلة أولاً قبل عرض النتيجة!");
+        return;
+    }
+    let sc = 0;
+    qs.forEach((q, i) => {
+        const ci = q.a, ui = qAns[i];
+        qs[i].opts.forEach((_, k) => {
+            const b = document.getElementById('qc'+i+'_'+k);
+            b.disabled = true;
+            b.className = 'qcbtn';
+        });
+        if(ui === ci){
+            document.getElementById('qc'+i+'_'+ui).classList.add('correct');
+            sc++;
+        } else {
+            if(ui !== null) document.getElementById('qc'+i+'_'+ui).classList.add('wrong');
+            document.getElementById('qc'+i+'_'+ci).classList.add('correct');
+        }
+    });
+    const p = Math.round(sc / qs.length * 100),
+          d = Math.round(p / 100 * 360);
+    document.getElementById('qsub').style.display = 'none';
+    const r = document.getElementById('qres');
+    r.classList.add('show');
+    document.getElementById('snum').textContent = p + '%';
+    document.getElementById('scircle').style.setProperty('--pct', d + 'deg');
+    let msg = '', sub = '';
+    if(p === 100){
+        msg = '🏆 ممتاز! نتيجة كاملة ومثالية!';
+        sub = 'لقد فهمت درس الملابس والملكيات والترتيب بشكل رائع جداً!';
+        conf();
+    } else if(p >= 80){
+        msg = '🌟 ممتاز! إجابات صحيحة شبه كاملة!';
+        sub = `أجبت بشكل صحيح على ${sc} من ${qs.length} أسئلة.`;
+        conf();
+    } else if(p >= 60){
+        msg = '👍 جيد جداً! يمكنك المراجعة للحصول على درجة كاملة.';
+        sub = `أجبت بشكل صحيح على ${sc} من ${qs.length} أسئلة.`;
+    } else {
+        msg = '📖 راجع محتوى الملابس والملكيات ثم أعد الاختبار للتحسن.';
+        sub = `أجبت بشكل صحيح على ${sc} من ${qs.length} أسئلة.`;
+    }
+    document.getElementById('smsg').textContent = msg;
+    document.getElementById('ssub').textContent = sub;
+    mark(12);
+}
+function retryQ(){
+    document.getElementById('qqs').style.display = 'none';
+    document.getElementById('qqs').innerHTML = '';
+    document.getElementById('qres').classList.remove('show');
+    document.getElementById('qsub').style.display = 'none';
+    document.getElementById('qstart').style.display = 'block';
+}
+
+/* CONFETTI SYSTEM */
+function conf(){
+    const w = document.getElementById('conf'),
+          cs = ['#4f46e5','#10b981','#f43f5e','#64748b','#6366f1','#0f172a','#1e293b'];
+    for(let i=0; i<65; i++){
+        const p = document.createElement('div');
+        p.className = 'cp';
+        p.style.cssText = `left:${Math.random()*100}%; top:${-20+Math.random()*-50}px; background:${cs[Math.floor(Math.random()*cs.length)]}; animation-delay:${Math.random()*1.5}s; animation-duration:${2+Math.random()*2}s; border-radius:${Math.random()>.5?'50%':'2px'}`;
+        w.appendChild(p);
+    }
+    setTimeout(() => w.innerHTML = '', 5000);
+}
+
+/* TOGGLE EMBEDDED IFRAME PLAYER */
+function toggleEmbedPlayer() {
+    const box = document.getElementById('embeddedPlayerBox');
+    const txt = document.getElementById('embedToggleText');
+    const icon = document.getElementById('embedToggleIcon');
+    if (!box) return;
+    if (box.style.display === 'block') {
+        box.style.display = 'none';
+        txt.textContent = 'تجربة المشغل المدمج داخل الصفحة';
+        icon.textContent = '⚙️';
+    } else {
+        box.style.display = 'block';
+        txt.textContent = 'إخفاء المشغل المدمج';
+        icon.textContent = '✖️';
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+</script>
+</body>
+</html>

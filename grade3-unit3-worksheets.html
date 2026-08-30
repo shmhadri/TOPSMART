@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - الوحدة 3: Sports and Activities | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* TOPBAR */
+.topbar {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+[data-theme=dark] .topbar {
+    background: var(--bg-card);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+
+/* TABS NAVIGATION */
+.tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+.tab-btn {
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* CONTAINER */
+.sheet-container {
+    max-width: 850px;
+    margin: 0 auto 30px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+/* WORKSHEET STYLING */
+.ws-header {
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.ws-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.ws-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.student-info-table {
+    width: 100%;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+}
+.student-info-table td {
+    padding: 8px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.question-block {
+    margin-bottom: 30px;
+}
+.q-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.input-text {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    background: transparent;
+    padding: 2px 8px;
+    text-align: center;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+.btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-outline { background: transparent; border: 2px solid var(--border); color: var(--text); }
+
+/* PRINTING A4 */
+@media print {
+    body { background: #fff; color: #000; padding: 0; }
+    .topbar, .tabs-nav, .action-buttons { display: none !important; }
+    .sheet-container { border: none; box-shadow: none; padding: 0; margin: 0; width: 100%; }
+    .page-break { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="grade3-unit3-english.html" class="back-btn-top">↩️ العودة للحصة</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left">
+    <button class="btn btn-outline" onclick="window.print()">🖨️ طباعة الورقة (PDF)</button>
+    <button class="btn btn-primary" onclick="exportToWord()">📥 تنزيل ملف Word (.doc)</button>
+  </div>
+</nav>
+
+<!-- TABS NAVIGATION -->
+<div class="tabs-nav">
+  <button class="tab-btn active" id="tab0" onclick="swTab(0)">ورقة 1: Sports (p.18)</button>
+  <button class="tab-btn" id="tab1" onclick="swTab(1)">ورقة 2: Memory Quiz (p.19)</button>
+  <button class="tab-btn" id="tab2" onclick="swTab(2)">ورقة 3: Verb Helpers (p.20)</button>
+  <button class="tab-btn" id="tab3" onclick="swTab(3)">ورقة 4: Q&A Race (p.21)</button>
+  <button class="tab-btn" id="tab4" onclick="swTab(4)">ورقة 5: Comparisons (p.22)</button>
+  <button class="tab-btn" id="tab5" onclick="swTab(5)">ورقة 6: Falconry (p.23)</button>
+  <button class="tab-btn" id="tab6" onclick="swTab(6)">ورقة 7: Phonics (p.24)</button>
+  <button class="tab-btn" id="tab7" onclick="swTab(7)">ورقة 8: Desire & Obstacle (p.25)</button>
+</div>
+
+<!-- SHEET CONTAINER -->
+<div class="sheet-container" id="printable-area">
+  
+  <!-- Student info header (Common to all worksheets) -->
+  <table class="student-info-table">
+    <tr>
+      <td><b>اسم الطالب (Student Name):</b> ___________________________</td>
+      <td><b>الصف (Class):</b> ______________</td>
+      <td><b>التاريخ (Date):</b> ____ / ____ / ________</td>
+    </tr>
+  </table>
+
+  <!-- TAB 0: Sports (p.18) -->
+  <div class="tab-content" id="ws-content-0">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 1: Common and Dangerous Sports</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 18</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Classify the sports below: (tennis, sky diving, basketball, scuba diving)</div>
+      <table style="width:100%; border-collapse:collapse; text-align:center;">
+        <tr style="background:#f1f5f9;">
+          <th style="padding:10px; border:1px solid var(--border);">🟢 Common Sports (رياضات شائعة)</th>
+          <th style="padding:10px; border:1px solid var(--border);">🔴 Dangerous Sports (رياضات خطيرة)</th>
+        </tr>
+        <tr>
+          <td style="padding:15px; border:1px solid var(--border);"><input type="text" class="input-text" style="width:90%;" placeholder="e.g. tennis"></td>
+          <td style="padding:15px; border:1px solid var(--border);"><input type="text" class="input-text" style="width:90%;" placeholder="e.g. sky diving"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 1: Memory Quiz (p.19) -->
+  <div class="tab-content" id="ws-content-1" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 2: Sports and Activities Memory Quiz</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 19</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Fill in Faisal's favorite sports and wants:</div>
+      <div style="line-height:2.5; font-size:16px;">
+        1. Faisal likes <input type="text" class="input-text" style="width:150px;" id="l2-q1">.<br>
+        2. He wants to try <input type="text" class="input-text" style="width:180px;" id="l2-q2">.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Verb Helpers (p.20) -->
+  <div class="tab-content" id="ws-content-2" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 3: Verb Helpers (Do / Does)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 20</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Choose Do or Does to complete the questions:</div>
+      <div style="line-height:2.5; font-size:16px;">
+        1. <input type="text" class="input-text" style="width:80px;" placeholder="Do/Does"> you play volleyball?<br>
+        2. <input type="text" class="input-text" style="width:80px;" placeholder="Do/Does"> he do karate?<br>
+        3. <input type="text" class="input-text" style="width:80px;" placeholder="Do/Does"> they like pottery?
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Q&A Race (p.21) -->
+  <div class="tab-content" id="ws-content-3" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 4: Q&A Speed Interview</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 21</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Complete the dialogue with your partner's answer:</div>
+      <div style="line-height:2.5; font-size:16px;">
+        Student A: Do you play computer games?<br>
+        Student B: Yes, <input type="text" class="input-text" style="width:120px;" placeholder="I do / I don't">.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: Comparisons (p.22) -->
+  <div class="tab-content" id="ws-content-4" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 5: Comparisons (More and Most)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 22</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Complete the comparative sentences using (more ... than):</div>
+      <div style="line-height:2.5; font-size:16px;">
+        1. Horse riding is <input type="text" class="input-text" style="width:200px;" placeholder="more exciting than"> cycling.<br>
+        2. Rock climbing is <input type="text" class="input-text" style="width:200px;" placeholder="more dangerous than"> jogging.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: Falconry (p.23) -->
+  <div class="tab-content" id="ws-content-5" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 6: The Traditional Sport of Falconry</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 23</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Write T (True) or F (False):</div>
+      <div style="line-height:2.5; font-size:16px;">
+        1. Many people in Saudi Arabia like falconry. ( <input type="text" class="input-text" style="width:40px;" placeholder="T/F"> )<br>
+        2. Falcons slow down when they dive. ( <input type="text" class="input-text" style="width:40px;" placeholder="T/F"> )<br>
+        3. Falcons have soft talons. ( <input type="text" class="input-text" style="width:40px;" placeholder="T/F"> )
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 6: Phonics (p.24) -->
+  <div class="tab-content" id="ws-content-6" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 7: Phonics (oi, oy, ere, ear, air)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 24</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Complete the words with (oi, oy, ere, ear, air):</div>
+      <div style="line-height:2.5; font-size:16px;">
+        1. c<input type="text" class="input-text" style="width:60px;" placeholder="oi">n (عملة)<br>
+        2. t<input type="text" class="input-text" style="width:60px;" placeholder="oy"> (لعبة)<br>
+        3. ch<input type="text" class="input-text" style="width:60px;" placeholder="air"> (كرسي)<br>
+        4. b<input type="text" class="input-text" style="width:60px;" placeholder="ear"> (دب)
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 7: Desire & Obstacle (p.25) -->
+  <div class="tab-content" id="ws-content-7" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 8: Desire and Obstacle (I'd like to... but...)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 3 - Page 25</div>
+    </div>
+    <div class="question-block">
+      <div class="q-title">Q1: Complete the sentence using (but):</div>
+      <div style="line-height:2.5; font-size:16px;">
+        I'd like to play tennis, <input type="text" class="input-text" style="width:250px;" placeholder="but I have no racket.">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ACTION BUTTONS -->
+<div class="action-buttons">
+  <button class="btn btn-accent" onclick="checkAnswers()">✔️ تحقق تفاعلياً</button>
+</div>
+
+<script>
+let currentTab = 0;
+
+function swTab(idx) {
+    currentTab = idx;
+    
+    // Toggle active tab button
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+    });
+    
+    // Toggle active worksheet content
+    document.querySelectorAll('.tab-content').forEach((content, i) => {
+        content.style.display = i === idx ? 'block' : 'none';
+    });
+}
+
+function checkAnswers() {
+    if(currentTab === 1) {
+        const q1 = document.getElementById('l2-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('l2-q2').value.trim().toLowerCase();
+        if(q1.includes('basketball') && q2.includes('rock climbing')) {
+            alert("✅ إجابة رائعة وصحيحة تماماً!");
+        } else {
+            alert("❌ الإجابات غير مكتملة أو خاطئة. Faisal likes basketball and wants to try rock climbing.");
+        }
+    } else {
+        alert("👍 عمل رائع! يرجى الاستمرار في ملء الحقول ومراجعتها مع معلمك.");
+    }
+}
+
+function exportToWord() {
+    const htmlContent = document.getElementById('printable-area').innerHTML;
+    const blob = new Blob(['\ufeff' + htmlContent], {
+        type: 'application/msword'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `grade3-unit3-worksheet-${currentTab + 1}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

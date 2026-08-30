@@ -1,0 +1,52 @@
+[
+  {
+    "q": "What does 'I'd like to' mean?",
+    "choices": [
+      "أرغب في أن",
+      "أكره أن",
+      "لا أستطيع أن",
+      "يجب أن"
+    ],
+    "ans": "أرغب في أن"
+  },
+  {
+    "q": "We use 'but' to show:",
+    "choices": [
+      "obstacle/problem",
+      "addition",
+      "choice",
+      "reason"
+    ],
+    "ans": "obstacle/problem"
+  },
+  {
+    "q": "I'd like to play tennis, ______ I have no racket.",
+    "choices": [
+      "but",
+      "and",
+      "or",
+      "so"
+    ],
+    "ans": "but"
+  },
+  {
+    "q": "I'd like to try riding, but I have no ______.",
+    "choices": [
+      "horse",
+      "falcon",
+      "racket",
+      "sea"
+    ],
+    "ans": "horse"
+  },
+  {
+    "q": "I'd like to try scuba diving, but there is no ______.",
+    "choices": [
+      "sea",
+      "rock",
+      "plane",
+      "horse"
+    ],
+    "ans": "sea"
+  }
+]

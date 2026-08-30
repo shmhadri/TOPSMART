@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Identify the word containing 'ar':",
+    "choices": [
+      "farm (مزرعة)",
+      "fork (شوكة)",
+      "teacher (معلم)",
+      "doctor (طبيب)"
+    ],
+    "ans": "farm (مزرعة)"
+  },
+  {
+    "q": "Identify the word containing 'or':",
+    "choices": [
+      "corn (ذرة)",
+      "car (سيارة)",
+      "sister (أخت)",
+      "teacher (معلم)"
+    ],
+    "ans": "corn (ذرة)"
+  },
+  {
+    "q": "Identify the word containing 'er':",
+    "choices": [
+      "brother (أخ)",
+      "car (سيارة)",
+      "fork (شوكة)",
+      "doctor (طبيب)"
+    ],
+    "ans": "brother (أخ)"
+  },
+  {
+    "q": "What is 'fork' in Arabic?",
+    "choices": [
+      "شوكة",
+      "سيارة",
+      "معلم",
+      "طبيب"
+    ],
+    "ans": "شوكة"
+  },
+  {
+    "q": "What is 'teacher' in Arabic?",
+    "choices": [
+      "معلم",
+      "طبيب",
+      "أخت",
+      "أخ"
+    ],
+    "ans": "معلم"
+  }
+]

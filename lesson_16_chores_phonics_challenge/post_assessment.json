@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Complete: It is ______ in winter.",
+    "choices": [
+      "dark",
+      "fork",
+      "teacher",
+      "doctor"
+    ],
+    "ans": "dark"
+  },
+  {
+    "q": "He plays ______.",
+    "choices": [
+      "sports",
+      "teacher",
+      "car",
+      "fork"
+    ],
+    "ans": "sports"
+  },
+  {
+    "q": "Choose correct spelling:",
+    "choices": [
+      "park",
+      "parc",
+      "prak",
+      "pacr"
+    ],
+    "ans": "park"
+  },
+  {
+    "q": "What is the sound in 'corn'?",
+    "choices": [
+      "or",
+      "ar",
+      "er",
+      "ur"
+    ],
+    "ans": "or"
+  },
+  {
+    "q": "What is the sound in 'sister'?",
+    "choices": [
+      "er",
+      "ar",
+      "or",
+      "ur"
+    ],
+    "ans": "er"
+  }
+]

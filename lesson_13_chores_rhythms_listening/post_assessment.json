@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Complete: I'm a ______ robot.",
+    "choices": [
+      "clever",
+      "foolish",
+      "scary",
+      "slow"
+    ],
+    "ans": "clever"
+  },
+  {
+    "q": "The robot washes the ______.",
+    "choices": [
+      "dishes",
+      "dish",
+      "dishing",
+      "dishes too"
+    ],
+    "ans": "dishes"
+  },
+  {
+    "q": "Does the robot clean the room? -> Yes, it ______.",
+    "choices": [
+      "does",
+      "do",
+      "doesn't",
+      "is"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "The robot is very ______.",
+    "choices": [
+      "helpful",
+      "lazy",
+      "noisy",
+      "angry"
+    ],
+    "ans": "helpful"
+  },
+  {
+    "q": "What is the meaning of 'clever'?",
+    "choices": [
+      "ذكي",
+      "غبي",
+      "بطيء",
+      "سريع"
+    ],
+    "ans": "ذكي"
+  }
+]

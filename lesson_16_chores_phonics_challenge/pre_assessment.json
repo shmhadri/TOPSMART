@@ -1,0 +1,52 @@
+[
+  {
+    "q": "d_ _k (مظلم)",
+    "choices": [
+      "ar",
+      "or",
+      "er",
+      "ur"
+    ],
+    "ans": "ar"
+  },
+  {
+    "q": "sh_ _t (قصير)",
+    "choices": [
+      "or",
+      "ar",
+      "er",
+      "ir"
+    ],
+    "ans": "or"
+  },
+  {
+    "q": "wint_ _ (شتاء)",
+    "choices": [
+      "er",
+      "ar",
+      "or",
+      "ur"
+    ],
+    "ans": "er"
+  },
+  {
+    "q": "p_ _k (منتزه)",
+    "choices": [
+      "ar",
+      "or",
+      "er",
+      "ur"
+    ],
+    "ans": "ar"
+  },
+  {
+    "q": "t_ _n (دور/منعطف)",
+    "choices": [
+      "ur",
+      "ar",
+      "or",
+      "er"
+    ],
+    "ans": "ur"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "title": "Chores Challenge Time",
+  "desc": "Ask and answer chores questions speed run with classmates.",
+  "vocab": [],
+  "sentences": [
+    {
+      "en": "What chores do you do?",
+      "ar": "ما هي المهام التي تقوم بها؟"
+    },
+    {
+      "en": "I set the table, too.",
+      "ar": "أنا أجهز المائدة أيضاً."
+    },
+    {
+      "en": "What chores does your sister do?",
+      "ar": "ما هي المهام التي تقوم بها أختك؟"
+    },
+    {
+      "en": "She folds the laundry.",
+      "ar": "هي تطوي الغسيل."
+    }
+  ]
+}

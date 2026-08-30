@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Does your sister ______ painting?",
+    "choices": [
+      "like",
+      "likes",
+      "liking",
+      "liked"
+    ],
+    "ans": "like"
+  },
+  {
+    "q": "Do you ______ word games?",
+    "choices": [
+      "play",
+      "plays",
+      "playing",
+      "played"
+    ],
+    "ans": "play"
+  },
+  {
+    "q": "Does your friend ______ horse riding?",
+    "choices": [
+      "go",
+      "goes",
+      "going",
+      "went"
+    ],
+    "ans": "go"
+  }
+]

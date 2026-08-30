@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل الوحدة الرابعة: Beautiful Nature - إنجليزي - الصف الثاني الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    font-size: 18px;
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+.tcontrols {
+    display: flex;
+    gap: 12px;
+}
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-accent:hover {
+    background: #059669;
+}
+
+/* SIDEBAR & CONTENT LAYOUT */
+.main-wrap {
+    display: flex;
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+}
+.ls {
+    width: 280px;
+    background: #fff;
+    border-left: 2px solid var(--border);
+    padding: 24px 16px;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+}
+.ls-hd {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    padding-right: 8px;
+}
+.toc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--tr);
+    margin-bottom: 8px;
+}
+.toc:hover {
+    background: var(--bg);
+}
+.toc.active {
+    background: rgba(79,70,229,0.08);
+    color: var(--primary);
+}
+.toc-n {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+}
+.toc.active .toc-n {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.lc {
+    flex: 1;
+    margin-right: 280px;
+    padding: 40px;
+    background: var(--bg);
+}
+
+/* MOBILE NAV */
+.mobile-nav-container {
+    display: none;
+    background: #fff;
+    border: 2px solid var(--border);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+}
+.mobile-nav-label {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: block;
+}
+.mobile-nav-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-weight: 700;
+}
+
+/* SHEET CONTAINER */
+.sheet-container {
+    display: none;
+}
+.sheet-container.active {
+    display: block;
+}
+
+/* A4 SHEET PREVIEW STYLE */
+.a4-sheet {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    margin-bottom: 30px;
+}
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.header-school {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.header-title-box h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+}
+.header-logo {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-student-info {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px dashed var(--primary);
+    border-radius: var(--radius-sm);
+    padding: 12px 20px;
+    margin-top: 15px;
+}
+.student-field {
+    font-weight: 700;
+    font-size: 15px;
+}
+.student-field span {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+/* BLOOM TAXONOMY SECTIONS */
+.bloom-section {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+.bloom-header {
+    background: #f1f5f9;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bloom-label {
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--primary);
+}
+.bloom-desc {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+.bloom-body {
+    padding: 20px;
+}
+.q-title {
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* INTERACTIVE COMPONENTS */
+.trace-word-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.trace-card {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    text-align: center;
+    background: #f8fafc;
+}
+.trace-card .emoji {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 10px;
+}
+.trace-text {
+    font-family: 'Mali', cursive;
+    font-size: 26px;
+    color: #cbd5e1;
+    border-bottom: 1px dashed #64748b;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* MULTIPLE CHOICE OPTIONS */
+.mc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+.mc-option {
+    padding: 14px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--tr);
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mc-option:hover {
+    background: #f8fafc;
+}
+.mc-option.selected {
+    background: rgba(79,70,229,0.08);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.mc-option.wrong {
+    background: rgba(244,63,94,0.08);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* MATCHING COMPONENT */
+.match-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-top: 15px;
+}
+.match-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.match-item-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    background: #fff;
+    font-weight: 700;
+    text-align: center;
+    cursor: default;
+}
+.match-input-box {
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    width: 50px;
+    height: 48px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--primary);
+    transition: var(--tr);
+    background: #fff;
+}
+.match-input-box:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* TEXT WRITING INPUTS */
+.write-input {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--primary);
+    padding: 2px 8px;
+    background: transparent;
+    width: 140px;
+}
+.write-input:focus {
+    outline: none;
+    border-bottom-style: solid;
+}
+
+/* SHEET ACTIONS & FEEDBACK */
+.sheet-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    align-items: center;
+    margin-top: 24px;
+    border-top: 2px solid var(--border);
+    padding-top: 20px;
+}
+.fb-indicator {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+}
+.fb-correct {
+    background: rgba(16,185,129,0.08);
+    color: var(--accent);
+}
+.fb-wrong {
+    background: rgba(244,63,94,0.08);
+    color: var(--danger);
+}
+
+/* FOOTER BAR */
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #1e293b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    z-index: 1000;
+}
+
+@media (max-width: 1024px) {
+    .ls {
+        display: none;
+    }
+    .lc {
+        margin-right: 0;
+        padding: 20px;
+    }
+    .mobile-nav-container {
+        display: block;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div class="tcontrols">
+    <a href="unit4-english.html" class="btn-c btn-primary">↩️ العودة لدرس الطبيعة</a>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="ls">
+    <div class="ls-hd">أوراق عمل الوحدة 4</div>
+    <div class="toc active" id="t1" onclick="switchTab(1)"><div class="toc-n">1</div>ورقة 1: وقت التحدث</div>
+    <div class="toc" id="t2" onclick="switchTab(2)"><div class="toc-n">2</div>ورقة 2: الأرقام الترتيبية</div>
+    <div class="toc" id="t3" onclick="switchTab(3)"><div class="toc-n">3</div>ورقة 3: عناصر الطبيعة</div>
+    <div class="toc" id="t4" onclick="switchTab(4)"><div class="toc-n">4</div>ورقة 4: أصوات الحروف</div>
+    <div class="toc" id="t5" onclick="switchTab(5)"><div class="toc-n">5</div>ورقة 5: مراجعة أ</div>
+    <div class="toc" id="t6" onclick="switchTab(6)"><div class="toc-n">6</div>ورقة 6: مراجعة ب</div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="lc">
+
+    <!-- MOBILE DROPDOWN -->
+    <div class="mobile-nav-container">
+      <span class="mobile-nav-label">انتقل إلى ورقة العمل:</span>
+      <select class="mobile-nav-select" onchange="switchTab(parseInt(this.value))">
+        <option value="1">1. ورقة عمل 1: وقت التحدث</option>
+        <option value="2">2. ورقة عمل 2: الأرقام الترتيبية</option>
+        <option value="3">3. ورقة عمل 3: عناصر الطبيعة</option>
+        <option value="4">4. ورقة عمل 4: أصوات الحروف (tr vs fl)</option>
+        <option value="5">5. ورقة عمل 5: مراجعة أ (الطبيعة وعناصرها)</option>
+        <option value="6">6. ورقة عمل 6: مراجعة ب (الترتيب والأصوات)</option>
+      </select>
+    </div>
+
+    <!-- ==================== SHEET 1 ==================== -->
+    <div class="sheet-container active" id="sheet1">
+      <div class="a4-sheet">
+        <div class="sheet-header">
+          <div class="header-row-1">
+            <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+            <div class="header-title-box">
+              <h1>ورقة عمل 1: وقت التحدث (Talk Time)</h1>
+              <h2>Unit 4: Beautiful Nature - Lesson 1</h2>
+            </div>
+            <div class="header-logo">SmartLearning</div>
+          </div>
+          <div class="header-student-info">
+            <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+            <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+          </div>
+        </div>
+
+        <!-- Q1: Remember -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+            <span class="bloom-desc">تتبع الجملة التالية بالقلم</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">1. Trace the nature responses:</div>
+            <div class="trace-word-container">
+              <div class="trace-card" style="flex:1">
+                <span class="emoji">🌸</span>
+                <span class="trace-text">Look at the flower! It's beautiful!</span>
+              </div>
+              <div class="trace-card" style="flex:1">
+                <span class="emoji">🐍</span>
+                <span class="trace-text">Look at the snake! It's scary!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Understand -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+            <span class="bloom-desc">اختر الصفة المقابلة لعكس كلمة "جميل"</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">2. What is the opposite of "beautiful" (جميل)?</div>
+            <div class="mc-grid" id="q-s1-2">
+              <div class="mc-option" onclick="selectOption(this, 'correct')">Scary / Ugly (مخيف / قبيح) <span>🅰️</span></div>
+              <div class="mc-option" onclick="selectOption(this, 'wrong')">Happy (سعيد) <span>🅱️</span></div>
+              <div class="mc-option" onclick="selectOption(this, 'wrong')">Good (جيد) <span>🅲</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3: Apply -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 3: التطبيق (Applying)</span>
+            <span class="bloom-desc">اكتب الكلمة الناقصة لتكمل الجملة</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">3. Complete the sentence below:</div>
+            <p style="font-size:20px; font-weight:700">
+              Look at the river! <input type="text" class="write-input" id="s1-q4" placeholder=""> is beautiful.
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="sheet-actions">
+          <div class="fb-indicator" id="fb1"></div>
+          <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Printable_Worksheet1_Nature.doc')">📥 تحميل Word</button>
+          <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet1', 'Printable_Worksheet1_Nature.pdf')">📥 تحميل PDF</button>
+          <button class="btn-c btn-accent" onclick="checkSheet1()">تحقق تفاعلياً ✔️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SHEET 2 ==================== -->
+    <div class="sheet-container" id="sheet2">
+      <div class="a4-sheet">
+        <div class="sheet-header">
+          <div class="header-row-1">
+            <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+            <div class="header-title-box">
+              <h1>ورقة عمل 2: الأرقام الترتيبية (Ordinal Numbers)</h1>
+              <h2>Unit 4: Beautiful Nature - Lesson 2</h2>
+            </div>
+            <div class="header-logo">SmartLearning</div>
+          </div>
+          <div class="header-student-info">
+            <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+            <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+          </div>
+        </div>
+
+        <!-- Q1: Match -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 1-2: المطابقة والفهم</span>
+            <span class="bloom-desc">صل الاختصار بالرقم الترتيبي المناسب</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">1. Match abbreviation to ordinal words:</div>
+            <div class="match-grid">
+              <div class="match-col">
+                <div class="match-item-card">1) 3rd</div>
+                <div class="match-item-card">2) 4th</div>
+                <div class="match-item-card">3) 2nd</div>
+              </div>
+              <div class="match-col" style="gap:15px">
+                <input type="text" class="match-input-box" id="m2-1" placeholder="">
+                <input type="text" class="match-input-box" id="m2-2" placeholder="">
+                <input type="text" class="match-input-box" id="m2-3" placeholder="">
+              </div>
+              <div class="match-col">
+                <div class="match-item-card">A) Fourth</div>
+                <div class="match-item-card">B) Second</div>
+                <div class="match-item-card">C) Third</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Write -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 3: الكتابة والتطبيق</span>
+            <span class="bloom-desc">اكتب الأرقام الترتيبية بالحروف والاختصارات</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">2. Complete the sentences:</div>
+            <p style="margin-bottom:12px; font-weight:700">
+              • What is the third letter of the alphabet? It is <input type="text" class="write-input" id="s2-q3-1" placeholder="">.
+            </p>
+            <p style="font-weight:700">
+              • In the nature line, who is carrying a shell? The <input type="text" class="write-input" id="s2-q4" placeholder=""> kid in the line.
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="sheet-actions">
+          <div class="fb-indicator" id="fb2"></div>
+          <button class="btn-c btn-primary" onclick="downloadWord('sheet2', 'Printable_Worksheet2_Ordinals.doc')">📥 تحميل Word</button>
+          <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet2', 'Printable_Worksheet2_Ordinals.pdf')">📥 تحميل PDF</button>
+          <button class="btn-c btn-accent" onclick="checkSheet2()">تحقق تفاعلياً ✔️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SHEET 3 ==================== -->
+    <div class="sheet-container" id="sheet3">
+      <div class="a4-sheet">
+        <div class="sheet-header">
+          <div class="header-row-1">
+            <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+            <div class="header-title-box">
+              <h1>ورقة عمل 3: عناصر الطبيعة (Nature Vocab)</h1>
+              <h2>Unit 4: Beautiful Nature - Lesson 3</h2>
+            </div>
+            <div class="header-logo">SmartLearning</div>
+          </div>
+          <div class="header-student-info">
+            <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+            <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+          </div>
+        </div>
+
+        <!-- Q1: Match -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 1: التذكر والمعرفة</span>
+            <span class="bloom-desc">صل الكلمة بالترجمة العربية الصحيحة</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">1. Match nature items to translation:</div>
+            <div class="match-grid">
+              <div class="match-col">
+                <div class="match-item-card">1) Tree 🌳</div>
+                <div class="match-item-card">2) River 🌊</div>
+                <div class="match-item-card">3) Mountain ⛰️</div>
+              </div>
+              <div class="match-col" style="gap:15px">
+                <input type="text" class="match-input-box" id="m3-1" placeholder="">
+                <input type="text" class="match-input-box" id="m3-2" placeholder="">
+                <input type="text" class="match-input-box" id="m3-3" placeholder="">
+              </div>
+              <div class="match-col">
+                <div class="match-item-card">A) نهر</div>
+                <div class="match-item-card">B) شجرة</div>
+                <div class="match-item-card">C) جبل</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Write -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 2-3: الفهم والكتابة</span>
+            <span class="bloom-desc">أكمل الكلمة الإنجليزية لـ "صخرة"</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">2. Complete the vocabulary spelling:</div>
+            <p style="font-size:20px; font-weight:700">
+              • Rock (صخرة): Ro<input type="text" class="write-input" id="s3-q3" placeholder="">.
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="sheet-actions">
+          <div class="fb-indicator" id="fb3"></div>
+          <button class="btn-c btn-primary" onclick="downloadWord('sheet3', 'Printable_Worksheet3_Nature.doc')">📥 تحميل Word</button>
+          <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet3', 'Printable_Worksheet3_Nature.pdf')">📥 تحميل PDF</button>
+          <button class="btn-c btn-accent" onclick="checkSheet3()">تحقق تفاعلياً ✔️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SHEET 4 ==================== -->
+    <div class="sheet-container" id="sheet4">
+      <div class="a4-sheet">
+        <div class="sheet-header">
+          <div class="header-row-1">
+            <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+            <div class="header-title-box">
+              <h1>ورقة عمل 4: أصوات الحروف (Phonics)</h1>
+              <h2>Unit 4: Beautiful Nature - Lesson 4</h2>
+            </div>
+            <div class="header-logo">SmartLearning</div>
+          </div>
+          <div class="header-student-info">
+            <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+            <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+          </div>
+        </div>
+
+        <!-- Q1: Choice -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 1-2: التمييز والفهم</span>
+            <span class="bloom-desc">اختر الصوت الأول الصحيح للكلمات التالية</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">1. What is the starting sound for tree 🌳?</div>
+            <div class="mc-grid" id="q-s4-2" style="margin-bottom:20px">
+              <div class="mc-option" onclick="selectOption(this, 'correct')">tr (تـ ر) <span>🅰️</span></div>
+              <div class="mc-option" onclick="selectOption(this, 'wrong')">fl (فـ لـ) <span>🅱️</span></div>
+            </div>
+
+            <div class="q-title">2. What is the starting sound for flower 🌸?</div>
+            <div class="mc-grid" id="q-s4-4">
+              <div class="mc-option" onclick="selectOption(this, 'wrong')">tr (تـ ر) <span>🅰️</span></div>
+              <div class="mc-option" onclick="selectOption(this, 'correct')">fl (فـ لـ) <span>🅱️</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Apply Write -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">المستوى 3: الكتابة والإنتاج</span>
+            <span class="bloom-desc">أكمل الحروف الناقصة (tr أو fl)</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">3. Fill in with tr or fl:</div>
+            <p style="font-size:20px; font-weight:700; margin-bottom:12px">
+              • 🏁 <input type="text" class="write-input" id="s4-q3" placeholder="">ag (علم)
+            </p>
+            <p style="font-size:20px; font-weight:700">
+              • 🛻 <input type="text" class="write-input" id="s4-q3-2" placeholder="">uck (شاحنة)
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="sheet-actions">
+          <div class="fb-indicator" id="fb4"></div>
+          <button class="btn-c btn-primary" onclick="downloadWord('sheet4', 'Printable_Worksheet4_Phonics.doc')">📥 تحميل Word</button>
+          <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet4', 'Printable_Worksheet4_Phonics.pdf')">📥 تحميل PDF</button>
+          <button class="btn-c btn-accent" onclick="checkSheet4()">تحقق تفاعلياً ✔️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SHEET 5 ==================== -->
+    <div class="sheet-container" id="sheet5">
+      <div class="a4-sheet">
+        <div class="sheet-header">
+          <div class="header-row-1">
+            <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+            <div class="header-title-box">
+              <h1>ورقة عمل 5: مراجعة الوحدة أ (الطبيعة وعناصرها)</h1>
+              <h2>Unit 4: Beautiful Nature - Review A</h2>
+            </div>
+            <div class="header-logo">SmartLearning</div>
+          </div>
+          <div class="header-student-info">
+            <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+            <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+          </div>
+        </div>
+
+        <!-- Q1: Match -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">تقييم 1: أسئلة الوصف والتأمل</span>
+            <span class="bloom-desc">صل السؤال بالجواب المناسب</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">1. Match sentences:</div>
+            <div class="match-grid">
+              <div class="match-col">
+                <div class="match-item-card">1) Look at the forest!</div>
+                <div class="match-item-card">2) Look at the snake!</div>
+              </div>
+              <div class="match-col" style="gap:15px">
+                <input type="text" class="match-input-box" id="m5-1" placeholder="">
+                <input type="text" class="match-input-box" id="m5-2" placeholder="">
+              </div>
+              <div class="match-col">
+                <div class="match-item-card">A) It's scary!</div>
+                <div class="match-item-card">B) It's beautiful!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Write -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">تقييم 2: مفردات عناصر الطبيعة</span>
+            <span class="bloom-desc">اكتب أسماء عناصر الطبيعة تحت الرموز</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">2. Complete sentences with nature vocabulary:</div>
+            <p style="font-size:20px; font-weight:700; margin-bottom:12px">
+              • 🌳 Look at the <input type="text" class="write-input" id="s5-q2-1" placeholder="">.
+            </p>
+            <p style="font-size:20px; font-weight:700">
+              • 🌸 Look at the <input type="text" class="write-input" id="s5-q2-2" placeholder="">.
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="sheet-actions">
+          <div class="fb-indicator" id="fb5"></div>
+          <button class="btn-c btn-primary" onclick="downloadWord('sheet5', 'Printable_ReviewA_Nature.doc')">📥 تحميل Word</button>
+          <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet5', 'Printable_ReviewA_Nature.pdf')">📥 تحميل PDF</button>
+          <button class="btn-c btn-accent" onclick="checkSheet5()">تحقق تفاعلياً ✔️</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SHEET 6 ==================== -->
+    <div class="sheet-container" id="sheet6">
+      <div class="a4-sheet">
+        <div class="sheet-header">
+          <div class="header-row-1">
+            <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+            <div class="header-title-box">
+              <h1>ورقة عمل 6: مراجعة الوحدة ب (الترتيب والأصوات)</h1>
+              <h2>Unit 4: Beautiful Nature - Review B</h2>
+            </div>
+            <div class="header-logo">SmartLearning</div>
+          </div>
+          <div class="header-student-info">
+            <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+            <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+          </div>
+        </div>
+
+        <!-- Q1: Match -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">تقييم 1: الأرقام الترتيبية</span>
+            <span class="bloom-desc">صل الأرقام الترتيبية باختصاراتها</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">1. Match ordinals:</div>
+            <div class="match-grid">
+              <div class="match-col">
+                <div class="match-item-card">1) First</div>
+                <div class="match-item-card">2) Third</div>
+              </div>
+              <div class="match-col" style="gap:15px">
+                <input type="text" class="match-input-box" id="m6-1" placeholder="">
+                <input type="text" class="match-input-box" id="m6-2" placeholder="">
+              </div>
+              <div class="match-col">
+                <div class="match-item-card">A) 3rd</div>
+                <div class="match-item-card">B) 1st</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2: Phonics Complete -->
+        <div class="bloom-section">
+          <div class="bloom-header">
+            <span class="bloom-label">تقييم 2: الأصوات الهجائية</span>
+            <span class="bloom-desc">أكمل الكلمات بالحروف tr أو fl</span>
+          </div>
+          <div class="bloom-body">
+            <div class="q-title">2. Complete spelling of tr or fl words:</div>
+            <p style="font-size:20px; font-weight:700; margin-bottom:12px">
+              • 🌳 _ _ ee (شجرة) -> <input type="text" class="write-input" id="s6-q2-1" placeholder="">ee.
+            </p>
+            <p style="font-size:20px; font-weight:700">
+              • 🌸 _ _ ower (زهرة) -> <input type="text" class="write-input" id="s6-q2-2" placeholder="">ower.
+            </p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="sheet-actions">
+          <div class="fb-indicator" id="fb6"></div>
+          <button class="btn-c btn-primary" onclick="downloadWord('sheet6', 'Printable_ReviewB_Nature.doc')">📥 تحميل Word</button>
+          <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet6', 'Printable_ReviewB_Nature.pdf')">📥 تحميل PDF</button>
+          <button class="btn-c btn-accent" onclick="checkSheet6()">تحقق تفاعلياً ✔️</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer-bar">
+  SmartLearning منصة ذكية لتعليم اللغة الإنجليزية © 2026
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+/* TAB SWITCHER */
+function switchTab(idx) {
+    document.querySelectorAll('.toc').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.sheet-container').forEach(sheet => sheet.classList.remove('active'));
+    
+    document.querySelectorAll('.toc')[idx-1].classList.add('active');
+    document.getElementById('sheet'+idx).classList.add('active');
+    
+    document.querySelectorAll('.fb-indicator').forEach(fb => fb.style.display = 'none');
+    
+    // Sync mobile select
+    const mSel = document.querySelector('.mobile-nav-select');
+    if(mSel) mSel.value = idx.toString();
+}
+
+/* OPTION SELECTOR */
+function selectOption(btn, res) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.mc-option').forEach(b => {
+        b.classList.remove('selected', 'wrong');
+        b.removeAttribute('data-res');
+    });
+    btn.classList.add(res === 'correct' ? 'selected' : 'wrong');
+    btn.dataset.res = res;
+}
+
+/* CHECK SHEET 1 */
+function checkSheet1() {
+    const fb = document.getElementById('fb1');
+    fb.style.display = 'inline-flex';
+    const q2 = document.querySelector('#q-s1-2 .selected');
+    const q2Ok = q2 && q2.dataset.res === 'correct';
+    const q4Val = document.getElementById('s1-q4').value.trim().toLowerCase();
+    const q4Ok = q4Val === 'it';
+    if(q2Ok && q4Ok) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ أحسنت! إجابات صحيحة ومكتملة! 🌸';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ يرجى مراجعة صفات وعناصر الطبيعة.';
+    }
+}
+
+/* CHECK SHEET 2 */
+function checkSheet2() {
+    const fb = document.getElementById('fb2');
+    fb.style.display = 'inline-flex';
+    const m1 = document.getElementById('m2-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m2-2').value.trim().toUpperCase();
+    const m3 = document.getElementById('m2-3').value.trim().toUpperCase();
+    const matchOk = m1 === 'C' && m2 === 'A' && m3 === 'B';
+    const h1 = document.getElementById('s2-q3-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('s2-q4').value.trim().toLowerCase();
+    const handOk = (h1 === 'c') && (h2 === 'fifth' || h2 === '5th');
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ رائع! الأرقام الترتيبية صحيحة مئة بالمئة! 🔢';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ إجابات خاطئة، تذكر ترتيب الحروف وموقع الصدفة.';
+    }
+}
+
+/* CHECK SHEET 3 */
+function checkSheet3() {
+    const fb = document.getElementById('fb3');
+    fb.style.display = 'inline-flex';
+    const m1 = document.getElementById('m3-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m3-2').value.trim().toUpperCase();
+    const m3 = document.getElementById('m3-3').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A' && m3 === 'C';
+    const h1 = document.getElementById('s3-q3').value.trim().toLowerCase();
+    const handOk = h1 === 'ck' || h1 === 'rock';
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! الكلمات والترجمات صحيحة تماماً! 🌳';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ راجع التوصيل وتهجئة كلمة Rock.';
+    }
+}
+
+/* CHECK SHEET 4 */
+function checkSheet4() {
+    const fb = document.getElementById('fb4');
+    fb.style.display = 'inline-flex';
+    const q2 = document.querySelector('#q-s4-2 .selected');
+    const q2Ok = q2 && q2.dataset.res === 'correct';
+    const q4 = document.querySelector('#q-s4-4 .selected');
+    const q4Ok = q4 && q4.dataset.res === 'correct';
+    const h1 = document.getElementById('s4-q3').value.trim().toLowerCase();
+    const h2 = document.getElementById('s4-q3-2').value.trim().toLowerCase();
+    const handOk = h1 === 'fl' && h2 === 'tr';
+    if(q2Ok && q4Ok && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ أحسنت! نطق الحروف tr و fl صحيح! 🌳';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ بعض الاختيارات أو الحروف خاطئة.';
+    }
+}
+
+/* CHECK SHEET 5 */
+function checkSheet5() {
+    const fb = document.getElementById('fb5');
+    fb.style.display = 'inline-flex';
+    const m1 = document.getElementById('m5-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m5-2').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A';
+    const h1 = document.getElementById('s5-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('s5-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'tree' && h2 === 'flower';
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ مراجعة ممتازة ومثالية! جميع الإجابات صحيحة! 🏆';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ يرجى مراجعة إجاباتك والمحاولة مجدداً.';
+    }
+}
+
+/* CHECK SHEET 6 */
+function checkSheet6() {
+    const fb = document.getElementById('fb6');
+    fb.style.display = 'inline-flex';
+    const m1 = document.getElementById('m6-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m6-2').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A';
+    const h1 = document.getElementById('s6-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('s6-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'tr' && h2 === 'fl';
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ مراجعة ممتازة! أكملت مراجعة الطبيعة والأرقام! 🎓🏆';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ تأكد من اختصارات الأرقام والتهجئة الصحيحة.';
+    }
+}
+
+/* EXPORT TO PDF */
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .fb-indicator {
+            display: none !important;
+        }
+        #${sheetId} .mc-option {
+            background: #ffffff !important;
+            border: 1px solid #000000 !important;
+            color: #000000 !important;
+        }
+        #${sheetId} .trace-card {
+            background: #ffffff !important;
+            border: 1px solid #000000 !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    });
+}
+
+/* EXPORT TO WORD */
+function downloadWord(sheetId, filename) {
+    const header = "<" + "html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+          "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+          "xmlns='http://www.w3.org/TR/REC-html40'>"+
+          "<head><meta charset='utf-8'><title>Export HTML to Word</title><style>"+
+          "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; }"+
+          ".a4-sheet { padding: 20px; }"+
+          ".sheet-header { border-bottom: 3px double #4f46e5; padding-bottom: 20px; margin-bottom: 24px; }"+
+          ".header-row-1 { display: flex; justify-content: space-between; align-items: center; }"+
+          ".header-title-box { text-align: center; }"+
+          ".header-student-info { display: table; width: 100%; background: #f8fafc; padding: 12px; border: 1px dashed #4f46e5; margin-top: 15px; }"+
+          ".bloom-section { border: 1px solid #e2e8f0; margin-bottom: 20px; }"+
+          ".bloom-header { background: #f1f5f9; padding: 10px; border-bottom: 1px solid #e2e8f0; }"+
+          ".bloom-label { font-weight: bold; color: #4f46e5; }"+
+          ".bloom-body { padding: 15px; }"+
+          ".trace-word-container { width: 100%; display: block; margin-top: 15px; }"+
+          ".trace-card { display: inline-block; width: 30%; border: 1px solid #000000; padding: 10px; margin: 5px; text-align: center; background: #ffffff; vertical-align: top; }"+
+          ".trace-text { font-size: 24px; color: #cbd5e1; border-bottom: 1px dashed #64748b; }"+
+          ".mc-grid { width: 100%; display: block; }"+
+          ".mc-option { display: block; border: 1px solid #000000; padding: 10px; margin-bottom: 8px; width: 95%; background: #ffffff; text-align: right; }"+
+          ".match-table { width: 100%; border-collapse: collapse; margin-top: 15px; }"+
+          ".match-cell { padding: 10px; border: 1px solid #cbd5e1; width: 45%; }"+
+          ".handwriting-line { border-bottom: 2px dashed #4f46e5; width: 150px; display: inline-block; }"+
+          ".sheet-actions, .fb-indicator { display: none !important; }"+
+          "</" + "style></" + "head><body>";
+    const footer = "</" + "body></" + "html>";
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const html = header + element.innerHTML + footer;
+    
+    const blob = new Blob(['\ufeff' + html], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

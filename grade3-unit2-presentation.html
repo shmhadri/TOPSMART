@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - الوحدة 2: Sea Animals | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+.main-wrap {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px
+}
+
+/* PRESENTATION PLAYER */
+.ppt-player {
+    background: #000;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--border)
+}
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    transition: opacity .4s ease, transform .4s ease;
+    transform: scale(0.98);
+    color: #fff;
+}
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10
+}
+
+/* BACKGROUND THEMES BY SECTION TYPE */
+.slide-title-bg {
+    background: linear-gradient(135deg, #1e1b4b, #312e81, #4338ca);
+}
+.slide-warmup-bg {
+    background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+}
+.slide-content-bg {
+    background: linear-gradient(135deg, #1e3a8a, #172554, #1e40af);
+}
+.slide-check-bg {
+    background: linear-gradient(135deg, #022c22, #064e3b, #0f766e);
+}
+.slide-game-bg {
+    background: linear-gradient(135deg, #881337, #4c0519, #9f1239);
+}
+
+.slide h2 {
+    font-size: 38px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #f59e0b;
+}
+.slide p {
+    font-size: 22px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+.slide-num {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.15);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-weight: bold;
+}
+
+/* CONTROLS BAR */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    padding: 15px 24px;
+    border-radius: var(--radius-sm);
+}
+.ctrl-btn {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    transition: var(--tr);
+}
+.ctrl-btn:hover:not(:disabled) {
+    background: var(--primary-light);
+}
+.ctrl-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.slide-indicator {
+    font-weight: bold;
+    font-size: 16px;
+}
+.mobile-nav-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 800;
+    outline: none;
+    color: var(--text);
+    background: var(--bg-card);
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div>
+    <a href="grade3-unit2-english.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div style="display:flex; align-items:center;">
+    <span style="font-weight:bold; margin-left:8px;">اختر الدرس:</span>
+    <select class="mobile-nav-select" onchange="switchLesson(this.value)" id="lesson-select">
+      <option value="1">الدرس 1: أسماء حيوانات البحر</option>
+      <option value="2">الدرس 2: مقارنة الصفات (Grammar in Action)</option>
+      <option value="3">الدرس 3: أنشودة التشبيه والقراءة (Rhythms & Reading)</option>
+      <option value="4">الدرس 4: الأصوات والحروف (Phonics)</option>
+      <option value="5">الدرس 5: وقت التحدي (Challenge Time - Jack's House)</option>
+      <option value="6">الدرس 6: مراجعة شاملة للوحدة الثانية</option>
+    </select>
+  </div>
+  <div>
+    <button class="back-btn-top" onclick="exportPPTX()">📥 تصدير PowerPoint (.pptx)</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <div style="margin-bottom: 20px; text-align: center;">
+    <button class="back-btn-top" style="background:var(--accent); color:#fff; display:inline-flex; width:auto;" onclick="exportPPTX()">📥 اضغط لتحميل ملف PowerPoint الحقيقي (.pptx) لجهازك</button>
+  </div>
+
+  <!-- PLAYER PANEL -->
+  <div class="ppt-player" id="ppt-container">
+    <!-- Slides will load dynamically here -->
+  </div>
+
+  <!-- PLAYER CONTROLS -->
+  <div class="controls-bar">
+    <button class="ctrl-btn" id="prev-btn" onclick="chgSlide(-1)" disabled>السابق ➡️</button>
+    <div class="slide-indicator" id="slide-ind">الشريحة 1 من 5</div>
+    <button class="ctrl-btn" id="next-btn" onclick="chgSlide(1)">التالي ⬅️</button>
+  </div>
+
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+
+<script>
+let curSlide = 0;
+let currentLesson = "1";
+
+const lessonsData = {
+    "1": [
+        {
+            bg: "slide-title-bg",
+            h2: "Unit 2: Sea Animals 🐳",
+            p1: "الدرس الأول: Finding Out Time",
+            p2: "مرحباً بكم يا أبطال الصف الثالث الابتدائي في عالم البحار المدهش!"
+        },
+        {
+            bg: "slide-warmup-bg",
+            h2: "🧠 نشاط التهيئة والعصف الذهني (Warm-up)",
+            p1: "مستعيناً بالصورة، هل تستطيع تخمين بعض الكائنات التي تعيش في البحر بالإنجليزية؟",
+            p2: "What do you know about sea animals? 🌊"
+        },
+        {
+            bg: "slide-content-bg",
+            h2: "📖 كائنات البحر وصفاتها (Sea Animals & Descriptors)",
+            p1: "🐳 whale / big (الحوت كبير) | 🦈 sharks / scary (القروش مخيفة)",
+            p2: "🐬 dolphins / fast (الدلافين سريعة) | 🐎 seahorse / slow (حصان البحر بطيء)"
+        },
+        {
+            bg: "slide-check-bg",
+            h2: "❓ أسئلة التحقق السريع (Concept Check)",
+            p1: "أجب يا بطل:",
+            p2: "What's that? ➔ It's a ________. (whale / seahorse)"
+        },
+        {
+            bg: "slide-game-bg",
+            h2: "🎮 النشاط الختامي الصفي (Classroom Game)",
+            p1: "لعبة الدوران الدوارة وتخمين الكائن البحري وصفته!",
+            p2: "Great Job, Heroes! See you next lesson! 👋"
+        }
+    ],
+    "2": [
+        {
+            bg: "slide-title-bg",
+            h2: "Unit 2: Grammar in Action 📊",
+            p1: "الدرس الثاني: مقارنة الصفات (Adjective degrees)",
+            p2: "سنتعلم اليوم مقارنة الصفات (ألطف من، الألطف، أسرع من، الأسرع)!"
+        },
+        {
+            bg: "slide-warmup-bg",
+            h2: "🧠 نشاط تهيئة القواعد (Warm-up)",
+            p1: "الاستماع والملاحظة: كيف نقارن بين سرعة الدلافين والحيتان؟",
+            p2: "Dolphins are fast. Whales are faster? Let's check! 🐬"
+        },
+        {
+            bg: "slide-content-bg",
+            h2: "📖 نشيد مقارنة صفات الكائنات (The Chant)",
+            p1: "🐳 A seahorse is cuter than a dolphin. A baby seal is the cutest! 💖",
+            p2: "🦈 Whales are fast. Sharks are faster than whales. Dolphins are the fastest! ⚡"
+        },
+        {
+            bg: "slide-check-bg",
+            h2: "❓ أسئلة التحقق السريع (Concept Check)",
+            p1: "أكمل الفراغ المقارن:",
+            p2: "Sharks are _______ (fast / faster) than whales."
+        },
+        {
+            bg: "slide-game-bg",
+            h2: "🎮 النشاط الختامي الصفي (Classroom Game)",
+            p1: "لعبة سباق مقارنة الصفات على السبورة الذكية!",
+            p2: "Fantastic work! Now you are comparison masters! 🏆"
+        }
+    ],
+    "3": [
+        {
+            bg: "slide-title-bg",
+            h2: "Unit 2: Rhythms & Reading 🎶",
+            p1: "الدرس الثالث: أنشودة التشبيه (Just Like Something)",
+            p2: "سنتدرب اليوم على نطق وقراءة التشبيهات الرائعة لكائنات البحر!"
+        },
+        {
+            bg: "slide-warmup-bg",
+            h2: "🧠 نشاط تهيئة التشبيه (Warm-up)",
+            p1: "انظر للصورة: ما الكائن الذي ينزلق؟ وما الكائن الصاخب؟",
+            p2: "As slippery as an eel? As noisy as a seagull? 🐍🐦"
+        },
+        {
+            bg: "slide-content-bg",
+            h2: "📖 أنشودة التشبيه الكاملة (Just Like Something)",
+            p1: "🐍 eel / slippery (منزلق) | 🐦 seagull / noisy (صاخب)",
+            p2: "🐳 whale / big | 🐬 dolphin / fast | 🦈 shark / scary | 🐎 seahorse / slow"
+        },
+        {
+            bg: "slide-check-bg",
+            h2: "❓ أسئلة التحقق السريع (Concept Check)",
+            p1: "أكمل التشبيه التالي:",
+            p2: "As slippery as a/an ________. (eel / walrus)"
+        },
+        {
+            bg: "slide-game-bg",
+            h2: "🎮 النشاط الختامي الصفي (Classroom Game)",
+            p1: "لعبة تمثيل حركات كائنات التشبيه أمام زملائك بالصف!",
+            p2: "Incredible work! You are now fluent in sea similes! 🏆👋"
+        }
+    ],
+    "4": [
+        {
+            bg: "slide-title-bg",
+            h2: "Unit 2: Phonics 🗣️",
+            p1: "الدرس الرابع: الأصوات والتهجئة (oa, ow, ou)",
+            p2: "سنتعرف اليوم على الأصوات والكلمات المصاحبة لها بصفحة 16!"
+        },
+        {
+            bg: "slide-warmup-bg",
+            h2: "🧠 نشاط التهيئة الصوتية (Warm-up)",
+            p1: "انطق ولاحظ التشابه الصوتي: goat vs snow / house vs cow",
+            p2: "Listen and say: goat 🐐, snow ❄️, house 🏠, cow 🐄"
+        },
+        {
+            bg: "slide-content-bg",
+            h2: "📖 تقسيم وقراءة الكلمات بالدرس",
+            p1: "🐐 oa / ow: goat, boat / snow, window, yellow",
+            p2: "🏠 ou / ow: house, mouse / cow, brown"
+        },
+        {
+            bg: "slide-check-bg",
+            h2: "❓ أسئلة التحقق السريع (Concept Check)",
+            p1: "ما الكلمة التي تتناغم مع كلمة mouse؟",
+            p2: "Choose: (house / brown / goat)"
+        },
+        {
+            bg: "slide-game-bg",
+            h2: "🎮 النشاط الختامي الصفي (Phonics Game)",
+            p1: "لعبة التمييز الصوتي السريع لكلمات ou و ow على السبورة!",
+            p2: "Super Phonics Stars! Great Job! 🏆👏"
+        }
+    ],
+    "5": [
+        {
+            bg: "slide-title-bg",
+            h2: "Unit 2: Challenge Time 🏠",
+            p1: "الدرس الخامس: نشيد قصة منزل جاك (Jack's House)",
+            p2: "سنتدرب على تحدي القراءة السريعة التراكمية بالإنجليزية!"
+        },
+        {
+            bg: "slide-warmup-bg",
+            h2: "🧠 نشاط تهيئة القصة (Warm-up)",
+            p1: "من يستطيع تذكر ترتيب الكائنات في النشيد بسرعة؟",
+            p2: "Order: Cheese 🧀 ➔ Mouse 🐭 ➔ Cat 🐱 ➔ Snake 🐍 ➔ Cow 🐄"
+        },
+        {
+            bg: "slide-content-bg",
+            h2: "📖 قراءة نشيد Jack's House التراكمي",
+            p1: "This is Jack's house. This is the cheese in Jack's house...",
+            p2: "This is the cow with the pointed horns that tosses the snake..."
+        },
+        {
+            bg: "slide-check-bg",
+            h2: "❓ أسئلة التحقق السريع (Concept Check)",
+            p1: "ما الكائن الذي يطارد الفأر (chases the mouse)؟",
+            p2: "It is the ________. (cat / snake / cow)"
+        },
+        {
+            bg: "slide-game-bg",
+            h2: "🎮 تحدي السرعة الصفي (Speed Challenge)",
+            p1: "قراءة النشيد كاملاً بأسرع وقت بالثواني وتسجيل الأرقام القياسية!",
+            p2: "Fantastic Speed Readers! Proud of you! 🏆⏱️"
+        }
+    ],
+    "6": [
+        {
+            bg: "slide-title-bg",
+            h2: "Unit 2: Comprehensive Review 🏆",
+            p1: "الدرس السادس: مراجعة شاملة للوحدة الثانية",
+            p2: "سنقوم بمراجعة كافة كائنات البحر، مقارنة الصفات، التشبيهات والأصوات!"
+        },
+        {
+            bg: "slide-warmup-bg",
+            h2: "🧠 نشاط تهيئة المراجعة (Warm-up)",
+            p1: "تحدي الذاكرة السريع: اذكر 3 تشبيهات لحيوانات البحر في 15 ثانية!",
+            p2: "Think fast: As slippery as an eel, as slow as a seahorse..."
+        },
+        {
+            bg: "slide-content-bg",
+            h2: "📖 ملخص المفردات والقواعد الأساسية بالوحدة",
+            p1: "🐳 whale, shark, dolphin, seahorse, seal, eel, seagull",
+            p2: "📊 Comparatives: cuter than / Superlatives: the cutest"
+        },
+        {
+            bg: "slide-check-bg",
+            h2: "❓ اختبار الوحدة الثانية الشامل (Concept Check)",
+            p1: "ما التشبيه المناسب لطائر النورس؟",
+            p2: "As ________ as a seagull. (noisy / slippery / slow)"
+        },
+        {
+            bg: "slide-game-bg",
+            h2: "🎮 التقييم الختامي الصفي (Classroom Assessment)",
+            p1: "توزيع جوائز التميز وشهادات الإتقان لأبطال الصف الثالث!",
+            p2: "Excellent Job, Super Heroes! See you in Unit 3! 🎉🏆"
+        }
+    ]
+};
+
+function switchLesson(val) {
+    currentLesson = val;
+    curSlide = 0;
+    renderSlides();
+}
+
+function renderSlides() {
+    const container = document.getElementById('ppt-container');
+    container.innerHTML = '';
+    const slides = lessonsData[currentLesson];
+    
+    slides.forEach((s, idx) => {
+        const div = document.createElement('div');
+        div.className = `slide ${s.bg} ${idx === curSlide ? 'active' : ''}`;
+        div.id = `slide${idx}`;
+        div.innerHTML = `
+            <div class="slide-num">Slide ${idx + 1} / ${slides.length}</div>
+            <h2>${s.h2}</h2>
+            <p style="font-size:24px; color:#f59e0b; font-weight:800; margin-bottom:10px;">${s.p1}</p>
+            <p>${s.p2}</p>
+        `;
+        container.appendChild(div);
+    });
+    
+    updateControls();
+}
+
+function chgSlide(dir) {
+    const slides = lessonsData[currentLesson];
+    document.getElementById('slide' + curSlide).classList.remove('active');
+    curSlide += dir;
+    document.getElementById('slide' + curSlide).classList.add('active');
+    updateControls();
+}
+
+function updateControls() {
+    const slides = lessonsData[currentLesson];
+    document.getElementById('prev-btn').disabled = (curSlide === 0);
+    document.getElementById('next-btn').disabled = (curSlide === slides.length - 1);
+    document.getElementById('slide-ind').textContent = `الشريحة ${curSlide + 1} من ${slides.length}`;
+}
+
+/* PowerPoint Generation using PptxGenJS */
+function exportPPTX() {
+    const pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+    const slides = lessonsData[currentLesson];
+    
+    const titles = {
+        "1": "Lesson 1: Sea Animals",
+        "2": "Lesson 2: Adjective Comparisons",
+        "3": "Lesson 3: Sea Similes",
+        "4": "Lesson 4: Phonics",
+        "5": "Lesson 5: Challenge Time",
+        "6": "Lesson 6: Unit 2 Review"
+    };
+    const lessonTitle = titles[currentLesson] || "Unit 2 Slide";
+
+    slides.forEach((s, idx) => {
+        const slideObj = pptx.addSlide();
+        let bgHex = "1e1b4b";
+        if(s.bg.includes("warmup")) bgHex = "0f172a";
+        else if(s.bg.includes("content")) bgHex = "1e3a8a";
+        else if(s.bg.includes("check")) bgHex = "022c22";
+        else if(s.bg.includes("game")) bgHex = "881337";
+        
+        slideObj.background = { fill: bgHex };
+        slideObj.addText(s.h2, { x: 1, y: 1.5, w: 8, h: 1, fontSize: 36, bold: true, color: 'f59e0b', align: 'center' });
+        slideObj.addText(`${s.p1}\n\n${s.p2}`, { x: 1, y: 2.8, w: 8, h: 3, fontSize: 22, color: 'ffffff', align: 'center' });
+    });
+
+    pptx.writeFile({ fileName: `Grade3_Unit2_${lessonTitle.replace(/[^a-zA-Z0-9]/g, '_')}.pptx` });
+}
+
+// Initial render
+renderSlides();
+</script>
+</body>
+</html>

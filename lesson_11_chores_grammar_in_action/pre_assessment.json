@@ -1,0 +1,52 @@
+[
+  {
+    "q": "He ______ the dishes.",
+    "choices": [
+      "wash",
+      "washes",
+      "washing",
+      "washed"
+    ],
+    "ans": "washes"
+  },
+  {
+    "q": "She ______ the fish.",
+    "choices": [
+      "feed",
+      "feeds",
+      "feeding",
+      "to feed"
+    ],
+    "ans": "feeds"
+  },
+  {
+    "q": "I ______ up my room.",
+    "choices": [
+      "clean",
+      "cleans",
+      "cleaning",
+      "cleaned"
+    ],
+    "ans": "clean"
+  },
+  {
+    "q": "He ______ shopping.",
+    "choices": [
+      "goes",
+      "go",
+      "going",
+      "gone"
+    ],
+    "ans": "goes"
+  },
+  {
+    "q": "They ______ the laundry.",
+    "choices": [
+      "fold",
+      "folds",
+      "folding",
+      "folded"
+    ],
+    "ans": "fold"
+  }
+]

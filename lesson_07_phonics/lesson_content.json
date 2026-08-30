@@ -1,0 +1,48 @@
+{
+  "title": "Phonics - oi, oy, ere, ear, air",
+  "desc": "Sound patterns and spelling differences between phoneme combinations.",
+  "vocab": [
+    {
+      "word": "coin",
+      "ar": "عملة معدنية"
+    },
+    {
+      "word": "point",
+      "ar": "يشير"
+    },
+    {
+      "word": "toy",
+      "ar": "لعبة"
+    },
+    {
+      "word": "boy",
+      "ar": "ولد"
+    },
+    {
+      "word": "where",
+      "ar": "أين"
+    },
+    {
+      "word": "bear",
+      "ar": "دب"
+    },
+    {
+      "word": "hair",
+      "ar": "شعر"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "Look at this toy boy.",
+      "ar": "انظر لهذا الولد اللعبة."
+    },
+    {
+      "en": "Where is the brown bear?",
+      "ar": "أين الدب البني؟"
+    },
+    {
+      "en": "She has long hair.",
+      "ar": "هي تملك شعراً طويلاً."
+    }
+  ]
+}

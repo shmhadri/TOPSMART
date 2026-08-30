@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Choose Do or Does: ______ your father play golf?",
+    "choices": [
+      "Do",
+      "Does",
+      "Is",
+      "Are"
+    ],
+    "ans": "Does"
+  },
+  {
+    "q": "Choose Do or Does: ______ you play word games?",
+    "choices": [
+      "Do",
+      "Does",
+      "Is",
+      "Are"
+    ],
+    "ans": "Do"
+  },
+  {
+    "q": "Choose Do or Does: ______ your brother do karate?",
+    "choices": [
+      "Do",
+      "Does",
+      "Is",
+      "Are"
+    ],
+    "ans": "Does"
+  },
+  {
+    "q": "Rearrange: play / you / Do / tennis",
+    "choices": [
+      "Do you play tennis?",
+      "You play do tennis?",
+      "Do tennis play you?",
+      "Play you do tennis?"
+    ],
+    "ans": "Do you play tennis?"
+  },
+  {
+    "q": "Does your friend play tennis? -> Yes, he ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doesn't"
+    ],
+    "ans": "does"
+  }
+]

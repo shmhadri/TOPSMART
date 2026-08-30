@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Sky diving is the ______ dangerous sport.",
+    "choices": [
+      "more",
+      "most",
+      "the most",
+      "many"
+    ],
+    "ans": "most"
+  },
+  {
+    "q": "Basketball is ______ exciting than golf.",
+    "choices": [
+      "more",
+      "most",
+      "the most",
+      "much"
+    ],
+    "ans": "more"
+  },
+  {
+    "q": "Which is correct?",
+    "choices": [
+      "more dangerous than",
+      "most dangerous than",
+      "more dangerous then",
+      "the more dangerous"
+    ],
+    "ans": "more dangerous than"
+  },
+  {
+    "q": "Which is correct?",
+    "choices": [
+      "the most exciting",
+      "most exciting than",
+      "the more exciting",
+      "more exciting"
+    ],
+    "ans": "the most exciting"
+  },
+  {
+    "q": "Complete: Running is more boring ______ cycling.",
+    "choices": [
+      "than",
+      "then",
+      "to",
+      "with"
+    ],
+    "ans": "than"
+  }
+]

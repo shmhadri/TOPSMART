@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل الوحدة الأولى: Feelings - إنجليزي - الصف الثاني الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): النيلي #4f46e5 / #6366f1
+   2. لون النجاح/التمييز (Success): الأخضر الزمردي #10b981
+   3. لون التنبيه (Danger): الأحمر الوردي #f43f5e
+   4. الألوان المحايدة: Slate والرمادي والأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    font-size: 18px; /* خط مريح ومناسب للأطفال */
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+.tcontrols {
+    display: flex;
+    gap: 12px;
+}
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-accent:hover {
+    background: #059669;
+}
+
+/* MAIN CONTENT WRAPPER */
+.main-wrap {
+    max-width: 1000px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+}
+
+/* TABS NAVIGATION */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+.tab-btn {
+    padding: 12px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: var(--tr);
+}
+.tab-btn:hover, .tab-btn.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.04);
+}
+
+/* WORKSHEET CONTAINER */
+.sheet-container {
+    display: none;
+}
+.sheet-container.active {
+    display: block;
+}
+
+/* PRINTABLE SHEET STYLING (A4 Look on Screen) */
+.a4-sheet {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    min-height: 1100px;
+    position: relative;
+}
+
+/* WORKSHEET HEADER */
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.header-school {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-align: right;
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-title-box h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.header-logo {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-student-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    background: var(--bg);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--primary);
+}
+.student-field {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+}
+.student-field span {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* BLOOM'S TAXONOMY SECTION STYLING */
+.bloom-section {
+    margin-bottom: 28px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+.bloom-header {
+    background: rgba(79, 70, 229, 0.06);
+    padding: 10px 16px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bloom-label {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.bloom-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+.bloom-body {
+    padding: 20px;
+}
+
+/* QUESTION TYPES */
+.q-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+/* 1. Tracing style (Dotted Font) */
+.trace-word-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+.trace-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 20px;
+    background: var(--bg);
+}
+.trace-card .emoji {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+.trace-text {
+    font-family: 'Mali', cursive;
+    font-size: 28px;
+    color: #cbd5e1;
+    letter-spacing: 2px;
+    border-bottom: 1px dashed var(--text-muted);
+    padding: 0 8px;
+    user-select: none;
+    line-height: 1;
+}
+
+/* 2. Multiple choice options grid */
+.mc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+.mc-option {
+    padding: 10px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--bg);
+    transition: var(--tr);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.mc-option:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.04);
+}
+.mc-option.selected {
+    border-color: var(--accent);
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--accent);
+}
+.mc-option.wrong {
+    border-color: var(--danger);
+    background: rgba(244, 63, 94, 0.08);
+    color: var(--danger);
+}
+
+/* 3. Matching lists */
+.match-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.match-cell {
+    width: 48%;
+    padding: 10px;
+}
+.match-item {
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.match-line-input {
+    width: 60px;
+    padding: 8px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+/* 4. Handwriting inputs */
+.handwriting-line {
+    font-family: 'Mali', cursive;
+    font-size: 22px;
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    outline: none;
+    padding: 2px 8px;
+    color: var(--primary);
+    width: 160px;
+    text-align: center;
+    background: transparent;
+}
+
+/* 5. Evaluation / Punctuation */
+.eval-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 12px;
+}
+.eval-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.eval-check {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* 6. Creative Drawing Box */
+.drawing-arena {
+    border: 3px dashed var(--border);
+    border-radius: var(--radius-sm);
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    position: relative;
+    background: #fafcfd;
+}
+.drawing-arena::after {
+    content: '✏️ ارسم هنا ولون شعورك اليوم';
+    position: absolute;
+}
+
+/* FEEDBACK ACTION BUTTONS */
+.sheet-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+.fb-indicator {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+}
+.fb-correct {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.fb-wrong {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+/* 
+   ==========================================================================
+   CSS للطباعة الفعالة والمثالية A4 (Print Styles)
+   ==========================================================================
+*/
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+        font-size: 14px;
+        padding-bottom: 0;
+    }
+    .topbar, .tabs-nav, .sheet-actions, .tcontrols, .btn-c {
+        display: none !important;
+    }
+    .main-wrap {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+    .sheet-container {
+        display: none !important;
+    }
+    .sheet-container.active {
+        display: block !important;
+    }
+    .a4-sheet {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        page-break-after: always;
+    }
+    .bloom-section {
+        border: 1px solid #000 !important;
+        page-break-inside: avoid;
+    }
+    .bloom-header {
+        background: #f1f5f9 !important;
+        border-bottom: 1px solid #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .bloom-label, .header-title-box h1 {
+        color: #000 !important;
+    }
+    .trace-card, .mc-option, .match-item, .eval-box, .drawing-arena {
+        border: 1px solid #000 !important;
+        background: #fff !important;
+    }
+    .trace-text {
+        color: #cbd5e1 !important;
+        border-bottom: 1px dashed #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .handwriting-line {
+        border-bottom: 2px solid #000 !important;
+        color: #000 !important;
+    }
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <div class="tlogo">Smart<span>.</span>Learning | أوراق العمل</div>
+  </div>
+  <div class="tcontrols">
+    <a href="unit1-printables.html" target="_blank" class="btn-c btn-accent" style="border:2px solid var(--accent); background:transparent; color:var(--accent)">🖨️ مطبوعات ووسائل الوحدة</a>
+    <button class="btn-c btn-primary" onclick="window.print()">🖨️ طباعة الورقة المحددة</button>
+    <button class="btn-c btn-accent" onclick="window.close()">❌ إغلاق</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- TABS NAV -->
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab(1)">📄 ورقة عمل 1: Talk Time</button>
+    <button class="tab-btn" onclick="switchTab(2)">📄 ورقة عمل 2: Greeting Line</button>
+    <button class="tab-btn" onclick="switchTab(3)">📄 ورقة عمل 3: Feelings</button>
+    <button class="tab-btn" onclick="switchTab(4)">📄 ورقة عمل 4: Phonics</button>
+    <button class="tab-btn" onclick="switchTab(5)">📝 مراجعة 1: المحادثة والمفردات</button>
+    <button class="tab-btn" onclick="switchTab(6)">📝 مراجعة 2: الأرقام والأصوات</button>
+  </div>
+
+  <!-- ==================== SHEET 1: TALK TIME ==================== -->
+  <div class="sheet-container active" id="sheet1">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 1: وقت التحدث (Talk Time)</h1>
+            <h2>Unit 1: Feelings - Lesson 1</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">تتبع الجملة التالية بالقلم</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Trace the greeting sentence:</div>
+          <div class="trace-word-container">
+            <div class="trace-card">
+              <span class="emoji">👋</span>
+              <span class="trace-text">Hello! How are you?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الرد المناسب لكل سؤال</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct reply: "Hello! How are you?"</div>
+          <div class="mc-grid" id="q-s1-2">
+            <button class="mc-option" onclick="selectOpt(this, 'correct', 's1-2')">I'm fine, thanks. ☀️</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's1-2')">Goodbye 👋</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's1-2')">It's nice to meet you.</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق (Applying)</span>
+          <span class="bloom-desc">أكمل المحادثة بالتعبير عن نفسك</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Complete the dialogue with your own information:</div>
+          <div style="font-size:20px; line-height:2.5">
+            👦 Teacher: Hello! What's your name? <br>
+            👧 Student: My name is <input type="text" class="handwriting-line" placeholder="كتب اسمك هنا" style="width:220px">.<br>
+            👦 Teacher: Nice to meet you! <br>
+            👧 Student: It's nice to meet you, <input type="text" class="handwriting-line" placeholder="أكمل الجملة" style="width:180px">.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Analyze -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 4: التحليل (Analyzing)</span>
+          <span class="bloom-desc">تحليل الحروف وتكوين الرد الصحيح</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Unscramble the letters to make the reply to: "How are you?":</div>
+          <div style="font-size:22px; margin-bottom:12px;">Letters: [ e - t - g - r - a ]</div>
+          <div style="font-size:20px">
+            Reply: I'm <input type="text" class="handwriting-line" id="s1-q4" placeholder="___" style="width:140px">, thanks!
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: Evaluate -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقويم (Evaluating)</span>
+          <span class="bloom-desc">قيم الجملة الصحيحة إملائياً وتنسيقياً</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">5. Put a check (✔) next to the correct sentence:</div>
+          <div class="eval-box">
+            <div class="eval-row">
+              <span style="font-family:'Outfit'; font-size:18px;">A) it\'s nice to meet you</span>
+              <input type="checkbox" class="eval-check" onclick="evalCheck(this, false)">
+            </div>
+            <div class="eval-row" style="margin-top:10px;">
+              <span style="font-family:'Outfit'; font-size:18px; font-weight:800; color:var(--primary)">B) It's nice to meet you.</span>
+              <input type="checkbox" class="eval-check" onclick="evalCheck(this, true)">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6: Create -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">تخيل لقاء صديق جديد وارسم الابتسامة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">6. Draw two friends meeting in the morning:</div>
+          <div class="drawing-arena"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb1"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Worksheet1_TalkTime.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet1', 'Worksheet1_TalkTime.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet1()">تحقق من الإجابات تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 2: GREETING LINE ==================== -->
+  <div class="sheet-container" id="sheet2">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 2: خط الترحيب والأرقام الترتيبية</h1>
+            <h2>Unit 1: Feelings - Lesson 2</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">تتبع الأرقام الترتيبية بالقلم</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Trace the ordinal numbers and words:</div>
+          <div class="trace-word-container">
+            <div class="trace-card">
+              <span class="trace-text" style="font-size:22px">1st - First</span>
+            </div>
+            <div class="trace-card">
+              <span class="trace-text" style="font-size:22px">2nd - Second</span>
+            </div>
+            <div class="trace-card">
+              <span class="trace-text" style="font-size:22px">3rd - Third</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">صل الرقم بالكلمة المناسبة له</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Match the number abbreviation to its word:</div>
+          <table class="match-table">
+            <tr>
+              <td class="match-cell"><div class="match-item">1st (الأول)</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m2-1" placeholder="مثال: A"></td>
+              <td class="match-cell"><div class="match-item">A) Second</div></td>
+            </tr>
+            <tr>
+              <td class="match-cell"><div class="match-item">2nd (الثاني)</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m2-2" placeholder=""></td>
+              <td class="match-cell"><div class="match-item">B) Third</div></td>
+            </tr>
+            <tr>
+              <td class="match-cell"><div class="match-item">3rd (الثالث)</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m2-3" placeholder=""></td>
+              <td class="match-cell"><div class="match-item">C) First</div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق (Applying)</span>
+          <span class="bloom-desc">طبق المعرفة بكتابة رتبة الحرف</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Write the ordinal position of the letter:</div>
+          <div style="font-size:22px; line-height:2.5">
+            Alphabet Line: [ A , B , C , D , E ] <br>
+            • Letter A is the <input type="text" class="handwriting-line" id="s2-q3-1" placeholder="First" style="width:140px"> letter. <br>
+            • Letter C is the <input type="text" class="handwriting-line" id="s2-q3-2" placeholder="Third" style="width:140px"> letter.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Analyze -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 4: التحليل (Analyzing)</span>
+          <span class="bloom-desc">تحليل الطابور وتحديد رتبة الشخص</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Analyze the line of students and fill in the missing position:</div>
+          <div style="font-size:20px; line-height:2.2">
+            Line of students: 👦(1st) ➔ 👧(2nd) ➔ 👦(3rd) ➔ 👧(4th) ➔ 👦(5th) <br>
+            • Who is in the middle of the line? The <input type="text" class="handwriting-line" id="s2-q4" placeholder="___" style="width:140px"> (3rd) person.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: Evaluate -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقويم (Evaluating)</span>
+          <span class="bloom-desc">تقييم صحة الترتيب</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">5. Evaluate the following statement (Is it Correct ✔️ or Wrong ❌?):</div>
+          <div class="eval-box">
+            <div style="font-size:18px; margin-bottom:12px">"After the third (3rd) person, comes the fifth (5th) person."</div>
+            <div class="mc-grid" id="q-s2-5">
+              <button class="mc-option" onclick="selectOpt(this, 'wrong', 's2-5')">Correct ✔️</button>
+              <button class="mc-option" onclick="selectOpt(this, 'correct', 's2-5')">Wrong ❌ (It should be 4th)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6: Create -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">تخيل طابوراً خاصاً بك وارسمه</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">6. Draw 3 balloons in a row. Color the 1st balloon red, and the 3rd balloon blue:</div>
+          <div class="drawing-arena"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb2"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet2', 'Worksheet2_GreetingLine.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet2', 'Worksheet2_GreetingLine.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet2()">تحقق من الإجابات تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 3: FEELINGS ==================== -->
+  <div class="sheet-container" id="sheet3">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 3: مشاعرنا ومفرداتها (Feelings)</h1>
+            <h2>Unit 1: Feelings - Lesson 3</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">تتبع كلمات المشاعر بالقلم</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Trace the feelings words:</div>
+          <div class="trace-word-container">
+            <div class="trace-card">
+              <span class="emoji">😋</span>
+              <span class="trace-text">hungry</span>
+            </div>
+            <div class="trace-card">
+              <span class="emoji">💧</span>
+              <span class="trace-text">thirsty</span>
+            </div>
+            <div class="trace-card">
+              <span class="emoji">😴</span>
+              <span class="trace-text">sleepy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">صل الشعور برسمه التعبيري</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Match the word to the correct emoji:</div>
+          <table class="match-table">
+            <tr>
+              <td class="match-cell"><div class="match-item">1) hungry</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m3-1" placeholder="A, B..."></td>
+              <td class="match-cell"><div class="match-item">A) 🥶 (cold)</div></td>
+            </tr>
+            <tr>
+              <td class="match-cell"><div class="match-item">2) cold</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m3-2" placeholder=""></td>
+              <td class="match-cell"><div class="match-item">B) 😋 (hungry)</div></td>
+            </tr>
+            <tr>
+              <td class="match-cell"><div class="match-item">3) scared</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m3-3" placeholder=""></td>
+              <td class="match-cell"><div class="match-item">C) 😨 (scared)</div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق (Applying)</span>
+          <span class="bloom-desc">أكمل الجملة المناسبة للصورة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Fill in the blank with the correct feeling:</div>
+          <div style="font-size:22px;">
+            • If you want to drink water, you say: "I am <input type="text" class="handwriting-line" id="s3-q3" placeholder="thirsty" style="width:160px">."
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Analyze -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 4: التحليل (Analyzing)</span>
+          <span class="bloom-desc">حلل المشاعر وصنفها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Sort the feelings into (Happy 😊 / Unhappy 😢):</div>
+          <div style="font-size:18px; margin-bottom:12px">Words: [ hungry - hot - happy - cold - sleepy - scared ]</div>
+          <div style="font-size:20px; line-height:2.2">
+            • Positive/Comfortable: <input type="text" class="handwriting-line" placeholder="happy" style="width:140px"> <br>
+            • Needs Attention: <input type="text" class="handwriting-line" placeholder="hungry" style="width:140px">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: Evaluate -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقويم (Evaluating)</span>
+          <span class="bloom-desc">قم بتقييم الشعور الصحيح</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">5. Evaluate the situation: "Ahmad is wearing a jacket and shivering." How does he feel?</div>
+          <div class="mc-grid" id="q-s3-5">
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's3-5')">He feels hot 🥵</button>
+            <button class="mc-option" onclick="selectOpt(this, 'correct', 's3-5')">He feels cold 🥶</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's3-5')">He feels hungry 😋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6: Create -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم مشاعرك وعبر عنها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">6. Draw how you feel today and complete the sentence below:</div>
+          <div class="drawing-arena"></div>
+          <div style="font-size:22px; text-align:center;">
+            Today, I feel <input type="text" class="handwriting-line" placeholder="happy / sleepy / great" style="width:240px">.
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb3"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet3', 'Worksheet3_Feelings.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet3', 'Worksheet3_Feelings.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet3()">تحقق من الإجابات تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 4: PHONICS ==================== -->
+  <div class="sheet-container" id="sheet4">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 4: أصوات الحروف (Phonics)</h1>
+            <h2>Unit 1: Feelings - Lesson 4</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">تتبع الكلمات الصوتية بالقلم</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Trace the Phonics words:</div>
+          <div class="trace-word-container">
+            <div class="trace-card">
+              <span class="emoji">🧢</span>
+              <span class="trace-text">cap</span>
+            </div>
+            <div class="trace-card">
+              <span class="emoji">👏</span>
+              <span class="trace-text">clap</span>
+            </div>
+            <div class="trace-card">
+              <span class="emoji">⏰</span>
+              <span class="trace-text">clock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">صل الصوت المناسب بالصورة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct spelling for the picture: 🔒 (قفل)</div>
+          <div class="mc-grid" id="q-s4-2">
+            <button class="mc-option" onclick="selectOpt(this, 'correct', 's4-2')">lock 🔒</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's4-2')">clock ⏰</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's4-2')">cap 🧢</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق (Applying)</span>
+          <span class="bloom-desc">أكمل الفراغات بالحرفين الناقصين</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Fill in the missing letters (c or cl):</div>
+          <div style="font-size:22px; line-height:2.5">
+            • She puts on her <b><u>c</u></b>ap 🧢. <br>
+            • If you're happy, <b><input type="text" class="handwriting-line" id="s4-q3" placeholder="cl" style="width:80px"></b>ap 👏 your hands!
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Analyze -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 4: التحليل (Analyzing)</span>
+          <span class="bloom-desc">تحليل وقراءة الحروف المتشابهة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Analyze and circle the odd word out (الكلمة المختلفة في الصوت):</div>
+          <div class="mc-grid" id="q-s4-4">
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's4-4')">cap 🧢</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's4-4')">clap 👏</button>
+            <button class="mc-option" onclick="selectOpt(this, 'correct', 's4-4')">lock 🔒 (Different starting sound)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: Evaluate -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 5: التقويم (Evaluating)</span>
+          <span class="bloom-desc">قيم التهجئة الصحيحة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">5. Evaluate the spellings. Choose the correctly spelled word for ⏰:</div>
+          <div class="mc-grid" id="q-s4-5">
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's4-5')">clok</button>
+            <button class="mc-option" onclick="selectOpt(this, 'correct', 's4-5')">clock ⏰</button>
+            <button class="mc-option" onclick="selectOpt(this, 'wrong', 's4-5')">colck</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6: Create -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم ولون الساعة الخاصة بك</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">6. Draw a clock ⏰ pointing to 7 o'clock, and color it:</div>
+          <div class="drawing-arena"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb4"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet4', 'Worksheet4_Phonics.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet4', 'Worksheet4_Phonics.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet4()">تحقق من الإجابات تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 5: REVIEW 1 ==================== -->
+  <div class="sheet-container" id="sheet5">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة مراجعة 1: المحادثة والمفردات الشاملة</h1>
+            <h2>Unit 1: Feelings - Comprehensive Review 1</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Match conversation -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">القسم 1: محادثة التعارف (Greetings)</span>
+          <span class="bloom-desc">صل العبارة بالرد المناسب لها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Match the greeting to the response:</div>
+          <table class="match-table">
+            <tr>
+              <td class="match-cell"><div class="match-item">1) Hello! How are you?</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m5-1" placeholder="A, B..."></td>
+              <td class="match-cell"><div class="match-item">A) It's nice to meet you, too!</div></td>
+            </tr>
+            <tr>
+              <td class="match-cell"><div class="match-item">2) It's nice to meet you.</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m5-2" placeholder=""></td>
+              <td class="match-cell"><div class="match-item">B) I'm great, thanks!</div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q2: Vocabulary review -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">القسم 2: مفردات المشاعر (Feelings Vocabulary)</span>
+          <span class="bloom-desc">أكمل الفراغات بالكلمة الصحيحة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose and write the correct feeling word from the box:</div>
+          <div style="font-size:20px; font-weight:800; text-align:center; margin-bottom:12px;">[ sleepy - scared - thirsty ]</div>
+          <div style="font-size:20px; line-height:2.5">
+            • Ahmad wants to sleep. He is <input type="text" class="handwriting-line" id="s5-q2-1" placeholder="sleepy" style="width:140px">. <br>
+            • Fatimah sees a big spider. She is <input type="text" class="handwriting-line" id="s5-q2-2" placeholder="scared" style="width:140px">.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Draw and Color -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">القسم 3: التعبير والابتكار</span>
+          <span class="bloom-desc">ارسم شعوراً سعيداً وشعوراً جائعاً</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Draw the face for "happy" 😊 and "hungry" 😋:</div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px">
+            <div>
+              <div style="text-align:center; font-weight:800; margin-bottom:8px">Happy 😊</div>
+              <div class="drawing-arena" style="height:120px"></div>
+            </div>
+            <div>
+              <div style="text-align:center; font-weight:800; margin-bottom:8px">Hungry 😋</div>
+              <div class="drawing-arena" style="height:120px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb5"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet5', 'Worksheet5_Review1.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet5', 'Worksheet5_Review1.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet5()">تحقق من الإجابات تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 6: REVIEW 2 ==================== -->
+  <div class="sheet-container" id="sheet6">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة مراجعة 2: الأرقام الترتيبية والأصوات</h1>
+            <h2>Unit 1: Feelings - Comprehensive Review 2</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Ordinals match -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">القسم 1: الأرقام الترتيبية (Ordinal Numbers)</span>
+          <span class="bloom-desc">صل رتبة الرقم باختصاره الصحيح</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Match the abbreviation to the ordinal word:</div>
+          <table class="match-table">
+            <tr>
+              <td class="match-cell"><div class="match-item">1) First</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m6-1" placeholder="A, B..."></td>
+              <td class="match-cell"><div class="match-item">A) 3rd</div></td>
+            </tr>
+            <tr>
+              <td class="match-cell"><div class="match-item">2) Third</div></td>
+              <td class="match-cell"><input type="text" class="match-line-input" id="m6-2" placeholder=""></td>
+              <td class="match-cell"><div class="match-item">B) 1st</div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q2: Phonics fill -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">القسم 2: أصوات الحروف والتهجئة (Phonics)</span>
+          <span class="bloom-desc">أكمل الكلمة بالحروف الناقصة المناسبة للصورة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Complete with (c, cl, or l):</div>
+          <div style="font-size:22px; line-height:2.5">
+            • 🔒 <b><u>l</u></b>ock <br>
+            • 🧢 <b><input type="text" class="handwriting-line" id="s6-q2-1" placeholder="c" style="width:80px"></b>ap <br>
+            • 👏 <b><input type="text" class="handwriting-line" id="s6-q2-2" placeholder="cl" style="width:80px"></b>ap
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Evaluation & Creation -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">القسم 3: التقييم والابتكار</span>
+          <span class="bloom-desc">قيم وضعية الساعة وارسم قبعتك المفضلة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Draw your favorite cap 🧢 and color it beautifully:</div>
+          <div class="drawing-arena"></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb6"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet6', 'Worksheet6_Review2.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet6', 'Worksheet6_Review2.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet6()">تحقق من الإجابات تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* SWITCH TABS */
+function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.sheet-container').forEach(sheet => sheet.classList.remove('active'));
+    
+    document.querySelectorAll('.tab-btn')[idx-1].classList.add('active');
+    document.getElementById('sheet'+idx).classList.add('active');
+    
+    // Hide feedback indicators
+    document.querySelectorAll('.fb-indicator').forEach(fb => fb.style.display = 'none');
+}
+
+/* OPTION SELECTION FOR MC QUESTIONS */
+function selectOpt(btn, res, qGroup) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.mc-option').forEach(b => {
+        b.className = 'mc-option';
+        b.dataset.res = '';
+    });
+    btn.classList.add(res === 'correct' ? 'selected' : 'wrong');
+    btn.dataset.res = res;
+}
+
+/* CHECK SHEET 1 */
+function checkSheet1() {
+    const fb = document.getElementById('fb1');
+    fb.style.display = 'inline-flex';
+    
+    // Evaluate MC
+    const q2 = document.querySelector('#q-s1-2 .selected');
+    const q2Ok = q2 && q2.dataset.res === 'correct';
+    
+    // Evaluate Handwriting input
+    const q4Val = document.getElementById('s1-q4').value.trim().toLowerCase();
+    const q4Ok = q4Val === 'great';
+    
+    if(q2Ok && q4Ok) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ أحسنت! جميع الإجابات صحيحة وممتازة! 🎉';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ بعض الإجابات غير صحيحة، يرجى المراجعة والمحاولة مجدداً.';
+    }
+}
+
+/* CHECK SHEET 2 */
+function checkSheet2() {
+    const fb = document.getElementById('fb2');
+    fb.style.display = 'inline-flex';
+    
+    // Evaluate Match
+    const m1 = document.getElementById('m2-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m2-2').value.trim().toUpperCase();
+    const m3 = document.getElementById('m2-3').value.trim().toUpperCase();
+    const matchOk = m1 === 'C' && m2 === 'A' && m3 === 'B';
+    
+    // Evaluate Handwriting
+    const h1 = document.getElementById('s2-q3-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('s2-q3-2').value.trim().toLowerCase();
+    const h3 = document.getElementById('s2-q4').value.trim().toLowerCase();
+    const handOk = h1 === 'first' && h2 === 'third' && (h3 === 'third' || h3 === '3rd');
+    
+    // Evaluate MC
+    const q5 = document.querySelector('#q-s2-5 .selected');
+    const q5Ok = q5 && q5.dataset.res === 'correct';
+    
+    if(matchOk && handOk && q5Ok) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ رائع! إجاباتك صحيحة ومكتملة! 🌟';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ هناك خطأ ما. صل الأرقام وافحص الترتيب مجدداً.';
+    }
+}
+
+/* CHECK SHEET 3 */
+function checkSheet3() {
+    const fb = document.getElementById('fb3');
+    fb.style.display = 'inline-flex';
+    
+    // Evaluate Match
+    const m1 = document.getElementById('m3-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m3-2').value.trim().toUpperCase();
+    const m3 = document.getElementById('m3-3').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A' && m3 === 'C';
+    
+    // Evaluate Handwriting
+    const h1 = document.getElementById('s3-q3').value.trim().toLowerCase();
+    const handOk = h1 === 'thirsty';
+    
+    // Evaluate MC
+    const q5 = document.querySelector('#q-s3-5 .selected');
+    const q5Ok = q5 && q5.dataset.res === 'correct';
+    
+    if(matchOk && handOk && q5Ok) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ إجابة كاملة وصحيحة! أنت رائع! 😋';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ راجع مطابقة الرموز للشعور وحاول مجدداً.';
+    }
+}
+
+/* CHECK SHEET 4 */
+function checkSheet4() {
+    const fb = document.getElementById('fb4');
+    fb.style.display = 'inline-flex';
+    
+    // Evaluate MC
+    const q2 = document.querySelector('#q-s4-2 .selected');
+    const q2Ok = q2 && q2.dataset.res === 'correct';
+    
+    const q4 = document.querySelector('#q-s4-4 .selected');
+    const q4Ok = q4 && q4.dataset.res === 'correct';
+    
+    const q5 = document.querySelector('#q-s4-5 .selected');
+    const q5Ok = q5 && q5.dataset.res === 'correct';
+    
+    // Evaluate Handwriting
+    const h1 = document.getElementById('s4-q3').value.trim().toLowerCase();
+    const handOk = h1 === 'cl';
+    
+    if(q2Ok && q4Ok && q5Ok && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ أحسنت! نطق الحروف وتهجئة الكلمات صحيحة تماماً! 👏';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ راجع تهجئة الكلمات والأصوات المتشابهة.';
+    }
+}
+
+/* CHECK SHEET 5 (REVIEW 1) */
+function checkSheet5() {
+    const fb = document.getElementById('fb5');
+    fb.style.display = 'inline-flex';
+    
+    // Evaluate Match
+    const m1 = document.getElementById('m5-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m5-2').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A';
+    
+    // Evaluate Handwriting
+    const h1 = document.getElementById('s5-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('s5-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'sleepy' && h2 === 'scared';
+    
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ مراجعة ممتازة! إجاباتك صحيحة مئة بالمئة! 🎉';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ راجع التوصيل وكلمات الفراغات.';
+    }
+}
+
+/* CHECK SHEET 6 (REVIEW 2) */
+function checkSheet6() {
+    const fb = document.getElementById('fb6');
+    fb.style.display = 'inline-flex';
+    
+    // Evaluate Match
+    const m1 = document.getElementById('m6-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('m6-2').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A';
+    
+    // Evaluate Handwriting
+    const h1 = document.getElementById('s6-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('s6-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'c' && h2 === 'cl';
+    
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ مراجعة ممتازة! أكملت مراجعة الأرقام والأصوات بنجاح! 🏆';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ تحقق من تهجئة الكلمات واختصارات الأرقام.';
+    }
+}
+
+/* EVALUATION CHECKBOXES */
+function evalCheck(box, isCorrect) {
+    const parent = box.parentElement.parentElement;
+    parent.querySelectorAll('.eval-check').forEach(chk => {
+        if(chk !== box) chk.checked = false;
+    });
+}
+
+/* EXPORT TO PDF */
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    
+    // Add temporary styles to force print-friendly A4 dimensions
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .fb-indicator {
+            display: none !important;
+        }
+        #${sheetId} .mc-option {
+            background: #ffffff !important;
+            border: 1px solid #000000 !important;
+            color: #000000 !important;
+        }
+        #${sheetId} .trace-card {
+            background: #ffffff !important;
+            border: 1px solid #000000 !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    });
+}
+
+/* EXPORT TO WORD */
+function downloadWord(sheetId, filename) {
+    const header = "<" + "html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+          "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+          "xmlns='http://www.w3.org/TR/REC-html40'>"+
+          "<head><meta charset='utf-8'><title>Export HTML to Word</title><style>"+
+          "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; }"+
+          ".a4-sheet { padding: 20px; }"+
+          ".sheet-header { border-bottom: 3px double #4f46e5; padding-bottom: 20px; margin-bottom: 24px; }"+
+          ".header-row-1 { display: flex; justify-content: space-between; align-items: center; }"+
+          ".header-title-box { text-align: center; }"+
+          ".header-student-info { display: table; width: 100%; background: #f8fafc; padding: 12px; border: 1px dashed #4f46e5; margin-top: 15px; }"+
+          ".bloom-section { border: 1px solid #e2e8f0; margin-bottom: 20px; }"+
+          ".bloom-header { background: #f1f5f9; padding: 10px; border-bottom: 1px solid #e2e8f0; }"+
+          ".bloom-label { font-weight: bold; color: #4f46e5; }"+
+          ".bloom-body { padding: 15px; }"+
+          ".trace-word-container { width: 100%; display: block; margin-top: 15px; }"+
+          ".trace-card { display: inline-block; width: 30%; border: 1px solid #000000; padding: 10px; margin: 5px; text-align: center; background: #ffffff; vertical-align: top; }"+
+          ".trace-text { font-size: 24px; color: #cbd5e1; border-bottom: 1px dashed #64748b; }"+
+          ".mc-grid { width: 100%; display: block; }"+
+          ".mc-option { display: block; border: 1px solid #000000; padding: 10px; margin-bottom: 8px; width: 95%; background: #ffffff; text-align: right; }"+
+          ".match-table { width: 100%; border-collapse: collapse; margin-top: 15px; }"+
+          ".match-cell { padding: 10px; border: 1px solid #cbd5e1; width: 45%; }"+
+          ".handwriting-line { border-bottom: 2px dashed #4f46e5; width: 150px; display: inline-block; }"+
+          ".sheet-actions, .fb-indicator { display: none !important; }"+
+          "</" + "style></" + "head><body>";
+    const footer = "</" + "body></" + "html>";
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const html = header + element.innerHTML + footer;
+    
+    const blob = new Blob(['\ufeff' + html], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

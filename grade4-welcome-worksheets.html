@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية شاملة - مقدمة الصف الرابع: Welcome Unit (Pages 4-9) | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+/* NAVIGATION TABS */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap
+}
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--tr)
+}
+.tab-btn:hover {
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.05)
+}
+.tab-btn.active {
+    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary)
+}
+
+/* MAIN WRAPPER */
+.main-wrap {
+    max-width: 940px;
+    margin: 30px auto;
+    padding: 0 20px
+}
+
+.sheet-container {
+    display: none;
+    animation: fadeIn .3s ease
+}
+.sheet-container.active {
+    display: block
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px) }
+    to { opacity: 1; transform: translateY(0) }
+}
+
+.a4-sheet {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 45px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+/* HEADER INSIDE SHEET */
+.sheet-header {
+    border-bottom: 3px double var(--primary-light);
+    padding-bottom: 20px;
+    margin-bottom: 28px
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.ministry-badge {
+    text-align: right;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1.4
+}
+.header-title-box {
+    text-align: center
+}
+.header-title-box h1 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 4px
+}
+.header-title-box .subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 700
+}
+.score-box {
+    border: 2px dashed var(--accent);
+    padding: 8px 16px;
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(16, 185, 129, 0.05)
+}
+.score-box .score-val {
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+    color: var(--accent)
+}
+
+.header-student-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 18px;
+    background: rgba(79, 70, 229, 0.03);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--primary-light)
+}
+.info-field {
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+.info-field input {
+    border: none;
+    border-bottom: 1px solid var(--text-muted);
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 2px 5px;
+    color: var(--text);
+    flex: 1
+}
+
+/* BLOOM TAXONOMY SECTIONS */
+.bloom-section {
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--bg)
+}
+.bloom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px
+}
+.bloom-label {
+    font-size: 13px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary)
+}
+.bloom-desc {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted)
+}
+
+.q-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    color: var(--text);
+}
+
+.handwriting-line {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    background: transparent;
+    padding: 4px 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    outline: none;
+    width: 140px;
+}
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px
+}
+.radio-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.sheet-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 2px solid var(--border)
+}
+.btn-act {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr)
+}
+.btn-chk { background: var(--accent); color: #fff; border: none; }
+.btn-chk:hover { background: #059669; }
+.btn-dl-pdf { background: var(--danger); color: #fff; border: none; }
+.btn-dl-word { background: #2563eb; color: #fff; border: none; }
+
+.fb-indicator {
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    font-size: 15px;
+    margin-top: 16px;
+    display: none
+}
+.fb-correct {
+    background: rgba(16, 185, 129, 0.12);
+    color: #047857;
+    border: 2px solid var(--accent);
+}
+.fb-wrong {
+    background: rgba(244, 63, 94, 0.12);
+    color: #be123c;
+    border: 2px solid var(--danger);
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <a href="grade4-welcome-english.html" class="back-btn-top">
+            ↩️ العودة لدروس المقدمة
+        </a>
+        <div style="font-size:20px; font-weight:900; font-family:'Outfit'; color:var(--primary);">
+            Smart<span>Learning</span>
+        </div>
+    </div>
+    
+    <div style="display:flex; align-items:center; gap:12px;">
+        <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b;">
+          🎯 عجلة الأسماء
+        </a>
+        <a href="grade4-welcome-presentation.html" target="_blank" class="back-btn-top" style="border-color:var(--primary-light); color:var(--primary-light);">
+          💻 عرض PowerPoint
+        </a>
+        <a href="grade4-welcome-printables.html" target="_blank" class="back-btn-top" style="border-color:#3b82f6; color:#3b82f6;">
+          🧩 وسائل المعلم
+        </a>
+        <button class="back-btn-top" onclick="tglTheme()">🌓</button>
+    </div>
+</div>
+
+<!-- TABS NAVIGATION -->
+<div class="tabs-nav">
+    <button class="tab-btn active" onclick="swTab(0)">ورقة ١: Look & Find (ص ٤) 🎒</button>
+    <button class="tab-btn" onclick="swTab(1)">ورقة ٢: Welcome Chant (ص ٥) 🎵</button>
+    <button class="tab-btn" onclick="swTab(2)">ورقة ٣: Playground & Ordinals (ص ٦) 💬</button>
+    <button class="tab-btn" onclick="swTab(3)">ورقة ٤: Adjectives & Context (ص ٧) 🌟</button>
+    <button class="tab-btn" onclick="swTab(4)">ورقة ٥: Comparatives & Superlatives (ص ٨) 📏</button>
+    <button class="tab-btn" onclick="swTab(5)">ورقة ٦: Adverbs of Frequency (ص ٩) 🗓️</button>
+    <button class="tab-btn" onclick="swTab(6)">ورقة ٧: Past Simple (was/were) (ص ٩) ⏰</button>
+    <button class="tab-btn" onclick="swTab(7)">ورقة ٨: Final Mastery Exam 🏆</button>
+</div>
+
+<div class="main-wrap">
+
+    <!-- SHEET 1 -->
+    <div class="sheet-container active" id="sheet1">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ١: Look and Find</h1><div class="subtitle">Top Goal 1 - Welcome Unit: Page 4</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تذكر (Remembering)</span><span class="bloom-desc">كتابة كلمات مستلزمات المدرسة</span></div>
+                <div class="q-title">Q1: Complete the words:</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                    <div>1. 🎈 balloons ➔ <input type="text" class="handwriting-line" id="s1-q1" placeholder="balloons"></div>
+                    <div>2. 🚌 bus ➔ <input type="text" class="handwriting-line" id="s1-q2" placeholder="bus"></div>
+                    <div>3. 📷 camera ➔ <input type="text" class="handwriting-line" id="s1-q3" placeholder="camera"></div>
+                    <div>4. 🎸 guitar ➔ <input type="text" class="handwriting-line" id="s1-q4" placeholder="guitar"></div>
+                </div>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS1()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet1', 'Grade4_Welcome_Sheet1.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet1', 'Grade4_Welcome_Sheet1.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb1"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 2 -->
+    <div class="sheet-container" id="sheet2">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٢: We're Back at School Chant</h1><div class="subtitle">Top Goal 1 - Page 5</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تطبيق (Applying)</span><span class="bloom-desc">إكمال كلمات النشيد</span></div>
+                <div class="q-title">Q1: Fill in: [ notebooks - backpacks - teachers - school ]</div>
+                <p>We have new (1) <input type="text" class="handwriting-line" id="s2-q1" placeholder="notebooks"> and (2) <input type="text" class="handwriting-line" id="s2-q2" placeholder="backpacks">, too! Laugh and learn with our (3) <input type="text" class="handwriting-line" id="s2-q3" placeholder="teachers"> in our beautiful and special (4) <input type="text" class="handwriting-line" id="s2-q4" placeholder="school">!</p>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS2()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet2', 'Grade4_Welcome_Sheet2.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet2', 'Grade4_Welcome_Sheet2.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb2"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 3 -->
+    <div class="sheet-container" id="sheet3">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٣: Playground & Ordinals</h1><div class="subtitle">Top Goal 1 - Page 6</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">فهم ومطابقة (Matching)</span><span class="bloom-desc">كتابة الأرقام الترتيبية</span></div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                    <div>1st ➔ <input type="text" class="handwriting-line" id="s3-q1" placeholder="first"></div>
+                    <div>2nd ➔ <input type="text" class="handwriting-line" id="s3-q2" placeholder="second"></div>
+                    <div>3rd ➔ <input type="text" class="handwriting-line" id="s3-q3" placeholder="third"></div>
+                    <div>20th ➔ <input type="text" class="handwriting-line" id="s3-q4" placeholder="twentieth"></div>
+                </div>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS3()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet3', 'Grade4_Welcome_Sheet3.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet3', 'Grade4_Welcome_Sheet3.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb3"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 4 -->
+    <div class="sheet-container" id="sheet4">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٤: Adjectives in Context</h1><div class="subtitle">Top Goal 1 - Page 7</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تطبيق في السياق (Application)</span><span class="bloom-desc">إكمال الفراغ بالصفة المناسبة</span></div>
+                <p>1. My little brother is very (1) <input type="text" class="handwriting-line" id="s4-q1" placeholder="naughty">.</p>
+                <p>2. I don't like cheese. It's (2) <input type="text" class="handwriting-line" id="s4-q2" placeholder="terrible">.</p>
+                <p>3. There was a shark near me! I was (3) <input type="text" class="handwriting-line" id="s4-q3" placeholder="afraid">.</p>
+                <p>4. Going on vacation is very (4) <input type="text" class="handwriting-line" id="s4-q4" placeholder="exciting">.</p>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS4()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet4', 'Grade4_Welcome_Sheet4.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet4', 'Grade4_Welcome_Sheet4.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb4"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 5 -->
+    <div class="sheet-container" id="sheet5">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٥: Comparatives & Superlatives</h1><div class="subtitle">Top Goal 1 - Page 8</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تحليل لغوي (Analysis)</span><span class="bloom-desc">صفات المقارنة والتفضيل</span></div>
+                <p>1. Asma has (1) <input type="text" class="handwriting-line" id="s5-q1" placeholder="longer"> hair than me, and she is the (2) <input type="text" class="handwriting-line" id="s5-q2" placeholder="tallest"> girl in our class.</p>
+                <p>2. Our class is the (3) <input type="text" class="handwriting-line" id="s5-q3" placeholder="biggest"> with 30 students.</p>
+                <p>3. Math is (4) <input type="text" class="handwriting-line" id="s5-q4" placeholder="more difficult"> than history.</p>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS5()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet5', 'Grade4_Welcome_Sheet5.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet5', 'Grade4_Welcome_Sheet5.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb5"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 6 -->
+    <div class="sheet-container" id="sheet6">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٦: Adverbs of Frequency</h1><div class="subtitle">Top Goal 1 - Page 9</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تركيب الجمل (Sentence Ordering)</span><span class="bloom-desc">إعادة ترتيب الكلمات لتكوين جمل صحيحة</span></div>
+                <p>1. (makes / My dad / dinner / often) ➔ <input type="text" style="width:100%; padding:6px; border-radius:6px; border:1px solid #cbd5e1; direction:ltr;" id="s6-q1" placeholder="My dad often makes dinner."></p>
+                <p style="margin-top:10px;">2. (does / Adel / homework / never / in the park) ➔ <input type="text" style="width:100%; padding:6px; border-radius:6px; border:1px solid #cbd5e1; direction:ltr;" id="s6-q2" placeholder="Adel never does his homework in the park."></p>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS6()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet6', 'Grade4_Welcome_Sheet6.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet6', 'Grade4_Welcome_Sheet6.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb6"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 7 -->
+    <div class="sheet-container" id="sheet7">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٧: Past Simple (was/were)</h1><div class="subtitle">Top Goal 1 - Page 9 Activities 5 & 6</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تطبيق نحوي (Grammar)</span><span class="bloom-desc">أكمل الفراغات باستخدام was / wasn't / were / weren't</span></div>
+                <p>1. Sunday (1) <input type="text" class="handwriting-line" id="s7-q1" placeholder="was"> the celebration day!</p>
+                <p>2. We (2) <input type="text" class="handwriting-line" id="s7-q2" placeholder="were"> happy at the celebration.</p>
+                <p>3. The celebration (3) <input type="text" class="handwriting-line" id="s7-q3" placeholder="wasn't"> in the classroom, it was on the playground.</p>
+                <p>4. Our parents (4) <input type="text" class="handwriting-line" id="s7-q4" placeholder="weren't"> there because they were at work.</p>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS7()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet7', 'Grade4_Welcome_Sheet7.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet7', 'Grade4_Welcome_Sheet7.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb7"></div>
+        </div>
+    </div>
+
+    <!-- SHEET 8 -->
+    <div class="sheet-container" id="sheet8">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="ministry-badge">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الرابع الابتدائي</div>
+                    <div class="header-title-box"><h1>ورقة عمل ٨: Welcome Unit Final Mastery Exam</h1><div class="subtitle">Comprehensive Exam (Pages 4 to 9)</div></div>
+                    <div class="score-box"><div class="score-val">10 / 10</div></div>
+                </div>
+                <div class="header-student-info">
+                    <div class="info-field">اسم الطالب: <input type="text" placeholder="اكتب اسمك"></div>
+                    <div class="info-field">الفصل: <input type="text" placeholder="٤ / ..."></div>
+                    <div class="info-field">التاريخ: <input type="text" placeholder="١٤٤... هـ"></div>
+                </div>
+            </div>
+            <div class="bloom-section">
+                <div class="bloom-header"><span class="bloom-label">تقييم شامل (Mastery)</span><span class="bloom-desc">اختبار شامل لكل مهارات وقواعد مقدمة المنهج</span></div>
+                <p>1. The chocolate cake ________ delicious! ➔ <label><input type="radio" name="s8-q1" id="s8-q1-t"> was (Correct)</label> | <label><input type="radio" name="s8-q1"> were</label></p>
+                <p style="margin-top:10px;">2. "always" means doing something: ➔ <label><input type="radio" name="s8-q2" id="s8-q2-t"> 100% of the time (Correct)</label> | <label><input type="radio" name="s8-q2"> 0%</label></p>
+                <p style="margin-top:10px;">3. The comparative form of "good" is: ➔ <label><input type="radio" name="s8-q3" id="s8-q3-t"> better (Correct)</label> | <label><input type="radio" name="s8-q3"> gooder</label></p>
+            </div>
+            <div class="sheet-actions">
+                <button class="btn-act btn-chk" onclick="checkS8()">تحقق تفاعلياً ✔️</button>
+                <button class="btn-act btn-dl-word" onclick="downloadWord('sheet8', 'Grade4_Welcome_Sheet8.doc')">تحميل Word 📄</button>
+                <button class="btn-act btn-dl-pdf" onclick="downloadPDF('sheet8', 'Grade4_Welcome_Sheet8.pdf')">تحميل PDF 🖨️</button>
+            </div>
+            <div class="fb-indicator" id="fb8"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function swTab(idx) {
+    document.querySelectorAll('.sheet-container').forEach((c, i) => c.classList.toggle('active', i === idx));
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function tglTheme() {
+    const doc = document.documentElement;
+    doc.setAttribute('data-theme', doc.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+}
+
+function checkS1() {
+    const q1 = document.getElementById('s1-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb1'); fb.style.display = 'block';
+    if(q1 === 'balloons') { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ ممتاز! إجابات صحيحة 100%!'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ يرجى التأكد من كتابة الكلمات بالتهجئة الصحيحة.'; }
+}
+function checkS2() {
+    const q1 = document.getElementById('s2-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb2'); fb.style.display = 'block';
+    if(q1 === 'notebooks') { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ إجابة صحيحة من نص النشيد! 🏆'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ تأكد من الكلمة الأولى: notebooks.'; }
+}
+function checkS3() {
+    const q1 = document.getElementById('s3-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb3'); fb.style.display = 'block';
+    if(q1 === 'first') { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ بطل الأرقام الترتيبية! 🌟'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ تأكد من هجاء first.'; }
+}
+function checkS4() {
+    const q1 = document.getElementById('s4-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb4'); fb.style.display = 'block';
+    if(q1 === 'naughty') { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ ممتاز! الصفات في السياق صحيحة! 👏'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ تأكد من الكلمة الأولى: naughty.'; }
+}
+function checkS5() {
+    const q1 = document.getElementById('s5-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb5'); fb.style.display = 'block';
+    if(q1 === 'longer') { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ إجابات المقارنة والتفضيل صحيحة! 💎'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ تأكد من الصفة: longer.'; }
+}
+function checkS6() {
+    const q1 = document.getElementById('s6-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb6'); fb.style.display = 'block';
+    if(q1.includes('my dad often makes dinner')) { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ ترتيب الجمل سليم وصحيح 100%! 🎉'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ الترتيب الصحيح: My dad often makes dinner.'; }
+}
+function checkS7() {
+    const q1 = document.getElementById('s7-q1').value.trim().toLowerCase();
+    const fb = document.getElementById('fb7'); fb.style.display = 'block';
+    if(q1 === 'was') { fb.className = 'fb-indicator fb-correct'; fb.textContent = '✅ قاعدة Was / Were صحيحة ومتقنة! ⏰'; confetti(); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ تأكد من: was.'; }
+}
+function checkS8() {
+    const q1 = document.getElementById('s8-q1-t').checked;
+    const fb = document.getElementById('fb8'); fb.style.display = 'block';
+    if(q1) { fb.className = 'fb-indicator fb-correct'; fb.textContent = '🏆 تهانينا! لقد أتقنت اختبار الوحدة التمهيدية الشامل 10/10!'; confetti({ particleCount: 100 }); }
+    else { fb.className = 'fb-indicator fb-wrong'; fb.textContent = '❌ يرجى اختيار الإجابات الصحيحة.'; }
+}
+
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    html2pdf().set({ margin: [0.3, 0.3, 0.3, 0.3], filename: filename, html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'a4' } }).from(element).save();
+}
+function downloadWord(sheetId, filename) {
+    const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><style>body{font-family:'Segoe UI',sans-serif;direction:rtl;text-align:right;padding:20px;}.sheet-actions,.fb-indicator{display:none!important;}</style></head><body>";
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const blob = new Blob(['\ufeff' + header + element.innerHTML + "</body></html>"], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click();
+}
+</script>
+</body>
+</html>

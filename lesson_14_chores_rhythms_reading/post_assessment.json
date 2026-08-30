@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Complete: I vacuum the ______.",
+    "choices": [
+      "floor",
+      "trash",
+      "fish",
+      "table"
+    ],
+    "ans": "floor"
+  },
+  {
+    "q": "I clean ______ my room.",
+    "choices": [
+      "up",
+      "on",
+      "in",
+      "at"
+    ],
+    "ans": "up"
+  },
+  {
+    "q": "What does the robot fold?",
+    "choices": [
+      "laundry",
+      "table",
+      "dishes",
+      "fish"
+    ],
+    "ans": "laundry"
+  },
+  {
+    "q": "The robot vacuums the ______.",
+    "choices": [
+      "floor",
+      "dishes",
+      "trash",
+      "laundry"
+    ],
+    "ans": "floor"
+  },
+  {
+    "q": "Does he go shopping? -> Yes, he ______.",
+    "choices": [
+      "goes",
+      "go",
+      "going",
+      "go too"
+    ],
+    "ans": "goes"
+  }
+]

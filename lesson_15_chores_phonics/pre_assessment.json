@@ -1,0 +1,52 @@
+[
+  {
+    "q": "c_ _ (سيارة)",
+    "choices": [
+      "ar",
+      "or",
+      "er",
+      "ur"
+    ],
+    "ans": "ar"
+  },
+  {
+    "q": "f_ _k (شوكة)",
+    "choices": [
+      "or",
+      "ar",
+      "er",
+      "ir"
+    ],
+    "ans": "or"
+  },
+  {
+    "q": "teach_ _ (معلم)",
+    "choices": [
+      "er",
+      "ar",
+      "or",
+      "ur"
+    ],
+    "ans": "er"
+  },
+  {
+    "q": "doct_ _ (طبيب)",
+    "choices": [
+      "or",
+      "er",
+      "ar",
+      "ir"
+    ],
+    "ans": "or"
+  },
+  {
+    "q": "sist_ _ (أخت)",
+    "choices": [
+      "er",
+      "or",
+      "ar",
+      "ur"
+    ],
+    "ans": "er"
+  }
+]

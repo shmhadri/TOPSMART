@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Score 10 indicates you are a ______ helper.",
+    "choices": [
+      "good",
+      "great",
+      "average",
+      "poor"
+    ],
+    "ans": "good"
+  },
+  {
+    "q": "Score 3 indicates you are a ______ helper.",
+    "choices": [
+      "poor",
+      "average",
+      "good",
+      "great"
+    ],
+    "ans": "poor"
+  },
+  {
+    "q": "Which is the highest helper rank?",
+    "choices": [
+      "great helper",
+      "good helper",
+      "average helper",
+      "poor helper"
+    ],
+    "ans": "great helper"
+  },
+  {
+    "q": "I'm a good helper ______ home.",
+    "choices": [
+      "at",
+      "in",
+      "on",
+      "for"
+    ],
+    "ans": "at"
+  },
+  {
+    "q": "Do you fold the laundry? -> Yes, I ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doing"
+    ],
+    "ans": "do"
+  }
+]

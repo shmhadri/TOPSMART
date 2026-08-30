@@ -1,0 +1,52 @@
+[
+  {
+    "q": "______ your brother do karate?",
+    "choices": [
+      "Do",
+      "Does",
+      "Is",
+      "Are"
+    ],
+    "ans": "Does"
+  },
+  {
+    "q": "Do they play word games? -> Yes, they ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doesn't"
+    ],
+    "ans": "do"
+  },
+  {
+    "q": "Does she play tennis? -> No, she ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doesn't"
+    ],
+    "ans": "doesn't"
+  },
+  {
+    "q": "Do you play football? -> No, I ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doesn't"
+    ],
+    "ans": "don't"
+  },
+  {
+    "q": "Does he snowboard? -> Yes, he ______.",
+    "choices": [
+      "do",
+      "does",
+      "doesn't",
+      "don't"
+    ],
+    "ans": "does"
+  }
+]

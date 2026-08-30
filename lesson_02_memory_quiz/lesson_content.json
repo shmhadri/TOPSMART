@@ -1,0 +1,92 @@
+{
+  "title": "Sports and Activities Memory Quiz",
+  "desc": "Ask friends about sports and activities they like and want to try, then recall them.",
+  "vocab": [
+    {
+      "word": "basketball",
+      "type": "sport",
+      "ar": "كرة السلة"
+    },
+    {
+      "word": "tennis",
+      "type": "sport",
+      "ar": "التنس"
+    },
+    {
+      "word": "running",
+      "type": "sport",
+      "ar": "الجري"
+    },
+    {
+      "word": "football",
+      "type": "sport",
+      "ar": "كرة القدم"
+    },
+    {
+      "word": "volleyball",
+      "type": "sport",
+      "ar": "كرة الطائرة"
+    },
+    {
+      "word": "golf",
+      "type": "sport",
+      "ar": "الجولف"
+    },
+    {
+      "word": "painting",
+      "type": "activity",
+      "ar": "الرسم"
+    },
+    {
+      "word": "pottery",
+      "type": "activity",
+      "ar": "الفخار"
+    },
+    {
+      "word": "computer games",
+      "type": "activity",
+      "ar": "ألعاب الكمبيوتر"
+    },
+    {
+      "word": "word games",
+      "type": "activity",
+      "ar": "ألعاب الكلمات"
+    },
+    {
+      "word": "photography",
+      "type": "activity",
+      "ar": "التصوير"
+    },
+    {
+      "word": "cooking",
+      "type": "activity",
+      "ar": "الطبخ"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "What sports do you like?",
+      "ar": "أي رياضة تحب؟"
+    },
+    {
+      "en": "I like basketball.",
+      "ar": "أنا أحب كرة السلة."
+    },
+    {
+      "en": "What sports do you want to try?",
+      "ar": "أي رياضة تريد تجدتها؟"
+    },
+    {
+      "en": "I want to try tennis.",
+      "ar": "أريد تجربة التنس."
+    },
+    {
+      "en": "He likes basketball.",
+      "ar": "هو يحب كرة السلة."
+    },
+    {
+      "en": "She wants to try pottery.",
+      "ar": "هي تريد تجربة الفخار."
+    }
+  ]
+}

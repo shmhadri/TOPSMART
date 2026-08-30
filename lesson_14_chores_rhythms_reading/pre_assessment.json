@@ -1,0 +1,52 @@
+[
+  {
+    "q": "I ______ the floor.",
+    "choices": [
+      "vacuum",
+      "wash",
+      "set",
+      "clean"
+    ],
+    "ans": "vacuum"
+  },
+  {
+    "q": "I ______ the laundry.",
+    "choices": [
+      "fold",
+      "feed",
+      "wash",
+      "set"
+    ],
+    "ans": "fold"
+  },
+  {
+    "q": "I go ______.",
+    "choices": [
+      "shopping",
+      "shop",
+      "shopped",
+      "to shop"
+    ],
+    "ans": "shopping"
+  },
+  {
+    "q": "Translate: 'أرتب غرفتي'",
+    "choices": [
+      "clean up my room",
+      "vacuum the floor",
+      "fold the laundry",
+      "set the table"
+    ],
+    "ans": "clean up my room"
+  },
+  {
+    "q": "Robot cleans ______ day.",
+    "choices": [
+      "every",
+      "never",
+      "no",
+      "some"
+    ],
+    "ans": "every"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "q": "______ you play tennis?",
+    "choices": [
+      "Do",
+      "Does",
+      "Doing",
+      "Done"
+    ],
+    "ans": "Do"
+  },
+  {
+    "q": "______ he play golf?",
+    "choices": [
+      "Do",
+      "Does",
+      "Is",
+      "Are"
+    ],
+    "ans": "Does"
+  },
+  {
+    "q": "Does she like painting? -> Yes, she ______.",
+    "choices": [
+      "do",
+      "does",
+      "doesn't",
+      "don't"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "Do they play football? -> No, they ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doesn't"
+    ],
+    "ans": "don't"
+  },
+  {
+    "q": "Correct: Does he plays tennis? ❌",
+    "choices": [
+      "Does he play tennis?",
+      "Do he play tennis?",
+      "Does he playing tennis?",
+      "Does he plays tennis?"
+    ],
+    "ans": "Does he play tennis?"
+  }
+]

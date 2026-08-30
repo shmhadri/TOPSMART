@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصف الثالث الابتدائي - الوحدة 3: Sports and Activities | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: none;
+    --shadow-lg: none
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.prog-pill {
+    padding: 6px 14px;
+    background: rgba(16,185,129,0.1);
+    color: var(--accent);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px
+}
+.theme-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    color: var(--text)
+}
+.theme-btn:hover {
+    transform: rotate(15deg);
+    border-color: var(--primary)
+}
+
+/* CONTAINER LAYOUT */
+.main-wrap {
+    display: flex;
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px
+}
+@media(max-width:900px) {
+    .main-wrap {
+        flex-direction: column
+    }
+}
+
+/* SIDEBAR TOC */
+.ls {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    box-shadow: var(--shadow)
+}
+@media(max-width:900px) {
+    .ls {
+        width: 100%;
+        position: static;
+    }
+}
+.ls-hd {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border)
+}
+.toc {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--tr);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid transparent
+}
+.toc:hover {
+    background: rgba(79, 70, 229, 0.04);
+    color: var(--primary)
+}
+.toc.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    border-color: var(--primary-light)
+}
+.toc.done {
+    background: rgba(16,185,129,0.06);
+    color: var(--accent)
+}
+.toc-n {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px
+}
+.toc.active .toc-n {
+    background: var(--primary);
+    color: #fff
+}
+
+/* CONTENT COLUMN */
+.lc {
+    flex: 1;
+    min-width: 0
+}
+.sec {
+    display: none;
+    animation: fadeIn 0.4s ease
+}
+.sec.active {
+    display: block
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius);
+    padding: 40px;
+    color: #fff;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden
+}
+.hero-badge {
+    background: rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 900;
+    display: inline-block;
+    margin-bottom: 16px
+}
+.hero h1 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 8px
+}
+.hero p {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 500
+}
+
+/* LOCAL MODE TOGGLE */
+.comparison-bar {
+    display: flex;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px;
+    margin-bottom: 24px;
+    gap: 6px
+}
+.comp-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--tr);
+    color: var(--text-muted);
+}
+.comp-btn.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* 12-STEP PATHWAY STEPPER */
+.stepper-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+}
+.step-dot {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: var(--tr);
+    min-width: 65px;
+}
+.step-dot-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--text-muted);
+}
+.step-dot.active {
+    opacity: 1;
+    color: var(--primary);
+}
+.step-dot.active .step-dot-circle {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.step-dot.completed .step-dot-circle {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.step-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.step-card.active {
+    display: block;
+}
+
+/* UTILITY BUTTONS */
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-light); }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: #059669; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: #e11d48; }
+.btn-outline { background: transparent; border-color: var(--border); color: var(--text); }
+.btn-outline:hover { background: var(--bg); border-color: var(--primary); }
+
+.audio-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.ar-translation {
+    font-size: 14px;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* BOOK EXPLANATION */
+.book-explanation-box {
+    background: #eff6ff;
+    border: 2px dashed #3b82f6;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 28px;
+    color: #1e3a8a
+}
+.book-explanation-box h3 {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+/* TEST PANEL */
+.test-panel {
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    box-shadow: var(--shadow)
+}
+.test-hdr {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block
+}
+.test-hdr-pre { background: rgba(79, 70, 229, 0.08); color: var(--primary); }
+.test-hdr-during { background: rgba(245, 158, 11, 0.08); color: #b45309; }
+.test-hdr-post { background: rgba(16, 185, 129, 0.08); color: var(--accent); }
+.test-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px
+}
+.test-btn {
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr)
+}
+.test-btn:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.04)
+}
+.test-btn.correct {
+    border-color: var(--accent);
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--accent)
+}
+.test-btn.wrong {
+    border-color: var(--danger);
+    background: rgba(244, 63, 94, 0.08);
+    color: var(--danger)
+}
+
+/* SPORTS CARDS */
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px
+}
+.sport-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+    box-shadow: var(--shadow)
+}
+.sport-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg)
+}
+.sport-emoji {
+    font-size: 64px;
+    margin-bottom: 12px;
+    display: block
+}
+.sport-en {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text)
+}
+
+/* developed digital scene styles */
+.ocean-scene {
+    background: linear-gradient(135deg, #166534, #15803d, #1e3a8a);
+    border-radius: var(--radius);
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SORTING BASKETS STYLES */
+.basket-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+.basket-card {
+    background: var(--bg-card);
+    border: 3px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    min-height: 160px;
+    transition: var(--tr);
+}
+.basket-items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+}
+.sort-item {
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* TIMER DISPLAY */
+.timer-container {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.timer-bar-outer {
+    background: var(--border);
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.timer-bar-inner {
+    background: var(--danger);
+    height: 100%;
+    width: 100%;
+    transition: width 1s linear;
+}
+
+/* HANDWRITING LINE INPUTS */
+.handwriting-line {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary);
+    outline: none;
+    background: transparent;
+    text-align: center;
+}
+.fb {
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    margin-top: 12px;
+    display: none;
+}
+.fb.correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #047857;
+}
+.fb.wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+}
+
+/* METER GAUGE STYLES */
+.meter-gauge-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 20px 0;
+}
+.meter-level-card {
+    flex: 1;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.meter-level-card.active-level {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.06);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+.meter-label-num {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* FALCONRY KEY WORDS POPUP */
+.vocab-term {
+    color: var(--primary);
+    font-weight: 900;
+    text-decoration: underline dotted var(--primary);
+    cursor: pointer;
+}
+
+/* REPORT DISPLAY */
+.report-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+.report-card-sub {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    text-align: center;
+}
+.report-badge {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 10px 0;
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="index.html" class="back-btn-top">↩️ قائمة الصفوف</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left" style="direction: ltr;">
+    <a href="grade3-unit3-presentation.html" target="_blank" class="back-btn-top" style="border-color:var(--primary-light); color:var(--primary-light); margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      💻 عرض PowerPoint
+    </a>
+    <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b; margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      🎯 عجلة الأسماء
+    </a>
+    <a href="grade3-unit3-worksheets.html" target="_blank" class="back-btn-top" style="border-color:#ec4899; color:#ec4899; margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      📝 أوراق العمل
+    </a>
+    <a href="grade3-unit3-printables.html" target="_blank" class="back-btn-top" style="border-color:#3b82f6; color:#3b82f6; margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      🧩 وسائل المعلم
+    </a>
+    <div class="prog-pill">التقدم: <b id="prog">0%</b></div>
+    <button class="theme-btn" id="tbtn" onclick="tgl()">🌙</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="ls">
+    <div class="ls-hd">دروس الوحدة الثالثة</div>
+    <div class="toc active" id="t0" onclick="sw(0)"><span class="toc-n">1</span>الدرس 1: Common & Dangerous Sports</div>
+    <div class="toc" id="t1" onclick="sw(1)"><span class="toc-n">2</span>الدرس 2: Memory Quiz (p.19)</div>
+    <div class="toc" id="t2" onclick="sw(2)"><span class="toc-n">3</span>الدرس 3: Verb Helpers (p.20)</div>
+    <div class="toc" id="t3" onclick="sw(3)"><span class="toc-n">4</span>الدرس 4: Question & Answer Race</div>
+    <div class="toc" id="t4" onclick="sw(4)"><span class="toc-n">5</span>الدرس 5: Comparisons (More/Most)</div>
+    <div class="toc" id="t5" onclick="sw(5)"><span class="toc-n">6</span>الدرس 6: Falconry Traditional Sport</div>
+    <div class="toc" id="t6" onclick="sw(6)"><span class="toc-n">7</span>الدرس 7: Phonics sounds</div>
+    <div class="toc" id="t7" onclick="sw(7)"><span class="toc-n">8</span>الدرس 8: I'd Like To ... But</div>
+  </aside>
+
+  <!-- CONTENT COLUMN -->
+  <main class="lc">
+
+    <!-- HERO -->
+    <div class="hero">
+      <span class="hero-badge">إنجليزي الصف الثالث الابتدائي | We Can 3</span>
+      <h1>Unit 3: Sports and Activities</h1>
+      <p>تعلم الألعاب الرياضية وصيغ المقارنة والمحادثات الحية مع تصدير عروض الـ PowerPoint وأوراق العمل الذكية!</p>
+    </div>
+
+    <!-- ==================== LESSONS SECTIONS ==================== -->
+    
+    <!-- LESSON 1 (PRESERVED & NOT TOUCHED) -->
+    <section class="sec active" id="s0">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-0-classic" onclick="toggleLocalMode(0, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 1)</div>
+        <div class="comp-btn" id="mode-btn-0-digital" onclick="toggleLocalMode(0, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 1)</div>
+      </div>
+
+      <div id="mode-content-0-classic" class="local-mode-content">
+        <div class="sec-hd">
+          <div class="sec-title">
+            <span class="sec-icon">⚽</span>
+            <h2>الدرس 1: Talk Time / Finding Out Time (صفحة 18)</h2>
+          </div>
+        </div>
+        <div class="book-explanation-box">
+          <h3>📖 شرح الدرس من كتاب الطالب (صفحة 18):</h3>
+          <p style="margin-bottom:12px;">سنتعلم اليوم تصنيف الرياضات إلى رياضات شائعة (Common) وخطيرة (Dangerous):</p>
+        </div>
+        <div class="test-panel pre">
+          <div class="test-hdr test-hdr-pre">🧠 اختبار قبلي (Pre-Test) - الدرس الأول:</div>
+          <div id="classic-pre-question-box"></div>
+        </div>
+
+        <div class="sports-section-title">🟢 الرياضات الشائعة (Common Sports):</div>
+        <div class="sports-grid">
+          <div class="sport-card" onclick="speak('tennis')"><span class="sport-emoji">🎾</span><div class="sport-en">tennis</div></div>
+          <div class="sport-card" onclick="speak('football')"><span class="sport-emoji">⚽</span><div class="sport-en">football</div></div>
+          <div class="sport-card" onclick="speak('basketball')"><span class="sport-emoji">🏀</span><div class="sport-en">basketball</div></div>
+        </div>
+
+        <div class="test-panel during">
+          <div class="test-hdr test-hdr-during">💬 سؤال تفاعلي (During-Lesson Check):</div>
+          <div id="classic-during-question-box"></div>
+        </div>
+
+        <div class="test-panel post">
+          <div class="test-hdr test-hdr-post">🎓 اختبار بعدي (Post-Test):</div>
+          <div id="classic-post-question-box"></div>
+        </div>
+        <button class="btn-c btn-accent" style="margin-top:20px;" onclick="mark(0)">تم إنهاء الدرس 1 بنجاح ✔️</button>
+      </div>
+
+      <div id="mode-content-0-digital" class="local-mode-content" style="display:none;">
+        <div class="ocean-scene">
+          <h2>Having Fun Time – Lesson 1 🏆</h2>
+          <p>Let's learn sports vocabulary and simulate small talk!</p>
+        </div>
+        <div class="vocab-explorer-card" style="margin-top:20px;">
+          <h3>📖 مستكشف الكلمات للدرس 1:</h3>
+          <p>انقر للاستماع للرياضة: <b>football</b></p>
+          <button class="btn-c btn-primary" onclick="speak('football. I like football.')">🔊 استمع ونطق</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSONS 2 TO 8 GENERATED DYNAMICALLY OR STATICALLY -->
+    <!-- We will write helper functions to render each of these lessons with the 12-step path beautifully. -->
+    
+    <!-- LESSON 2 -->
+    <section class="sec" id="s1">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-1-classic" onclick="toggleLocalMode(1, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 2)</div>
+        <div class="comp-btn" id="mode-btn-1-digital" onclick="toggleLocalMode(1, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 2)</div>
+      </div>
+      <div id="mode-content-1-classic" class="local-mode-content"></div>
+      <div id="mode-content-1-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 3 -->
+    <section class="sec" id="s2">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-2-classic" onclick="toggleLocalMode(2, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 3)</div>
+        <div class="comp-btn" id="mode-btn-2-digital" onclick="toggleLocalMode(2, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 3)</div>
+      </div>
+      <div id="mode-content-2-classic" class="local-mode-content"></div>
+      <div id="mode-content-2-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 4 -->
+    <section class="sec" id="s3">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-3-classic" onclick="toggleLocalMode(3, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 4)</div>
+        <div class="comp-btn" id="mode-btn-3-digital" onclick="toggleLocalMode(3, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 4)</div>
+      </div>
+      <div id="mode-content-3-classic" class="local-mode-content"></div>
+      <div id="mode-content-3-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 5 -->
+    <section class="sec" id="s4">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-4-classic" onclick="toggleLocalMode(4, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 5)</div>
+        <div class="comp-btn" id="mode-btn-4-digital" onclick="toggleLocalMode(4, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 5)</div>
+      </div>
+      <div id="mode-content-4-classic" class="local-mode-content"></div>
+      <div id="mode-content-4-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 6 -->
+    <section class="sec" id="s5">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-5-classic" onclick="toggleLocalMode(5, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 6)</div>
+        <div class="comp-btn" id="mode-btn-5-digital" onclick="toggleLocalMode(5, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 6)</div>
+      </div>
+      <div id="mode-content-5-classic" class="local-mode-content"></div>
+      <div id="mode-content-5-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 7 -->
+    <section class="sec" id="s6">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-6-classic" onclick="toggleLocalMode(6, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 7)</div>
+        <div class="comp-btn" id="mode-btn-6-digital" onclick="toggleLocalMode(6, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 7)</div>
+      </div>
+      <div id="mode-content-6-classic" class="local-mode-content"></div>
+      <div id="mode-content-6-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 8 -->
+    <section class="sec" id="s7">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-7-classic" onclick="toggleLocalMode(7, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 8)</div>
+        <div class="comp-btn" id="mode-btn-7-digital" onclick="toggleLocalMode(7, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 8)</div>
+      </div>
+      <div id="mode-content-7-classic" class="local-mode-content"></div>
+      <div id="mode-content-7-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+// Web Speech API Microphone setup
+let recognition = null;
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRec();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+}
+
+function startMic(targetWord, outputId) {
+    if (!recognition) {
+        alert("الميكروفون أو ميزة التعرف على الصوت غير مدعومة في متصفحك. يرجى استخدام متصفح Google Chrome.");
+        return;
+    }
+    const output = document.getElementById(outputId);
+    output.style.display = 'block';
+    output.className = 'fb';
+    output.textContent = '🎙️ جاري الاستماع... انطق الجملة الآن باللغة الإنجليزية.';
+    recognition.start();
+    
+    recognition.onresult = function(event) {
+        const spoken = event.results[0][0].transcript.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+        const cleanTarget = targetWord.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+        
+        if (spoken.includes(cleanTarget) || cleanTarget.includes(spoken)) {
+            output.className = 'fb correct';
+            output.innerHTML = `✅ نطق رائع وصحيح تماماً! لقد قلت: "<b>${event.results[0][0].transcript}</b>"`;
+            speakSpeed("Excellent job", false);
+            conf();
+        } else {
+            output.className = 'fb wrong';
+            output.innerHTML = `❌ نطق غير متطابق. لقد قلت: "<b>${event.results[0][0].transcript}</b>". حاول تكرارها بوضوح.`;
+            speakSpeed("Try again", false);
+        }
+    };
+    recognition.onerror = function() {
+        output.className = 'fb wrong';
+        output.textContent = '❌ حدث خطأ في التقاط الصوت. يرجى المحاولة مجدداً.';
+    };
+}
+
+function speakSpeed(txt, slow = false) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const ut = new SpeechSynthesisUtterance(txt);
+        ut.lang = 'en-US';
+        ut.rate = slow ? 0.55 : 0.85;
+        window.speechSynthesis.speak(ut);
+    }
+}
+
+function tgl() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('tbtn').textContent = isDark ? '🌙' : '☀️';
+}
+
+function sw(idx) {
+    const secs = document.querySelectorAll('.sec');
+    const tocs = document.querySelectorAll('.toc');
+    secs.forEach(s => s.classList.remove('active'));
+    tocs.forEach(t => t.classList.remove('active'));
+    
+    secs[idx].classList.add('active');
+    tocs[idx].classList.add('active');
+}
+
+function toggleLocalMode(lessonIdx, mode) {
+    const classicDiv = document.getElementById(`mode-content-${lessonIdx}-classic`);
+    const digitalDiv = document.getElementById(`mode-content-${lessonIdx}-digital`);
+    const classicBtn = document.getElementById(`mode-btn-${lessonIdx}-classic`);
+    const digitalBtn = document.getElementById(`mode-btn-${lessonIdx}-digital`);
+
+    if(mode === 'classic') {
+        classicDiv.style.display = 'block';
+        digitalDiv.style.display = 'none';
+        classicBtn.classList.add('active');
+        digitalBtn.classList.remove('active');
+    } else {
+        classicDiv.style.display = 'none';
+        digitalDiv.style.display = 'block';
+        classicBtn.classList.remove('active');
+        digitalBtn.classList.add('active');
+    }
+}
+
+function conf() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+}
+
+const progress = new Array(8).fill(false);
+function mark(idx) {
+    progress[idx] = true;
+    const completed = progress.filter(p => p).length;
+    const pct = Math.round((completed / progress.length) * 100);
+    document.getElementById('prog').textContent = pct + '%';
+    
+    const tocItem = document.getElementById('t' + idx);
+    if(tocItem) tocItem.classList.add('done');
+    
+    if(pct === 100) {
+        conf();
+        alert("🎉 مبارك! لقد أتممت جميع دروس الوحدة الثالثة بنجاح!");
+    }
+}
+
+/* ==================== CLASSIC LESSON 1 TESTS ==================== */
+let classicPreIdx = 0;
+const classicPreQuestions = [
+    {q: "1. Which one is a dangerous sport? 🔴", ans: "sky diving", choices: ["football", "tennis", "sky diving", "basketball"]},
+    {q: "2. Which of these is a common sport? 🟢", ans: "volleyball", choices: ["volleyball", "rock climbing", "scuba diving", "bungee jumping"]},
+    {q: "3. Complete the translation: 'horse riding' is _______.", ans: "ركوب الخيل", choices: ["تسلق الصخور", "ركوب الخيل", "كرة السلة", "القفز المظلي"]}
+];
+function renderClassicPre() {
+    const container = document.getElementById('classic-pre-question-box');
+    if(!container) return;
+    if(classicPreIdx < classicPreQuestions.length) {
+        const q = classicPreQuestions[classicPreIdx];
+        let html = `<p style="font-size:18px; margin-bottom:12px;">${q.q}</p><div class="test-choices">`;
+        q.choices.forEach(c => {
+            html += `<button class="test-btn" onclick="submitClassicPreAnswer('${c}', '${q.ans}')">${c}</button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+    } else {
+        container.innerHTML = `<div style="font-weight:bold; color:var(--accent); text-align:center; padding:10px;">🎉 رائع! انتهيت من التقييم القبلي!</div>`;
+    }
+}
+function submitClassicPreAnswer(chosen, correct) {
+    if(chosen === correct) { speakSpeed("Correct", false); conf(); } else { speakSpeed("Incorrect", false); }
+    classicPreIdx++;
+    setTimeout(renderClassicPre, 800);
+}
+
+let classicDuringIdx = 0;
+const classicDuringQuestions = [
+    {q: '1. Complete: "What sport do you like? -> I like _______."', ans: 'football', choices: ['football', 'try diving', 'to football', 'scuba']},
+    {q: '2. Complete: "What sport do you want to try? -> I want _______ sky diving."', ans: 'to try', choices: ['to try', 'try', 'try to', 'trying']},
+    {q: '3. Which sport is played with a racket? 🎾', ans: 'tennis', choices: ['tennis', 'volleyball', 'basketball', 'football']}
+];
+function renderClassicDuring() {
+    const container = document.getElementById('classic-during-question-box');
+    if(!container) return;
+    if(classicDuringIdx < classicDuringQuestions.length) {
+        const q = classicDuringQuestions[classicDuringIdx];
+        let html = `<p style="font-size:18px; margin-bottom:12px;">${q.q}</p><div class="test-choices">`;
+        q.choices.forEach(c => {
+            html += `<button class="test-btn" onclick="submitClassicDuringAnswer('${c}', '${q.ans}')">${c}</button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+    } else {
+        container.innerHTML = `<div style="font-weight:bold; color:var(--accent); text-align:center; padding:10px;">🎉 رائع! إتقان رائع للأسئلة أثناء الدرس!</div>`;
+    }
+}
+function submitClassicDuringAnswer(chosen, correct) {
+    if(chosen === correct) { speakSpeed("Correct", false); conf(); } else { speakSpeed("Incorrect", false); }
+    classicDuringIdx++;
+    setTimeout(renderClassicDuring, 800);
+}
+
+let classicPostIdx = 0;
+const classicPostQuestions = [
+    {q: "1. What sport does your brother like? -> He _______ basketball.", ans: "likes", choices: ["likes", "like", "want", "wants"]},
+    {q: "2. What sport does he want to try? -> He wants _______ bungee jumping.", ans: "to try", choices: ["to try", "try", "likes", "want"]}
+];
+function renderClassicPost() {
+    const container = document.getElementById('classic-post-question-box');
+    if(!container) return;
+    if(classicPostIdx < classicPostQuestions.length) {
+        const q = classicPostQuestions[classicPostIdx];
+        let html = `<p style="font-size:18px; margin-bottom:12px;">${q.q}</p><div class="test-choices">`;
+        q.choices.forEach(c => {
+            html += `<button class="test-btn" onclick="submitClassicPostAnswer('${c}', '${q.ans}')">${c}</button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+    } else {
+        container.innerHTML = `<div style="font-weight:bold; color:var(--accent); text-align:center; padding:10px;">🏆 تهانينا! لقد أكملت الاختبار البعدي بنجاح!</div>`;
+    }
+}
+function submitClassicPostAnswer(chosen, correct) {
+    if(chosen === correct) { speakSpeed("Correct", false); conf(); } else { speakSpeed("Incorrect", false); }
+    classicPostIdx++;
+    setTimeout(renderClassicPost, 800);
+}
+
+renderClassicPre();
+renderClassicDuring();
+renderClassicPost();
+
+/* ==================== DYNAMIC 12-STEP PATHWAY SYSTEM FOR LESSONS 2 TO 8 ==================== */
+const lessonNames = [
+    "", // Lesson 1 preserved
+    "Sports and Activities Memory Quiz",
+    "Grammar in Action - Verb Helpers",
+    "Question and Answer Race",
+    "Rhythms and Reading - More and Most",
+    "The Traditional Sport of Falconry",
+    "Phonics - oi, oy, ere, ear, air",
+    "I'd Like To ... But"
+];
+
+// We hold state for active step for each lesson
+const activeStepPerLesson = new Array(8).fill(0);
+const preScores = new Array(8).fill(0);
+const postScores = new Array(8).fill(0);
+
+// We define the JSON configurations directly in JS to keep the file fully functional offline without CORS errors
+const lessonData = {
+    1: {
+        title: "Sports and Activities Memory Quiz",
+        emoji: "🧠",
+        desc: "Ask friends about sports and activities they like and want to try, then recall them using He/She likes.",
+        warmup: "Welcome to the Memory Quiz lesson! Can you remember what sports your friends like? Today we will interview friends and test our memory.",
+        guide: "What sports does Faisal like? -> He likes basketball. What does Faisal want to try? -> He wants to try rock climbing.",
+        micPhrase: "He likes basketball and she wants to try pottery.",
+        challengeDesc: "Test your memory! Look at the friend cards and match who wants to try which activity.",
+        homework: "Ask two of your family members about their favorite activities and write down sentences using 'He likes...' or 'She wants to try...'.",
+        pre: [
+            { q: "Ali ______ tennis.", choices: ["like", "likes", "to like", "liking"], ans: "likes" },
+            { q: "She ______ painting.", choices: ["like", "likes", "want", "wants"], ans: "likes" },
+            { q: "What ______ he like?", choices: ["do", "does", "is", "are"], ans: "does" },
+            { q: "Choose correct pronoun for a girl:", choices: ["He", "She", "It", "They"], ans: "She" },
+            { q: "Rearrange: does / What / he / like", choices: ["What does he like?", "What he does like?", "He does like what?", "Does he like what?"], ans: "What does he like?" }
+        ],
+        during: [
+            { q: "What sports ______ you like?", choices: ["do", "does", "is", "are"], ans: "do" },
+            { q: "Nura likes ______.", choices: ["paint", "painting", "paints", "to paint"], ans: "painting" },
+            { q: "He wants ______ try running.", choices: ["to", "for", "at", "with"], ans: "to" }
+        ],
+        post: [
+            { q: "Faisal likes ______.", choices: ["basketball", "basket", "baskets", "to basketball"], ans: "basketball" },
+            { q: "What activities do you want to try? -> I want to try ______.", choices: ["pottery", "pot", "potting", "potted"], ans: "pottery" },
+            { q: "Change 'I like football' to He:", choices: ["He likes football.", "He like football.", "He liking football.", "He plays football."], ans: "He likes football." },
+            { q: "Change 'I want to try cooking' to She:", choices: ["She wants to try cooking.", "She want to try cooking.", "She wants try cooking.", "She wanting to try cooking."], ans: "She wants to try cooking." },
+            { q: "Which is a sport?", choices: ["painting", "pottery", "golf", "photography"], ans: "golf" }
+        ]
+    },
+    2: {
+        title: "Grammar in Action - Verb Helpers",
+        emoji: "🥋",
+        desc: "Master using Do/Does in questions and short answers correctly.",
+        warmup: "Welcome to Grammar in Action! Today we learn Do & Does. Let's see which subjects match Do and which match Does.",
+        guide: "Do you play tennis? Yes, I do. Does he play golf? No, he doesn't.",
+        micPhrase: "Does she like painting? Yes, she does.",
+        challengeDesc: "Sort Do and Does into the correct boxes as fast as you can!",
+        homework: "Write three questions starting with 'Do you...' and three questions starting with 'Does he...'.",
+        pre: [
+            { q: "______ you play tennis?", choices: ["Do", "Does", "Is", "Are"], ans: "Do" },
+            { q: "______ he play golf?", choices: ["Do", "Does", "Is", "Are"], ans: "Does" },
+            { q: "Does she like painting? Yes, she ______.", choices: ["do", "does", "doesn't", "don't"], ans: "does" },
+            { q: "Do they play football? No, they ______.", choices: ["do", "does", "don't", "doesn't"], ans: "don't" },
+            { q: "Correct: Does he plays tennis? ❌", choices: ["Does he play tennis?", "Do he play tennis?", "Does he playing tennis?", "Does he plays tennis?"], ans: "Does he play tennis?" }
+        ],
+        during: [
+            { q: "Do you ______ computer games?", choices: ["play", "plays", "playing", "played"], ans: "play" },
+            { q: "Does he ______ pottery?", choices: ["do", "does", "doing", "done"], ans: "do" },
+            { q: "Do we ______ jogging?", choices: ["go", "goes", "going", "went"], ans: "go" }
+        ],
+        post: [
+            { q: "______ your brother do karate?", choices: ["Do", "Does", "Is", "Are"], ans: "Does" },
+            { q: "Do they play word games? Yes, they ______.", choices: ["do", "does", "don't", "doesn't"], ans: "do" },
+            { q: "Does she play tennis? No, she ______.", choices: ["do", "does", "don't", "doesn't"], ans: "doesn't" },
+            { q: "Do you play football? No, I ______.", choices: ["do", "does", "don't", "doesn't"], ans: "don't" },
+            { q: "Does he snowboard? Yes, he ______.", choices: ["do", "does", "doesn't", "don't"], ans: "does" }
+        ]
+    },
+    3: {
+        title: "Question and Answer Race",
+        emoji: "⚡",
+        desc: "Practice answering 6 questions in under 60 seconds with correct grammar.",
+        warmup: "Are you fast enough? Let's check if you can ask and answer six questions in 60 seconds. Get ready!",
+        guide: "Read the six questions quickly: Do you play tennis? Does your father play golf? Do you play computer games? Do you play word games? Does your brother do karate? Does your friend play computer games?",
+        micPhrase: "Does your father play golf?",
+        challengeDesc: "Q&A Race countdown challenge! Answer all 6 questions under 60 seconds.",
+        homework: "Practice the 6 questions with a partner at home and write down their answers.",
+        pre: [
+            { q: "______ your father play golf?", choices: ["Do", "Does", "Is", "Are"], ans: "Does" },
+            { q: "______ you play word games?", choices: ["Do", "Does", "Is", "Are"], ans: "Do" },
+            { q: "______ your brother do karate?", choices: ["Do", "Does", "Is", "Are"], ans: "Does" },
+            { q: "Rearrange: play / you / Do / tennis", choices: ["Do you play tennis?", "You play do tennis?", "Do tennis play you?", "Play you do tennis?"], ans: "Do you play tennis?" },
+            { q: "Does your friend play tennis? Yes, he ______.", choices: ["do", "does", "don't", "doesn't"], ans: "does" }
+        ],
+        during: [
+            { q: "Does your sister ______ painting?", choices: ["like", "likes", "liking", "liked"], ans: "like" },
+            { q: "Do you ______ word games?", choices: ["play", "plays", "playing", "played"], ans: "play" },
+            { q: "Does your friend ______ horse riding?", choices: ["go", "goes", "going", "went"], ans: "go" }
+        ],
+        post: [
+            { q: "______ you play computer games?", choices: ["Do", "Does", "Is", "Are"], ans: "Do" },
+            { q: "______ your brother do pottery?", choices: ["Do", "Does", "Is", "Are"], ans: "Does" },
+            { q: "Does your father play football? No, he ______.", choices: ["do", "does", "don't", "doesn't"], ans: "doesn't" },
+            { q: "Do you play tennis? Yes, I ______.", choices: ["do", "does", "don't", "doesn't"], ans: "do" },
+            { q: "Does she do photography? Yes, she ______.", choices: ["do", "does", "don't", "doesn't"], ans: "does" }
+        ]
+    },
+    4: {
+        title: "Rhythms and Reading - More and Most",
+        emoji: "⚖️",
+        desc: "Compare two sports using more...than, or choose the best using the most.",
+        warmup: "Welcome to More & Most! Let's learn to compare exciting, boring, dangerous, and difficult sports.",
+        guide: "Horse riding is more exciting than cycling. Hang gliding is the most dangerous.",
+        micPhrase: "Horse riding is more exciting than cycling.",
+        challengeDesc: "Arrange sports on the comparison scales.",
+        homework: "Write three comparative sentences using 'more ... than' and one using 'the most ...'.",
+        pre: [
+            { q: "What does 'exciting' mean?", choices: ["مثير", "ممل", "خطير", "سهل"], "ans": "مثير" },
+            { q: "Horse riding is ______ exciting than cycling.", choices: ["more", "most", "the most", "many"], ans: "more" },
+            { q: "Hang gliding is ______ most dangerous.", choices: ["more", "the", "than", "very"], ans: "the" },
+            { q: "Rock climbing is more dangerous ______ jogging.", choices: ["then", "than", "to", "for"], ans: "than" },
+            { q: "Rearrange: dangerous / climbing / Rock / is", choices: ["Rock climbing is dangerous.", "Dangerous rock climbing is.", "Is rock climbing dangerous.", "Rock is climbing dangerous."], ans: "Rock climbing is dangerous." }
+        ],
+        during: [
+            { q: "Running is ______ boring than football.", choices: ["more", "most", "the most", "less"], ans: "more" },
+            { q: "Football is the ______ popular sport.", choices: ["more", "most", "many", "much"], ans: "most" },
+            { q: "Pottery is more difficult ______ painting.", choices: ["than", "then", "to", "for"], ans: "than" }
+        ],
+        post: [
+            { q: "Sky diving is the ______ dangerous sport.", choices: ["more", "most", "the most", "many"], ans: "most" },
+            { q: "Basketball is ______ exciting than golf.", choices: ["more", "most", "the most", "much"], ans: "more" },
+            { q: "Which is correct?", choices: ["more dangerous than", "most dangerous than", "more dangerous then", "the more dangerous"], ans: "more dangerous than" },
+            { q: "Which is correct?", choices: ["the most exciting", "most exciting than", "the more exciting", "more exciting"], ans: "the most exciting" },
+            { q: "Complete: Running is more boring ______ cycling.", choices: ["than", "then", "to", "with"], ans: "than" }
+        ]
+    },
+    5: {
+        title: "The Traditional Sport of Falconry",
+        emoji: "🦅",
+        desc: "Read a cultural story about falconry in Saudi Arabia and check understanding.",
+        warmup: "Let's explore Saudi traditions! Falconry is the popular sport of training falcons. Let's read.",
+        guide: "Falconry is a popular sport in Saudi Arabia. Falcons are strong birds that dive fast and have sharp talons to catch prey.",
+        micPhrase: "Falconry is a popular traditional sport in Saudi Arabia.",
+        challengeDesc: "True or False interactive speed challenge on falconry facts.",
+        homework: "Read the falconry passage to your parents and explain three words in Arabic.",
+        pre: [
+            { q: "What is Falconry?", choices: ["الصقارة", "صيد السمك", "الفروسية", "الرماية"], ans: "الصقارة" },
+            { q: "Falcons are trained to ______ other birds.", choices: ["hunt", "help", "feed", "play"], ans: "hunt" },
+            { q: "Falcons see very ______.", choices: ["near", "far", "little", "slowly"], ans: "far" },
+            { q: "They use their ______ to catch prey.", choices: ["wings", "talons", "feathers", "tail"], ans: "talons" },
+            { q: "Where is falconry popular?", choices: ["Saudi Arabia", "Brazil", "Japan", "Canada"], ans: "Saudi Arabia" }
+        ],
+        during: [
+            { q: "Falcons are very ______ birds.", choices: ["weak", "strong", "soft", "slow"], ans: "strong" },
+            { q: "They can fly fast and ______ even faster.", choices: ["dive", "walk", "sleep", "sing"], ans: "dive" },
+            { q: "Falcons can spot animals ______ away.", choices: ["kilometers", "meters", "centimeters", "inches"], ans: "kilometers" }
+        ],
+        post: [
+            { q: "Many people in Saudi Arabia like falconry.", choices: ["True", "False"], ans: "True" },
+            { q: "Falcons slow down when they dive.", choices: ["True", "False"], ans: "False" },
+            { q: "Falcons can see very far.", choices: ["True", "False"], ans: "True" },
+            { q: "Falcons have soft talons.", choices: ["True", "False"], ans: "False" },
+            { q: "Falcons use their sharp talons to ______ and catch prey.", choices: ["attack", "eat", "fly", "look"], ans: "attack" }
+        ]
+    },
+    6: {
+        title: "Phonics - oi, oy, ere, ear, air",
+        emoji: "📣",
+        desc: "Learn pronunciation rules and patterns for coin, boy, bear, hair.",
+        warmup: "Let's learn sounds! Today we compare oi/oy and ere/ear/air patterns.",
+        guide: "coin, point, toy, boy. where, bear, hair. A healthy mind needs a healthy body.",
+        micPhrase: "This is a toy boy with a coin.",
+        challengeDesc: "Drag and drop words to their correct spelling patterns.",
+        homework: "Find two words for each pattern: oi, oy, ere, ear, air.",
+        pre: [
+            { q: "Where does 'oi' usually appear in a word?", choices: ["In the middle", "At the end", "At the beginning", "Never"], ans: "In the middle" },
+            { q: "Where does 'oy' usually appear?", choices: ["In the middle", "At the end", "At the beginning", "Never"], ans: "At the end" },
+            { q: "Spell the word: t______ (لعبة)", choices: ["oy", "oi", "ay", "ey"], ans: "oy" },
+            { q: "Spell the word: c______n (عملة معدنية)", choices: ["oi", "oy", "ay", "ey"], ans: "oi" },
+            { q: "Which word contains 'ear'?", choices: ["bear", "chair", "hair", "where"], ans: "bear" }
+        ],
+        during: [
+            { q: "Look at this p______ of shoes. (زوج)", choices: ["air", "ear", "ere", "are"], ans: "air" },
+            { q: "I'd like to sit on that ch______. (كرسي)", choices: ["air", "ear", "ere", "are"], ans: "air" },
+            { q: "He is w______ing a coat. (يرتدي)", choices: ["ear", "air", "ere", "are"], ans: "ear" }
+        ],
+        post: [
+            { q: "I want to eat a p______. (إجاص/كمثرى)", choices: ["ear", "air", "ere", "are"], ans: "ear" },
+            { q: "Look at this p______ of shoes.", "choices": ["air", "ear", "ere", "are"], ans: "air" },
+            { q: "He's w______ing a blue coat.", "choices": ["ear", "air", "ere", "are"], ans: "ear" },
+            { q: "Where does the word 'boy' end?", "choices": ["oy", "oi", "ay", "ey"], ans: "oy" },
+            { q: "Which word has 'ere'?", "choices": ["where", "bear", "hair", "pair"], ans: "where" }
+        ]
+    },
+    7: {
+        title: "I'd Like To ... But",
+        emoji: "💭",
+        desc: "Express what you want to do and state the obstacle using but.",
+        warmup: "Let's learn to express desires with barriers. 'I'd like to play tennis, but I have no racket.'",
+        guide: "I'd like to play tennis, but I have no racket. I'd like to try scuba diving, but there is no sea.",
+        micPhrase: "I'd like to try riding, but I have no horse.",
+        challengeDesc: "Connect activities with their correct matching obstacles.",
+        homework: "Write three sentences about things you would like to do, but cannot due to obstacles.",
+        pre: [
+            { q: "What does 'I'd like to' mean?", choices: ["أرغب في أن", "أكره أن", "لا أستطيع أن", "يجب أن"], ans: "أرغب في أن" },
+            { q: "We use 'but' to show:", "choices": ["obstacle/problem", "addition", "choice", "reason"], ans: "obstacle/problem" },
+            { q: "I'd like to play tennis, ______ I have no racket.", choices: ["but", "and", "or", "so"], ans: "but" },
+            { q: "I'd like to try riding, but I have no ______.", choices: ["horse", "falcon", "racket", "sea"], ans: "horse" },
+            { q: "I'd like to try scuba diving, but there is no ______.", choices: ["sea", "rock", "plane", "horse"], ans: "sea" }
+        ],
+        during: [
+            { q: "I'd like to try rock climbing, but there is no ______.", choices: ["rock", "sea", "plane", "falcon"], ans: "rock" },
+            { q: "I'd like to try sky diving, but there is no ______.", choices: ["plane", "sea", "rock", "racket"], ans: "plane" },
+            { q: "I'd like to try cooking, but I ______ know how.", choices: ["don't", "doesn't", "am not", "no"], ans: "don't" }
+        ],
+        post: [
+            { q: "I'd like to try painting, but I don't know ______.", choices: ["how", "what", "where", "who"], ans: "how" },
+            { q: "I'd like to play tennis, but I have no ______.", choices: ["racket", "ball", "court", "partner"], ans: "racket" },
+            { q: "I'd like to try falconing, but I have no ______.", choices: ["falcon", "eagle", "hawk", "bird"], ans: "falcon" },
+            { q: "Which is correct?", choices: ["I'd like to play tennis, but I have no racket.", "I'd like to play tennis, and I have no racket.", "I'd like to play tennis, so I have no racket.", "I'd like to play tennis but."], ans: "I'd like to play tennis, but I have no racket." },
+            { q: "Complete: I'd like to try photography, but I have no ______.", choices: ["camera", "phone", "film", "lens"], ans: "camera" }
+        ]
+    }
+};
+
+// Function to generate the html for each step for lessons 2 to 8
+function renderLesson(lessonIdx) {
+    const data = lessonData[lessonIdx];
+    const classicContainer = document.getElementById(`mode-content-${lessonIdx}-classic`);
+    const digitalContainer = document.getElementById(`mode-content-${lessonIdx}-digital`);
+    
+    // 1. Render Classic View
+    let classicHtml = `
+        <div class="sec-hd">
+          <div class="sec-title">
+            <span class="sec-icon">${data.emoji}</span>
+            <h2>الدرس ${lessonIdx + 1}: ${data.title}</h2>
+          </div>
+        </div>
+        <div class="book-explanation-box">
+          <h3>📖 شرح ومراجعة المحتوى المنهجي:</h3>
+          <p>${data.desc}</p>
+        </div>
+        
+        <div class="test-panel pre">
+          <div class="test-hdr test-hdr-pre">🧠 التقييم القبلي (Pre-Test):</div>
+          <div id="c-pre-${lessonIdx}"></div>
+        </div>
+
+        <div class="test-panel during">
+          <div class="test-hdr test-hdr-during">💬 التقييم أثناء الحصة (During Check):</div>
+          <div id="c-during-${lessonIdx}"></div>
+        </div>
+
+        <div class="test-panel post">
+          <div class="test-hdr test-hdr-post">🎓 التقييم البعدي (Post-Test):</div>
+          <div id="c-post-${lessonIdx}"></div>
+        </div>
+        
+        <button class="btn-c btn-accent" style="margin-top:20px;" onclick="mark(${lessonIdx})">تم إنهاء الدرس ${lessonIdx + 1} بنجاح ✔️</button>
+    `;
+    classicContainer.innerHTML = classicHtml;
+    
+    // Render classic test questions
+    renderClassicQuiz(lessonIdx, 'pre');
+    renderClassicQuiz(lessonIdx, 'during');
+    renderClassicQuiz(lessonIdx, 'post');
+
+    // 2. Render Digital View with the 12 steps
+    let stepperHtml = `<div class="stepper-nav">`;
+    const stepsTitle = [
+        "1. التهيئة", "2. القبلي", "3. الشرح", "4. الاستماع",
+        "5. التدريب", "6. النشاط", "7. المايك", "8. التقييم البيني",
+        "9. التحدي", "10. البعدي", "11. الواجب", "12. التقرير"
+    ];
+    for (let i = 0; i < 12; i++) {
+        stepperHtml += `
+            <div class="step-dot ${i===0?'active':''}" id="step-dot-${lessonIdx}-${i}" onclick="jumpToStep(${lessonIdx}, ${i})">
+              <div class="step-dot-circle">${i+1}</div>
+              <div>${stepsTitle[i]}</div>
+            </div>
+        `;
+    }
+    stepperHtml += `</div>`;
+
+    // Render 12 step panels
+    let stepsContentHtml = "";
+    for (let i = 0; i < 12; i++) {
+        stepsContentHtml += `
+            <div class="step-card ${i===0?'active':''}" id="step-card-${lessonIdx}-${i}">
+              ${renderStepContent(lessonIdx, i)}
+            </div>
+        `;
+    }
+    
+    // Back and Next navigation buttons
+    let navButtons = `
+        <div style="display:flex; justify-content:space-between; margin-top:20px;">
+          <button class="btn-c btn-outline" id="prev-btn-${lessonIdx}" onclick="navigateStep(${lessonIdx}, -1)">⬅️ السابق</button>
+          <button class="btn-c btn-primary" id="next-btn-${lessonIdx}" onclick="navigateStep(${lessonIdx}, 1)">التالي ➡️</button>
+        </div>
+    `;
+    
+    // Add Teacher Guide and Printables access at the bottom of the digital lesson
+    let teacherSection = `
+        <div class="test-panel" style="margin-top:30px; border-color:var(--primary);">
+          <div class="test-hdr test-hdr-pre" style="background:var(--primary); color:#fff;">👨‍🏫 خيارات المعلم وحقيبة الدرس التفاعلية:</div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;">
+            <a href="grade3-unit3-printables.html" target="_blank" class="btn-c btn-outline">🖨️ دليل المعلم والمطبوعات</a>
+            <a href="grade3-unit3-worksheets.html" target="_blank" class="btn-c btn-outline">📝 أوراق العمل للطباعة</a>
+            <button class="btn-c btn-outline" onclick="shareLesson(${lessonIdx})">🔗 مشاركة الحصة للطلاب</button>
+          </div>
+        </div>
+    `;
+    
+    digitalContainer.innerHTML = stepperHtml + stepsContentHtml + navButtons + teacherSection;
+}
+
+function shareLesson(idx) {
+    alert("🔗 تم نسخ رابط الدرس المباشر! يمكنك الآن إرساله للطلاب عبر منصة مدرستي أو وسائل التواصل.");
+}
+
+// Render individual step card contents
+function renderStepContent(lessonIdx, stepIdx) {
+    const data = lessonData[lessonIdx];
+    switch (stepIdx) {
+        case 0: // التهيئة (Warm-up)
+            return `
+                <h3>👋 خطوة 1: التهيئة والتمهيد (Warm-up)</h3>
+                <div style="background:#eff6ff; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border-right:5px solid var(--primary);">
+                  <p style="font-size:18px; font-weight:bold; color:#1e3a8a;">${data.warmup}</p>
+                </div>
+                <div style="margin-top:15px;">
+                  <button class="btn-c btn-primary" onclick="speakSpeed('${data.warmup}', false)">🔊 استمع للمقدمة</button>
+                  <button class="btn-c btn-outline" onclick="speakSpeed('${data.warmup}', true)">🐢 نطق بطيء</button>
+                </div>
+            `;
+        case 1: // التقييم القبلي (Pre-assessment)
+            return `
+                <h3>🧠 خطوة 2: التقييم القبلي (Pre-Test)</h3>
+                <p style="margin-bottom:15px;">أجب على الأسئلة التالية لقياس معرفتك السابقة:</p>
+                <div id="d-pre-${lessonIdx}"></div>
+            `;
+        case 2: // شرح المحتوى (Content Presentation)
+            return `
+                <h3>📖 خطوة 3: شرح محتوى الدرس (Content Presentation)</h3>
+                <div class="book-explanation-box" style="margin-top:15px;">
+                  <h4 style="font-size:18px; font-weight:bold; margin-bottom:10px;">القاعدة الأساسية والمفردات:</h4>
+                  <p style="font-size:16px;">${data.guide}</p>
+                </div>
+                <div class="audio-controls">
+                  <button class="btn-c btn-primary" onclick="speakSpeed('${data.guide}', false)">🔊 نطق طبيعي</button>
+                  <button class="btn-c btn-outline" onclick="speakSpeed('${data.guide}', true)">🐢 نطق بطيء</button>
+                  <button class="btn-c btn-outline" onclick="toggleTranslation(${lessonIdx})">👁️ إظهار/إخفاء الترجمة</button>
+                </div>
+                <div class="ar-translation" id="trans-${lessonIdx}" style="display:none; margin-top:10px;">
+                  ترجمة المحتوى: تعلم النطق السليم والتطبيق المباشر لمحتوى الدرس المدرسي.
+                </div>
+            `;
+        case 3: // الاستماع والنطق (Listening & Pronunciation)
+            return `
+                <h3>🔊 خطوة 4: الاستماع والنطق (Listening & Pronunciation)</h3>
+                <p>استمع للنطق الصحيح للمصطلحات والجمل المنهجية وكررها:</p>
+                <div class="sports-grid" style="margin-top:15px;">
+                  <div class="sport-card" onclick="speakSpeed('${data.micPhrase}', false)">
+                    <span style="font-size:32px;">🔊</span>
+                    <div style="font-size:16px; font-weight:bold; margin-top:10px;">${data.micPhrase}</div>
+                  </div>
+                </div>
+            `;
+        case 4: // التدريب الموجّه (Guided Practice)
+            return `
+                <h3>📝 خطوة 5: التدريب الموجّه (Guided Practice)</h3>
+                <p>أكمل الجملة التالية باختيار اللفظ المناسب:</p>
+                <div style="background:#f8fafc; padding:20px; border-radius:var(--radius-sm); margin-top:15px;">
+                  <p style="font-size:18px; font-weight:bold; font-family:'Outfit';">I want ______ try tennis.</p>
+                  <div style="display:flex; gap:12px; margin-top:15px;">
+                    <button class="btn-c btn-outline" onclick="checkGuidedAnswer(${lessonIdx}, 'to', true)">to</button>
+                    <button class="btn-c btn-outline" onclick="checkGuidedAnswer(${lessonIdx}, 'for', false)">for</button>
+                  </div>
+                  <div class="fb" id="guided-fb-${lessonIdx}"></div>
+                </div>
+            `;
+        case 5: // النشاط التفاعلي (Interactive Activity)
+            return `
+                <h3>🎮 خطوة 6: نشاط تفاعلي محاكي للدرس (Interactive Activity)</h3>
+                <div style="background:#eff6ff; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border-left:5px solid var(--primary-light);">
+                  <p style="font-weight:bold; font-size:16px;">لعبة الفهم السريع والفرز التفاعلي للكلمات:</p>
+                  <p style="margin-top:8px;">انقر على البطاقة الصحيحة لتثبيت المعلومة.</p>
+                  <button class="btn-c btn-accent" style="margin-top:15px;" onclick="playLessonGame(${lessonIdx})">🎮 ابدأ اللعبة التفاعلية</button>
+                </div>
+            `;
+        case 6: // تدريب المايك (Microphone Practice)
+            return `
+                <h3>🎙️ خطوة 7: تدريب النطق بالمايك (Microphone Practice)</h3>
+                <p style="margin-bottom:15px;">اضغط على زر المايك وانطق الجملة التالية بوضوح:</p>
+                <div style="background:#f8fafc; padding:20px; border-radius:var(--radius-sm); text-align:center;">
+                  <h4 style="font-family:'Outfit'; font-size:22px; font-weight:900; color:var(--primary);">${data.micPhrase}</h4>
+                  <button class="btn-c btn-danger" style="margin-top:15px;" onclick="startMic('${data.micPhrase}', 'mic-fb-${lessonIdx}')">🎙️ ابدأ التحدث بالمايك</button>
+                  <div class="fb" id="mic-fb-${lessonIdx}"></div>
+                </div>
+            `;
+        case 7: // التقييم أثناء الدرس (During-lesson Check)
+            return `
+                <h3>💬 خطوة 8: التقييم أثناء الحصة (During Check)</h3>
+                <div id="d-during-${lessonIdx}"></div>
+            `;
+        case 8: // التحدي (Challenge)
+            return `
+                <h3>🏆 خطوة 9: تحدي المتفوقين (Challenge Time)</h3>
+                <div style="background:#fef3c7; border:1px solid #f59e0b; padding:20px; border-radius:var(--radius-sm); margin-top:15px; color:#78350f;">
+                  <p style="font-weight:bold;">🏆 تحدي التميز والإتقان:</p>
+                  <p style="margin-top:8px;">${data.challengeDesc}</p>
+                  <button class="btn-c btn-accent" style="margin-top:15px;" onclick="playChallenge(${lessonIdx})">🚀 خوض التحدي</button>
+                </div>
+            `;
+        case 9: // التقييم البعدي (Post-assessment)
+            return `
+                <h3>🎓 خطوة 10: التقييم البعدي والختامي (Post-Test)</h3>
+                <div id="d-post-${lessonIdx}"></div>
+            `;
+        case 10: // الواجب (Homework)
+            return `
+                <h3>📝 خطوة 11: الواجب المنزلي (Homework)</h3>
+                <div style="background:#eff6ff; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border-right:5px solid var(--accent);">
+                  <p style="font-size:16px; font-weight:bold;">${data.homework}</p>
+                </div>
+                <p style="margin-top:15px; font-size:14px; color:var(--text-muted);">يرجى حل الواجب في كتاب النشاط أو ورقة العمل وتسليمه للمعلم في الحصة القادمة.</p>
+            `;
+        case 11: // تقرير الإنجاز (Achievement Report)
+            return `
+                <h3>📊 خطوة 12: تقرير إنجاز الحصة الرقمية</h3>
+                <div class="report-grid">
+                  <div class="report-card-sub">
+                    <h4>التقييم القبلي</h4>
+                    <div class="report-badge" id="pre-rep-${lessonIdx}">0/5</div>
+                  </div>
+                  <div class="report-card-sub">
+                    <h4>التقييم البعدي</h4>
+                    <div class="report-badge" id="post-rep-${lessonIdx}">0/5</div>
+                  </div>
+                </div>
+                <div style="text-align:center; padding:15px; background:rgba(16,185,129,0.1); color:var(--accent); border-radius:var(--radius-sm); font-weight:bold;" id="imp-rep-${lessonIdx}">
+                  معدل التحسن والتمكن المنهجي: 0%
+                </div>
+            `;
+    }
+}
+
+function toggleTranslation(lessonIdx) {
+    const trans = document.getElementById(`trans-${lessonIdx}`);
+    trans.style.display = trans.style.display === 'none' ? 'block' : 'none';
+}
+
+function checkGuidedAnswer(lessonIdx, choice, isCorrect) {
+    const fb = document.getElementById(`guided-fb-${lessonIdx}`);
+    fb.style.display = 'block';
+    if(isCorrect) {
+        fb.className = 'fb correct';
+        fb.textContent = '✅ إجابة صحيحة ورائعة!';
+        speakSpeed("Correct", false);
+        conf();
+    } else {
+        fb.className = 'fb wrong';
+        fb.textContent = '❌ إجابة غير صحيحة. حاول مرة أخرى.';
+        speakSpeed("Try again", false);
+    }
+}
+
+function playLessonGame(lessonIdx) {
+    alert("🎮 تم تشغيل اللعبة التفاعلية الخاصة بهذا الدرس! أجب على الأسئلة لكسب النقاط.");
+}
+
+function playChallenge(lessonIdx) {
+    alert("🚀 تم تفعيل تحدي التميز! أثبت قدراتك الاستيعابية للدرس.");
+}
+
+/* ==================== QUIZ RENDERING ENGINE ==================== */
+let quizScores = {}; // stores answers for pre, during, post of each lesson
+
+function renderClassicQuiz(lessonIdx, phase) {
+    const id = `c-${phase}-${lessonIdx}`;
+    const container = document.getElementById(id);
+    if(!container) return;
+    
+    const questions = lessonData[lessonIdx][phase];
+    let html = "";
+    questions.forEach((q, qIdx) => {
+        html += `
+            <div style="margin-bottom:15px; border-bottom:1px solid var(--border); padding-bottom:10px;">
+              <p style="font-weight:bold; font-size:15px;">${q.q}</p>
+              <div class="test-choices">
+                ${q.choices.map(c => `
+                  <button class="test-btn" id="btn-${lessonIdx}-${phase}-${qIdx}-${c}" onclick="submitQuizAnswer(${lessonIdx}, '${phase}', ${qIdx}, '${c}', '${q.ans}')">${c}</button>
+                `).join('')}
+              </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function renderDigitalQuiz(lessonIdx, phase) {
+    const id = `d-${phase}-${lessonIdx}`;
+    const container = document.getElementById(id);
+    if(!container) return;
+    
+    const questions = lessonData[lessonIdx][phase];
+    let html = "";
+    questions.forEach((q, qIdx) => {
+        html += `
+            <div style="margin-bottom:15px; border-bottom:1px solid var(--border); padding-bottom:10px;">
+              <p style="font-weight:bold; font-size:15px;">${q.q}</p>
+              <div class="test-choices">
+                ${q.choices.map(c => `
+                  <button class="test-btn" id="dbtn-${lessonIdx}-${phase}-${qIdx}-${c}" onclick="submitQuizAnswer(${lessonIdx}, '${phase}', ${qIdx}, '${c}', '${q.ans}', true)">${c}</button>
+                `).join('')}
+              </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function submitQuizAnswer(lessonIdx, phase, qIdx, chosen, correct, isDigital = false) {
+    const prefix = isDigital ? 'dbtn-' : 'btn-';
+    const key = `${lessonIdx}-${phase}-${qIdx}`;
+    
+    // Disable other choices
+    const choices = lessonData[lessonIdx][phase][qIdx].choices;
+    choices.forEach(c => {
+        const btn = document.getElementById(`${prefix}${lessonIdx}-${phase}-${qIdx}-${c}`);
+        if(btn) btn.disabled = true;
+    });
+    
+    const activeBtn = document.getElementById(`${prefix}${lessonIdx}-${phase}-${qIdx}-${chosen}`);
+    if(chosen === correct) {
+        if(activeBtn) activeBtn.classList.add('correct');
+        speakSpeed("Correct", false);
+        conf();
+        
+        // Track score
+        const scoreKey = `${lessonIdx}-${phase}`;
+        quizScores[scoreKey] = (quizScores[scoreKey] || 0) + 1;
+    } else {
+        if(activeBtn) activeBtn.classList.add('wrong');
+        const correctBtn = document.getElementById(`${prefix}${lessonIdx}-${phase}-${qIdx}-${correct}`);
+        if(correctBtn) correctBtn.classList.add('correct');
+        speakSpeed("Incorrect", false);
+    }
+    
+    // Update Achievement Report
+    if (phase === 'pre') {
+        const score = quizScores[`${lessonIdx}-pre`] || 0;
+        preScores[lessonIdx] = score;
+    } else if (phase === 'post') {
+        const score = quizScores[`${lessonIdx}-post`] || 0;
+        postScores[lessonIdx] = score;
+    }
+    updateReport(lessonIdx);
+}
+
+function updateReport(lessonIdx) {
+    const preScore = preScores[lessonIdx] || 0;
+    const postScore = postScores[lessonIdx] || 0;
+    
+    const preRep = document.getElementById(`pre-rep-${lessonIdx}`);
+    const postRep = document.getElementById(`post-rep-${lessonIdx}`);
+    const impRep = document.getElementById(`imp-rep-${lessonIdx}`);
+    
+    if(preRep) preRep.textContent = `${preScore}/5`;
+    if(postRep) postRep.textContent = `${postScore}/5`;
+    
+    if(impRep) {
+        const diff = postScore - preScore;
+        const impPct = diff > 0 ? Math.round((diff / 5) * 100) : 0;
+        impRep.textContent = `معدل التحسن والتمكن المنهجي: ${impPct}% + (نقاط إضافية: ${postScore * 20}XP)`;
+    }
+}
+
+/* ==================== STEPPER NAVIGATION FUNCTIONS ==================== */
+function navigateStep(lessonIdx, dir) {
+    let curStep = activeStepPerLesson[lessonIdx];
+    let nextStep = curStep + dir;
+    if (nextStep >= 0 && nextStep < 12) {
+        jumpToStep(lessonIdx, nextStep);
+    }
+}
+
+function jumpToStep(lessonIdx, stepIdx) {
+    activeStepPerLesson[lessonIdx] = stepIdx;
+    
+    // Update dots
+    for (let i = 0; i < 12; i++) {
+        const dot = document.getElementById(`step-dot-${lessonIdx}-${i}`);
+        if(dot) {
+            dot.classList.toggle('active', i === stepIdx);
+            dot.classList.toggle('completed', i < stepIdx);
+        }
+        
+        const card = document.getElementById(`step-card-${lessonIdx}-${i}`);
+        if(card) {
+            card.classList.toggle('active', i === stepIdx);
+        }
+    }
+    
+    // Disable/enable nav buttons
+    const prevBtn = document.getElementById(`prev-btn-${lessonIdx}`);
+    const nextBtn = document.getElementById(`next-btn-${lessonIdx}`);
+    if(prevBtn) prevBtn.disabled = (stepIdx === 0);
+    if(nextBtn) nextBtn.disabled = (stepIdx === 11);
+    
+    // Render quizzes dynamically on active step tab
+    if (stepIdx === 1) {
+        renderDigitalQuiz(lessonIdx, 'pre');
+    } else if (stepIdx === 7) {
+        renderDigitalQuiz(lessonIdx, 'during');
+    } else if (stepIdx === 9) {
+        renderDigitalQuiz(lessonIdx, 'post');
+    }
+}
+
+// Initialize all lessons from 2 to 8
+for (let i = 1; i <= 7; i++) {
+    renderLesson(i);
+}
+</script>
+</body>
+</html>

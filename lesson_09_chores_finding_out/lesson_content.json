@@ -1,0 +1,64 @@
+{
+  "title": "Finding Out Time",
+  "desc": "Learn all 8 household chores: feed the fish, wash the dishes, clean up my room, take out the trash, set the table, go shopping, vacuum the floor, fold the laundry.",
+  "vocab": [
+    {
+      "word": "feed the fish",
+      "type": "chore",
+      "ar": "أطعم السمك"
+    },
+    {
+      "word": "wash the dishes",
+      "type": "chore",
+      "ar": "أغسل الأطباق"
+    },
+    {
+      "word": "clean up my room",
+      "type": "chore",
+      "ar": "أرتب غرفتي"
+    },
+    {
+      "word": "take out the trash",
+      "type": "chore",
+      "ar": "أخرج القمامة"
+    },
+    {
+      "word": "set the table",
+      "type": "chore",
+      "ar": "أجهز المائدة"
+    },
+    {
+      "word": "go shopping",
+      "type": "chore",
+      "ar": "أذهب للتسوق"
+    },
+    {
+      "word": "vacuum the floor",
+      "type": "chore",
+      "ar": "أنظف الأرضية بالمكنسة الكهربائية"
+    },
+    {
+      "word": "fold the laundry",
+      "type": "chore",
+      "ar": "أطوي الغسيل"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "What chores do you do?",
+      "ar": "ما هي المهام المنزلية التي تقوم بها؟"
+    },
+    {
+      "en": "I feed the fish.",
+      "ar": "أنا أطعم السمك."
+    },
+    {
+      "en": "Do you set the table, too?",
+      "ar": "هل تجهز المائدة أيضاً؟"
+    },
+    {
+      "en": "Yes, I do sometimes.",
+      "ar": "نعم، أفعل ذلك أحياناً."
+    }
+  ]
+}

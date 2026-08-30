@@ -1,0 +1,64 @@
+{
+  "title": "Grammar in Action",
+  "desc": "Singular verb endings conjugation and the Chores Chant.",
+  "vocab": [
+    {
+      "word": "feed -> feeds",
+      "type": "verb",
+      "ar": "يطعم"
+    },
+    {
+      "word": "set -> sets",
+      "type": "verb",
+      "ar": "يجهز"
+    },
+    {
+      "word": "wash -> washes",
+      "type": "verb",
+      "ar": "يغسل"
+    },
+    {
+      "word": "vacuum -> vacuums",
+      "type": "verb",
+      "ar": "ينظف بالمكنسة"
+    },
+    {
+      "word": "clean -> cleans",
+      "type": "verb",
+      "ar": "ينظف / يرتب"
+    },
+    {
+      "word": "go -> goes",
+      "type": "verb",
+      "ar": "يذهب"
+    },
+    {
+      "word": "take -> takes",
+      "type": "verb",
+      "ar": "يأخذ / يخرج"
+    },
+    {
+      "word": "fold -> folds",
+      "type": "verb",
+      "ar": "يطوي"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "I wash the dishes.",
+      "ar": "أنا أغسل الأطباق."
+    },
+    {
+      "en": "He washes the dishes.",
+      "ar": "هو يغسل الأطباق."
+    },
+    {
+      "en": "She washes the dishes.",
+      "ar": "هي تغسل الأطباق."
+    },
+    {
+      "en": "They wash the dishes.",
+      "ar": "هم يغسلون الأطباق."
+    }
+  ]
+}

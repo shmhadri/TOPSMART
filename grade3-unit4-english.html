@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصف الثالث الابتدائي - الوحدة 4: Chores (المهام المنزلية) | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: none;
+    --shadow-lg: none
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.prog-pill {
+    padding: 6px 14px;
+    background: rgba(16,185,129,0.1);
+    color: var(--accent);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px
+}
+.theme-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    color: var(--text)
+}
+.theme-btn:hover {
+    transform: rotate(15deg);
+    border-color: var(--primary)
+}
+
+/* CONTAINER LAYOUT */
+.main-wrap {
+    display: flex;
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px
+}
+@media(max-width:900px) {
+    .main-wrap {
+        flex-direction: column
+    }
+}
+
+/* SIDEBAR TOC */
+.ls {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    box-shadow: var(--shadow)
+}
+@media(max-width:900px) {
+    .ls {
+        width: 100%;
+        position: static;
+    }
+}
+.ls-hd {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border)
+}
+.toc {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--tr);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid transparent
+}
+.toc:hover {
+    background: rgba(79, 70, 229, 0.04);
+    color: var(--primary)
+}
+.toc.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    border-color: var(--primary-light)
+}
+.toc.done {
+    background: rgba(16,185,129,0.06);
+    color: var(--accent)
+}
+.toc-n {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px
+}
+.toc.active .toc-n {
+    background: var(--primary);
+    color: #fff
+}
+
+/* CONTENT COLUMN */
+.lc {
+    flex: 1;
+    min-width: 0
+}
+.sec {
+    display: none;
+    animation: fadeIn 0.4s ease
+}
+.sec.active {
+    display: block
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius);
+    padding: 40px;
+    color: #fff;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden
+}
+.hero-badge {
+    background: rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 900;
+    display: inline-block;
+    margin-bottom: 16px
+}
+.hero h1 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 8px
+}
+.hero p {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 500
+}
+
+/* LOCAL MODE TOGGLE */
+.comparison-bar {
+    display: flex;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px;
+    margin-bottom: 24px;
+    gap: 6px
+}
+.comp-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--tr);
+    color: var(--text-muted);
+}
+.comp-btn.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* 12-STEP PATHWAY STEPPER */
+.stepper-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+}
+.step-dot {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: var(--tr);
+    min-width: 65px;
+}
+.step-dot-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--text-muted);
+}
+.step-dot.active {
+    opacity: 1;
+    color: var(--primary);
+}
+.step-dot.active .step-dot-circle {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.step-dot.completed .step-dot-circle {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.step-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.step-card.active {
+    display: block;
+}
+
+/* UTILITY BUTTONS */
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-light); }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: #059669; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: #e11d48; }
+.btn-outline { background: transparent; border-color: var(--border); color: var(--text); }
+.btn-outline:hover { background: var(--bg); border-color: var(--primary); }
+
+.audio-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.ar-translation {
+    font-size: 14px;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* BOOK EXPLANATION */
+.book-explanation-box {
+    background: #eff6ff;
+    border: 2px dashed #3b82f6;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 28px;
+    color: #1e3a8a
+}
+.book-explanation-box h3 {
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+/* TEST PANEL */
+.test-panel {
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    box-shadow: var(--shadow)
+}
+.test-hdr {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block
+}
+.test-hdr-pre { background: rgba(79, 70, 229, 0.08); color: var(--primary); }
+.test-hdr-during { background: rgba(245, 158, 11, 0.08); color: #b45309; }
+.test-hdr-post { background: rgba(16, 185, 129, 0.08); color: var(--accent); }
+.test-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px
+}
+.test-btn {
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr)
+}
+.test-btn:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.04)
+}
+.test-btn.correct {
+    border-color: var(--accent);
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--accent)
+}
+.test-btn.wrong {
+    border-color: var(--danger);
+    background: rgba(244, 63, 94, 0.08);
+    color: var(--danger)
+}
+
+/* SPORTS CARDS */
+.sports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px
+}
+.sport-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+    box-shadow: var(--shadow)
+}
+.sport-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg)
+}
+.sport-emoji {
+    font-size: 64px;
+    margin-bottom: 12px;
+    display: block
+}
+.sport-en {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text)
+}
+
+/* developed digital scene styles */
+.ocean-scene {
+    background: linear-gradient(135deg, #166534, #15803d, #1e3a8a);
+    border-radius: var(--radius);
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SORTING BASKETS STYLES */
+.basket-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+.basket-card {
+    background: var(--bg-card);
+    border: 3px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    min-height: 160px;
+    transition: var(--tr);
+}
+.basket-items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+}
+.sort-item {
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* TIMER DISPLAY */
+.timer-container {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.timer-bar-outer {
+    background: var(--border);
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.timer-bar-inner {
+    background: var(--danger);
+    height: 100%;
+    width: 100%;
+    transition: width 1s linear;
+}
+
+/* HANDWRITING LINE INPUTS */
+.handwriting-line {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary);
+    outline: none;
+    background: transparent;
+    text-align: center;
+}
+.fb {
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    margin-top: 12px;
+    display: none;
+}
+.fb.correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #047857;
+}
+.fb.wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+}
+
+/* METER GAUGE STYLES */
+.meter-gauge-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 20px 0;
+}
+.meter-level-card {
+    flex: 1;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.meter-level-card.active-level {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.06);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+.meter-label-num {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* FALCONRY KEY WORDS POPUP */
+.vocab-term {
+    color: var(--primary);
+    font-weight: 900;
+    text-decoration: underline dotted var(--primary);
+    cursor: pointer;
+}
+
+/* REPORT DISPLAY */
+.report-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+.report-card-sub {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 15px;
+    text-align: center;
+}
+.report-badge {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 10px 0;
+
+/* Memory Flip Game CSS */
+.memory-game-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    background: var(--bg);
+    padding: 20px;
+    border-radius: var(--radius);
+    border: 2px dashed var(--primary-light);
+}
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 480px;
+    perspective: 800px;
+}
+.memory-card {
+    height: 100px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+    box-shadow: var(--shadow);
+}
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+.memory-card-front, .memory-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+}
+.memory-card-front {
+    background: var(--primary);
+    color: #fff;
+    font-size: 28px;
+}
+.memory-card-back {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 2px solid var(--primary-light);
+    transform: rotateY(180deg);
+}
+.memory-card.matched {
+    transform: rotateY(180deg);
+    cursor: default;
+}
+.memory-card.matched .memory-card-back {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="index.html" class="back-btn-top">↩️ قائمة الصفوف</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left" style="direction: ltr;">
+    <a href="grade3-unit4-presentation.html" target="_blank" class="back-btn-top" style="border-color:var(--primary-light); color:var(--primary-light); margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      💻 عرض PowerPoint
+    </a>
+    <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b; margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      🎯 عجلة الأسماء
+    </a>
+    <a href="grade3-unit4-worksheets.html" target="_blank" class="back-btn-top" style="border-color:#ec4899; color:#ec4899; margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      📝 أوراق العمل
+    </a>
+    <a href="grade3-unit4-printables.html" target="_blank" class="back-btn-top" style="border-color:#3b82f6; color:#3b82f6; margin-left:8px; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+      🧩 وسائل المعلم
+    </a>
+    <div class="prog-pill">التقدم: <b id="prog">0%</b></div>
+    <button class="theme-btn" id="tbtn" onclick="tgl()">🌙</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="ls">
+    <div class="ls-hd">دروس الوحدة الرابعة (Chores)</div>
+    <div class="toc active" id="t0" onclick="sw(0)"><span class="toc-n">1</span>الدرس 1: Finding Out Time (p.26)</div>
+    <div class="toc" id="t1" onclick="sw(1)"><span class="toc-n">2</span>الدرس 2: Words in Action (p.27)</div>
+    <div class="toc" id="t2" onclick="sw(2)"><span class="toc-n">3</span>الدرس 3: Grammar in Action (p.28)</div>
+    <div class="toc" id="t3" onclick="sw(3)"><span class="toc-n">4</span>الدرس 4: Chores Challenge Time (p.29)</div>
+    <div class="toc" id="t4" onclick="sw(4)"><span class="toc-n">5</span>الدرس 5: Rhythms & Listening (p.30)</div>
+    <div class="toc" id="t5" onclick="sw(5)"><span class="toc-n">6</span>الدرس 6: Rhythms & Reading (p.31)</div>
+    <div class="toc" id="t6" onclick="sw(6)"><span class="toc-n">7</span>الدرس 7: Phonics (ar, or, er - p.32)</div>
+    <div class="toc" id="t7" onclick="sw(7)"><span class="toc-n">8</span>الدرس 8: Phonics Challenge (p.33)</div>
+    <div class="toc" id="t8" onclick="sw(8)" style="border-color:#f59e0b; color:#b45309; background:rgba(245,158,11,0.06);"><span class="toc-n" style="background:#f59e0b; color:#fff;">🏆</span>المراجعة والألعاب الشاملة للوحدة</div>
+  </aside>
+
+  <!-- CONTENT COLUMN -->
+  <main class="lc">
+
+    <!-- HERO -->
+    <div class="hero">
+      <span class="hero-badge">إنجليزي الصف الثالث الابتدائي | We Can 3</span>
+      <h1>Unit 4: Chores (المهام المنزلية)</h1>
+      <p>تعلم مفردات المهام المنزلية، وقواعد الفعل للمفرد، وأنشودة الروبوت الذكي وصوتيات ar/or/er الصفية مع الترجمة الكاملة والألعاب التفاعلية!</p>
+    </div>
+
+    <!-- ==================== LESSONS SECTIONS ==================== -->
+    
+    <!-- LESSON 1 -->
+    <section class="sec active" id="s0">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-0-classic" onclick="toggleLocalMode(0, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 1)</div>
+        <div class="comp-btn" id="mode-btn-0-digital" onclick="toggleLocalMode(0, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 1)</div>
+      </div>
+
+      <div id="mode-content-0-classic" class="local-mode-content">
+        <div class="sec-hd">
+          <div class="sec-title">
+            <span class="sec-icon">🧹</span>
+            <h2>الدرس 1: Finding Out Time (صفحة 26)</h2>
+          </div>
+        </div>
+        <div class="book-explanation-box">
+          <h3>📖 شرح الدرس من كتاب الطالب (صفحة 26):</h3>
+          <p style="margin-bottom:12px;">سنتعلم اليوم المفردات الثمانية للمهام المنزلية الشائعة (Chores) بالصور المعبرة والترجمة العربية وكيفية التحدث عنها مع زملائك:</p>
+        </div>
+        <div class="test-panel pre">
+          <div class="test-hdr test-hdr-pre">🧠 اختبار قبلي (Pre-Test) - الدرس الأول:</div>
+          <div id="classic-pre-question-box"></div>
+        </div>
+
+        <div class="sports-section-title">🧹 المهام المنزلية الثمانية (The 8 Chores) - انقر للاستماع 🔊:</div>
+        <div class="sports-grid">
+          <div class="sport-card" onclick="speakSpeed('feed the fish', false)"><span class="sport-emoji">🐠</span><div class="sport-en">feed the fish</div><span class="ar-translation">أطعم السمك</span></div>
+          <div class="sport-card" onclick="speakSpeed('wash the dishes', false)"><span class="sport-emoji">🧽</span><div class="sport-en">wash the dishes</div><span class="ar-translation">أغسل الأطباق</span></div>
+          <div class="sport-card" onclick="speakSpeed('clean up my room', false)"><span class="sport-emoji">🧹</span><div class="sport-en">clean up my room</div><span class="ar-translation">أرتب غرفتي</span></div>
+          <div class="sport-card" onclick="speakSpeed('take out the trash', false)"><span class="sport-emoji">🗑️</span><div class="sport-en">take out the trash</div><span class="ar-translation">أخرج القمامة</span></div>
+          <div class="sport-card" onclick="speakSpeed('set the table', false)"><span class="sport-emoji">🍽️</span><div class="sport-en">set the table</div><span class="ar-translation">أجهز المائدة</span></div>
+          <div class="sport-card" onclick="speakSpeed('go shopping', false)"><span class="sport-emoji">🛍️</span><div class="sport-en">go shopping</div><span class="ar-translation">أذهب للتسوق</span></div>
+          <div class="sport-card" onclick="speakSpeed('vacuum the floor', false)"><span class="sport-emoji">🔌</span><div class="sport-en">vacuum the floor</div><span class="ar-translation">أنظف الأرض بالمكنسة</span></div>
+          <div class="sport-card" onclick="speakSpeed('fold the laundry', false)"><span class="sport-emoji">🧺</span><div class="sport-en">fold the laundry</div><span class="ar-translation">أطوي الغسيل</span></div>
+        </div>
+
+        <div class="sports-section-title" style="margin-top:25px;">💬 محاكاة المحادثات القصيرة (Small Talk):</div>
+        <div style="background:var(--bg-card); border:2px solid var(--border); border-radius:var(--radius); padding:20px; margin-bottom:20px;">
+          <p style="font-weight:bold; margin-bottom:15px; color:var(--primary);">تمثيل المحادثة تفاعلياً مع شريكك:</p>
+          <div style="display:flex; flex-direction:column; gap:12px; direction:ltr; text-align:left;">
+            <div style="background:#eff6ff; padding:12px; border-radius:8px;">
+              <b>Teacher:</b> "What chores do you do?" <span style="font-size:12px; color:#555; direction:rtl; display:inline-block;">(ما المهام التي تقوم بها؟)</span>
+              <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn-c btn-outline" onclick="speakSpeed('I feed the fish', false); alert('Perfect! 🐠 أطعم السمك')">I feed the fish. 🐠</button>
+                <button class="btn-c btn-outline" onclick="speakSpeed('I set the table', false); alert('Perfect! 🍽️ أجهز المائدة')">I set the table. 🍽️</button>
+              </div>
+            </div>
+            <div style="background:#f0fdf4; padding:12px; border-radius:8px;">
+              <b>Teacher:</b> "What chores does your sister do?" <span style="font-size:12px; color:#555; direction:rtl; display:inline-block;">(ما المهام التي تقوم بها أختك؟)</span>
+              <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn-c btn-outline" onclick="speakSpeed('She folds the laundry', false); alert('Excellent! 🧺 هي تطوي الغسيل')">She folds the laundry. 🧺</button>
+                <button class="btn-c btn-outline" onclick="speakSpeed('She vacuums the floor', false); alert('Excellent! 🔌 هي تكنس الأرض')">She vacuums the floor. 🔌</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-panel during">
+          <div class="test-hdr test-hdr-during">💬 سؤال تفاعلي (During-Lesson Check):</div>
+          <div id="classic-during-question-box"></div>
+        </div>
+
+        <div class="test-panel post">
+          <div class="test-hdr test-hdr-post">🎓 اختبار بعدي (Post-Test):</div>
+          <div id="classic-post-question-box"></div>
+        </div>
+        <button class="btn-c btn-accent" style="margin-top:20px;" onclick="mark(0)">تم إنهاء الدرس 1 بنجاح ✔️</button>
+      </div>
+
+      <div id="mode-content-0-digital" class="local-mode-content" style="display:none;">
+        <div class="ocean-scene" style="background: linear-gradient(135deg, #4f46e5, #6366f1); min-height: 180px;">
+          <h2>Finding Out Time – Lesson 1 🧹</h2>
+          <p>Let's learn all 8 chores and practice dialogue questioning! (تعلم المهام المنزلية الثمانية وممارسة الحوار)</p>
+        </div>
+        <div class="vocab-explorer-card" style="margin-top:20px;">
+          <h3>📖 مستكشف الكلمات التفاعلي مع النطق والترجمة:</h3>
+          <p style="margin-bottom:15px;">اختر الكلمة للاستماع إلى نطقها وقراءتها باللغتين:</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+            <button class="btn-c btn-outline" onclick="speakSpeed('feed the fish. I feed the fish.', false)">🐠 feed the fish (أطعم السمك)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('wash the dishes. I wash the dishes.', false)">🧽 wash the dishes (أغسل الأطباق)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('clean up my room. I clean up my room.', false)">🧹 clean up my room (أرتب غرفتي)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('take out the trash. I take out the trash.', false)">🗑️ take out the trash (أخرج القمامة)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('set the table. I set the table.', false)">🍽️ set the table (أجهز المائدة)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('go shopping. I go shopping.', false)">🛍️ go shopping (أذهب للتسوق)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('vacuum the floor. I vacuum the floor.', false)">🔌 vacuum the floor (أكنس الأرض)</button>
+            <button class="btn-c btn-outline" onclick="speakSpeed('fold the laundry. I fold the laundry.', false)">🧺 fold the laundry (أطوي الغسيل)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSON 2 -->
+    <section class="sec" id="s1">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-1-classic" onclick="toggleLocalMode(1, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 2)</div>
+        <div class="comp-btn" id="mode-btn-1-digital" onclick="toggleLocalMode(1, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 2)</div>
+      </div>
+      <div id="mode-content-1-classic" class="local-mode-content"></div>
+      <div id="mode-content-1-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 3 -->
+    <section class="sec" id="s2">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-2-classic" onclick="toggleLocalMode(2, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 3)</div>
+        <div class="comp-btn" id="mode-btn-2-digital" onclick="toggleLocalMode(2, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 3)</div>
+      </div>
+      <div id="mode-content-2-classic" class="local-mode-content"></div>
+      <div id="mode-content-2-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 4 -->
+    <section class="sec" id="s3">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-3-classic" onclick="toggleLocalMode(3, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 4)</div>
+        <div class="comp-btn" id="mode-btn-3-digital" onclick="toggleLocalMode(3, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 4)</div>
+      </div>
+      <div id="mode-content-3-classic" class="local-mode-content"></div>
+      <div id="mode-content-3-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 5 -->
+    <section class="sec" id="s4">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-4-classic" onclick="toggleLocalMode(4, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 5)</div>
+        <div class="comp-btn" id="mode-btn-4-digital" onclick="toggleLocalMode(4, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 5)</div>
+      </div>
+      <div id="mode-content-4-classic" class="local-mode-content"></div>
+      <div id="mode-content-4-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 6 -->
+    <section class="sec" id="s5">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-5-classic" onclick="toggleLocalMode(5, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 6)</div>
+        <div class="comp-btn" id="mode-btn-5-digital" onclick="toggleLocalMode(5, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 6)</div>
+      </div>
+      <div id="mode-content-5-classic" class="local-mode-content"></div>
+      <div id="mode-content-5-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 7 -->
+    <section class="sec" id="s6">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-6-classic" onclick="toggleLocalMode(6, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 7)</div>
+        <div class="comp-btn" id="mode-btn-6-digital" onclick="toggleLocalMode(6, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 7)</div>
+      </div>
+      <div id="mode-content-6-classic" class="local-mode-content"></div>
+      <div id="mode-content-6-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- LESSON 8 -->
+    <section class="sec" id="s7">
+      <div class="comparison-bar">
+        <div class="comp-btn active" id="mode-btn-7-classic" onclick="toggleLocalMode(7, 'classic')">🏛️ النسخة الكلاسيكية (الدرس 8)</div>
+        <div class="comp-btn" id="mode-btn-7-digital" onclick="toggleLocalMode(7, 'digital')">🌟 الحصة الرقمية المتكاملة (الدرس 8)</div>
+      </div>
+      <div id="mode-content-7-classic" class="local-mode-content"></div>
+      <div id="mode-content-7-digital" class="local-mode-content" style="display:none;"></div>
+    </section>
+
+    <!-- ==================== SECTION 9: MASTER REVIEW & GAMES ==================== -->
+    <section class="sec" id="s8">
+      <div class="sec-hd">
+        <div class="sec-title">
+          <span class="sec-icon">🏆</span>
+          <h2>المراجعة الشاملة والألعاب التفاعلية للوحدة الرابعة (Unit 4 Grand Review & Games)</h2>
+        </div>
+      </div>
+
+      <!-- GAME 1: 3D MEMORY FLIP -->
+      <div class="test-panel" style="border-color:var(--primary); margin-bottom:24px;">
+        <div class="test-hdr test-hdr-pre" style="background:var(--primary); color:#fff; font-size:16px;">🎮 1. لعبة الذاكرة ثلاثية الأبعاد (3D Flip Cards Memory Game):</div>
+        <p style="margin:10px 0 15px 0;">اطبق بطاقة الكلمة باللغة الإنجليزية مع صورتها وترجمتها باللغة العربية واكسب النقاط:</p>
+        <div class="memory-game-wrap" style="background:var(--bg-card);">
+          <div class="memory-grid" id="grand-memory-arena" style="max-width:550px; grid-template-columns:repeat(4, 1fr);"></div>
+          <div id="grand-memory-fb" style="width:100%;"></div>
+          <button class="btn-c btn-primary" style="margin-top:15px;" onclick="initGrandMemoryGame()">🔄 إعادة تشغيل لعبة الذاكرة</button>
+        </div>
+      </div>
+
+      <!-- GAME 2: MISSING LETTER SPELLING CHALLENGE -->
+      <div class="test-panel" style="border-color:var(--accent); margin-bottom:24px;">
+        <div class="test-hdr test-hdr-post" style="background:var(--accent); color:#fff; font-size:16px;">🔡 2. تحدي الحرف الناقص والتهجئة (Missing Letter Spelling Challenge):</div>
+        <p style="margin:10px 0 15px 0;">اكتب الحروف الناقصة في الكلمات التالية ثم اضغط على زر التحقق:</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px;">
+          <div style="background:var(--bg); padding:14px; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:30px;">🐠</div>
+            <div style="font-family:'Outfit'; font-size:18px; font-weight:bold; margin:6px 0;">f<input type="text" id="sp-1" maxlength="2" style="width:36px; text-align:center; font-weight:bold; font-size:18px; border:2px solid var(--primary); border-radius:4px;">d the fish</div>
+            <div style="font-size:13px; color:var(--text-muted);">أطعم السمك (الحرفان: ee)</div>
+          </div>
+          <div style="background:var(--bg); padding:14px; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:30px;">🍽️</div>
+            <div style="font-family:'Outfit'; font-size:18px; font-weight:bold; margin:6px 0;">s<input type="text" id="sp-2" maxlength="1" style="width:28px; text-align:center; font-weight:bold; font-size:18px; border:2px solid var(--primary); border-radius:4px;">t the table</div>
+            <div style="font-size:13px; color:var(--text-muted);">أجهز المائدة (الحرف: e)</div>
+          </div>
+          <div style="background:var(--bg); padding:14px; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:30px;">🧽</div>
+            <div style="font-family:'Outfit'; font-size:18px; font-weight:bold; margin:6px 0;">w<input type="text" id="sp-3" maxlength="1" style="width:28px; text-align:center; font-weight:bold; font-size:18px; border:2px solid var(--primary); border-radius:4px;">sh the dishes</div>
+            <div style="font-size:13px; color:var(--text-muted);">أغسل الأطباق (الحرف: a)</div>
+          </div>
+          <div style="background:var(--bg); padding:14px; border-radius:10px; border:1px solid var(--border); text-align:center;">
+            <div style="font-size:30px;">🧺</div>
+            <div style="font-family:'Outfit'; font-size:18px; font-weight:bold; margin:6px 0;">f<input type="text" id="sp-4" maxlength="1" style="width:28px; text-align:center; font-weight:bold; font-size:18px; border:2px solid var(--primary); border-radius:4px;">ld the laundry</div>
+            <div style="font-size:13px; color:var(--text-muted);">أطوي الغسيل (الحرف: o)</div>
+          </div>
+        </div>
+        <button class="btn-c btn-accent" style="margin-top:16px;" onclick="checkSpellingChallenge()">✔️ تحقق من صحة التهجئة</button>
+        <div id="spelling-fb" class="fb" style="margin-top:10px;"></div>
+      </div>
+
+      <!-- GAME 3: CLEVER ROBOT CHANT KARAOKE -->
+      <div class="test-panel" style="border-color:#3b82f6; margin-bottom:24px;">
+        <div class="test-hdr test-hdr-pre" style="background:#3b82f6; color:#fff; font-size:16px;">🤖 3. مشغل كاريوكي أنشودة الروبوت الذكي (Clever Robot Karaoke Player):</div>
+        <p style="margin:10px 0 15px 0;">استمع للأبيات وتدرب على غنائها ومتابعة الكلمات:</p>
+        <div style="background:#eff6ff; padding:20px; border-radius:var(--radius); border:2px dashed #3b82f6; text-align:center;">
+          <div style="font-size:40px; margin-bottom:10px;">🤖 🎵</div>
+          <div id="karaoke-verse" style="font-family:'Outfit'; font-size:22px; font-weight:900; color:#1e3a8a; min-height:40px;">
+            "I'm a clever robot and I help you every day!"
+          </div>
+          <div id="karaoke-ar" style="font-size:15px; color:#3b82f6; margin-top:6px; font-weight:bold;">
+            (أنا روبوت ذكي وأساعدك كل يوم!)
+          </div>
+          <div style="display:flex; justify-content:center; gap:10px; margin-top:18px; flex-wrap:wrap;">
+            <button class="btn-c btn-primary" onclick="playChantLine(1)">1. I'm a clever robot 🤖</button>
+            <button class="btn-c btn-primary" onclick="playChantLine(2)">2. I wash the dishes 🧽</button>
+            <button class="btn-c btn-primary" onclick="playChantLine(3)">3. I set the table 🍽️</button>
+            <button class="btn-c btn-primary" onclick="playChantLine(4)">4. I vacuum the floor 🔌</button>
+            <button class="btn-c btn-primary" onclick="playChantLine(5)">5. I fold the laundry 🧺</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME 4: HELPER SURVEY CALCULATOR -->
+      <div class="test-panel" style="border-color:#f59e0b; margin-bottom:24px;">
+        <div class="test-hdr test-hdr-during" style="background:#f59e0b; color:#fff; font-size:16px;">📊 4. استبيان حساب نقاط المساعد المنزلي (Helper Score Survey Calculator):</div>
+        <p style="margin:10px 0 15px 0;">حدد مدى قيامك بكل مهمة لحساب إجمالي نقاطك ومعرفة مستواك (صفحة 27):</p>
+        <div style="background:var(--bg); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+          <div style="display:grid; grid-template-columns:1fr; gap:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>1. 🐠 Feed the fish (إطعام السمك)</span>
+              <div>
+                <label><input type="radio" name="chore-0" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-0" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-0" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>2. 🍽️ Set the table (تجهيز المائدة)</span>
+              <div>
+                <label><input type="radio" name="chore-1" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-1" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-1" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>3. 🧽 Wash the dishes (غسيل الأطباق)</span>
+              <div>
+                <label><input type="radio" name="chore-2" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-2" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-2" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>4. 🧹 Clean up my room (ترتيب الغرفة)</span>
+              <div>
+                <label><input type="radio" name="chore-3" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-3" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-3" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>5. 🗑️ Take out the trash (إخراج القمامة)</span>
+              <div>
+                <label><input type="radio" name="chore-4" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-4" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-4" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>6. 🛍️ Go shopping (الذهاب للتسوق)</span>
+              <div>
+                <label><input type="radio" name="chore-5" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-5" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-5" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>7. 🔌 Vacuum the floor (كنس الأرض)</span>
+              <div>
+                <label><input type="radio" name="chore-6" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-6" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-6" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:8px 14px; border-radius:6px;">
+              <span>8. 🧺 Fold the laundry (طي الغسيل)</span>
+              <div>
+                <label><input type="radio" name="chore-7" value="2"> Always (2)</label>
+                <label style="margin:0 10px;"><input type="radio" name="chore-7" value="1"> Sometimes (1)</label>
+                <label><input type="radio" name="chore-7" value="0" checked> Never (0)</label>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center; margin-top:16px;">
+            <button class="btn-c btn-accent" onclick="calcSurveyScore()">📊 احسب مجموع نقاطي وتقييم المساعدة</button>
+            <div style="font-size:24px; font-weight:900; color:var(--primary); margin-top:10px;">المجموع: <span id="survey-score-val">0</span> / 16 نقطة</div>
+            <div id="survey-helper-text" style="font-size:16px; font-weight:bold; margin-top:6px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRAND MASTERY EXAM -->
+      <div class="test-panel" style="border-color:#10b981; margin-bottom:24px;">
+        <div class="test-hdr test-hdr-post" style="background:#10b981; color:#fff; font-size:18px;">🎓 5. الاختبار الشامل النهائي للوحدة الرابعة (Unit 4 Grand Mastery Exam):</div>
+        <p style="margin:10px 0 15px 0;">أجب عن أسئلة الاختبار الشامل المتنوعة لقياس إتقانك لكافة دروس وقواعد وصوتيات الوحدة الرابعة:</p>
+        
+        <div id="grand-exam-container" style="display:flex; flex-direction:column; gap:16px;"></div>
+        
+        <div style="text-align:center; margin-top:20px;">
+          <button class="btn-c btn-primary" style="padding:14px 36px; font-size:18px;" onclick="evaluateGrandExam()">🏆 تسليم الاختبار وإصدار النتيجة والشهادة الرقمية</button>
+        </div>
+        
+        <div id="grand-exam-result" style="margin-top:20px;"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+  </main>
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+// Web Speech API Microphone setup
+let recognition = null;
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRec();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+}
+
+function startMic(targetWord, outputId) {
+    if (!recognition) {
+        alert("الميكروفون أو ميزة التعرف على الصوت غير مدعومة في متصفحك. يرجى استخدام متصفح Google Chrome.");
+        return;
+    }
+    const output = document.getElementById(outputId);
+    output.style.display = 'block';
+    output.className = 'fb';
+    output.textContent = '🎙️ جاري الاستماع... انطق الجملة الآن باللغة الإنجليزية.';
+    recognition.start();
+    
+    recognition.onresult = function(event) {
+        const spoken = event.results[0][0].transcript.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+        const cleanTarget = targetWord.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+        
+        if (spoken.includes(cleanTarget) || cleanTarget.includes(spoken)) {
+            output.className = 'fb correct';
+            output.innerHTML = `✅ نطق رائع وصحيح تماماً! لقد قلت: "<b>${event.results[0][0].transcript}</b>"`;
+            speakSpeed("Excellent job", false);
+            conf();
+        } else {
+            output.className = 'fb wrong';
+            output.innerHTML = `❌ نطق غير متطابق. لقد قلت: "<b>${event.results[0][0].transcript}</b>". حاول تكرارها بوضوح.`;
+            speakSpeed("Try again", false);
+        }
+    };
+    recognition.onerror = function() {
+        output.className = 'fb wrong';
+        output.textContent = '❌ حدث خطأ في التقاط الصوت. يرجى المحاولة مجدداً.';
+    };
+}
+
+function speakSpeed(txt, slow = false) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const ut = new SpeechSynthesisUtterance(txt);
+        ut.lang = 'en-US';
+        ut.rate = slow ? 0.55 : 0.85;
+        window.speechSynthesis.speak(ut);
+    }
+}
+
+function tgl() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('tbtn').textContent = isDark ? '🌙' : '☀️';
+}
+
+function sw(idx) {
+    const secs = document.querySelectorAll('.sec');
+    const tocs = document.querySelectorAll('.toc');
+    secs.forEach(s => s.classList.remove('active'));
+    tocs.forEach(t => t.classList.remove('active'));
+    
+    secs[idx].classList.add('active');
+    tocs[idx].classList.add('active');
+}
+
+function toggleLocalMode(lessonIdx, mode) {
+    const classicDiv = document.getElementById(`mode-content-${lessonIdx}-classic`);
+    const digitalDiv = document.getElementById(`mode-content-${lessonIdx}-digital`);
+    const classicBtn = document.getElementById(`mode-btn-${lessonIdx}-classic`);
+    const digitalBtn = document.getElementById(`mode-btn-${lessonIdx}-digital`);
+
+    if(mode === 'classic') {
+        classicDiv.style.display = 'block';
+        digitalDiv.style.display = 'none';
+        classicBtn.classList.add('active');
+        digitalBtn.classList.remove('active');
+    } else {
+        classicDiv.style.display = 'none';
+        digitalDiv.style.display = 'block';
+        classicBtn.classList.remove('active');
+        digitalBtn.classList.add('active');
+    }
+}
+
+function conf() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+}
+
+const progress = new Array(9).fill(false);
+function mark(idx) {
+    progress[idx] = true;
+    const completed = progress.filter(p => p).length;
+    const pct = Math.round((completed / progress.length) * 100);
+    document.getElementById('prog').textContent = pct + '%';
+    
+    const tocItem = document.getElementById('t' + idx);
+    if(tocItem) tocItem.classList.add('done');
+    
+    if(pct === 100) {
+        conf();
+        alert("🎉 مبارك! لقد أتممت جميع دروس ومراجعة الوحدة الرابعة (Chores) بنجاح وتفوق!");
+    }
+}
+
+/* ==================== CLASSIC LESSON 1 TESTS ==================== */
+let classicPreIdx = 0;
+const classicPreQuestions = [
+    {q: "1. What chore matches 'أطعم السمك'? 🐠", ans: "feed the fish", choices: ["wash the dishes", "feed the fish", "set the table", "take out the trash"]},
+    {q: "2. What chore matches 'أجهز المائدة'? 🍽️", ans: "set the table", choices: ["set the table", "vacuum the floor", "fold the laundry", "go shopping"]},
+    {q: "3. Complete the translation: 'wash the dishes' is _______.", ans: "أغسل الأطباق", choices: ["أخرج القمامة", "أغسل الأطباق", "أطوي الغسيل", "أرتب غرفتي"]}
+];
+function renderClassicPre() {
+    const container = document.getElementById('classic-pre-question-box');
+    if(!container) return;
+    if(classicPreIdx < classicPreQuestions.length) {
+        const q = classicPreQuestions[classicPreIdx];
+        let html = `<p style="font-size:18px; margin-bottom:12px;">${q.q}</p><div class="test-choices">`;
+        q.choices.forEach(c => {
+            html += `<button class="test-btn" onclick="submitClassicPreAnswer('${c}', '${q.ans}')">${c}</button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+    } else {
+        container.innerHTML = `<div style="font-weight:bold; color:var(--accent); text-align:center; padding:10px;">🎉 رائع! انتهيت من التقييم القبلي!</div>`;
+    }
+}
+function submitClassicPreAnswer(chosen, correct) {
+    if(chosen === correct) { speakSpeed("Correct", false); conf(); } else { speakSpeed("Incorrect", false); }
+    classicPreIdx++;
+    setTimeout(renderClassicPre, 800);
+}
+
+let classicDuringIdx = 0;
+const classicDuringQuestions = [
+    {q: '1. Complete: "What chores do you do? -> I _______ the fish."', ans: 'feed', choices: ['feed', 'feeds', 'feeding', 'to feed']},
+    {q: '2. Complete: "What chores does he do? -> He _______ the table."', ans: 'sets', choices: ['set', 'sets', 'setting', 'to set']},
+    {q: '3. What do you do with the trash? 🗑️', ans: 'take it out', choices: ['take it out', 'wash it', 'feed it', 'fold it']}
+];
+function renderClassicDuring() {
+    const container = document.getElementById('classic-during-question-box');
+    if(!container) return;
+    if(classicDuringIdx < classicDuringQuestions.length) {
+        const q = classicDuringQuestions[classicDuringIdx];
+        let html = `<p style="font-size:18px; margin-bottom:12px;">${q.q}</p><div class="test-choices">`;
+        q.choices.forEach(c => {
+            html += `<button class="test-btn" onclick="submitClassicDuringAnswer('${c}', '${q.ans}')">${c}</button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+    } else {
+        container.innerHTML = `<div style="font-weight:bold; color:var(--accent); text-align:center; padding:10px;">🎉 رائع! إتقان رائع للأسئلة أثناء الدرس!</div>`;
+    }
+}
+function submitClassicDuringAnswer(chosen, correct) {
+    if(chosen === correct) { speakSpeed("Correct", false); conf(); } else { speakSpeed("Incorrect", false); }
+    classicDuringIdx++;
+    setTimeout(renderClassicDuring, 800);
+}
+
+let classicPostIdx = 0;
+const classicPostQuestions = [
+    {q: "1. Does he wash the dishes? -> Yes, he _______.", ans: "does", choices: ["does", "do", "doesn't", "doing"]},
+    {q: "2. Do you feed the fish? -> No, I _______.", ans: "don't", choices: ["don't", "doesn't", "do", "am not"]}
+];
+function renderClassicPost() {
+    const container = document.getElementById('classic-post-question-box');
+    if(!container) return;
+    if(classicPostIdx < classicPostQuestions.length) {
+        const q = classicPostQuestions[classicPostIdx];
+        let html = `<p style="font-size:18px; margin-bottom:12px;">${q.q}</p><div class="test-choices">`;
+        q.choices.forEach(c => {
+            html += `<button class="test-btn" onclick="submitClassicPostAnswer('${c}', '${q.ans}')">${c}</button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+    } else {
+        container.innerHTML = `<div style="font-weight:bold; color:var(--accent); text-align:center; padding:10px;">🏆 تهانينا! لقد أكملت الاختبار البعدي بنجاح!</div>`;
+    }
+}
+function submitClassicPostAnswer(chosen, correct) {
+    if(chosen === correct) { speakSpeed("Correct", false); conf(); } else { speakSpeed("Incorrect", false); }
+    classicPostIdx++;
+    setTimeout(renderClassicPost, 800);
+}
+
+renderClassicPre();
+renderClassicDuring();
+renderClassicPost();
+
+/* ==================== DYNAMIC 12-STEP PATHWAY SYSTEM FOR LESSONS 2 TO 8 ==================== */
+const lessonNames = [
+    "", // Lesson 1 preserved
+    "Check Your Chores (p.27)",
+    "Grammar in Action (p.28)",
+    "Question & Answer Race (p.29)",
+    "Rhythms & Listening (p.30)",
+    "Rhythms & Reading (p.31)",
+    "Phonics (ar, or, er)",
+    "Phonics Challenge (p.33)"
+];
+
+// We hold state for active step for each lesson
+const activeStepPerLesson = new Array(8).fill(0);
+const preScores = new Array(8).fill(0);
+const postScores = new Array(8).fill(0);
+
+// Upgraded lessonData with comprehensive Arabic translations, visual emojis, and educational notes
+const lessonData = {
+    1: {
+        title: "Check Your Chores (استبيان تقييم المهام المنزلية)",
+        emoji: "📊",
+        desc: "استبيان معدل القيام بالمهام المنزلية وحساب مجموع النقاط: Always (نقطتان 2)، Sometimes (نقطة واحدة 1)، Never (صفر نقاط 0).",
+        warmup: "مرحباً بكم في وقت التحدي! اليوم سنقيم مدى مساعدتنا في المنزل ونتعرف على تصنيفات المساعد الرائع والمساعد الجيد.",
+        guide: "Do you feed the fish? (هل تطعم السمك؟) -> Yes, I always do. (نعم، دائماً). Do you set the table? (هل تجهز المائدة؟) -> Yes, sometimes. (أحياناً).",
+        micPhrase: "I am a great helper at home.",
+        challengeDesc: "حدد مهامك المنزلية في الاستبيان واحسب مجموع نقاطك لتصل إلى تصنيف (Great Helper ⭐)!",
+        homework: "اسأل زميلك أو أحد أفراد أسرتك أسئلة الاستبيان الـ 8 واكتب مجموع نقاطه وتصنيفه.",
+        pre: [
+            { q: "1. 'Always' (دائماً) gives ______ points in the survey.", choices: ["2 (نقطتان)", "1 (نقطة)", "0 (صفر)", "3 (ثلاث)"], ans: "2 (نقطتان)" },
+            { q: "2. 'Sometimes' (أحياناً) gives ______ point.", choices: ["1 (نقطة واحدة)", "2 (نقطتان)", "0 (صفر)", "3 (ثلاث)"], ans: "1 (نقطة واحدة)" },
+            { q: "3. 'Never' (أبداً) gives ______ points.", choices: ["0 (صفر نقاط)", "1 (نقطة)", "2 (نقطتان)", "3 (ثلاث)"], ans: "0 (صفر نقاط)" },
+            { q: "4. If your score is 13 or more, you are a ______ helper.", choices: ["great (رائع جداً)", "good (جيد)", "average (متوسط)", "poor (ضعيف)"], ans: "great (رائع جداً)" },
+            { q: "5. If your score is 3, you are a ______ helper.", choices: ["poor (ضعيف المساعدة)", "average (متوسط)", "good (جيد)", "great (رائع)"], ans: "poor (ضعيف المساعدة)" }
+        ],
+        during: [
+            { q: "1. Do you feed the fish? -> Yes, I ______ sometimes.", choices: ["do (أفعل)", "does", "doing", "did"], ans: "do (أفعل)" },
+            { q: "2. Do you wash the dishes? -> No, I ______.", choices: ["never (أبداً)", "always", "sometimes", "do"], ans: "never (أبداً)" },
+            { q: "3. What chores do you do? -> I ______ my room.", choices: ["clean up (أرتب)", "cleans up", "cleaning up", "cleaned up"], ans: "clean up (أرتب)" }
+        ],
+        post: [
+            { q: "1. Score 10 indicates you are a ______ helper.", choices: ["good (مساعد جيد)", "great (رائع)", "average (متوسط)", "poor (ضعيف)"], ans: "good (مساعد جيد)" },
+            { q: "2. Score 6 indicates you are an ______ helper.", choices: ["average (مساعد متوسط)", "great (رائع)", "good (جيد)", "poor (ضعيف)"], ans: "average (مساعد متوسط)" },
+            { q: "3. Complete: I'm a good helper ______ home.", choices: ["at (في)", "in", "on", "for"], ans: "at (في)" },
+            { q: "4. Choose correct translation for 'أطوي الغسيل':", choices: ["fold the laundry 🧺", "clean up my room 🧹", "vacuum the floor 🔌", "go shopping 🛍️"], ans: "fold the laundry 🧺" },
+            { q: "5. Do you vacuum the floor? -> Yes, ______.", choices: ["I do sometimes (أفعل ذلك أحياناً)", "I does sometimes", "I do always too", "I doing"], ans: "I do sometimes (أفعل ذلك أحياناً)" }
+        ]
+    },
+    2: {
+        title: "Grammar in Action (قواعد إضافة -s و -es للمفرد)",
+        emoji: "📝",
+        desc: "جدول تصريف الأفعال للمفرد الغائب (He / She) بإضافة s أو es مع أنشودة المهام المنزلية.",
+        warmup: "مرحباً بكم في قواعد الدرس! اليوم نتعلم كيف نضيف (s أو es) للفعل عندما نتحدث عن هو (He) أو هي (She): feed -> feeds, wash -> washes.",
+        guide: "I wash the dishes (أنا أغسل الأطباق). He washes the dishes (هو يغسل الأطباق). She feeds the fish (هي تطعم السمك). We clean up (نحن نرتب).",
+        micPhrase: "He washes the dishes and she goes shopping.",
+        challengeDesc: "طابق الفعل المصدر مع تصريف المفرد الصحيح (wash ➔ washes, go ➔ goes) في لعبة المطابقة!",
+        homework: "اكتب 4 جمل باللغة الإنجليزية: جملتان عما تفعله أنت وجملتان عما يفعله أخوك أو أختك.",
+        pre: [
+            { q: "1. He ______ the dishes. (هو يغسل الأطباق)", choices: ["washes (يغسل - للمفرد)", "wash", "washing", "washed"], ans: "washes (يغسل - للمفرد)" },
+            { q: "2. She ______ the fish. (هي تطعم السمك)", choices: ["feeds (تطعم - للمفرد)", "feed", "feeding", "to feed"], ans: "feeds (تطعم - للمفرد)" },
+            { q: "3. I ______ up my room. (أنا أرتب غرفتي)", choices: ["clean (أرتب - للمتكلم)", "cleans", "cleaning", "cleaned"], ans: "clean (أرتب - للمتكلم)" },
+            { q: "4. He ______ shopping. (هو يذهب للتسوق)", choices: ["goes (يذهب)", "go", "going", "gone"], ans: "goes (يذهب)" },
+            { q: "5. They ______ the laundry. (هم يطوون الغسيل)", choices: ["fold (يطوون - للجمع)", "folds", "folding", "folded"], ans: "fold (يطوون - للجمع)" }
+        ],
+        during: [
+            { q: "1. She ______ the floor. (هي تكنس الأرض بالمكنسة)", choices: ["vacuums (تكنس)", "vacuum", "vacuuming", "vacuumed"], ans: "vacuums (تكنس)" },
+            { q: "2. We ______ the dishes. (نحن نغسل الأطباق)", choices: ["wash (نغسل - للجمع)", "washes", "washing", "washed"], ans: "wash (نغسل - للجمع)" },
+            { q: "3. He ______ out the trash. (هو يخرج القمامة)", choices: ["takes (يخرج)", "take", "taking", "taken"], ans: "takes (يخرج)" }
+        ],
+        post: [
+            { q: "1. Choose correct spelling of third-person of 'go':", choices: ["goes (يذهب)", "gos", "goess", "goose"], ans: "goes (يذهب)" },
+            { q: "2. Choose correct spelling of third-person of 'wash':", choices: ["washes (يغسل)", "washs", "washies", "washing"], ans: "washes (يغسل)" },
+            { q: "3. I set the table, my brother ______ the table.", choices: ["sets (يجهز - للمفرد)", "set", "setting", "to set"], ans: "sets (يجهز - للمفرد)" },
+            { q: "4. They ______ shopping, she ______ shopping.", choices: ["go / goes (هم يذهبون / هي تذهب)", "goes / go", "go / go", "goes / goes"], ans: "go / goes (هم يذهبون / هي تذهب)" },
+            { q: "5. Which sentence is grammatically correct?", choices: ["She folds the laundry. 🧺 (هي تطوي الغسيل)", "She fold the laundry.", "She folding laundry.", "She gone fold laundry."], ans: "She folds the laundry. 🧺 (هي تطوي الغسيل)" }
+        ]
+    },
+    3: {
+        title: "Question & Answer Race (سباق الأسئلة والأجوبة السريعة)",
+        emoji: "⚡",
+        desc: "سباق السؤال والجواب حول المهام المنزلية بين الطلاب باستخدام Do و Does وكلمة too (أيضاً).",
+        warmup: "مرحباً بكم في سباق الأسئلة السريعة! تدرب على توجيه الأسئلة والإجابة بسرعة قبل انتهاء الوقت.",
+        guide: "What chores do you do? (ما المهام التي تفعلها؟) -> I set the table. (أنا أجهز المائدة). What chores does your sister do? -> She folds the laundry. (هي تطوي الغسيل).",
+        micPhrase: "What chores do you do? I set the table, too.",
+        challengeDesc: "أجب عن 5 أسئلة للمهام المنزلية بصوت واضح وصحيح قبل انتهاء المؤقت التنازلي!",
+        homework: "قم بعمل جدول صغير لمهام أفراد عائلتك واكتب جملتين باستخدام Does.",
+        pre: [
+            { q: "1. ______ chores does your brother do?", choices: ["What (ما/ماذا)", "Which", "Who", "Where"], ans: "What (ما/ماذا)" },
+            { q: "2. Do you wash the dishes? -> Yes, I ______.", choices: ["do (نعم، أفعل)", "does", "don't", "do too"], ans: "do (نعم، أفعل)" },
+            { q: "3. Does she set the table? -> Yes, she ______.", choices: ["does (نعم، هي تفعل)", "do", "doesn't", "doing"], ans: "does (نعم، هي تفعل)" },
+            { q: "4. I clean my room, ______ (أيضاً).", choices: ["too (أيضاً)", "to", "two", "so"], ans: "too (أيضاً)" },
+            { q: "5. What chores ______ they do?", choices: ["do (للجمع)", "does", "are", "doing"], ans: "do (للجمع)" }
+        ],
+        during: [
+            { q: "1. Does he go shopping? -> No, he ______.", choices: ["doesn't (كلا، لا يفعل)", "don't", "does", "isn't"], ans: "doesn't (كلا، لا يفعل)" },
+            { q: "2. What chores ______ your mother do?", choices: ["does (للمفرد المؤنث)", "do", "is", "are"], ans: "does (للمفرد المؤنث)" },
+            { q: "3. I set the table ______ (أنا أجهز المائدة أيضاً).", choices: ["too (أيضاً)", "to", "two", "also"], ans: "too (أيضاً)" }
+        ],
+        post: [
+            { q: "1. Complete: What chores ______ you do?", choices: ["do (أنت)", "does", "is", "are"], ans: "do (أنت)" },
+            { q: "2. He feeds the fish and sets the table ______.", choices: ["too (أيضاً)", "to", "two", "so"], ans: "too (أيضاً)" },
+            { q: "3. Does Faisal clean up his room? -> Yes, he ______.", choices: ["does (نعم هو يفعل)", "do", "doesn't", "is"], ans: "does (نعم هو يفعل)" },
+            { q: "4. What chores does your sister do? -> She ______.", choices: ["folds the laundry 🧺 (تطوي الغسيل)", "fold the laundry", "folding laundry", "laundry"], ans: "folds the laundry 🧺 (تطوي الغسيل)" },
+            { q: "5. Which question is correct?", choices: ["Do you clean up your room? 🧹", "Does you clean up your room?", "Do he clean up his room?", "Does they clean up room?"], ans: "Do you clean up your room? 🧹" }
+        ]
+    },
+    4: {
+        title: "Rhythms and Listening (أنشودة الروبوت الذكي - الجزء 1)",
+        emoji: "🤖",
+        desc: "إنشاد كلمات أنشودة الروبوت الذكي (Clever Robot) ومطابقة أصوات وإيقاعات الكلمات.",
+        warmup: "مرحباً بكم في الإيقاع والاستماع! استمع لأنشودة الروبوت الذكي المشهورة وتعرف على إيقاع المهام اليومية.",
+        guide: "I'm a clever robot (أنا روبوت ذكي). I set the table, wash the dishes, and clean up my room every day (أجهز المائدة وأغسل الأطباق وأرتب غرفتي كل يوم).",
+        micPhrase: "I'm a clever robot. I set the table.",
+        challengeDesc: "أنشد الأبيات الأربعة الأولى من أنشودة الروبوت الذكي بالنطق والإيقاع الصحيحين!",
+        homework: "اقرأ أنشودة الروبوت الذكي أمام والديك واشرح لهما ما يفعله الروبوت باللغة الإنجليزية.",
+        pre: [
+            { q: "1. I'm a ______ robot (أنا روبوت ذكي).", choices: ["clever (ذكي)", "lazy (كسول)", "slow (بطيء)", "sad (حزين)"], ans: "clever (ذكي)" },
+            { q: "2. The robot ______ the table (الروبوت يجهز المائدة).", choices: ["sets (يجهز)", "set", "setting", "to set"], ans: "sets (يجهز)" },
+            { q: "3. The opposite of 'clever' is (عكس كلمة ذكي):", choices: ["stupid (غبي)", "smart (ذكي)", "active (نشيط)", "happy (سعيد)"], ans: "stupid (غبي)" },
+            { q: "4. Robots are ______ (الروبوتات عبارة عن):", choices: ["machines (آلات 🤖)", "animals (حيوانات)", "people (بشر)", "plants (نباتات)"], ans: "machines (آلات 🤖)" },
+            { q: "5. I keep my room ______ (أحافظ على غرفتي نظيفة).", choices: ["clean (نظيفة ✨)", "dirty (متسخة)", "messy (فوضوية)", "bad (سيئة)"], ans: "clean (نظيفة ✨)" }
+        ],
+        during: [
+            { q: "1. What does the clever robot do? -> It ______.", choices: ["sets the table 🍽️ (يجهز المائدة)", "set table", "setting table", "sets table too"], ans: "sets the table 🍽️ (يجهز المائدة)" },
+            { q: "2. He ______ the fish twice a day (هو يطعم السمك مرتين يومياً).", choices: ["feeds (يطعم)", "feed", "feeding", "feeded"], ans: "feeds (يطعم)" },
+            { q: "3. We ______ our room tidy (نحن نحافظ على غرفتنا مرتبة).", choices: ["keep (نحافظ)", "keeps", "keeping", "kept"], ans: "keep (نحافظ)" }
+        ],
+        post: [
+            { q: "1. Complete: I'm a ______ robot.", choices: ["clever (ذكي)", "foolish", "scary", "slow"], ans: "clever (ذكي)" },
+            { q: "2. The robot washes the ______ (الروبوت يغسل الأطباق).", choices: ["dishes 🧽 (الأطباق)", "dish", "dishing", "dishes too"], ans: "dishes 🧽 (الأطباق)" },
+            { q: "3. Does the robot clean the room? -> Yes, it ______.", choices: ["does (نعم هو يفعل)", "do", "doesn't", "is"], ans: "does (نعم هو يفعل)" },
+            { q: "4. The robot is very ______ (الروبوت مساعد جداً).", choices: ["helpful (متعاون/مساعد)", "lazy (كسول)", "noisy (مزعج)", "angry (غاضب)"], ans: "helpful (متعاون/مساعد)" },
+            { q: "5. What is the Arabic meaning of 'clever'?", choices: ["ذكي 🧠", "غبي", "بطيء", "سريع"], ans: "ذكي 🧠" }
+        ]
+    },
+    5: {
+        title: "Rhythms and Reading (قراءة أنشودة الروبوت - الجزء 2)",
+        emoji: "📖",
+        desc: "قراءة النص الكامل لأنشودة الروبوت الذكي والتمارين القرائية ومطابقة المهام بالصور.",
+        warmup: "مرحباً بكم في القراءة والإيقاع! اليوم نقرأ الجزء الثاني وكيف يذهب الروبوت للتسوق ويكنس الأرض ويطوي الغسيل.",
+        guide: "I vacuum the floor and clean up my room. I go shopping and fold the laundry. (أكنس الأرض وأرتب غرفتي، وأذهب للتسوق وأطوي الغسيل).",
+        micPhrase: "I vacuum the floor and fold the laundry.",
+        challengeDesc: "طابق 4 جمل من الأنشودة مع رسومات المهام الصحيحة في أقل من 30 ثانية!",
+        homework: "تدرب على القراءة الجهرية للصفحتين 30 و 31 بصوت واضح وواثق.",
+        pre: [
+            { q: "1. I ______ the floor (أنا أكنس الأرض بالمكنسة).", choices: ["vacuum 🔌 (أكنس)", "wash", "set", "clean"], ans: "vacuum 🔌 (أكنس)" },
+            { q: "2. I ______ the laundry (أنا أطوي الغسيل).", choices: ["fold 🧺 (أطوي)", "feed", "wash", "set"], ans: "fold 🧺 (أطوي)" },
+            { q: "3. I go ______ (أنا أذهب للتسوق).", choices: ["shopping 🛍️ (التسوق)", "shop", "shopped", "to shop"], ans: "shopping 🛍️ (التسوق)" },
+            { q: "4. Translate 'أرتب غرفتي':", choices: ["clean up my room 🧹", "vacuum the floor 🔌", "fold the laundry 🧺", "set the table 🍽️"], ans: "clean up my room 🧹" },
+            { q: "5. Robot cleans ______ day (الروبوت ينظف كل يوم).", choices: ["every (كل)", "never", "no", "some"], ans: "every (كل)" }
+        ],
+        during: [
+            { q: "1. I ______ shopping on Fridays.", choices: ["go (أذهب)", "goes", "going", "gone"], ans: "go (أذهب)" },
+            { q: "2. The robot ______ the laundry.", choices: ["folds (يطوي - للمفرد)", "fold", "folding", "folded"], ans: "folds (يطوي - للمفرد)" },
+            { q: "3. Do you clean up your room? -> Yes, I ______.", choices: ["do (نعم، أفعل)", "does", "don't", "doing"], ans: "do (نعم، أفعل)" }
+        ],
+        post: [
+            { q: "1. Complete: I vacuum the ______ (أكنس الأرض).", choices: ["floor (الأرض)", "trash", "fish", "table"], ans: "floor (الأرض)" },
+            { q: "2. I clean ______ my room.", choices: ["up (clean up)", "on", "in", "at"], ans: "up (clean up)" },
+            { q: "3. What does the robot fold?", choices: ["laundry 🧺 (الغسيل)", "table", "dishes", "fish"], ans: "laundry 🧺 (الغسيل)" },
+            { q: "4. The robot vacuums the ______.", choices: ["floor 🔌 (الأرضية)", "dishes", "trash", "laundry"], ans: "floor 🔌 (الأرضية)" },
+            { q: "5. Does he go shopping? -> Yes, he ______.", choices: ["goes (نعم هو يذهب)", "go", "going", "go too"], ans: "goes (نعم هو يذهب)" }
+        ]
+    },
+    6: {
+        title: "Phonics: ar, or, er (الصوتيات: مقاطع ar, or, er)",
+        emoji: "🗣️",
+        desc: "تعلم تهجئة ونطق الحروف المتحركة المتبوعة بحرف R وهي ar و or و er مع أمثلة مصورة.",
+        warmup: "مرحباً بكم في درس الصوتيات! اليوم نتعلم أصوات: ar في car 🚗، و or في fork 🍴، و er في teacher 👨‍🏫.",
+        guide: "car 🚗 (ar - سيارة), fork 🍴 (or - شوكة), teacher 👨‍🏫 (er - معلم), doctor 👨‍⚕️ (or - طبيب), sister 👧 (er - أخت), brother 👦 (er - أخ).",
+        micPhrase: "A teacher is in the car with a fork.",
+        challengeDesc: "تهجأ الكلمات الثلاث car و fork و teacher بشكل صحيح في لوحة الحروف!",
+        homework: "ابحث في منزلك عن 5 أشياء تحتوي في تهجئتها على ar أو or أو er واكتبها في دفترك.",
+        pre: [
+            { q: "1. c_ _ 🚗 (سيارة)", choices: ["ar (car)", "or", "er", "ur"], ans: "ar (car)" },
+            { q: "2. f_ _k 🍴 (شوكة)", choices: ["or (fork)", "ar", "er", "ir"], ans: "or (fork)" },
+            { q: "3. teach_ _ 👨‍🏫 (معلم)", choices: ["er (teacher)", "ar", "or", "ur"], ans: "er (teacher)" },
+            { q: "4. doct_ _ 👨‍⚕️ (طبيب)", choices: ["or (doctor)", "er", "ar", "ir"], ans: "or (doctor)" },
+            { q: "5. sist_ _ 👧 (أخت)", choices: ["er (sister)", "or", "ar", "ur"], ans: "er (sister)" }
+        ],
+        during: [
+            { q: "1. Which word has the 'ar' sound? (أي كلمة بها صوت ar)", choices: ["car 🚗 (سيارة)", "fork", "teacher", "doctor"], ans: "car 🚗 (سيارة)" },
+            { q: "2. Which word has the 'or' sound? (أي كلمة بها صوت or)", choices: ["fork 🍴 (شوكة)", "car", "sister", "brother"], ans: "fork 🍴 (شوكة)" },
+            { q: "3. Which word ends with 'er'? (أي كلمة تنتهي بـ er)", choices: ["teacher 👨‍🏫 (معلم)", "doctor", "car", "fork"], ans: "teacher 👨‍🏫 (معلم)" }
+        ],
+        post: [
+            { q: "1. Identify the word containing 'ar':", choices: ["farm 🚜 (مزرعة)", "fork (شوكة)", "teacher (معلم)", "doctor (طبيب)"], ans: "farm 🚜 (مزرعة)" },
+            { q: "2. Identify the word containing 'or':", choices: ["corn 🌽 (ذرة)", "car (سيارة)", "sister (أخت)", "teacher (معلم)"], ans: "corn 🌽 (ذرة)" },
+            { q: "3. Identify the word containing 'er':", choices: ["brother 👦 (أخ)", "car (سيارة)", "fork (شوكة)", "doctor (طبيب)"], ans: "brother 👦 (أخ)" },
+            { q: "4. What is 'fork' in Arabic?", choices: ["شوكة 🍴", "سيارة", "معلم", "طبيب"], ans: "شوكة 🍴" },
+            { q: "5. What is 'teacher' in Arabic?", choices: ["معلم 👨‍🏫", "طبيب", "أخت", "أخ"], ans: "معلم 👨‍🏫" }
+        ]
+    },
+    7: {
+        title: "Phonics Challenge (تحدي سباق التهجئة والصوتيات)",
+        emoji: "🏁",
+        desc: "ألعاب وتحديات التهجئة السريعة ومطابقة كلمات الفصول والأماكن: dark, park, winter, sport.",
+        warmup: "مرحباً بكم في تحدي الصوتيات! تدرب على بناء الكلمات وتهجئتها في سباق التهجئة السريع.",
+        guide: "winter ❄️ (er - شتاء), dark 🌑 (ar - مظلم), short 📏 (or - قصير), park 🌳 (ar - منتزه), sport ⚽ (or - رياضة).",
+        micPhrase: "It is dark in the park during winter.",
+        challengeDesc: "قم بتهجئة 5 كلمات صوتية في أقل من 45 ثانية في تحدي التهجئة!",
+        homework: "راجع جميع كلمات الصوتيات الـ 8 في كتاب الطالب صفحة 33.",
+        pre: [
+            { q: "1. d_ _k 🌑 (مظلم)", choices: ["ar (dark)", "or", "er", "ur"], ans: "ar (dark)" },
+            { q: "2. sh_ _t 📏 (قصير)", choices: ["or (short)", "ar", "er", "ir"], ans: "or (short)" },
+            { q: "3. wint_ _ ❄️ (شتاء)", choices: ["er (winter)", "ar", "or", "ur"], ans: "er (winter)" },
+            { q: "4. p_ _k 🌳 (منتزه)", choices: ["ar (park)", "or", "er", "ur"], ans: "ar (park)" },
+            { q: "5. t_ _n (دور/منعطف)", choices: ["ur (turn)", "ar", "or", "er"], ans: "ur (turn)" }
+        ],
+        during: [
+            { q: "1. Which word rhymes with 'dark'? (أي كلمة على نفس وزن dark)", choices: ["park 🌳 (منتزه)", "fork", "teacher", "short"], ans: "park 🌳 (منتزه)" },
+            { q: "2. Which word rhymes with 'short'? (أي كلمة على وزن short)", choices: ["sport ⚽ (رياضة)", "dark", "winter", "car"], ans: "sport ⚽ (رياضة)" },
+            { q: "3. Which word has the 'er' sound?", choices: ["winter ❄️ (شتاء)", "dark", "fork", "car"], ans: "winter ❄️ (شتاء)" }
+        ],
+        post: [
+            { q: "1. Complete: It is ______ in winter.", choices: ["dark 🌑 (مظلم/بارد)", "fork", "teacher", "doctor"], ans: "dark 🌑 (مظلم/بارد)" },
+            { q: "2. He plays ______ (هو يلعب الرياضة).", choices: ["sports ⚽ (رياضات)", "teacher", "car", "fork"], ans: "sports ⚽ (رياضات)" },
+            { q: "3. Choose correct spelling for 'منتزه':", choices: ["park 🌳", "parc", "prak", "pacr"], ans: "park 🌳" },
+            { q: "4. What is the vowel sound in 'corn 🌽'?", choices: ["or (corn)", "ar", "er", "ur"], ans: "or (corn)" },
+            { q: "5. What is the vowel sound in 'sister 👧'?", choices: ["er (sister)", "ar", "or", "ur"], ans: "er (sister)" }
+        ]
+    }
+};
+
+// Grand Memory Flip Game Setup (12 Cards)
+const grandPairs = [
+    { text: "feed the fish", match: "🐠 أطعم السمك" },
+    { text: "set the table", match: "🍽️ أجهز المائدة" },
+    { text: "wash the dishes", match: "🧽 أغسل الأطباق" },
+    { text: "clean up my room", match: "🧹 أرتب غرفتي" },
+    { text: "take out trash", match: "🗑️ أخرج القمامة" },
+    { text: "fold the laundry", match: "🧺 أطوي الغسيل" }
+];
+
+let gFirstCard = null;
+let gSecondCard = null;
+let gMatchedCount = 0;
+
+function initGrandMemoryGame() {
+    const parent = document.getElementById("grand-memory-arena");
+    const fb = document.getElementById("grand-memory-fb");
+    if(!parent) return;
+    parent.innerHTML = "";
+    if(fb) fb.innerHTML = "";
+    
+    let items = [];
+    grandPairs.forEach(p => {
+        items.push({ id: p.text, val: p.text, isText: true });
+        items.push({ id: p.text, val: p.match, isText: false });
+    });
+    
+    items.sort(() => Math.random() - 0.5);
+    gFirstCard = null;
+    gSecondCard = null;
+    gMatchedCount = 0;
+    
+    items.forEach((item, idx) => {
+        const card = document.createElement("div");
+        card.className = "memory-card";
+        card.dataset.id = item.id;
+        card.dataset.index = idx;
+        card.onclick = () => flipGrandCard(card);
+        card.innerHTML = `
+            <div class="memory-card-front">?</div>
+            <div class="memory-card-back" style="font-size:13px; font-weight:bold;">${item.val}</div>
+        `;
+        parent.appendChild(card);
+    });
+}
+
+function flipGrandCard(card) {
+    if(card.classList.contains("flipped") || card.classList.contains("matched")) return;
+    if(gFirstCard && gSecondCard) return;
+    
+    card.classList.add("flipped");
+    speakSpeed(card.dataset.id, false);
+    
+    if(!gFirstCard) {
+        gFirstCard = card;
+    } else {
+        gSecondCard = card;
+        if(gFirstCard.dataset.id === gSecondCard.dataset.id) {
+            setTimeout(() => {
+                gFirstCard.classList.add("matched");
+                gSecondCard.classList.add("matched");
+                gFirstCard = null;
+                gSecondCard = null;
+                gMatchedCount++;
+                speakSpeed("Correct match", false);
+                conf();
+                if(gMatchedCount === 6) {
+                    document.getElementById("grand-memory-fb").innerHTML = "<div class='fb correct' style='text-align:center; font-size:16px;'>🎉 مبروك! لقد قمت بمطابقة جميع بطاقات المهام الـ 12 بنجاح باهر! 🏆</div>";
+                }
+            }, 500);
+        } else {
+            setTimeout(() => {
+                gFirstCard.classList.remove("flipped");
+                gSecondCard.classList.remove("flipped");
+                gFirstCard = null;
+                gSecondCard = null;
+            }, 1100);
+        }
+    }
+}
+
+// Spelling Challenge Verification
+function checkSpellingChallenge() {
+    const s1 = (document.getElementById("sp-1").value || "").trim().toLowerCase();
+    const s2 = (document.getElementById("sp-2").value || "").trim().toLowerCase();
+    const s3 = (document.getElementById("sp-3").value || "").trim().toLowerCase();
+    const s4 = (document.getElementById("sp-4").value || "").trim().toLowerCase();
+    
+    const fb = document.getElementById("spelling-fb");
+    fb.style.display = 'block';
+    
+    if(s1 === "ee" && s2 === "e" && s3 === "a" && s4 === "o") {
+        fb.className = "fb correct";
+        fb.innerHTML = "✅ أحسنت! جميع الحروف صحيحة: <b>feed, set, wash, fold</b>! تم إتقان التهجئة بنجاح 🌟";
+        speakSpeed("Excellent spelling", false);
+        conf();
+    } else {
+        fb.className = "fb wrong";
+        fb.innerHTML = "❌ هناك بعض الحروف غير الصحيحة. تذكر: (feed = ee), (set = e), (wash = a), (fold = o). حاول مرة أخرى!";
+        speakSpeed("Try again", false);
+    }
+}
+
+// Karaoke Chant Player
+function playChantLine(num) {
+    const lines = {
+        1: { en: "I'm a clever robot and I help you every day! 🤖", ar: "(أنا روبوت ذكي وأساعدك كل يوم!)" },
+        2: { en: "I wash the dishes and I dry them too! 🧽", ar: "(أنا أغسل الأطباق وأجففها أيضاً!)" },
+        3: { en: "I set the table and I feed the fish! 🍽️ 🐠", ar: "(أنا أجهز المائدة وأطعم السمك!)" },
+        4: { en: "I vacuum the floor and clean up the room! 🔌 🧹", ar: "(أنا أكنس الأرض بالمكنسة وأرتب الغرفة!)" },
+        5: { en: "I fold the laundry and I go shopping! 🧺 🛍️", ar: "(أنا أطوي الغسيل وأذهب للتسوق!)" }
+    };
+    
+    const v = lines[num];
+    if(v) {
+        document.getElementById("karaoke-verse").textContent = `"${v.en}"`;
+        document.getElementById("karaoke-ar").textContent = v.ar;
+        speakSpeed(v.en, false);
+    }
+}
+
+// Grand Exam Questions (15 Questions)
+const grandExamQuestions = [
+    { q: "1. What chore matches 'أطعم السمك'?", ans: "feed the fish 🐠", choices: ["feed the fish 🐠", "wash the dishes 🧽", "set the table 🍽️", "fold the laundry 🧺"] },
+    { q: "2. He ______ the dishes every evening.", ans: "washes (يغسل)", choices: ["washes (يغسل)", "wash", "washing", "washed"] },
+    { q: "3. She ______ the fish twice a day.", ans: "feeds (تطعم)", choices: ["feeds (تطعم)", "feed", "feeding", "to feed"] },
+    { q: "4. What chores ______ you do?", ans: "do (أنت)", choices: ["do (أنت)", "does", "is", "are"] },
+    { q: "5. Does he clean up his room? -> Yes, he ______.", ans: "does (نعم هو يفعل)", choices: ["does (نعم هو يفعل)", "do", "doesn't", "is"] },
+    { q: "6. I set the table, ______ (أنا أجهز المائدة أيضاً).", ans: "too (أيضاً)", choices: ["too (أيضاً)", "to", "two", "so"] },
+    { q: "7. The clever robot ______ the table.", ans: "sets 🍽️", choices: ["sets 🍽️", "set", "setting", "to set"] },
+    { q: "8. I ______ the floor with a vacuum cleaner.", ans: "vacuum 🔌 (أكنس)", choices: ["vacuum 🔌 (أكنس)", "wash", "fold", "feed"] },
+    { q: "9. What does the robot fold?", ans: "laundry 🧺 (الغسيل)", choices: ["laundry 🧺 (الغسيل)", "table", "dishes", "fish"] },
+    { q: "10. Which word has the 'ar' sound?", ans: "car 🚗 (سيارة)", choices: ["car 🚗 (سيارة)", "fork", "teacher", "doctor"] },
+    { q: "11. Which word has the 'or' sound?", ans: "fork 🍴 (شوكة)", choices: ["fork 🍴 (شوكة)", "car", "sister", "brother"] },
+    { q: "12. Which word ends with 'er'?", ans: "teacher 👨‍🏫 (معلم)", choices: ["teacher 👨‍🏫 (معلم)", "doctor", "car", "fork"] },
+    { q: "13. In the survey, 'Always' gives ______ points.", ans: "2 (نقطتان)", choices: ["2 (نقطتان)", "1 (نقطة)", "0 (صفر)", "3 (ثلاث)"] },
+    { q: "14. Translate: 'I go shopping' ➔", ans: "أنا أذهب للتسوق 🛍️", choices: ["أنا أذهب للتسوق 🛍️", "أنا أطوي الغسيل", "أنا أخرج القمامة", "أنا أكنس الأرض"] },
+    { q: "15. What is the opposite of 'clever'?", ans: "stupid (غبي)", choices: ["stupid (غبي)", "smart (ذكي)", "active (نشيط)", "helpful (مساعد)"] }
+];
+
+function renderGrandExam() {
+    const container = document.getElementById("grand-exam-container");
+    if(!container) return;
+    let html = "";
+    grandExamQuestions.forEach((q, idx) => {
+        html += `
+            <div style="background:var(--bg); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border);">
+              <p style="font-weight:bold; font-size:16px; margin-bottom:10px; color:var(--text);">${q.q}</p>
+              <div class="test-choices" style="grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));">
+                ${q.choices.map(c => `
+                  <button class="test-btn" id="gexam-${idx}-${c.replace(/[^a-zA-Z0-9]/g, '')}" onclick="selectGrandExamAnswer(${idx}, '${c}', '${q.ans}')">${c}</button>
+                `).join('')}
+              </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+let grandUserAnswers = {};
+function selectGrandExamAnswer(qIdx, chosen, correct) {
+    grandUserAnswers[qIdx] = chosen;
+    const q = grandExamQuestions[qIdx];
+    q.choices.forEach(c => {
+        const btnId = `gexam-${qIdx}-${c.replace(/[^a-zA-Z0-9]/g, '')}`;
+        const btn = document.getElementById(btnId);
+        if(btn) {
+            btn.classList.remove('correct', 'wrong');
+            if(c === chosen) {
+                if(chosen === correct) {
+                    btn.classList.add('correct');
+                } else {
+                    btn.classList.add('wrong');
+                }
+            }
+        }
+    });
+}
+
+function evaluateGrandExam() {
+    let score = 0;
+    grandExamQuestions.forEach((q, idx) => {
+        if(grandUserAnswers[idx] === q.ans) {
+            score++;
+        }
+    });
+    
+    const pct = Math.round((score / grandExamQuestions.length) * 100);
+    const resultBox = document.getElementById("grand-exam-result");
+    
+    if(score >= 12) {
+        conf();
+        speakSpeed("Congratulations! You mastered Unit 4 with flying colors!", false);
+        resultBox.innerHTML = `
+            <div style="background:linear-gradient(135deg, #10b981, #059669); color:#fff; padding:30px; border-radius:var(--radius); text-align:center; box-shadow:var(--shadow-lg);">
+              <div style="font-size:50px;">🏆 📜 🌟</div>
+              <h2 style="font-size:26px; font-weight:900; margin:10px 0;">شهادة تميز وإتقان الوحدة الرابعة (Unit 4 Master)!</h2>
+              <p style="font-size:18px; margin-bottom:12px;">لقد حصلت على درجة: <b>${score} / ${grandExamQuestions.length} (${pct}%)</b></p>
+              <div style="background:rgba(255,255,255,0.2); padding:10px 20px; border-radius:100px; display:inline-block; font-weight:900;">
+                ⭐ الفئة: Great Helper & Unit Champion ⭐
+              </div>
+            </div>
+        `;
+    } else {
+        speakSpeed("Good effort. Review and try again!", false);
+        resultBox.innerHTML = `
+            <div style="background:#fef3c7; color:#78350f; padding:24px; border-radius:var(--radius); text-align:center; border:2px solid #f59e0b;">
+              <h3 style="font-size:20px; font-weight:bold;">نتيجتك: ${score} / ${grandExamQuestions.length} (${pct}%)</h3>
+              <p style="margin-top:6px;">راجع بطاقات الدروس بالأعلى وحاول مجدداً للوصول إلى الدرجة الكاملة والشهادة الذهبية!</p>
+            </div>
+        `;
+    }
+}
+
+// Function to generate the html for each step for lessons 2 to 8
+function renderLesson(lessonIdx) {
+    const data = lessonData[lessonIdx];
+    const classicContainer = document.getElementById(`mode-content-${lessonIdx}-classic`);
+    const digitalContainer = document.getElementById(`mode-content-${lessonIdx}-digital`);
+    
+    // 1. Render Classic View
+    let classicHtml = `
+        <div class="sec-hd">
+          <div class="sec-title">
+            <span class="sec-icon">${data.emoji}</span>
+            <h2>الدرس ${lessonIdx + 1}: ${data.title}</h2>
+          </div>
+        </div>
+        <div class="book-explanation-box">
+          <h3>📖 شرح ومراجعة المحتوى المنهجي:</h3>
+          <p>${data.desc}</p>
+        </div>
+        
+        <div class="test-panel pre">
+          <div class="test-hdr test-hdr-pre">🧠 التقييم القبلي (Pre-Test):</div>
+          <div id="c-pre-${lessonIdx}"></div>
+        </div>
+
+        <div class="test-panel during">
+          <div class="test-hdr test-hdr-during">💬 التقييم أثناء الحصة (During Check):</div>
+          <div id="c-during-${lessonIdx}"></div>
+        </div>
+
+        <div class="test-panel post">
+          <div class="test-hdr test-hdr-post">🎓 التقييم البعدي (Post-Test):</div>
+          <div id="c-post-${lessonIdx}"></div>
+        </div>
+        
+        <button class="btn-c btn-accent" style="margin-top:20px;" onclick="mark(${lessonIdx})">تم إنهاء الدرس ${lessonIdx + 1} بنجاح ✔️</button>
+    `;
+    classicContainer.innerHTML = classicHtml;
+    
+    // Render classic test questions
+    renderClassicQuiz(lessonIdx, 'pre');
+    renderClassicQuiz(lessonIdx, 'during');
+    renderClassicQuiz(lessonIdx, 'post');
+
+    // 2. Render Digital View with the 12 steps
+    let stepperHtml = `<div class="stepper-nav">`;
+    const stepsTitle = [
+        "1. التهيئة", "2. القبلي", "3. الشرح", "4. الاستماع",
+        "5. التدريب", "6. النشاط", "7. المايك", "8. التقييم البيني",
+        "9. التحدي", "10. البعدي", "11. الواجب", "12. التقرير"
+    ];
+    for (let i = 0; i < 12; i++) {
+        stepperHtml += `
+            <div class="step-dot ${i===0?'active':''}" id="step-dot-${lessonIdx}-${i}" onclick="jumpToStep(${lessonIdx}, ${i})">
+              <div class="step-dot-circle">${i+1}</div>
+              <div>${stepsTitle[i]}</div>
+            </div>
+        `;
+    }
+    stepperHtml += `</div>`;
+
+    // Render 12 step panels
+    let stepsContentHtml = "";
+    for (let i = 0; i < 12; i++) {
+        stepsContentHtml += `
+            <div class="step-card ${i===0?'active':''}" id="step-card-${lessonIdx}-${i}">
+              ${renderStepContent(lessonIdx, i)}
+            </div>
+        `;
+    }
+    
+    // Back and Next navigation buttons
+    let navButtons = `
+        <div style="display:flex; justify-content:space-between; margin-top:20px;">
+          <button class="btn-c btn-outline" id="prev-btn-${lessonIdx}" onclick="navigateStep(${lessonIdx}, -1)">⬅️ السابق</button>
+          <button class="btn-c btn-primary" id="next-btn-${lessonIdx}" onclick="navigateStep(${lessonIdx}, 1)">التالي ➡️</button>
+        </div>
+    `;
+    
+    // Add Teacher Guide and Printables access at the bottom of the digital lesson
+    let teacherSection = `
+        <div class="test-panel" style="margin-top:30px; border-color:var(--primary);">
+          <div class="test-hdr test-hdr-pre" style="background:var(--primary); color:#fff;">👨‍🏫 خيارات المعلم وحقيبة الدرس التفاعلية:</div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;">
+            <a href="grade3-unit4-printables.html" target="_blank" class="btn-c btn-outline">🖨️ دليل المعلم والمطبوعات</a>
+            <a href="grade3-unit4-worksheets.html" target="_blank" class="btn-c btn-outline">📝 أوراق العمل للطباعة</a>
+            <button class="btn-c btn-outline" onclick="shareLesson(${lessonIdx})">🔗 مشاركة الحصة للطلاب</button>
+          </div>
+        </div>
+    `;
+    
+    digitalContainer.innerHTML = stepperHtml + stepsContentHtml + navButtons + teacherSection;
+}
+
+function shareLesson(idx) {
+    alert("🔗 تم نسخ رابط الدرس المباشر! يمكنك الآن إرساله للطلاب عبر منصة مدرستي أو وسائل التواصل.");
+}
+
+// Render individual step card contents
+function renderStepContent(lessonIdx, stepIdx) {
+    const data = lessonData[lessonIdx];
+    switch (stepIdx) {
+        case 0: // التهيئة (Warm-up)
+            return `
+                <h3>👋 خطوة 1: التهيئة والتمهيد (Warm-up)</h3>
+                <div style="background:#eff6ff; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border-right:5px solid var(--primary);">
+                  <p style="font-size:18px; font-weight:bold; color:#1e3a8a;">${data.warmup}</p>
+                </div>
+                <div style="margin-top:15px;">
+                  <button class="btn-c btn-primary" onclick="speakSpeed('${data.warmup}', false)">🔊 استمع للمقدمة</button>
+                  <button class="btn-c btn-outline" onclick="speakSpeed('${data.warmup}', true)">🐢 نطق بطيء</button>
+                </div>
+            `;
+        case 1: // التقييم القبلي (Pre-assessment)
+            return `
+                <h3>🧠 خطوة 2: التقييم القبلي (Pre-Test)</h3>
+                <p style="margin-bottom:15px;">أجب على الأسئلة التالية لقياس معرفتك السابقة:</p>
+                <div id="d-pre-${lessonIdx}"></div>
+            `;
+        case 2: // شرح المحتوى (Content Presentation)
+            if (lessonIdx === 1) {
+                return `
+                    <h3>📖 خطوة 3: شرح وحساب نقاط المهام (Check Your Chores Rules)</h3>
+                    <div class="book-explanation-box" style="margin-top:15px; background:rgba(79, 70, 229, 0.03); border:2px solid var(--primary); color:var(--text)">
+                      <h4 style="font-size:18px; font-weight:bold; margin-bottom:10px; color:var(--primary);">📋 قواعد الاستبيان ونظام النقاط (صفحة 27):</h4>
+                      <table style="width:100%; border-collapse:collapse; margin-bottom:15px; text-align:center; font-size:14px;">
+                        <tr style="background:var(--primary); color:#fff;">
+                          <th style="padding:6px; border:1px solid var(--border);">دائماً (Always)</th>
+                          <th style="padding:6px; border:1px solid var(--border);">أحياناً (Sometimes)</th>
+                          <th style="padding:6px; border:1px solid var(--border);">أبداً (Never)</th>
+                        </tr>
+                        <tr style="background:var(--bg-card); color:var(--text);">
+                          <td style="padding:6px; border:1px solid var(--border); font-weight:bold;">2 نقطتان</td>
+                          <td style="padding:6px; border:1px solid var(--border); font-weight:bold;">1 نقطة واحدة</td>
+                          <td style="padding:6px; border:1px solid var(--border); font-weight:bold;">0 لا نقاط</td>
+                        </tr>
+                      </table>
+                      <h4 style="font-size:16px; font-weight:bold; margin-bottom:10px; color:var(--primary);">🏆 تصنيفات المساعدين حسب مجموع النقاط:</h4>
+                      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:13px; text-align:right;">
+                        <div style="background:#d1fae5; color:#065f46; padding:6px; border-radius:5px; font-weight:bold;">⭐ 13 نقطة أو أكثر ➡️ Great Helper (مساعد رائع)</div>
+                        <div style="background:#e0f2fe; color:#0369a1; padding:6px; border-radius:5px; font-weight:bold;">⭐ 9 إلى 12 نقطة ➡️ Good Helper (مساعد جيد)</div>
+                        <div style="background:#fef3c7; color:#78350f; padding:6px; border-radius:5px; font-weight:bold;">⭐ 5 إلى 8 نقاط ➡️ Average Helper (مساعد متوسط)</div>
+                        <div style="background:#fee2e2; color:#991b1b; padding:6px; border-radius:5px; font-weight:bold;">⭐ 0 إلى 4 نقاط ➡️ Poor Helper (مساعد ضعيف)</div>
+                      </div>
+                    </div>
+                    <div class="audio-controls">
+                      <button class="btn-c btn-primary" onclick="speakSpeed('Always is two points, sometimes is one point, never is zero points. If you score thirteen or more you are a great helper.', false)">🔊 استمع للشرح</button>
+                    </div>
+                `;
+            }
+            return `
+                <h3>📖 خطوة 3: شرح محتوى الدرس (Content Presentation)</h3>
+                <div class="book-explanation-box" style="margin-top:15px;">
+                  <h4 style="font-size:18px; font-weight:bold; margin-bottom:10px;">القاعدة الأساسية والمفردات:</h4>
+                  <p style="font-size:16px;">${data.guide}</p>
+                </div>
+                <div class="audio-controls">
+                  <button class="btn-c btn-primary" onclick="speakSpeed('${data.guide}', false)">🔊 نطق طبيعي</button>
+                  <button class="btn-c btn-outline" onclick="speakSpeed('${data.guide}', true)">🐢 نطق بطيء</button>
+                </div>
+            `;
+        case 3: // الاستماع والنطق (Listening & Pronunciation)
+            return `
+                <h3>🔊 خطوة 4: الاستماع والنطق (Listening & Pronunciation)</h3>
+                <p>استمع للنطق الصحيح للمصطلحات والجمل المنهجية وكررها:</p>
+                <div class="sports-grid" style="margin-top:15px;">
+                  <div class="sport-card" onclick="speakSpeed('${data.micPhrase}', false)">
+                    <span style="font-size:32px;">🔊</span>
+                    <div style="font-size:16px; font-weight:bold; margin-top:10px;">${data.micPhrase}</div>
+                  </div>
+                </div>
+            `;
+        case 4: // التدريب الموجّه (Guided Practice)
+            return `
+                <h3>📝 خطوة 5: التدريب الموجّه (Guided Practice)</h3>
+                <p>أكمل الجملة التالية باختيار اللفظ المناسب:</p>
+                <div style="background:#f8fafc; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border: 1px solid var(--border);">
+                  <p style="font-size:18px; font-weight:bold; font-family:'Outfit';">She ______ the fish every day.</p>
+                  <div style="display:flex; gap:12px; margin-top:15px;">
+                    <button class="btn-c btn-outline" onclick="checkGuidedAnswer(${lessonIdx}, 'feeds', true)">feeds (تطعم - للمفرد)</button>
+                    <button class="btn-c btn-outline" onclick="checkGuidedAnswer(${lessonIdx}, 'feed', false)">feed</button>
+                  </div>
+                  <div class="fb" id="guided-fb-${lessonIdx}"></div>
+                </div>
+            `;
+        case 5: // النشاط التفاعلي (Interactive Activity)
+            return `
+                <h3>🎮 خطوة 6: نشاط تفاعلي محاكي للدرس (Interactive Activity)</h3>
+                <div style="background:#eff6ff; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border-left:5px solid var(--primary-light);">
+                  <p style="font-weight:bold; font-size:16px;">لعبة الفهم السريع والفرز التفاعلي للكلمات:</p>
+                  <p style="margin-top:8px;">انقر على البطاقة الصحيحة لتثبيت المعلومة.</p>
+                  <button class="btn-c btn-accent" style="margin-top:15px;" onclick="playLessonGame(${lessonIdx})">🎮 ابدأ اللعبة التفاعلية</button>
+                </div>
+            `;
+        case 6: // تدريب المايك (Microphone Practice)
+            return `
+                <h3>🎙️ خطوة 7: تدريب النطق بالمايك (Microphone Practice)</h3>
+                <p style="margin-bottom:15px;">اضغط على زر المايك وانطق الجملة التالية بوضوح:</p>
+                <div style="background:#f8fafc; padding:20px; border-radius:var(--radius-sm); text-align:center;">
+                  <h4 style="font-family:'Outfit'; font-size:22px; font-weight:900; color:var(--primary);">${data.micPhrase}</h4>
+                  <button class="btn-c btn-danger" style="margin-top:15px;" onclick="startMic('${data.micPhrase}', 'mic-fb-${lessonIdx}')">🎙️ ابدأ التحدث بالمايك</button>
+                  <div class="fb" id="mic-fb-${lessonIdx}"></div>
+                </div>
+            `;
+        case 7: // التقييم أثناء الدرس (During-lesson Check)
+            return `
+                <h3>💬 خطوة 8: التقييم أثناء الحصة (During Check)</h3>
+                <div id="d-during-${lessonIdx}"></div>
+            `;
+        case 8: // التحدي (Challenge)
+            return `
+                <h3>🏆 خطوة 9: تحدي المتفوقين (Challenge Time)</h3>
+                <div style="background:#fef3c7; border:1px solid #f59e0b; padding:20px; border-radius:var(--radius-sm); margin-top:15px; color:#78350f;">
+                  <p style="font-weight:bold;">🏆 تحدي التميز والإتقان:</p>
+                  <p style="margin-top:8px;">${data.challengeDesc}</p>
+                  <button class="btn-c btn-accent" style="margin-top:15px;" onclick="playChallenge(${lessonIdx})">🚀 خوض التحدي</button>
+                </div>
+            `;
+        case 9: // التقييم البعدي (Post-assessment)
+            return `
+                <h3>🎓 خطوة 10: التقييم البعدي والختامي (Post-Test)</h3>
+                <div id="d-post-${lessonIdx}"></div>
+            `;
+        case 10: // الواجب (Homework)
+            return `
+                <h3>📝 خطوة 11: الواجب المنزلي (Homework)</h3>
+                <div style="background:#eff6ff; padding:20px; border-radius:var(--radius-sm); margin-top:15px; border-right:5px solid var(--accent);">
+                  <p style="font-size:16px; font-weight:bold;">${data.homework}</p>
+                </div>
+                <p style="margin-top:15px; font-size:14px; color:var(--text-muted);">يرجى حل الواجب في كتاب النشاط أو ورقة العمل وتسليمه للمعلم في الحصة القادمة.</p>
+            `;
+        case 11: // تقرير الإنجاز (Achievement Report)
+            return `
+                <h3>📊 خطوة 12: تقرير إنجاز الحصة الرقمية</h3>
+                <div class="report-grid">
+                  <div class="report-card-sub">
+                    <h4>التقييم القبلي</h4>
+                    <div class="report-badge" id="pre-rep-${lessonIdx}">0/5</div>
+                  </div>
+                  <div class="report-card-sub">
+                    <h4>التقييم البعدي</h4>
+                    <div class="report-badge" id="post-rep-${lessonIdx}">0/5</div>
+                  </div>
+                </div>
+                <div style="text-align:center; padding:15px; background:rgba(16,185,129,0.1); color:var(--accent); border-radius:var(--radius-sm); font-weight:bold;" id="imp-rep-${lessonIdx}">
+                  معدل التحسن والتمكن المنهجي: 0%
+                </div>
+            `;
+    }
+}
+
+function checkGuidedAnswer(lessonIdx, choice, isCorrect) {
+    const fb = document.getElementById(`guided-fb-${lessonIdx}`);
+    fb.style.display = 'block';
+    if(isCorrect) {
+        fb.className = 'fb correct';
+        fb.textContent = '✅ إجابة صحيحة ورائعة!';
+        speakSpeed("Correct", false);
+        conf();
+    } else {
+        fb.className = 'fb wrong';
+        fb.textContent = '❌ إجابة غير صحيحة. حاول مرة أخرى.';
+        speakSpeed("Try again", false);
+    }
+}
+
+function playLessonGame(lessonIdx) {
+    alert("🎮 تم تشغيل اللعبة التفاعلية الخاصة بهذا الدرس! أجب على الأسئلة لكسب النقاط.");
+}
+
+function playChallenge(lessonIdx) {
+    alert("🚀 تم تفعيل تحدي التميز! أثبت قدراتك الاستيعابية للدرس.");
+}
+
+/* ==================== QUIZ RENDERING ENGINE ==================== */
+let quizScores = {};
+
+function renderClassicQuiz(lessonIdx, phase) {
+    const id = `c-${phase}-${lessonIdx}`;
+    const container = document.getElementById(id);
+    if(!container) return;
+    
+    const questions = lessonData[lessonIdx][phase];
+    let html = "";
+    questions.forEach((q, qIdx) => {
+        html += `
+            <div style="margin-bottom:15px; border-bottom:1px solid var(--border); padding-bottom:10px;">
+              <p style="font-weight:bold; font-size:15px;">${q.q}</p>
+              <div class="test-choices">
+                ${q.choices.map(c => `
+                  <button class="test-btn" id="btn-${lessonIdx}-${phase}-${qIdx}-${c.replace(/[^a-zA-Z0-9]/g, '')}" onclick="submitQuizAnswer(${lessonIdx}, '${phase}', ${qIdx}, '${c}', '${q.ans}')">${c}</button>
+                `).join('')}
+              </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function renderDigitalQuiz(lessonIdx, phase) {
+    const id = `d-${phase}-${lessonIdx}`;
+    const container = document.getElementById(id);
+    if(!container) return;
+    
+    const questions = lessonData[lessonIdx][phase];
+    let html = "";
+    questions.forEach((q, qIdx) => {
+        html += `
+            <div style="margin-bottom:15px; border-bottom:1px solid var(--border); padding-bottom:10px;">
+              <p style="font-weight:bold; font-size:15px;">${q.q}</p>
+              <div class="test-choices">
+                ${q.choices.map(c => `
+                  <button class="test-btn" id="dbtn-${lessonIdx}-${phase}-${qIdx}-${c.replace(/[^a-zA-Z0-9]/g, '')}" onclick="submitQuizAnswer(${lessonIdx}, '${phase}', ${qIdx}, '${c}', '${q.ans}', true)">${c}</button>
+                `).join('')}
+              </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function submitQuizAnswer(lessonIdx, phase, qIdx, chosen, correct, isDigital = false) {
+    const prefix = isDigital ? 'dbtn-' : 'btn-';
+    
+    // Disable other choices
+    const choices = lessonData[lessonIdx][phase][qIdx].choices;
+    choices.forEach(c => {
+        const btn = document.getElementById(`${prefix}${lessonIdx}-${phase}-${qIdx}-${c.replace(/[^a-zA-Z0-9]/g, '')}`);
+        if(btn) btn.disabled = true;
+    });
+    
+    const activeBtn = document.getElementById(`${prefix}${lessonIdx}-${phase}-${qIdx}-${chosen.replace(/[^a-zA-Z0-9]/g, '')}`);
+    if(chosen === correct) {
+        if(activeBtn) activeBtn.classList.add('correct');
+        speakSpeed("Correct", false);
+        conf();
+        
+        const scoreKey = `${lessonIdx}-${phase}`;
+        quizScores[scoreKey] = (quizScores[scoreKey] || 0) + 1;
+    } else {
+        if(activeBtn) activeBtn.classList.add('wrong');
+        const correctBtn = document.getElementById(`${prefix}${lessonIdx}-${phase}-${qIdx}-${correct.replace(/[^a-zA-Z0-9]/g, '')}`);
+        if(correctBtn) correctBtn.classList.add('correct');
+        speakSpeed("Incorrect", false);
+    }
+    
+    if (phase === 'pre') {
+        const score = quizScores[`${lessonIdx}-pre`] || 0;
+        preScores[lessonIdx] = score;
+    } else if (phase === 'post') {
+        const score = quizScores[`${lessonIdx}-post`] || 0;
+        postScores[lessonIdx] = score;
+    }
+    updateReport(lessonIdx);
+}
+
+function updateReport(lessonIdx) {
+    const preScore = preScores[lessonIdx] || 0;
+    const postScore = postScores[lessonIdx] || 0;
+    
+    const preRep = document.getElementById(`pre-rep-${lessonIdx}`);
+    const postRep = document.getElementById(`post-rep-${lessonIdx}`);
+    const impRep = document.getElementById(`imp-rep-${lessonIdx}`);
+    
+    if(preRep) preRep.textContent = `${preScore}/5`;
+    if(postRep) postRep.textContent = `${postScore}/5`;
+    
+    if(impRep) {
+        const diff = postScore - preScore;
+        const impPct = diff > 0 ? Math.round((diff / 5) * 100) : 0;
+        impRep.textContent = `معدل التحسن والتمكن المنهجي: ${impPct}% + (نقاط إضافية: ${postScore * 20}XP)`;
+    }
+}
+
+/* ==================== STEPPER NAVIGATION FUNCTIONS ==================== */
+function navigateStep(lessonIdx, dir) {
+    let curStep = activeStepPerLesson[lessonIdx];
+    let nextStep = curStep + dir;
+    if (nextStep >= 0 && nextStep < 12) {
+        jumpToStep(lessonIdx, nextStep);
+    }
+}
+
+function jumpToStep(lessonIdx, stepIdx) {
+    activeStepPerLesson[lessonIdx] = stepIdx;
+    
+    for (let i = 0; i < 12; i++) {
+        const dot = document.getElementById(`step-dot-${lessonIdx}-${i}`);
+        if(dot) {
+            dot.classList.toggle('active', i === stepIdx);
+            dot.classList.toggle('completed', i < stepIdx);
+        }
+        
+        const card = document.getElementById(`step-card-${lessonIdx}-${i}`);
+        if(card) {
+            card.classList.toggle('active', i === stepIdx);
+        }
+    }
+    
+    const prevBtn = document.getElementById(`prev-btn-${lessonIdx}`);
+    const nextBtn = document.getElementById(`next-btn-${lessonIdx}`);
+    if(prevBtn) prevBtn.disabled = (stepIdx === 0);
+    if(nextBtn) nextBtn.disabled = (stepIdx === 11);
+    
+    if (stepIdx === 1) {
+        renderDigitalQuiz(lessonIdx, 'pre');
+    } else if (stepIdx === 7) {
+        renderDigitalQuiz(lessonIdx, 'during');
+    } else if (stepIdx === 9) {
+        renderDigitalQuiz(lessonIdx, 'post');
+    }
+}
+
+// Initialize all lessons from 2 to 8 & Grand Exam and Memory Game on load
+for (let i = 1; i <= 7; i++) {
+    renderLesson(i);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initGrandMemoryGame();
+    renderGrandExam();
+});
+</script>
+</body>
+</html>

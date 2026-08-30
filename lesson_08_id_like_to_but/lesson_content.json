@@ -1,0 +1,23 @@
+{
+  "title": "I'd Like To ... But",
+  "desc": "Expressing desire and describing obstacles using but.",
+  "vocab": [],
+  "sentences": [
+    {
+      "en": "I'd like to play tennis, but I have no racket.",
+      "ar": "أود لعب التنس، ولكن ليس لدي مضرب."
+    },
+    {
+      "en": "I'd like to try falconing, but I have no falcon.",
+      "ar": "أود تجربة الصقارة، ولكن ليس لدي صقر."
+    },
+    {
+      "en": "I'd like to try riding, but I have no horse.",
+      "ar": "أود تجربة الركوب، ولكن ليس لدي حصان."
+    },
+    {
+      "en": "I'd like to try scuba diving, but there is no sea.",
+      "ar": "أود تجربة الغوص، ولكن لا يوجد بحر."
+    }
+  ]
+}

@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطبوعات ووسائل الوحدة الثانية: Things We Wear - الصف الثاني الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 60px;
+    font-size: 17px;
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+.tcontrols {
+    display: flex;
+    gap: 12px;
+}
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-accent:hover {
+    background: #059669;
+}
+
+/* MAIN CONTENT WRAPPER */
+.main-wrap {
+    max-width: 1000px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+}
+
+/* TABS SYSTEM */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+.tab-btn {
+    padding: 12px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: var(--tr);
+}
+.tab-btn:hover, .tab-btn.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.04);
+}
+
+/* WORKSHEET CONTAINER */
+.sheet-container {
+    display: none;
+}
+.sheet-container.active {
+    display: block;
+}
+
+/* PRINTABLE SHEET STYLING (A4 Look on Screen) */
+.a4-sheet {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    min-height: 1050px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* WORKSHEET HEADER */
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.header-school {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-align: right;
+    line-height: 1.5;
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-title-box h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.header-logo {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-student-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    background: var(--bg);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--primary);
+}
+.student-field {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+}
+.student-field span {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* QUESTIONS STYLING */
+.q-box {
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    background: var(--bg-card);
+}
+.q-header {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+}
+.q-header .ar-trans {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-right:auto;
+}
+
+/* TRACING STYLE */
+.trace-line-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 14px 0;
+}
+.trace-line {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.trace-avatar {
+    font-size: 32px;
+}
+.trace-text-box {
+    flex: 1;
+}
+.trace-dots {
+    font-family: 'Mali', cursive;
+    font-size: 26px;
+    color: #cbd5e1;
+    letter-spacing: 2px;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 4px;
+    display: inline-block;
+    user-select: none;
+    line-height: 1;
+}
+.copy-line {
+    border-bottom: 1px solid var(--text-muted);
+    height: 32px;
+    margin-top: 8px;
+    width: 80%;
+}
+
+/* MATCH AREA */
+.match-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-top: 14px;
+}
+.match-item-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.match-input-box {
+    width: 50px;
+    padding: 6px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+/* HANDWRITING LINE */
+.handwriting-line {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    width: 150px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--primary);
+    background: transparent;
+    padding: 2px 8px;
+}
+.handwriting-line:focus {
+    outline: none;
+    border-bottom-style: solid;
+}
+
+/* FLASHCARDS GRID */
+.flashcards-instructions {
+    background: rgba(79, 70, 229, 0.05);
+    border: 1px solid var(--primary);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.fc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.fc-card-printable {
+    border: 2px dashed #000;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff;
+    overflow: hidden;
+}
+.fc-side {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 160px;
+}
+.fc-left-side {
+    border-left: 2px dashed #94a3b8;
+    background: #fafcfd;
+}
+.fc-emoji {
+    font-size: 48px;
+    margin-bottom: 6px;
+}
+.fc-ar {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 800;
+}
+.fc-en-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.fc-trace-word {
+    font-family: 'Mali', cursive;
+    font-size: 20px;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+    border-bottom: 1px dashed var(--text-muted);
+}
+
+/* DOMINO CARDS GRID */
+.domino-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.domino-card {
+    border: 3px solid #0f172a;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff;
+    overflow: hidden;
+}
+.domino-half {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    min-height: 90px;
+    text-align: center;
+}
+.domino-half-left {
+    border-left: 3px solid #0f172a;
+    background: #f8fafc;
+}
+.domino-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    color: var(--primary);
+    font-weight: 900;
+}
+
+/* INTERACTIVE ANSWER FEEDBACK */
+.sheet-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+.fb-indicator {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+}
+.fb-correct {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.fb-wrong {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+    .topbar, .tabs-nav, .sheet-actions {
+        display: none !important;
+    }
+    .main-wrap {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .a4-sheet {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        page-break-after: always;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div class="tcontrols">
+    <a href="unit2-worksheets.html" class="btn-c btn-accent" style="border:2px solid var(--primary); background:transparent; color:var(--primary)">📝 العودة لأوراق العمل</a>
+    <button class="btn-c btn-primary" onclick="window.print()">🖨️ طباعة الورقة المحددة</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- TABS NAV -->
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab(1)">🖨️ ورقة 1: الملكية (مترجمة)</button>
+    <button class="tab-btn" onclick="switchTab(2)">🖨️ ورقة 2: الترتيب (مترجمة)</button>
+    <button class="tab-btn" onclick="switchTab(3)">🖨️ ورقة 3: الملابس (مترجمة)</button>
+    <button class="tab-btn" onclick="switchTab(4)">🖨️ ورقة 4: الأصوات (مترجمة)</button>
+    <button class="tab-btn" onclick="switchTab(5)">🎓 مراجعة الوحدة - ورقة أ</button>
+    <button class="tab-btn" onclick="switchTab(6)">🎓 مراجعة الوحدة - ورقة ب</button>
+    <button class="tab-btn" onclick="switchTab(7)">🎴 استراتيجية 1: بطاقات الكلمات</button>
+    <button class="tab-btn" onclick="switchTab(8)">🧩 استراتيجية 2: دومينو الملابس</button>
+  </div>
+
+  <!-- ==================== SHEET 1 ==================== -->
+  <div class="sheet-container active" id="sheet1">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 1: تتبع الملكية وسؤال الاستفسار</h1>
+            <h2>Unit 2: Things We Wear - Lesson 1 (Printable Set 2)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q1. Read, Trace, and Copy:</span>
+          <span class="ar-trans">السؤال 1: اقرأ، وتتبع الجملة المنقطة، ثم اكتبها بخط يدك</span>
+        </div>
+        <div class="trace-line-container">
+          <div class="trace-line">
+            <span class="trace-avatar">🧢</span>
+            <div class="trace-text-box">
+              <span class="trace-dots">Whose hat is this? It's mine!</span>
+              <div class="copy-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q2. Match the question to response:</span>
+          <span class="ar-trans">السؤال 2: صل السؤال بالجواب المناسب</span>
+        </div>
+        <div class="match-grid">
+          <div class="match-item-card">1) Whose hat is this?</div>
+          <input type="text" class="match-input-box" id="p1-q2-1" placeholder="...">
+          <div class="match-item-card">A) They're mine.</div>
+          
+          <div class="match-item-card">2) Whose shoes are these?</div>
+          <input type="text" class="match-input-box" id="p1-q2-2" placeholder="">
+          <div class="match-item-card">B) It's mine.</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb1"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Printable_Worksheet1_Wear.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet1', 'Printable_Worksheet1_Wear.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet1()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 2 ==================== -->
+  <div class="sheet-container" id="sheet2">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 2: خط الأرقام الترتيبية وترديدها</h1>
+            <h2>Unit 2: Things We Wear - Lesson 2 (Printable Set 2)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q1. Trace and Repeat:</span>
+          <span class="ar-trans">السؤال 1: تتبع الأرقام الترتيبية ثم رددها بصوت مرتفع</span>
+        </div>
+        <div class="trace-line-container">
+          <div class="trace-line">
+            <span class="trace-avatar">1️⃣</span>
+            <div class="trace-text-box">
+              <span class="trace-dots">1st - First</span>
+              <div class="copy-line"></div>
+            </div>
+          </div>
+          <div class="trace-line" style="margin-top:10px">
+            <span class="trace-avatar">2️⃣</span>
+            <div class="trace-text-box">
+              <span class="trace-dots">2nd - Second</span>
+              <div class="copy-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q2. Write the ordinal word for the kids:</span>
+          <span class="ar-trans">السؤال 2: اكتب الأرقام الترتيبية بالحروف</span>
+        </div>
+        <div style="font-size:20px; line-height:2.5; text-align:center;">
+          • Kid 1 ➔ <input type="text" class="handwriting-line" id="p2-q2-1" placeholder="First"> <br>
+          • Kid 2 ➔ <input type="text" class="handwriting-line" id="p2-q2-2" placeholder="Second">
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb2"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet2', 'Printable_Worksheet2_Ordinals.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet2', 'Printable_Worksheet2_Ordinals.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet2()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 3 ==================== -->
+  <div class="sheet-container" id="sheet3">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 3: تهجئة مفردات الملابس</h1>
+            <h2>Unit 2: Things We Wear - Lesson 3 (Printable Set 2)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q1. Trace and Copy:</span>
+          <span class="ar-trans">السؤال 1: تتبع كلمات الملابس ثم انسخها</span>
+        </div>
+        <div class="trace-line-container">
+          <div class="trace-line">
+            <span class="trace-avatar">🧢</span>
+            <div class="trace-text-box">
+              <span class="trace-dots">cap - Cap</span>
+              <div class="copy-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q2. Write clothes name under emojis:</span>
+          <span class="ar-trans">السؤال 2: اكتب الاسم الصحيح تحت الرمز</span>
+        </div>
+        <div style="font-size:20px; line-height:2.5; text-align:center;">
+          • 🧦 Socks ➔ <input type="text" class="handwriting-line" id="p3-q2-1" placeholder="socks"> <br>
+          • 👟 Shoes ➔ <input type="text" class="handwriting-line" id="p3-q2-2" placeholder="shoes">
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb3"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet3', 'Printable_Worksheet3_Clothes.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet3', 'Printable_Worksheet3_Clothes.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet3()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 4 ==================== -->
+  <div class="sheet-container" id="sheet4">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 4: تهجئة أصوات الحروف (sh / sk)</h1>
+            <h2>Unit 2: Things We Wear - Lesson 4 (Printable Set 2)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q1. Trace the Phonics starting sounds:</span>
+          <span class="ar-trans">السؤال 1: تتبع أصوات الحروف المنقطة</span>
+        </div>
+        <div class="trace-line-container">
+          <div class="trace-line">
+            <span class="trace-avatar">👕</span>
+            <div class="trace-text-box">
+              <span class="trace-dots">sh - shirt</span>
+              <div class="copy-line"></div>
+            </div>
+          </div>
+          <div class="trace-line" style="margin-top:10px">
+            <span class="trace-avatar">👗</span>
+            <div class="trace-text-box">
+              <span class="trace-dots">sk - skirt</span>
+              <div class="copy-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q2. Complete with sh or sk:</span>
+          <span class="ar-trans">السؤال 2: أكمل الحروف الأولى الناقصة</span>
+        </div>
+        <div style="font-size:20px; line-height:2.5; text-align:center;">
+          • 🐑 <input type="text" class="handwriting-line" id="p4-q2-1" placeholder="sh">eep <br>
+          • 👗 <input type="text" class="handwriting-line" id="p4-q2-2" placeholder="sk">irt
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb4"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet4', 'Printable_Worksheet4_Phonics.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet4', 'Printable_Worksheet4_Phonics.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet4()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 5 ==================== -->
+  <div class="sheet-container" id="sheet5">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>🎓 مراجعة الوحدة الثانية - ورقة أ</h1>
+            <h2>Unit 2: Things We Wear - Review Sheet A</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q1. Complete the conversation:</span>
+          <span class="ar-trans">السؤال 1: أكمل المحادثة بالكلمة المناسبة (mine / Whose)</span>
+        </div>
+        <div style="font-size:19px; line-height:2.5; padding:10px;">
+          👨 Teacher: <input type="text" class="handwriting-line" id="p5-q1-1" placeholder="Whose"> hat is this? <br>
+          👦 Student: It is <input type="text" class="handwriting-line" id="p5-q1-2" placeholder="mine">.
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q2. Match vocabulary:</span>
+          <span class="ar-trans">السؤال 2: صل الكلمات بالمعاني الصحيحة</span>
+        </div>
+        <div class="match-grid">
+          <div class="match-item-card">1) Cap 🧢</div>
+          <input type="text" class="match-input-box" id="p5-q2-1" placeholder="...">
+          <div class="match-item-card">A) بنطال</div>
+          
+          <div class="match-item-card">2) Pants 👖</div>
+          <input type="text" class="match-input-box" id="p5-q2-2" placeholder="">
+          <div class="match-item-card">B) فستان</div>
+          
+          <div class="match-item-card">3) Dress 👗</div>
+          <input type="text" class="match-input-box" id="p5-q2-3" placeholder="">
+          <div class="match-item-card">C) قبعة</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb5"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet5', 'Printable_ReviewA_Wear.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet5', 'Printable_ReviewA_Wear.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet5()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHEET 6 ==================== -->
+  <div class="sheet-container" id="sheet6">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثاني الابتدائي</div>
+          <div class="header-title-box">
+            <h1>🎓 مراجعة الوحدة الثانية - ورقة ب</h1>
+            <h2>Unit 2: Things We Wear - Review Sheet B</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q1. Match abbreviations to ordinals:</span>
+          <span class="ar-trans">السؤال 1: صل الاختصار بالكلمة الصحيحة</span>
+        </div>
+        <div class="match-grid">
+          <div class="match-item-card">1) 1st</div>
+          <input type="text" class="match-input-box" id="p6-q1-1" placeholder="...">
+          <div class="match-item-card">A) Second</div>
+          
+          <div class="match-item-card">2) 2nd</div>
+          <input type="text" class="match-input-box" id="p6-q1-2" placeholder="">
+          <div class="match-item-card">B) Third</div>
+          
+          <div class="match-item-card">3) 3rd</div>
+          <input type="text" class="match-input-box" id="p6-q1-3" placeholder="">
+          <div class="match-item-card">C) First</div>
+        </div>
+      </div>
+
+      <div class="q-box">
+        <div class="q-header">
+          <span>Q2. Complete phonics:</span>
+          <span class="ar-trans">السؤال 2: أكمل بصوت sh أو sk</span>
+        </div>
+        <div style="font-size:20px; line-height:2.5; text-align:center;">
+          • 👟 <input type="text" class="handwriting-line" id="p6-q2-1" placeholder="sh">oes <br>
+          • 👗 <input type="text" class="handwriting-line" id="p6-q2-2" placeholder="sk">irt
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb6"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet6', 'Printable_ReviewB_Wear.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet6', 'Printable_ReviewB_Wear.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" onclick="checkSheet6()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STRATEGY 1: FLASHCARDS ==================== -->
+  <div class="sheet-container" id="sheet7">
+    <div class="a4-sheet" style="min-height:auto">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">الوسائل والألعاب التعليمية<br>الوحدة الثانية: Things We Wear</div>
+          <div class="header-title-box">
+            <h1>استراتيجية 1: بطاقات المفردات والكلمات (قص وتدريب)</h1>
+            <h2>Printable Double-Sided Flashcards</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+      </div>
+
+      <div class="flashcards-instructions">
+        💡 **طريقة الاستخدام المقترحة**: <br>
+        1. اطبع هذه الصفحة على ورق سميك. <br>
+        2. قص الكروت على طول الخطوط المتقطعة الخارجية. <br>
+        3. قم بثني الكارت من المنتصف (الخط الفاصل الرمادي) ليصبح الوجه الأول يحتوي على الصورة والوجه الخلفي الكلمة والتهجئة للتسميع والترديد الفردي والزوجي!
+      </div>
+
+      <div class="fc-grid">
+        <div class="fc-card-printable">
+          <div class="fc-side fc-left-side">
+            <span class="fc-emoji">🧢</span>
+            <div class="fc-ar">قبعة - cap</div>
+          </div>
+          <div class="fc-side">
+            <div class="fc-en-word">cap</div>
+            <div class="fc-trace-word">cap</div>
+          </div>
+        </div>
+
+        <div class="fc-card-printable">
+          <div class="fc-side fc-left-side">
+            <span class="fc-emoji">👕</span>
+            <div class="fc-ar">قميص صيفي - T-shirt</div>
+          </div>
+          <div class="fc-side">
+            <div class="fc-en-word">T-shirt</div>
+            <div class="fc-trace-word">T-shirt</div>
+          </div>
+        </div>
+
+        <div class="fc-card-printable">
+          <div class="fc-side fc-left-side">
+            <span class="fc-emoji">🧥</span>
+            <div class="fc-ar">سترة - jacket</div>
+          </div>
+          <div class="fc-side">
+            <div class="fc-en-word">jacket</div>
+            <div class="fc-trace-word">jacket</div>
+          </div>
+        </div>
+
+        <div class="fc-card-printable">
+          <div class="fc-side fc-left-side">
+            <span class="fc-emoji">👖</span>
+            <div class="fc-ar">بنطال - pants</div>
+          </div>
+          <div class="fc-side">
+            <div class="fc-en-word">pants</div>
+            <div class="fc-trace-word">pants</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sheet-actions" style="margin-top:24px">
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet7', 'Printable_Strategy1_Flashcards.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet7', 'Printable_Strategy1_Flashcards.pdf')">📥 تحميل PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STRATEGY 2: DOMINOES ==================== -->
+  <div class="sheet-container" id="sheet8">
+    <div class="a4-sheet" style="min-height:auto">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">الوسائل والألعاب التعليمية<br>الوحدة الثانية: Things We Wear</div>
+          <div class="header-title-box">
+            <h1>استراتيجية 2: لعبة دومينو الملابس (قص ومطابقة)</h1>
+            <h2>Wearables Domino Card Matching Game</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+      </div>
+
+      <div class="flashcards-instructions" style="background:rgba(16,185,129,0.05); border-color:var(--accent)">
+        🧩 **طريقة لعبة دومينو الملابس الصفية**: <br>
+        1. اطبع هذه الصفحة وقص بطاقات الدومينو على طول الخط الأسود العريض. <br>
+        2. يحصل كل طالب أو مجموعة على بضع بطاقات. <br>
+        3. يطابق الطالب **الرمز التعبيري للملابس** بـ **الكلمة المقابلة بالإنجليزية** لتكوين سلسلة دومينو مترابطة!
+      </div>
+
+      <div class="domino-grid">
+        <div class="domino-card">
+          <div class="domino-half domino-half-left">🧢 (قبعة)</div>
+          <div class="domino-half"><span class="domino-word">T-shirt</span></div>
+        </div>
+        
+        <div class="domino-card">
+          <div class="domino-half domino-half-left">👕 (قميص صيفي)</div>
+          <div class="domino-half"><span class="domino-word">jacket</span></div>
+        </div>
+
+        <div class="domino-card">
+          <div class="domino-half domino-half-left">🧥 (سترة)</div>
+          <div class="domino-half"><span class="domino-word">pants</span></div>
+        </div>
+
+        <div class="domino-card">
+          <div class="domino-half domino-half-left">👖 (بنطال)</div>
+          <div class="domino-half"><span class="domino-word">socks</span></div>
+        </div>
+
+        <div class="domino-card">
+          <div class="domino-half domino-half-left">🧦 (جوارب)</div>
+          <div class="domino-half"><span class="domino-word">shoes</span></div>
+        </div>
+
+        <div class="domino-card">
+          <div class="domino-half domino-half-left">👟 (حذاء)</div>
+          <div class="domino-half"><span class="domino-word">cap</span></div>
+        </div>
+      </div>
+
+      <div class="sheet-actions" style="margin-top:24px">
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet8', 'Printable_Strategy2_Dominoes.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet8', 'Printable_Strategy2_Dominoes.pdf')">📥 تحميل PDF</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+/* TAB SWITCHER */
+function switchTab(idx) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.sheet-container').forEach(sheet => sheet.classList.remove('active'));
+    
+    document.querySelectorAll('.tab-btn')[idx-1].classList.add('active');
+    document.getElementById('sheet'+idx).classList.add('active');
+    
+    document.querySelectorAll('.fb-indicator').forEach(fb => fb.style.display = 'none');
+}
+
+/* CHECK SHEET 1 */
+function checkSheet1() {
+    const fb = document.getElementById('fb1');
+    fb.style.display = 'inline-flex';
+    const m1 = document.getElementById('p1-q2-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('p1-q2-2').value.trim().toUpperCase();
+    const matchOk = m1 === 'B' && m2 === 'A';
+    if(matchOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ صواب! إجابات صحيحة مئة بالمئة! 🎉';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ إجابة خاطئة. تأكد من مطابقة الجمع والمفرد.';
+    }
+}
+
+/* CHECK SHEET 2 */
+function checkSheet2() {
+    const fb = document.getElementById('fb2');
+    fb.style.display = 'inline-flex';
+    const h1 = document.getElementById('p2-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('p2-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'first' && h2 === 'second';
+    if(handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! الترتيب مكتوب بشكل سليم تماماً! 🔢';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ خطأ، تأكد من كتابة First و Second.';
+    }
+}
+
+/* CHECK SHEET 3 */
+function checkSheet3() {
+    const fb = document.getElementById('fb3');
+    fb.style.display = 'inline-flex';
+    const h1 = document.getElementById('p3-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('p3-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'socks' && h2 === 'shoes';
+    if(handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ صواب! أسماء الملابس صحيحة تماماً! 🧦👟';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ خطأ، تأكد من كتابة Socks و Shoes.';
+    }
+}
+
+/* CHECK SHEET 4 */
+function checkSheet4() {
+    const fb = document.getElementById('fb4');
+    fb.style.display = 'inline-flex';
+    const h1 = document.getElementById('p4-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('p4-q2-2').value.trim().toLowerCase();
+    const handOk = h1 === 'sh' && h2 === 'sk';
+    if(handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! أصوات الحروف sh و sk صحيحة! 🐑';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ خطأ، تذكر: sheep تبدأ بـ sh، و skirt تبدأ بـ sk.';
+    }
+}
+
+/* CHECK SHEET 5 */
+function checkSheet5() {
+    const fb = document.getElementById('fb5');
+    fb.style.display = 'inline-flex';
+    const h1 = document.getElementById('p5-q1-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('p5-q1-2').value.trim().toLowerCase();
+    const m1 = document.getElementById('p5-q2-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('p5-q2-2').value.trim().toUpperCase();
+    const m3 = document.getElementById('p5-q2-3').value.trim().toUpperCase();
+    const handOk = h1 === 'whose' && h2 === 'mine';
+    const matchOk = m1 === 'C' && m2 === 'A' && m3 === 'B';
+    if(handOk && matchOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ مراجعة مثالية لملابس الوحدة وملكيّتها! 🏆';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ راجع إجاباتك وجرب مرة أخرى.';
+    }
+}
+
+/* CHECK SHEET 6 */
+function checkSheet6() {
+    const fb = document.getElementById('fb6');
+    fb.style.display = 'inline-flex';
+    const m1 = document.getElementById('p6-q1-1').value.trim().toUpperCase();
+    const m2 = document.getElementById('p6-q1-2').value.trim().toUpperCase();
+    const m3 = document.getElementById('p6-q1-3').value.trim().toUpperCase();
+    const h1 = document.getElementById('p6-q2-1').value.trim().toLowerCase();
+    const h2 = document.getElementById('p6-q2-2').value.trim().toLowerCase();
+    const matchOk = m1 === 'C' && m2 === 'A' && m3 === 'B';
+    const handOk = h1 === 'sh' && h2 === 'sk';
+    if(matchOk && handOk) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ أحسنت! أكملت مراجعة الأرقام والأصوات بنجاح! 🎓🏆';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ راجع الاختيارات والأحرف المكتوبة.';
+    }
+}
+
+/* EXPORT TO PDF */
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        html, body, .main-wrap, .sheet-container {
+            overflow: visible !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .fb-indicator {
+            display: none !important;
+        }
+        #${sheetId} .match-item-card {
+            background: #ffffff !important;
+            border: 1px solid #000000 !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    });
+}
+
+/* EXPORT TO WORD */
+function downloadWord(sheetId, filename) {
+    const header = "<" + "html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+          "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+          "xmlns='http://www.w3.org/TR/REC-html40'>"+
+          "<head><meta charset='utf-8'><title>Export HTML to Word</title><style>"+
+          "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; }"+
+          ".a4-sheet { padding: 20px; }"+
+          ".sheet-header { border-bottom: 3px double #4f46e5; padding-bottom: 20px; margin-bottom: 24px; }"+
+          ".header-row-1 { display: flex; justify-content: space-between; align-items: center; }"+
+          ".header-student-info { display: table; width: 100%; background: #f8fafc; padding: 12px; border: 1px dashed #4f46e5; margin-top: 15px; }"+
+          ".q-box { border: 1px solid #e2e8f0; margin-bottom: 20px; padding: 15px; }"+
+          ".q-header { font-weight: bold; color: #4f46e5; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; }"+
+          ".trace-line-container { width: 100%; display: block; }"+
+          ".trace-line { margin-bottom: 12px; }"+
+          ".trace-dots { font-size: 24px; color: #cbd5e1; border-bottom: 1px dashed #64748b; }"+
+          ".match-table { width: 100%; border-collapse: collapse; margin-top: 15px; }"+
+          ".match-cell { padding: 10px; border: 1px solid #cbd5e1; }"+
+          ".handwriting-line { border-bottom: 2px dashed #4f46e5; width: 150px; display: inline-block; }"+
+          ".sheet-actions, .fb-indicator { display: none !important; }"+
+          "</" + "style></" + "head><body>";
+    const footer = "</" + "body></" + "html>";
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const html = header + element.innerHTML + footer;
+    
+    const blob = new Blob(['\ufeff' + html], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+[
+  {
+    "q": "I'm a ______ robot.",
+    "choices": [
+      "clever",
+      "lazy",
+      "slow",
+      "sad"
+    ],
+    "ans": "clever"
+  },
+  {
+    "q": "The robot ______ the table.",
+    "choices": [
+      "sets",
+      "set",
+      "setting",
+      "to set"
+    ],
+    "ans": "sets"
+  },
+  {
+    "q": "The opposite of 'clever' is:",
+    "choices": [
+      "stupid",
+      "smart",
+      "active",
+      "happy"
+    ],
+    "ans": "stupid"
+  },
+  {
+    "q": "Robots are ______.",
+    "choices": [
+      "machines",
+      "animals",
+      "people",
+      "plants"
+    ],
+    "ans": "machines"
+  },
+  {
+    "q": "I keep my room ______.",
+    "choices": [
+      "clean",
+      "dirty",
+      "messy",
+      "bad"
+    ],
+    "ans": "clean"
+  }
+]

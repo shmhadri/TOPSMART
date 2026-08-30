@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Members Printable Learning Kit - وسائل المعلم | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --tr: .2s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    cursor: pointer;
+}
+
+/* DASHBOARD LAYOUT */
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: calc(100vh - 70px);
+}
+@media (max-width: 900px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SIDEBAR NAV */
+.sidebar {
+    background: var(--bg-card);
+    border-left: 2px solid var(--border);
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 70px);
+}
+.sidebar-cat-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin: 15px 0 8px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+}
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr);
+    border: 1px solid transparent;
+    text-align: right;
+}
+.menu-item:hover, .menu-item.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+/* PREVIEW WORKSPACE */
+.workspace {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg);
+}
+.workspace-actions {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: var(--bg-card);
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+}
+.print-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--tr);
+}
+.print-action-btn:hover {
+    background: var(--primary-light);
+}
+
+/* A4 CONTAINER FOR PRINT PREVIEW */
+.a4-container {
+    width: 210mm;
+    min-height: 297mm;
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 15mm;
+    box-sizing: border-box;
+    position: relative;
+    color: #0f172a;
+}
+[data-theme=dark] .a4-container {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+/* A4 HEADER */
+.a4-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.a4-header-right {
+    text-align: right;
+    font-size: 12px;
+    font-weight: bold;
+    color: #475569;
+}
+.a4-header-center {
+    text-align: center;
+}
+.a4-header-center h1 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+}
+.a4-header-center p {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 700;
+    margin-top: 2px;
+}
+.a4-header-left {
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #475569;
+}
+
+.instructions-box {
+    background: #f8fafc;
+    border-right: 4px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+/* 8 CARDS GRID SYSTEM */
+.cards-8-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 60mm;
+    gap: 6mm;
+}
+.cut-card {
+    border: 2px dashed #4f46e5;
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #fafafb;
+    position: relative;
+    box-sizing: border-box;
+}
+.card-num {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+.card-emoji {
+    font-size: 40px;
+    margin-bottom: 4px;
+}
+.card-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+}
+.card-sentence {
+    font-size: 12px;
+    color: #475569;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* CUSTOM FAMILY AVATARS FOR GULF FAMILY (Abaya, Thobe, Hijab, Ghutra) */
+.gulf-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: #f1f5f9;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatar-thobe::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border-radius: 50% 50% 0 0;
+    border: 1.5px solid #000;
+}
+.avatar-hijab::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    background: #1e293b;
+    border-radius: 50%;
+}
+
+/* FAMILY TREE POSTER */
+.tree-box {
+    border: 2px solid #94a3b8;
+    border-radius: var(--radius);
+    height: 200mm;
+    background: radial-gradient(circle, #f0fdf4 0%, #ffffff 100%);
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tree-level {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+.tree-node {
+    border: 2px solid #10b981;
+    background: #ffffff;
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    min-width: 80px;
+    text-align: center;
+    font-weight: 800;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.tree-node-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    color: var(--primary);
+}
+.tree-node-sub {
+    font-size: 10px;
+    color: #64748b;
+}
+
+/* BINGO GAME */
+.bingo-grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4mm;
+    margin-top: 20px;
+}
+.bingo-cell {
+    border: 2px dashed #10b981;
+    background: #fafafb;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+}
+
+/* EXIT TICKET GRID */
+.exit-ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 4mm;
+    height: 220mm;
+}
+.exit-ticket-card {
+    border: 1.5px dashed #f43f5e;
+    background: #fafafb;
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* MINIBOOK LAYOUT */
+.minibook-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2mm;
+    height: 200mm;
+}
+.minibook-page {
+    border: 1px dashed #475569;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* REWARDS GRID */
+.reward-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.reward-badge-box {
+    border: 3px double #f59e0b;
+    background: #fffdf5;
+    border-radius: var(--radius);
+    padding: 20px 10px;
+    text-align: center;
+}
+
+/* TEACHER GUIDE TABLE */
+.strategy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 11px;
+}
+.strategy-table th, .strategy-table td {
+    border: 1px solid #cbd5e1;
+    padding: 8px;
+    text-align: right;
+}
+.strategy-table th {
+    background: #f1f5f9;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+/* PRINT MEDIA PREVIEW SPECIFICS */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .topbar, .sidebar, .workspace-actions, .theme-btn {
+        display: none !important;
+    }
+    .dashboard-layout {
+        display: block !important;
+    }
+    .workspace {
+        padding: 0 !important;
+        background: #ffffff !important;
+    }
+    .a4-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div>
+    <a href="grade4-unit1-lessons.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div class="tlogo">Family Members <span>Printable Kit</span></div>
+  <div style="display:flex; gap: 10px;">
+    <button class="theme-btn" onclick="tgl()">🌓</button>
+  </div>
+</nav>
+
+<div class="dashboard-layout">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    
+    <div class="sidebar-cat-title">📖 الدليل والتعليمات</div>
+    <div class="sidebar-menu">
+      <div class="menu-item active" id="m20" onclick="sw(20)">📋 دليل المعلم والخطة الزمنية</div>
+      <div class="menu-item" id="m21" onclick="sw(21)">🔑 مفتاح الإجابات والحلول</div>
+    </div>
+
+    <div class="sidebar-cat-title">🎴 البطاقات والألعاب</div>
+    <div class="sidebar-menu">
+      <div class="menu-item" id="m1" onclick="sw(1)">1. Vocabulary Flashcards</div>
+      <div class="menu-item" id="m3" onclick="sw(3)">3. Match the Family Cards</div>
+      <div class="menu-item" id="m4" onclick="sw(4)">4. Memory Game</div>
+      <div class="menu-item" id="m5" onclick="sw(5)">5. Who Am I? Cards</div>
+      <div class="menu-item" id="m10" onclick="sw(10)">10. Look, Read & Choose</div>
+      <div class="menu-item" id="m11" onclick="sw(11)">11. True or False Cards</div>
+    </div>
+
+    <div class="sidebar-cat-title">🌳 الملصقات والشجر</div>
+    <div class="sidebar-menu">
+      <div class="menu-item" id="m2" onclick="sw(2)">2. Family Tree Poster</div>
+      <div class="menu-item" id="m15" onclick="sw(15)">15. Speaking Frame</div>
+      <div class="menu-item" id="m16" onclick="sw(16)">16. Mini Book</div>
+    </div>
+
+    <div class="sidebar-cat-title">🏃‍♂️ أنشطة الحركة والصف</div>
+    <div class="sidebar-menu">
+      <div class="menu-item" id="m6" onclick="sw(6)">6. Find Your Family Partner</div>
+      <div class="menu-item" id="m7" onclick="sw(7)">7. Family Sorting Cards</div>
+      <div class="menu-item" id="m8" onclick="sw(8)">8. Build a Sentence Cards</div>
+      <div class="menu-item" id="m9" onclick="sw(9)">9. Complete the Sentence</div>
+      <div class="menu-item" id="m12" onclick="sw(12)">12. Family Bingo Games</div>
+      <div class="menu-item" id="m13" onclick="sw(13)">13. Act It Out Cards</div>
+      <div class="menu-item" id="m14" onclick="sw(14)">14. Role-Play Cards</div>
+      <div class="menu-item" id="m17" onclick="sw(17)">17. Family Poem Activity</div>
+    </div>
+
+    <div class="sidebar-cat-title">🏆 التقييمات والجوائز</div>
+    <div class="sidebar-menu">
+      <div class="menu-item" id="m18" onclick="sw(18)">18. Exit Ticket Cards</div>
+      <div class="menu-item" id="m19" onclick="sw(19)">19. Reward Cards</div>
+    </div>
+
+  </aside>
+
+  <!-- WORKSPACE PREVIEW -->
+  <main class="workspace">
+    <div class="workspace-actions">
+      <div style="font-weight: 800; font-size: 15px; color: var(--text-muted);">معاينة وتصدير الطباعة:</div>
+      <button class="print-action-btn" onclick="window.print()">🖨️ طباعة هذه الصفحة (A4 PDF)</button>
+    </div>
+
+    <!-- A4 CANVAS -->
+    <div class="a4-container" id="a4-workspace">
+      <!-- Content loaded dynamically via sw() -->
+    </div>
+  </main>
+</div>
+
+<script>
+function tgl() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+}
+
+// 21 Sections data
+const sections = {
+    // 1. FLASHCARDS
+    1: `
+      <div class="a4-header">
+        <div class="a4-header-right">المنصة التعليمية الذكية<br>SmartLearning Primary</div>
+        <div class="a4-header-center">
+          <h1>Vocabulary Flashcards 🎴</h1>
+          <p>Family Members printable cards - We Can 3</p>
+        </div>
+        <div class="a4-header-left">بطاقات المفردات للقص<br>الصف الرابع الابتدائي</div>
+      </div>
+      <div class="instructions-box">
+        💡 إرشادات المعلم: قم بقص البطاقات على طول الخط المتقطع واستخدمها في التدريبات الصوتية وعرض الكلمات.
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card">
+          <div class="card-num">1</div>
+          <div class="card-emoji">👨‍👩‍👧‍👦</div>
+          <div class="card-word">family</div>
+          <div class="card-sentence">This is my family.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">2</div>
+          <div class="card-emoji">👩</div>
+          <div class="card-word">mom</div>
+          <div class="card-sentence">This is my mom.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">3</div>
+          <div class="card-emoji">👨</div>
+          <div class="card-word">dad</div>
+          <div class="card-sentence">This is my dad.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">4</div>
+          <div class="card-emoji">👩‍❤️‍👨</div>
+          <div class="card-word">parents</div>
+          <div class="card-sentence">They are my parents.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">5</div>
+          <div class="card-emoji">👵</div>
+          <div class="card-word">grandma</div>
+          <div class="card-sentence">This is my grandma.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">6</div>
+          <div class="card-emoji">👴</div>
+          <div class="card-word">grandpa</div>
+          <div class="card-sentence">This is my grandpa.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">7</div>
+          <div class="card-emoji">👩</div>
+          <div class="card-word">aunt</div>
+          <div class="card-sentence">She is my aunt.</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">8</div>
+          <div class="card-emoji">👨</div>
+          <div class="card-word">uncle</div>
+          <div class="card-sentence">He is my uncle.</div>
+        </div>
+      </div>
+    `,
+    // 2. FAMILY TREE
+    2: `
+      <div class="a4-header">
+        <div class="a4-header-right">المنصة التعليمية الذكية<br>SmartLearning Primary</div>
+        <div class="a4-header-center">
+          <h1>My Family Tree Poster 🌳</h1>
+          <p>Interactive Family Tree Model</p>
+        </div>
+        <div class="a4-header-left">ملصق شجرة العائلة<br>الصف الرابع الابتدائي</div>
+      </div>
+      <div class="instructions-box">
+        💡 نشاط شجرة العائلة: وزع النسخة الفارغة على الطلاب ليكتبوا الكلمات المناسبة في كل مربع.
+      </div>
+      <div class="tree-box">
+        <div class="tree-level">
+          <div class="tree-node">
+            <div class="tree-node-title">Grandpa 👴</div>
+            <div class="tree-node-sub">الجد</div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-node-title">Grandma 👵</div>
+            <div class="tree-node-sub">الجدة</div>
+          </div>
+        </div>
+        <div style="text-align:center; font-size:24px; color:#10b981;">|</div>
+        <div class="tree-level">
+          <div class="tree-node">
+            <div class="tree-node-title">Dad 👨</div>
+            <div class="tree-node-sub">الأب</div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-node-title">Mom 👩</div>
+            <div class="tree-node-sub">الأم</div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-node-title">Uncle / Aunt 👩‍🦰</div>
+            <div class="tree-node-sub">العم / العمة</div>
+          </div>
+        </div>
+        <div style="text-align:center; font-size:24px; color:#10b981;">|</div>
+        <div class="tree-level">
+          <div class="tree-node">
+            <div class="tree-node-title">Me / Son 👦</div>
+            <div class="tree-node-sub">الابن</div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-node-title">Daughter 👧</div>
+            <div class="tree-node-sub">الابنة</div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-node-title">Cousin 🧒</div>
+            <div class="tree-node-sub">ابن العم</div>
+          </div>
+        </div>
+      </div>
+    `,
+    // 3. MATCHING CARDS
+    3: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Match the Family Cards 🧩</h1>
+          <p>Match images, words, and sentences</p>
+        </div>
+        <div class="a4-header-left">لعبة المطابقة الثلاثية</div>
+      </div>
+      <div class="instructions-box">
+        💡 طريقة اللعب: يطابق الطالب بين الكلمة، الصورة التوضيحية، والجملة المناسبة لها في مجموعات صفية.
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card" style="border-color:#10b981;">
+          <div class="card-emoji">👩‍❤️‍👨</div>
+          <div style="font-size:12px; color:#64748b;">(Card Type: Image)</div>
+        </div>
+        <div class="cut-card" style="border-color:#4f46e5;">
+          <div class="card-word">parents</div>
+          <div style="font-size:12px; color:#64748b;">(Card Type: Word)</div>
+        </div>
+        <div class="cut-card" style="border-color:#f43f5e;">
+          <div class="card-sentence">They are my parents.</div>
+          <div style="font-size:12px; color:#64748b;">(Card Type: Sentence)</div>
+        </div>
+        <div class="cut-card" style="border-color:#10b981;">
+          <div class="card-emoji">👨</div>
+          <div style="font-size:12px; color:#64748b;">(Card Type: Image)</div>
+        </div>
+        <div class="cut-card" style="border-color:#4f46e5;">
+          <div class="card-word">uncle</div>
+          <div style="font-size:12px; color:#64748b;">(Card Type: Word)</div>
+        </div>
+        <div class="cut-card" style="border-color:#f43f5e;">
+          <div class="card-sentence">He is my uncle.</div>
+          <div style="font-size:12px; color:#64748b;">(Card Type: Sentence)</div>
+        </div>
+      </div>
+    `,
+    // 4. MEMORY GAME
+    4: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Family Memory Game 🧠</h1>
+          <p>Printable card pairs for memory match</p>
+        </div>
+        <div class="a4-header-left">لعبة الذاكرة لأفراد العائلة</div>
+      </div>
+      <div class="instructions-box">
+        💡 إرشادات: اطلب من الطلاب وضع البطاقات مقلوبة على الطاولة ومحاولة كشف أزواج الكلمة والصورة المتطابقة.
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card">
+          <div class="card-word">mom</div>
+          <div style="margin-top:15px; font-size:10px; color:#94a3b8;">Family Memory Game</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-emoji">👩</div>
+          <div style="margin-top:15px; font-size:10px; color:#94a3b8;">Family Memory Game</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-word">dad</div>
+          <div style="margin-top:15px; font-size:10px; color:#94a3b8;">Family Memory Game</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-emoji">👨</div>
+          <div style="margin-top:15px; font-size:10px; color:#94a3b8;">Family Memory Game</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-word">grandma</div>
+          <div style="margin-top:15px; font-size:10px; color:#94a3b8;">Family Memory Game</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-emoji">👵</div>
+          <div style="margin-top:15px; font-size:10px; color:#94a3b8;">Family Memory Game</div>
+        </div>
+      </div>
+    `,
+    // 5. WHO AM I?
+    5: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Who Am I? Clue Cards 🕵️‍♂️</h1>
+          <p>12 Riddle cards to guess family relations</p>
+        </div>
+        <div class="a4-header-left">بطاقات الألغاز الصفيّة</div>
+      </div>
+      <div class="instructions-box">
+        💡 تعليمات: يقرأ الطالب التلميحات الثلاثة ويحزر فرد العائلة المقصود. الحلول في دليل المعلم.
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card">
+          <div class="card-num">1</div>
+          <div style="font-weight:700; font-size:13px; line-height:1.6;">
+            I am a woman.<br>
+            I am your father's sister.<br>
+            <b>Who am I?</b>
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">2</div>
+          <div style="font-weight:700; font-size:13px; line-height:1.6;">
+            I am a boy.<br>
+            My mother is your aunt.<br>
+            <b>Who am I?</b>
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">3</div>
+          <div style="font-weight:700; font-size:13px; line-height:1.6;">
+            I am your mother's father.<br>
+            <b>Who am I?</b>
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">4</div>
+          <div style="font-weight:700; font-size:13px; line-height:1.6;">
+            I am your mother's mother.<br>
+            <b>Who am I?</b>
+          </div>
+        </div>
+      </div>
+    `,
+    // 6. FIND YOUR PARTNER
+    6: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Find Your Family Partner 👥</h1>
+          <p>Classroom interactive matching game</p>
+        </div>
+        <div class="a4-header-left">ابحث عن شريكك العائلي</div>
+      </div>
+      <div class="instructions-box">
+        💡 Instructions for Students:<br>
+        1. Walk around the class.<br>
+        2. Ask: "Who are you?"<br>
+        3. Find your family partner (e.g., Mom finds Daughter, Dad finds Son).
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card" style="border-color:#ec4899;">
+          <div class="card-word">mom</div>
+          <div style="font-size:11px; color:#64748b;">(Partner with: daughter)</div>
+        </div>
+        <div class="cut-card" style="border-color:#ec4899;">
+          <div class="card-word">daughter</div>
+          <div style="font-size:11px; color:#64748b;">(Partner with: mom)</div>
+        </div>
+        <div class="cut-card" style="border-color:#3b82f6;">
+          <div class="card-word">dad</div>
+          <div style="font-size:11px; color:#64748b;">(Partner with: son)</div>
+        </div>
+        <div class="cut-card" style="border-color:#3b82f6;">
+          <div class="card-word">son</div>
+          <div style="font-size:11px; color:#64748b;">(Partner with: dad)</div>
+        </div>
+      </div>
+    `,
+    // 7. SORTING CARDS
+    7: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Family Sorting Board 📊</h1>
+          <p>Sort members by category</p>
+        </div>
+        <div class="a4-header-left">لوح تصنيف المفردات</div>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top:20px;">
+        <div style="border: 2px solid #cbd5e1; border-radius:8px; padding:10px; text-align:center; min-height:150mm;">
+          <h3 style="color:var(--primary); font-size:14px;">Male</h3>
+          <p style="font-size:10px; color:#94a3b8; border-bottom:1px solid #cbd5e1; padding-bottom:5px; margin-bottom:10px;">(ذكور)</p>
+        </div>
+        <div style="border: 2px solid #cbd5e1; border-radius:8px; padding:10px; text-align:center; min-height:150mm;">
+          <h3 style="color:var(--primary); font-size:14px;">Female</h3>
+          <p style="font-size:10px; color:#94a3b8; border-bottom:1px solid #cbd5e1; padding-bottom:5px; margin-bottom:10px;">(إناث)</p>
+        </div>
+        <div style="border: 2px solid #cbd5e1; border-radius:8px; padding:10px; text-align:center; min-height:150mm;">
+          <h3 style="color:var(--primary); font-size:14px;">Grown-ups</h3>
+          <p style="font-size:10px; color:#94a3b8; border-bottom:1px solid #cbd5e1; padding-bottom:5px; margin-bottom:10px;">(بالغون)</p>
+        </div>
+        <div style="border: 2px solid #cbd5e1; border-radius:8px; padding:10px; text-align:center; min-height:150mm;">
+          <h3 style="color:var(--primary); font-size:14px;">Children</h3>
+          <p style="font-size:10px; color:#94a3b8; border-bottom:1px solid #cbd5e1; padding-bottom:5px; margin-bottom:10px;">(أطفال)</p>
+        </div>
+      </div>
+    `,
+    // 8. BUILD A SENTENCE CARDS
+    8: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Build a Sentence Cards 🔨</h1>
+          <p>Cut and rearrange words to build correct sentences</p>
+        </div>
+        <div class="a4-header-left">تركيب الجمل للمبتدئين</div>
+      </div>
+      <div class="instructions-box">
+        💡 إرشادات: يقص الطالب الكلمات ويرتبها لبناء الجملة الصحيحة. كل جملة تحمل رمزاً موحداً في الزاوية.
+      </div>
+      <div style="display:flex; flex-direction:column; gap:15px;">
+        <div style="display:flex; gap:10px; justify-content:center;">
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">This <span style="font-size:10px; color:var(--primary)">★</span></div>
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">is <span style="font-size:10px; color:var(--primary)">★</span></div>
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">my <span style="font-size:10px; color:var(--primary)">★</span></div>
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">mom <span style="font-size:10px; color:var(--primary)">★</span></div>
+        </div>
+        <div style="display:flex; gap:10px; justify-content:center;">
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">They <span style="font-size:10px; color:var(--accent)">◆</span></div>
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">are <span style="font-size:10px; color:var(--accent)">◆</span></div>
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">my <span style="font-size:10px; color:var(--accent)">◆</span></div>
+          <div style="border:2px solid #000; padding:10px; font-family:'Outfit'; font-weight:800; background:#f8fafc;">parents <span style="font-size:10px; color:var(--accent)">◆</span></div>
+        </div>
+      </div>
+    `,
+    // 9. COMPLETE THE SENTENCE
+    9: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Complete the Sentence Cards ✍️</h1>
+          <p>Fill in the blanks using the word bank</p>
+        </div>
+        <div class="a4-header-left">إكمال الجمل للفصل</div>
+      </div>
+      <div class="instructions-box">
+        Word Bank: [ aunt | uncle | cousin | parents | family | grandson ]
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px; font-size:16px; font-weight:bold; margin-top:20px;">
+        <div>1. They are my _____________________.</div>
+        <div>2. He is my dad's brother. He is my _____________________.</div>
+        <div>3. She is my father's sister. She is my _____________________.</div>
+        <div>4. Our _____________________ is fifteen years old.</div>
+        <div>5. I like being with my _____________________.</div>
+      </div>
+    `,
+    // 10. LOOK, READ, CHOOSE
+    10: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Look, Read, and Choose Cards 👁️</h1>
+          <p>12 Picture multiple-choice questions</p>
+        </div>
+        <div class="a4-header-left">انظر، اقرأ واختر الإجابة</div>
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card">
+          <div class="card-num">1</div>
+          <div class="card-emoji">👨‍👩‍👧‍👦</div>
+          <div style="text-align:left; font-size:12px; margin-top:10px; font-weight:800;">
+            A. cousins<br>
+            B. parents<br>
+            C. family
+          </div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">2</div>
+          <div class="card-emoji">👴</div>
+          <div style="text-align:left; font-size:12px; margin-top:10px; font-weight:800;">
+            A. uncle<br>
+            B. grandson<br>
+            C. grandpa
+          </div>
+        </div>
+      </div>
+    `,
+    // 11. TRUE OR FALSE
+    11: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>True or False Cards Check ✅❌</h1>
+          <p>Verify if description matches illustration</p>
+        </div>
+        <div class="a4-header-left">بطاقات صح أم خطأ</div>
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card">
+          <div class="card-num">1</div>
+          <div class="card-emoji">👩‍❤️‍👨</div>
+          <div style="font-weight:700; margin:10px 0;">"They are my parents."</div>
+          <div><b>[ TRUE ] &nbsp;&nbsp;&nbsp;&nbsp; [ FALSE ]</b></div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">2</div>
+          <div class="card-emoji">👧</div>
+          <div style="font-weight:700; margin:10px 0;">"He is a grandson."</div>
+          <div><b>[ TRUE ] &nbsp;&nbsp;&nbsp;&nbsp; [ FALSE ]</b></div>
+        </div>
+      </div>
+    `,
+    // 12. BINGO GAMES
+    12: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Family Bingo Card 🀄</h1>
+          <p>Cover the grid as you hear words</p>
+        </div>
+        <div class="a4-header-left">بطاقة بينجو للطلاب</div>
+      </div>
+      <div class="instructions-box">
+        Instructions: Listen to the word called by teacher. Cover the picture. Say "Bingo!" when you complete a line.
+      </div>
+      <div class="bingo-grid-3x3">
+        <div class="bingo-cell"><h3>mom</h3>👩</div>
+        <div class="bingo-cell"><h3>dad</h3>👨</div>
+        <div class="bingo-cell"><h3>grandpa</h3>👴</div>
+        <div class="bingo-cell"><h3>grandma</h3>👵</div>
+        <div class="bingo-cell" style="background:#f1f5f9; font-weight:800;">FREE SPACE</div>
+        <div class="bingo-cell"><h3>uncle</h3>👨</div>
+        <div class="bingo-cell"><h3>aunt</h3>👩</div>
+        <div class="bingo-cell"><h3>cousin</h3>🧒</div>
+        <div class="bingo-cell"><h3>parents</h3>👩‍❤️‍👨</div>
+      </div>
+    `,
+    // 13. ACT IT OUT
+    13: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Act It Out Prompt Cards 🎭</h1>
+          <p>Classroom movement and speaking activities</p>
+        </div>
+        <div class="a4-header-left">بطاقات التعبير والحركة</div>
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card">
+          <div class="card-num">1</div>
+          <div style="font-weight:800;">Act like a grandpa.</div>
+          <div style="font-size:10px; color:#64748b; margin-top:10px;">(الحركة الصامتة للجد)</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">2</div>
+          <div style="font-weight:800;">Say: "This is my mom."</div>
+          <div style="font-size:10px; color:#64748b; margin-top:10px;">(تحدث ونطق سليم)</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">3</div>
+          <div style="font-weight:800;">Spell the word "uncle".</div>
+          <div style="font-size:10px; color:#64748b; margin-top:10px;">(تهجئة الحروف)</div>
+        </div>
+        <div class="cut-card">
+          <div class="card-num">4</div>
+          <div style="font-weight:800;">Say: "I love my family."</div>
+          <div style="font-size:10px; color:#64748b; margin-top:10px;">(عبارة التقدير للأسرة)</div>
+        </div>
+      </div>
+    `,
+    // 14. ROLE-PLAY CARDS
+    14: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Family Role-Play Cards 👥</h1>
+          <p>Simple script scenarios for beginners</p>
+        </div>
+        <div class="a4-header-left">بطاقات تبادل الأدوار</div>
+      </div>
+      <div class="cards-8-grid">
+        <div class="cut-card" style="align-items:flex-start; text-align:right; padding:15px;">
+          <h3 style="color:var(--primary); font-size:15px; margin-bottom:5px;">Scenario 1: Who is this?</h3>
+          <p style="font-size:12px; font-weight:700;">
+            <b>Student A:</b> Who is this?<br>
+            <b>Student B:</b> This is my uncle.<br>
+            <b>Student A:</b> Who is she?<br>
+            <b>Student B:</b> She is my cousin.
+          </p>
+        </div>
+        <div class="cut-card" style="align-items:flex-start; text-align:right; padding:15px;">
+          <h3 style="color:var(--primary); font-size:15px; margin-bottom:5px;">Scenario 2: Introduce Parents</h3>
+          <p style="font-size:12px; font-weight:700;">
+            <b>Student A:</b> Introduce your parents.<br>
+            <b>Student B:</b> These are my parents, my mom and dad.
+          </p>
+        </div>
+      </div>
+    `,
+    // 15. SPEAKING FRAME
+    15: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Family Photo Speaking Frame 🖼️</h1>
+          <p>Draw your family and write sentences</p>
+        </div>
+        <div class="a4-header-left">إطار الرسم والتحدث</div>
+      </div>
+      <div style="border: 3px dashed #cbd5e1; border-radius: 12px; height: 100mm; display:flex; align-items:center; justify-content:center; margin-bottom:20px; background:#fafafa;">
+        <span style="color:#94a3b8; font-weight:800;">[ Draw your family photo here / ارسم عائلتك هنا ]</span>
+      </div>
+      <div style="font-size:15px; font-weight:bold; line-height:2.2;">
+        <div>• This is my _____________________.</div>
+        <div>• He is my _____________________.</div>
+        <div>• She is my _____________________.</div>
+        <div>• They are my _____________________.</div>
+        <div>• I love my family because _____________________.</div>
+      </div>
+    `,
+    // 16. MINI BOOK
+    16: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>My Family Mini-Book 📖</h1>
+          <p>Fold this sheet to make an 8-page book</p>
+        </div>
+        <div class="a4-header-left">الكتاب الصغير للطلاب</div>
+      </div>
+      <div class="minibook-grid">
+        <div class="minibook-page">
+          <h4>Page 1</h4>
+          <h2>My Family</h2>
+          <p>By: ________</p>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 2</h4>
+          <p>This is my mom.</p>
+          <div style="font-size:24px;">👩</div>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 3</h4>
+          <p>This is my dad.</p>
+          <div style="font-size:24px;">👨</div>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 4</h4>
+          <p>They are my parents.</p>
+          <div style="font-size:24px;">👩‍❤️‍👨</div>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 5</h4>
+          <p>This is my grandma.</p>
+          <div style="font-size:24px;">👵</div>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 6</h4>
+          <p>This is my grandpa.</p>
+          <div style="font-size:24px;">👴</div>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 7</h4>
+          <p>I love my family.</p>
+          <div style="font-size:24px;">❤️</div>
+        </div>
+        <div class="minibook-page">
+          <h4>Page 8</h4>
+          <p>Draw your family:</p>
+          <div style="border:1px dashed #ccc; width:40px; height:40px;"></div>
+        </div>
+      </div>
+    `,
+    // 17. POEM ACTIVITY
+    17: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Family Poem Activity 📝</h1>
+          <p>Read the poem and circle family words</p>
+        </div>
+        <div class="a4-header-left">نشاط القصيدة البسيطة</div>
+      </div>
+      <div style="text-align:center; background:#fafafb; border: 1px solid #cbd5e1; padding:20px; border-radius:8px; margin-bottom:20px;">
+        <p style="font-family:'Outfit'; font-size:18px; font-weight:800; line-height:2.2; color:var(--primary);">
+          Families, families,<br>
+          Big or small.<br>
+          We love our families,<br>
+          One and all.<br><br>
+          Moms and dads,<br>
+          Grandmas too.<br>
+          Aunts and uncles,<br>
+          We love you.
+        </p>
+      </div>
+      <div style="font-weight:800; font-size:14px;">
+        <h4>📋 Activities:</h4>
+        <div style="margin-top:10px;">1. Find and circle all family relationship words in the poem above.</div>
+        <div style="margin-top:5px;">2. Draw a heart around the word "love".</div>
+      </div>
+    `,
+    // 18. EXIT TICKETS
+    18: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Exit Ticket Slips 🎟️</h1>
+          <p>8 small checkouts for the end of lesson</p>
+        </div>
+        <div class="a4-header-left">بطاقات الخروج والتقييم</div>
+      </div>
+      <div class="exit-ticket-grid">
+        <div class="exit-ticket-card">
+          <div style="font-weight:800; font-size:12px; color:var(--danger)">Exit Ticket #1</div>
+          <div style="font-size:13px; font-weight:700; margin:10px 0;">Say three family words.</div>
+          <div style="border-top:1px dashed #ccc; padding-top:5px; font-size:10px; color:#94a3b8;">Student Name: ______________</div>
+        </div>
+        <div class="exit-ticket-card">
+          <div style="font-weight:800; font-size:12px; color:var(--danger)">Exit Ticket #2</div>
+          <div style="font-size:13px; font-weight:700; margin:10px 0;">Who is your dad's brother?</div>
+          <div style="border-top:1px dashed #ccc; padding-top:5px; font-size:10px; color:#94a3b8;">Student Name: ______________</div>
+        </div>
+        <div class="exit-ticket-card">
+          <div style="font-weight:800; font-size:12px; color:var(--danger)">Exit Ticket #3</div>
+          <div style="font-size:13px; font-weight:700; margin:10px 0;">Who is your mother's sister?</div>
+          <div style="border-top:1px dashed #ccc; padding-top:5px; font-size:10px; color:#94a3b8;">Student Name: ______________</div>
+        </div>
+        <div class="exit-ticket-card">
+          <div style="font-weight:800; font-size:12px; color:var(--danger)">Exit Ticket #4</div>
+          <div style="font-size:13px; font-weight:700; margin:10px 0;">Make a sentence with "parents".</div>
+          <div style="border-top:1px dashed #ccc; padding-top:5px; font-size:10px; color:#94a3b8;">Student Name: ______________</div>
+        </div>
+      </div>
+    `,
+    // 19. REWARDS
+    19: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Vocabulary Reward Cards 🏆</h1>
+          <p>Give these cards to star students after the activity</p>
+        </div>
+        <div class="a4-header-left">بطاقات تشجيع وجوائز</div>
+      </div>
+      <div class="reward-grid">
+        <div class="reward-badge-box">
+          <div style="font-size:40px;">⭐</div>
+          <h2 style="font-size:18px; color:var(--primary); margin:10px 0;">Family Vocabulary Star</h2>
+          <p style="font-size:12px; font-weight:700; color:#64748b;">Great Job!</p>
+        </div>
+        <div class="reward-badge-box">
+          <div style="font-size:40px;">🗣️</div>
+          <h2 style="font-size:18px; color:var(--accent); margin:10px 0;">Great Speaking!</h2>
+          <p style="font-size:12px; font-weight:700; color:#64748b;">Excellent!</p>
+        </div>
+        <div class="reward-badge-box">
+          <div style="font-size:40px;">🤝</div>
+          <h2 style="font-size:18px; color:var(--danger); margin:10px 0;">Super Partner!</h2>
+          <p style="font-size:12px; font-weight:700; color:#64748b;">Wonderful Teamwork!</p>
+        </div>
+      </div>
+    `,
+    // 20. TEACHER GUIDE
+    20: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Teacher's Strategy Guide & Lesson Plan 📋</h1>
+          <p>Complete class strategies for Family Photos lesson</p>
+        </div>
+        <div class="a4-header-left">دليل المعلم التربوي</div>
+      </div>
+      
+      <h3 style="color:var(--primary); font-size:14px; margin-bottom:10px;">جدول الأنشطة والاستراتيجيات الصفيّة:</h3>
+      <table class="strategy-table">
+        <thead>
+          <tr>
+            <th>اسم الوسيلة</th>
+            <th>الهدف التعليمي</th>
+            <th>العدد المناسب</th>
+            <th>مدة النشاط</th>
+            <th>التعديل للطلاب الضعاف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Vocabulary Flashcards</td>
+            <td>نطق وتمييز مفردات العائلة صوتياً وبصرياً</td>
+            <td>كامل الفصل</td>
+            <td>8 دقائق</td>
+            <td>استخدام الصور الكرتونية فقط بدون نصوص لتسهيل الربط</td>
+          </tr>
+          <tr>
+            <td>Family Tree Poster</td>
+            <td>فهم صلات القرابة والروابط الأسرية</td>
+            <td>مجموعات ثنائية</td>
+            <td>5 دقائق</td>
+            <td>تزويد الطالب بنسخة من شجرة العائلة المحلولة للمطابقة</td>
+          </tr>
+          <tr>
+            <td>Memory Game</td>
+            <td>تثبيت المفردات وتنشيط الذاكرة الذهنية</td>
+            <td>مجموعات من 4</td>
+            <td>10 دقائق</td>
+            <td>تقليل عدد بطاقات اللعب إلى 6 بطاقات بدلاً من 12</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="color:var(--primary); font-size:14px; margin:20px 0 10px 0;">الخطة الزمنية المقترحة للدرس (45 دقيقة):</h3>
+      <div style="font-size:12px; font-weight:bold; line-height:2.0; color:#475569;">
+        • <b>5 دقائق (تمهيد):</b> عرض شجرة العائلة Family Tree وعصف ذهني للطلاب حول أفراد عائلتهم.<br>
+        • <b>8 دقائق (تقديم):</b> تقديم مفردات البطاقات ونطقها الصوتي متبوعاً بترديد جماعي.<br>
+        • <b>10 دقائق (تطبيق):</b> ممارسة لعبة المطابقة Match the Family.<br>
+        • <b>8 دقائق (نشاط حركي):</b> تفاعل الطلاب بالبحث عن شركائهم Find Your Family Partner.<br>
+        • <b>7 دقائق (تركيب):</b> تشكيل جمل كاملة Build a Sentence.<br>
+        • <b>5 دقائق (تقييم):</b> توزيع أوراق الـ Exit Ticket أو لعب Bingo لتقييم الحصيلة الصفيّة.
+      </div>
+    `,
+    // 21. ANSWER KEY
+    21: `
+      <div class="a4-header">
+        <div class="a4-header-right">SmartLearning</div>
+        <div class="a4-header-center">
+          <h1>Answer Key (🔑 مفتاح الإجابات)</h1>
+          <p>Model answers for teacher reference</p>
+        </div>
+        <div class="a4-header-left">دليل المعلم للحلول</div>
+      </div>
+      <div style="font-size:14px; font-weight:bold; line-height:2.2; color:#334155; margin-top:20px;">
+        <h3>1. Who Am I? Riddle Solutions:</h3>
+        <div>• Riddle 1 (Woman, father's sister): <b>aunt</b></div>
+        <div>• Riddle 2 (Boy, mother is aunt): <b>cousin</b></div>
+        <div>• Riddle 3 (Mother's father): <b>grandpa</b></div>
+        <div>• Riddle 4 (Mother's mother): <b>grandma</b></div>
+
+        <h3 style="margin-top:20px;">2. Complete the Sentence Solutions:</h3>
+        <div>1. They are my <b>parents</b>.</div>
+        <div>2. He is my dad's brother. He is my <b>uncle</b>.</div>
+        <div>3. She is my father's sister. She is my <b>aunt</b>.</div>
+
+        <h3 style="margin-top:20px;">3. Sorting Card Guide:</h3>
+        <div>• <b>Male:</b> dad, grandpa, uncle, grandson, cousin.</div>
+        <div>• <b>Female:</b> mom, grandma, aunt, granddaughter, cousin.</div>
+        <div>• <b>Grown-ups:</b> dad, mom, grandpa, grandma, uncle, aunt, parents.</div>
+        <div>• <b>Children:</b> son, daughter, grandson, granddaughter, kids.</div>
+      </div>
+    `
+};
+
+function sw(idx) {
+    const ws = document.getElementById('a4-workspace');
+    ws.innerHTML = sections[idx];
+
+    // Toggle active classes on menu items
+    document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`m${idx}`).classList.add('active');
+}
+
+// Initial Load
+sw(20);
+</script>
+</body>
+</html>

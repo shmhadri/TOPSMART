@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وسائل ومطبوعات المعلم - الوحدة 2: Sea Animals | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --radius: 16px;
+    --radius-sm: 8px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: #f1f5f9;
+    color: var(--text);
+    padding: 20px;
+    direction: rtl;
+}
+
+/* TOPBAR FOR CLASSROOM CONTROLS */
+.topbar {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 15px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* A4 PRINT SHEET */
+.print-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.print-sheet {
+    background: #ffffff;
+    border: 3px solid #000000;
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+.print-sheet-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* FLASHCARDS GRID */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.flashcard {
+    border: 3px dashed #000000;
+    border-radius: var(--radius);
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    background: #ffffff;
+}
+.card-side-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.card-emoji {
+    font-size: 72px;
+    margin-bottom: 10px;
+}
+.card-text-en {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #000000;
+}
+.card-text-ar {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* DOMINO GRID */
+.domino-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.domino-card {
+    border: 3px solid #000000;
+    height: 140px;
+    display: flex;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+.domino-left, .domino-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.domino-left {
+    background: #ffffff;
+    border-left: 2px dashed #000000;
+}
+.domino-right {
+    background: #f8fafc;
+}
+.domino-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+@media print {
+    body { background: #fff; padding: 0; }
+    .topbar { display: none !important; }
+    .print-sheet { border: 3px solid #000 !important; box-shadow: none !important; margin-bottom: 0 !important; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="grade3-unit2-english.html" class="back-btn-top">↩️ العودة للدرس التفاعلي</a>
+  <div style="font-size:18px; font-weight:900; color:var(--primary);">وسائل المعلم القابلة للقص والطباعة (A4)</div>
+  <button class="back-btn-top" onclick="window.print()">🖨️ طباعة الصفحة كاملة</button>
+</nav>
+
+<div class="print-wrap">
+
+  <!-- ==================== PART 1: SEA ANIMALS FLASHCARDS ==================== -->
+  <div class="print-sheet">
+    <div class="print-sheet-title">📌 الجزء 1: بطاقات فلاشية ثنائية الأوجه (أسماء كائنات البحر وصفاتها)</div>
+    <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px;">اطبع هذه الصفحة وجهين لتحصل على بطاقة يسهل قصها وتغليفها حرارياً!</p>
+    
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 1: صورة فرس البحر</span>
+        <span class="card-emoji">🐎</span>
+        <span class="card-text-ar">حصان البحر (بطيء)</span>
+      </div>
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 2: الكلمة بالإنجليزية</span>
+        <span class="card-text-en">seahorse</span>
+        <span style="font-size:18px; font-weight:bold; color:var(--accent);">slow</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 1: صورة الحوت</span>
+        <span class="card-emoji">🐳</span>
+        <span class="card-text-ar">الحوت (كبير)</span>
+      </div>
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 2: الكلمة بالإنجليزية</span>
+        <span class="card-text-en">whale</span>
+        <span style="font-size:18px; font-weight:bold; color:var(--accent);">big</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PART 2: PHONICS FLASHCARDS ==================== -->
+  <div class="print-sheet" style="page-break-before: always;">
+    <div class="print-sheet-title">📌 الجزء 2: بطاقات فلاشية ثنائية الأوجه (صوتيات oa / ow / ou - صفحة 16)</div>
+    <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px;">بطاقات Phonics ثنائية الأوجه للمساعدة البصرية والنطق السليم في الصف:</p>
+    
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 1: صورة الماعز</span>
+        <span class="card-emoji">🐐</span>
+        <span class="card-text-ar">ماعز (vowel: oa)</span>
+      </div>
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 2: التهجئة</span>
+        <span class="card-text-en">goat</span>
+        <span style="font-size:16px; font-weight:bold; color:var(--accent);">g - oa - t</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 1: صورة البيت</span>
+        <span class="card-emoji">🏠</span>
+        <span class="card-text-ar">منزل (vowel: ou)</span>
+      </div>
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 2: التهجئة</span>
+        <span class="card-text-en">house</span>
+        <span style="font-size:16px; font-weight:bold; color:var(--accent);">h - ou - se</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 1: صورة الثلج</span>
+        <span class="card-emoji">❄️</span>
+        <span class="card-text-ar">ثلج (vowel: ow)</span>
+      </div>
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 2: التهجئة</span>
+        <span class="card-text-en">snow</span>
+        <span style="font-size:16px; font-weight:bold; color:var(--accent);">sn - ow</span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 1: صورة البقرة</span>
+        <span class="card-emoji">🐄</span>
+        <span class="card-text-ar">بقرة (vowel: ow)</span>
+      </div>
+      <div class="flashcard">
+        <span class="card-side-label">الوجه 2: التهجئة</span>
+        <span class="card-text-en">cow</span>
+        <span style="font-size:16px; font-weight:bold; color:var(--accent);">c - ow</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PART 3: DOMINO GAME ==================== -->
+  <div class="print-sheet" style="page-break-before: always;">
+    <div class="print-sheet-title">📌 الجزء 3: لعبة تطابق الدومينو الصفية (Domino Match Game)</div>
+    <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px;">قص الكروت ووزعها على الطلاب ليقوموا بتركيب السلسلة بشكل متعاقب وممتع!</p>
+    
+    <div class="domino-grid">
+      <!-- Domino 1 -->
+      <div class="domino-card">
+        <div class="domino-left">
+          <span class="domino-label">صورة الكائن</span>
+          <span style="font-size:42px;">🐳</span>
+        </div>
+        <div class="domino-right">
+          <span class="domino-label">التوصيل بالتالي</span>
+          <span style="font-family:'Outfit'; font-size:22px; font-weight:900; color:var(--primary);">goat</span>
+        </div>
+      </div>
+
+      <!-- Domino 2 -->
+      <div class="domino-card">
+        <div class="domino-left">
+          <span class="domino-label">صورة ماعز</span>
+          <span style="font-size:42px;">🐐</span>
+        </div>
+        <div class="domino-right">
+          <span class="domino-label">التوصيل بالتالي</span>
+          <span style="font-family:'Outfit'; font-size:22px; font-weight:900; color:var(--primary);">house</span>
+        </div>
+      </div>
+
+      <!-- Domino 3 -->
+      <div class="domino-card">
+        <div class="domino-left">
+          <span class="domino-label">صورة منزل</span>
+          <span style="font-size:42px;">🏠</span>
+        </div>
+        <div class="domino-right">
+          <span class="domino-label">التوصيل بالتالي</span>
+          <span style="font-family:'Outfit'; font-size:22px; font-weight:900; color:var(--primary);">cow</span>
+        </div>
+      </div>
+
+      <!-- Domino 4 -->
+      <div class="domino-card">
+        <div class="domino-left">
+          <span class="domino-label">صورة بقرة</span>
+          <span style="font-size:42px;">🐄</span>
+        </div>
+        <div class="domino-right">
+          <span class="domino-label">التوصيل بالتالي</span>
+          <span style="font-family:'Outfit'; font-size:22px; font-weight:900; color:var(--primary);">seahorse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

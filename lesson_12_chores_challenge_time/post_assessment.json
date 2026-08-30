@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Complete: What chores ______ you do?",
+    "choices": [
+      "do",
+      "does",
+      "is",
+      "are"
+    ],
+    "ans": "do"
+  },
+  {
+    "q": "He feeds the fish and set the table ______.",
+    "choices": [
+      "too",
+      "to",
+      "two",
+      "so"
+    ],
+    "ans": "too"
+  },
+  {
+    "q": "Does Faisal clean up his room? -> Yes, he ______.",
+    "choices": [
+      "does",
+      "do",
+      "doesn't",
+      "is"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "What chores does your sister do? -> She ______.",
+    "choices": [
+      "folds the laundry",
+      "fold the laundry",
+      "folding laundry",
+      "laundry"
+    ],
+    "ans": "folds the laundry"
+  },
+  {
+    "q": "Which is correct?",
+    "choices": [
+      "Do you clean up your room?",
+      "Does you clean up your room?",
+      "Do he clean up his room?",
+      "Does they clean up room?"
+    ],
+    "ans": "Do you clean up your room?"
+  }
+]

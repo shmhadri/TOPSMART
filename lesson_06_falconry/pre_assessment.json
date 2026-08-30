@@ -1,0 +1,52 @@
+[
+  {
+    "q": "What is Falconry? 🦅",
+    "choices": [
+      "الصقارة",
+      "صيد السمك",
+      "الفروسية",
+      "الرماية"
+    ],
+    "ans": "الصقارة"
+  },
+  {
+    "q": "Falcons are trained to ______ other birds.",
+    "choices": [
+      "hunt",
+      "help",
+      "feed",
+      "play"
+    ],
+    "ans": "hunt"
+  },
+  {
+    "q": "Falcons see very ______.",
+    "choices": [
+      "near",
+      "far",
+      "little",
+      "slowly"
+    ],
+    "ans": "far"
+  },
+  {
+    "q": "They use their ______ to catch prey.",
+    "choices": [
+      "wings",
+      "talons",
+      "feathers",
+      "tail"
+    ],
+    "ans": "talons"
+  },
+  {
+    "q": "Where is falconry popular?",
+    "choices": [
+      "Saudi Arabia",
+      "Brazil",
+      "Japan",
+      "Canada"
+    ],
+    "ans": "Saudi Arabia"
+  }
+]

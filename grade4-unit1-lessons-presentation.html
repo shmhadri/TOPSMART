@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - الوحدة الأولى: [اسم الوحدة الجديد] | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=light] {
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    transition: background var(--tr), color var(--tr);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(30,41,59,.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=light] .topbar {
+    background: rgba(255,255,255,.88);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.theme-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr)
+}
+.theme-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary)
+}
+
+/* MAIN PRESENTATION CONTENT */
+.pres-wrap {
+    max-width: 1000px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.lesson-selector {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 0;
+}
+.les-tab {
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-muted);
+    font-weight: 800;
+    white-space: nowrap;
+}
+.les-tab.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* SLIDE SCREEN (16:9 Aspect Ratio) */
+.slide-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #1e293b;
+    border: 3px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    transition: var(--tr);
+}
+[data-theme=light] .slide-frame {
+    background: #0f172a;
+}
+.slide-watermark {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #475569;
+    letter-spacing: 1px;
+}
+.slide-emoji {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+.slide-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #38bdf8;
+    margin-bottom: 12px;
+}
+.slide-subtitle {
+    font-size: 20px;
+    color: #cbd5e1;
+}
+.slide-eng-box {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 15px 0;
+    display: inline-block;
+    border-left: 5px solid var(--primary);
+}
+.slide-ar-text {
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+/* Slide Options */
+.slide-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+.slide-option-btn {
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid #475569;
+    border-radius: 8px;
+    color: #f1f5f9;
+    font-size: 16px;
+    font-weight: 700;
+    transition: var(--tr);
+}
+.slide-option-btn:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.1);
+}
+.slide-option-btn.correct {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: var(--accent) !important;
+}
+.slide-option-btn.wrong {
+    background: rgba(244, 63, 94, 0.2) !important;
+    border-color: var(--danger) !important;
+}
+
+/* CONTROLS */
+.slide-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ctrl-btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    font-size: 15px;
+    background: var(--primary);
+    color: #fff;
+    transition: var(--tr);
+}
+.ctrl-btn:hover:not(:disabled) {
+    background: var(--primary-light);
+}
+.ctrl-btn:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div>
+    <a href="grade4-unit1-lessons.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div style="display:flex; gap: 10px; align-items:center;">
+    <button class="back-btn-top" onclick="openBookModal('assets/grade4-unit1-page10.png', 'كتاب الطالب - صفحة ١٠ (Unit 1: Family Photos)')" style="border-color:#38bdf8; color:#38bdf8; font-weight:800;">🖼️ صورة صفحة الكتاب (ص ١٠)</button>
+    <button class="back-btn-top" onclick="triggerPPTXDownload()" style="border-color:#10b981; color:#10b981; font-weight:800;">📥 تصدير PowerPoint (.pptx)</button>
+    <button class="theme-btn" onclick="tgl()">🌓</button>
+  </div>
+</nav>
+
+<div class="pres-wrap">
+  <div class="lesson-selector">
+    <button class="les-tab active" id="tab1" onclick="loadLesson(1)">الدرس 1: صور العائلة</button>
+    <button class="les-tab" id="tab2" onclick="loadLesson(2)">الدرس 2: الإيقاعات والقراءة</button>
+    <button class="les-tab" id="tab3" onclick="loadLesson(3)">الدرس 3: الكلمات والقواعد</button>
+    <button class="les-tab" id="tab4" onclick="loadLesson(4)">الدرس 4: الصوتيات والتهجئة</button>
+  </div>
+
+  <div class="slide-frame" id="slide-screen">
+    <!-- Loaded dynamically -->
+  </div>
+
+  <div class="slide-controls">
+    <button class="ctrl-btn" id="prev-btn" onclick="prevSlide()">◀️ الشريحة السابقة</button>
+    <div id="slide-ind" style="font-weight: 800; color: var(--text-muted);">الشريحة 1 / 5</div>
+    <button class="ctrl-btn" id="next-btn" onclick="nextSlide()">الشريحة التالية ▶️</button>
+  </div>
+</div>
+
+<!-- pptxgenjs library -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+
+<script>
+function tgl() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+}
+
+const lessonsData = {
+    1: {
+        title: "Lesson 1: Family Photos",
+        slides: [
+            { type: "title", emoji: "📸", title: "Lesson 1: Family Photos", subtitle: "Family Events & Relationships", arabic: "مناسبات العائلة وصلات القرابة" },
+            { type: "content", emoji: "❓", title: "Warm-up / Brainstorming", english: "Who is in your family? Can you name them in English?", arabic: "من هم أفراد عائلتك؟ هل يمكنك تسمية صلاتهم باللغة الإنجليزية؟" },
+            { type: "content", emoji: "💬", title: "Dialogue Practice", english: "A: Who is this in the photo?\nB: This is my uncle. And these are my parents.", arabic: "أ: من هذا في الصورة؟\nب: هذا عمي/خالي. وهؤلاء هم والديّ." },
+            { type: "quiz", emoji: "🤔", title: "Concept Check Question", question: "My mother and father are my...", options: [
+                { text: "A) cousins", isCorrect: false },
+                { text: "B) parents", isCorrect: true }
+            ]},
+            { type: "game", emoji: "🎮", title: "Classroom Game: Relationship Match", english: "Match the family member words with their correct meaning!", arabic: "لعبة المطابقة: صِل كلمة صلة القرابة بالرمز أو الكلمة المناسبة بأسرع وقت!" }
+        ]
+    },
+    2: {
+        title: "Lesson 2: Rhythms & Reading",
+        slides: [
+            { type: "title", emoji: "🎶", title: "Lesson 2: Rhythms & Reading", subtitle: "Spelling Chant & have/has Grammar", arabic: "أنشودة التهجئة وقاعدة الملكية" },
+            { type: "content", emoji: "❓", title: "Warm-up", english: "Do you have a bicycle? Or a computer?", arabic: "هل لديك دراجة هوائية؟ أو جهاز كمبيوتر؟" },
+            { type: "content", emoji: "🚲", title: "Spelling Chant", english: "I have a b, You have an i...\nHe has a c, She has a y...\nTo write bicycle!", arabic: "أنا لدي b، أنت لديك i... هو لديه c، هي لديها y... لكتابة كلمة دراجة!" },
+            { type: "quiz", emoji: "🤔", title: "Concept Check", question: "He ________ a new computer.", options: [
+                { text: "A) have", isCorrect: false },
+                { text: "B) has", isCorrect: true }
+            ]},
+            { type: "game", emoji: "🎮", title: "Classroom Game: Spelling Speed", english: "Spell the word: BICYCLE or COMPUTER in 5 seconds!", arabic: "لعبة سرعة التهجئة: تهجى كلمة دراجة أو كمبيوتر بالإنجليزية في 5 ثوانٍ!" }
+        ]
+    },
+    3: {
+        title: "Lesson 3: Words & Grammar",
+        slides: [
+            { type: "title", emoji: "🏃‍♂️", title: "Lesson 3: Words & Grammar", subtitle: "Family Relations, Poem & Frequency", arabic: "الصلات والأنشودة وظروف التكرار" },
+            { type: "content", emoji: "❓", title: "Warm-up", english: "Who is your father's brother? How often do you walk?", arabic: "من هو شقيق والدك؟ وكم مرة تمشي في الحديقة؟" },
+            { type: "content", emoji: "⏰", title: "Adverbs of Frequency", english: "always (100%) | usually (75%)\nsometimes (40%) | rarely (10%)\nnever (0%)", arabic: "ظروف التكرار: دائماً (100%)، عادةً (75%)، أحياناً (40%)، نادراً (10%)، أبداً (0%)" },
+            { type: "quiz", emoji: "🤔", title: "Concept Check", question: "What word do we use to talk about activities we do all the time?", options: [
+                { text: "A) always", isCorrect: true },
+                { text: "B) never", isCorrect: false }
+            ]},
+            { type: "game", emoji: "🎮", title: "Classroom Game: Read & Answer Race", english: "Answer the 5 questions on page 12 of your book as fast as you can!", arabic: "لعبة إجابة الأسئلة: أجب عن الأسئلة الخمسة في كتابك صفحة 12 بأسرع وقت!" }
+        ]
+    },
+    4: {
+        title: "Lesson 4: Phonics",
+        slides: [
+            { type: "title", emoji: "🗣️", title: "Lesson 4: Phonics", subtitle: "Spelling and Sounds (f & ph)", arabic: "الأصوات والتهجئة الصحيحة" },
+            { type: "content", emoji: "❓", title: "Warm-up", english: "Do 'f' and 'ph' make the same sound?", arabic: "هل يصدر الحرفان f و ph نفس الصوت؟" },
+            { type: "content", emoji: "🐬", title: "Phonics Words", english: "phone 📞 | photo 📷\ndolphin 🐬 | elephant 🐘", arabic: "كلمات اللفظ الصوتي: هاتف، صورة، دولفين، فيل" },
+            { type: "quiz", emoji: "🤔", title: "Concept Check", question: "Complete the spelling: dol___in", options: [
+                { text: "A) ph", isCorrect: true },
+                { text: "B) f", isCorrect: false }
+            ]},
+            { type: "game", emoji: "🎮", title: "Classroom Game: Spelling Bee", english: "Spell the phonics words aloud: dolphin, elephant, photo!", arabic: "لعبة التهجئة: تهجى كلمات الصوتيات بصوت مرتفع أمام زملائك!" }
+        ]
+    }
+};
+
+let currentLesson = 1;
+let currentSlideIdx = 0;
+
+function loadLesson(lNum) {
+    currentLesson = lNum;
+    currentSlideIdx = 0;
+    
+    document.querySelectorAll('.les-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(`tab${lNum}`).classList.add('active');
+    
+    renderSlide();
+}
+
+function speak(txt) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'en-US';
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function renderSlide() {
+    const lesson = lessonsData[currentLesson];
+    const slideData = lesson.slides[currentSlideIdx];
+    const screen = document.getElementById('slide-screen');
+    const ind = document.getElementById('slide-ind');
+    
+    ind.textContent = `الشريحة ${currentSlideIdx + 1} / ${lesson.slides.length}`;
+    document.getElementById('prev-btn').disabled = currentSlideIdx === 0;
+    document.getElementById('next-btn').disabled = currentSlideIdx === lesson.slides.length - 1;
+    
+    let inner = `<div class="slide-watermark">Smart.Learning Classroom</div>`;
+    inner += `<div class="slide-emoji">${slideData.emoji}</div>`;
+    inner += `<div class="slide-title">${slideData.title}</div>`;
+    
+    if (slideData.type === "title") {
+        inner += `<div class="slide-subtitle">${slideData.subtitle}</div>`;
+        inner += `<div class="slide-ar-text" style="margin-top:15px;">${slideData.arabic}</div>`;
+    } else if (slideData.type === "quiz") {
+        inner += `<div style="font-size:20px; font-weight:bold; margin-bottom:15px; color:#f1f5f9;">${slideData.question}</div>`;
+        inner += `<div class="slide-options">`;
+        slideData.options.forEach((opt) => {
+            inner += `<button class="slide-option-btn" onclick="checkQuizSlide(this, ${opt.isCorrect})">${opt.text}</button>`;
+        });
+        inner += `</div>`;
+    } else {
+        if(slideData.english) {
+            inner += `<div class="slide-eng-box" onclick="speak('${slideData.english.replace(/'/g, "\\'")}')" style="cursor:pointer;">${slideData.english.replace(/\n/g, '<br>')} 🔊</div>`;
+        }
+        inner += `<div class="slide-ar-text">${slideData.arabic}</div>`;
+    }
+    
+    screen.innerHTML = inner;
+}
+
+function checkQuizSlide(btn, isCorrect) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.slide-option-btn').forEach(b => b.className = 'slide-option-btn');
+    if (isCorrect) {
+        btn.classList.add('correct');
+        speak('Well done!');
+    } else {
+        btn.classList.add('wrong');
+        speak('Try again!');
+    }
+}
+
+function nextSlide() {
+    const lesson = lessonsData[currentLesson];
+    if (currentSlideIdx < lesson.slides.length - 1) {
+        currentSlideIdx++;
+        renderSlide();
+    }
+}
+
+function prevSlide() {
+    if (currentSlideIdx > 0) {
+        currentSlideIdx--;
+        renderSlide();
+    }
+}
+
+function triggerPPTXDownload() {
+    const pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+    
+    const lesson = lessonsData[currentLesson];
+    
+    lesson.slides.forEach((s) => {
+        const slide = pptx.addSlide();
+        slide.background = { fill: '1e293b' };
+        
+        slide.addText("Smart.Learning Classroom", {
+            x: 0.5, y: 0.3, width: 9.0, height: 0.4,
+            fontSize: 12, bold: true, color: '64748b'
+        });
+        
+        slide.addText(s.emoji, {
+            x: 0.5, y: 1.0, width: 9.0, height: 1.0,
+            fontSize: 48, align: 'center'
+        });
+        
+        slide.addText(s.title, {
+            x: 0.5, y: 2.2, width: 9.0, height: 0.8,
+            fontSize: 28, bold: true, color: '38bdf8', align: 'center'
+        });
+        
+        if (s.type === 'title') {
+            slide.addText(s.subtitle, {
+                x: 0.5, y: 3.2, width: 9.0, height: 0.6,
+                fontSize: 18, color: 'f1f5f9', align: 'center'
+            });
+            slide.addText(s.arabic, {
+                x: 0.5, y: 4.0, width: 9.0, height: 0.6,
+                fontSize: 16, color: '94a3b8', align: 'center'
+            });
+        } else if (s.type === 'quiz') {
+            slide.addText(s.question, {
+                x: 0.5, y: 3.2, width: 9.0, height: 0.8,
+                fontSize: 20, bold: true, color: 'ffffff', align: 'center'
+            });
+            let optionsText = "";
+            s.options.forEach(opt => {
+                optionsText += opt.text + "\n";
+            });
+            slide.addText(optionsText, {
+                x: 1.0, y: 4.2, width: 8.0, height: 1.5,
+                fontSize: 16, color: 'f1f5f9', align: 'center'
+            });
+        } else {
+            if (s.english) {
+                slide.addText(s.english, {
+                    x: 0.5, y: 3.2, width: 9.0, height: 1.2,
+                    fontSize: 20, bold: true, color: 'f1f5f9', align: 'center'
+                });
+            }
+            slide.addText(s.arabic, {
+                x: 0.5, y: 4.6, width: 9.0, height: 0.8,
+                fontSize: 16, color: '94a3b8', align: 'center'
+            });
+        }
+    });
+    
+    pptx.writeFile({ fileName: `Grade4_Unit1_New_${lesson.title.replace(/\s+/g, '_')}` });
+}
+
+function openBookModal(imgSrc, title) {
+    const modal = document.getElementById('bookModal');
+    const modalImg = document.getElementById('bookModalImg');
+    const modalTitle = document.getElementById('bookModalTitle');
+    const modalDl = document.getElementById('bookModalDownload');
+    
+    if (imgSrc) {
+        modalImg.src = imgSrc;
+        if (modalDl) modalDl.href = imgSrc;
+    }
+    if (title && modalTitle) {
+        modalTitle.textContent = title;
+    }
+    modal.classList.add('active');
+}
+
+function closeBookModal(event) {
+    if (!event || event.target.id === 'bookModal' || event.target.classList.contains('book-modal-close')) {
+        const modal = document.getElementById('bookModal');
+        modal.classList.remove('active');
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('bookModal');
+        if (modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+        }
+    }
+});
+
+loadLesson(1);
+</script>
+
+<!-- BOOK IMAGE MODAL -->
+<style>
+.book-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.book-modal-overlay.active { display: flex; }
+.book-modal-content {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.book-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 2px solid var(--border);
+    background: rgba(0,0,0,0.2);
+}
+.book-modal-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #38bdf8;
+}
+.book-modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(244, 63, 94, 0.2);
+    color: var(--danger);
+    font-size: 16px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+.book-modal-body {
+    padding: 16px;
+    overflow-y: auto;
+    text-align: center;
+}
+.book-modal-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+</style>
+
+<div class="book-modal-overlay" id="bookModal" onclick="closeBookModal(event)">
+  <div class="book-modal-content" onclick="event.stopPropagation()">
+    <div class="book-modal-header">
+      <div class="book-modal-title" id="bookModalTitle">📖 كتاب الطالب - صفحة ١٠ (Unit 1: Family Photos)</div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <a id="bookModalDownload" href="assets/grade4-unit1-page10.png" target="_blank" download="Grade4_Unit1_Page10.png" class="back-btn-top" style="background:#10b981; color:#fff; font-size:12px; padding:6px 12px; border:none; text-decoration:none;">📥 فتح/تنزيل</a>
+        <button class="book-modal-close" onclick="closeBookModal()">✖</button>
+      </div>
+    </div>
+    <div class="book-modal-body">
+      <img src="assets/grade4-unit1-page10.png" id="bookModalImg" class="book-modal-img" alt="صورة صفحة كتاب الطالب - صفحة 10">
+    </div>
+  </div>
+</div>
+</body>
+</html>

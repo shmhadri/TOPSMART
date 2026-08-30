@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Does he go shopping? -> No, he ______.",
+    "choices": [
+      "doesn't",
+      "don't",
+      "does",
+      "isn't"
+    ],
+    "ans": "doesn't"
+  },
+  {
+    "q": "What chores ______ your mother do?",
+    "choices": [
+      "does",
+      "do",
+      "is",
+      "are"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "I set the table ______.",
+    "choices": [
+      "too",
+      "to",
+      "two",
+      "also"
+    ],
+    "ans": "too"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "title": "Question and Answer Race",
+  "desc": "Ask and answer 6 questions in 1 minute using Do/Does.",
+  "vocab": [],
+  "sentences": [
+    {
+      "en": "Do you play tennis?",
+      "ar": "هل تلعب التنس؟"
+    },
+    {
+      "en": "Does your father play golf?",
+      "ar": "هل يلعب أبوك الجولف؟"
+    },
+    {
+      "en": "Do you play computer games?",
+      "ar": "هل تلعب ألعاب الكمبيوتر؟"
+    },
+    {
+      "en": "Do you play word games?",
+      "ar": "هل تلعب ألعاب الكلمات؟"
+    },
+    {
+      "en": "Does your brother do karate?",
+      "ar": "هل يلعب أخوك الكاراتيه؟"
+    },
+    {
+      "en": "Does your friend play computer games?",
+      "ar": "هل يلعب صديقك ألعاب الكمبيوتر؟"
+    }
+  ]
+}

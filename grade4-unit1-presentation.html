@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشغل عرض PowerPoint المطور - الصف الرابع الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=light] {
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    transition: background var(--tr), color var(--tr);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(30,41,59,.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=light] .topbar {
+    background: rgba(255,255,255,.88);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.theme-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    cursor: pointer;
+}
+.theme-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary)
+}
+
+.main-wrap {
+    flex: 1;
+    max-width: 960px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* SLIDE PLAYER CONTROLS */
+.controls-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.lesson-selector {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+}
+
+/* THE SLIDE SCREEN */
+.slide-screen {
+    background: #1e293b;
+    border-radius: var(--radius);
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 5px solid #334155;
+    text-align: center;
+}
+.slide-watermark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0.25;
+    letter-spacing: 1px;
+}
+.slide-emoji {
+    font-size: 64px;
+    margin-bottom: 15px;
+}
+.slide-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 15px;
+    font-family: 'Outfit', 'Tajawal', sans-serif;
+}
+.slide-subtitle {
+    font-size: 20px;
+    opacity: 0.8;
+    max-width: 80%;
+    line-height: 1.5;
+}
+.slide-eng-box {
+    background: rgba(255,255,255,0.06);
+    border-left: 4px solid #38bdf8;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #f1f5f9;
+}
+.slide-ar-text {
+    font-size: 18px;
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+/* INTERACTIVE SLIDE OPTIONS (For Slide 4: Concept Check) */
+.slide-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 15px;
+}
+.slide-option-btn {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.slide-option-btn:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #38bdf8;
+}
+.slide-option-btn.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent);
+}
+.slide-option-btn.wrong {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: var(--danger);
+}
+
+/* PLAYER ACTIONS */
+.player-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--tr);
+    border: none;
+}
+.nav-btn:hover:not(:disabled) {
+    background: var(--primary-light);
+}
+.nav-btn:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+.slide-indicator {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+.export-btn {
+    background: #10b981;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--tr);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.export-btn:hover {
+    background: #059669;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="topbar-right">
+        <a href="grade4-unit1-english.html" class="back-btn-top">
+            ↩️ الرجوع للدرس التفاعلي
+        </a>
+        <div class="tlogo">Smart<span>Learning</span></div>
+    </div>
+    <div class="topbar-left">
+        <button class="theme-btn" onclick="tgl()">🌓</button>
+    </div>
+</div>
+
+<div class="main-wrap">
+    <!-- CONTROLS -->
+    <div class="controls-card">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <label style="font-weight:800;">اختر الدرس للعرض:</label>
+            <select class="lesson-selector" onchange="loadLesson(parseInt(this.value))">
+                <option value="1">الدرس ١: Welcome Song 🎉</option>
+                <option value="2">الدرس ٢: Adjectives & Ordinals 🔢</option>
+                <option value="3">الدرس ٣: Classmates Comparatives 📏</option>
+                <option value="4">الدرس ٤: Adverbs of Frequency 🗓️</option>
+                <option value="5">الدرس ٥: Family Photos 👩‍👩‍👦</option>
+                <option value="6">الدرس ٦: Grammar: How Often ⏰</option>
+            </select>
+        </div>
+        <button class="export-btn" onclick="triggerPPTXDownload()">
+            📥 تصدير الدرس الحالي إلى PowerPoint (.pptx)
+        </button>
+    </div>
+
+    <!-- PLAYER SCREEN -->
+    <div class="slide-screen" id="slide-screen">
+        <!-- Dynamic content -->
+    </div>
+
+    <!-- PLAYER ACTIONS -->
+    <div class="player-actions">
+        <button class="nav-btn" id="prev-btn" onclick="prevSlide()">➔ السابق</button>
+        <span class="slide-indicator" id="slide-ind">الشريحة 1 / 5</span>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">التالي ➔</button>
+    </div>
+</div>
+
+<script>
+function tgl() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+}
+
+// 5 Structured Slides per Lesson Data
+const lessonsData = {
+    1: {
+        title: "Welcome! Back to School",
+        slides: [
+            {
+                type: "title",
+                emoji: "🎉",
+                title: "Welcome Back to School",
+                subtitle: "Unit 1: Lesson 1 - Intro & Welcome Song",
+                arabic: "مرحباً بكم مجدداً في المدرسة"
+            },
+            {
+                type: "warmup",
+                emoji: "🧠",
+                title: "Warm-up & Brainstorming",
+                english: "Welcome back! What are 3 things you are excited for?",
+                arabic: "العصف الذهني: ما هي الأشياء الثلاثة التي تسعدك بالعودة للمدرسة؟"
+            },
+            {
+                type: "content",
+                emoji: "🎒",
+                title: "Content & Dialogue Practice",
+                english: "A: Welcome back! \nB: Thank you! It's great to see you again.",
+                arabic: "ممارسة الحوار: أهلاً بعودتكم! ➔ شكراً لك! يسعدني لقاؤك مجدداً."
+            },
+            {
+                type: "quiz",
+                emoji: "💬",
+                title: "Concept Check Question",
+                question: "When someone says 'Welcome back!', we answer:",
+                options: [
+                    { text: "A) Nice to meet you.", isCorrect: false },
+                    { text: "B) Thank you! It's great to be back.", isCorrect: true }
+                ]
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Strategy & Game",
+                english: "Game: 'Name the School Item' \nPoint to 3 school items (backpack, notebook, guitar) in 10 seconds!",
+                arabic: "لعبة الفصل: أشر وسمِّ ٣ مستلزمات مدرسية في ١٠ ثوانٍ!"
+            }
+        ]
+    },
+    2: {
+        title: "Adjectives & Ordinals",
+        slides: [
+            {
+                type: "title",
+                emoji: "🔢",
+                title: "Adjectives & Ordinal Numbers",
+                subtitle: "Unit 1: Lesson 2 - Adjectives Vocabulary",
+                arabic: "الصفات والأرقام الترتيبية"
+            },
+            {
+                type: "warmup",
+                emoji: "🧠",
+                title: "Warm-up & Brainstorming",
+                english: "How do you feel today? Surprised or happy?",
+                arabic: "كيف تشعر اليوم؟ هل أنت متفاجئ أم سعيد؟"
+            },
+            {
+                type: "content",
+                emoji: "🌟",
+                title: "Adjectives & Ordinal Numbers",
+                english: "afraid (خائف), brilliant (رائع), naughty (مشاغب), first (الأول), second (الثاني)",
+                arabic: "المفردات: صفات المشاعر والترتيب من الأول إلى العشرين"
+            },
+            {
+                type: "quiz",
+                emoji: "💬",
+                title: "Concept Check Question",
+                question: "What is the ordinal number for 3?",
+                options: [
+                    { text: "A) third", isCorrect: true },
+                    { text: "B) three", isCorrect: false }
+                ]
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Game: Line Up!",
+                english: "Lining up race: Say your ordinal position as fast as possible!",
+                arabic: "لعبة الترتيب: يقف الطلاب في صف ويعلنون مراكزهم بالإنجليزية!"
+            }
+        ]
+    },
+    3: {
+        title: "Classmates Comparatives",
+        slides: [
+            {
+                type: "title",
+                emoji: "📏",
+                title: "Classmates Comparatives",
+                subtitle: "Unit 1: Lesson 3 - Comparing things and people",
+                arabic: "مقارنة الزملاء والصفات"
+            },
+            {
+                type: "warmup",
+                emoji: "🧠",
+                title: "Warm-up & Brainstorming",
+                english: "Look around you. Who is taller than you?",
+                arabic: "انظر حولك في الفصل. من هو أطول منك؟"
+            },
+            {
+                type: "content",
+                emoji: "📐",
+                title: "Content / Dialogue",
+                english: "Asma is taller than me. \nShe is the tallest girl in class.",
+                arabic: "شرح القاعدة: أسماء أطول مني. هي البنت الأكثر طولاً في الفصل."
+            },
+            {
+                type: "quiz",
+                emoji: "💬",
+                title: "Concept Check Question",
+                question: "Math is ______ than History.",
+                options: [
+                    { text: "A) more difficult", isCorrect: true },
+                    { text: "B) most difficult", isCorrect: false }
+                ]
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Game: Comparison Race",
+                english: "Compare objects on your desk: 'My pencil is longer than yours!'",
+                arabic: "لعبة المقارنة: قارن الأدوات على مكتبك مع زميلك بأسرع وقت!"
+            }
+        ]
+    },
+    4: {
+        title: "Adverbs of Frequency",
+        slides: [
+            {
+                type: "title",
+                emoji: "🗓️",
+                title: "Adverbs of Frequency & Was/Were",
+                subtitle: "Unit 1: Lesson 4 - Daily Habits & Past Simple",
+                arabic: "ظروف التكرار وزمن الماضي البسيط"
+            },
+            {
+                type: "warmup",
+                emoji: "🧠",
+                title: "Warm-up & Brainstorming",
+                english: "How often do you clean your room? Always or never?",
+                arabic: "العصف الذهني: كم مرة تنظف غرفتك؟ دائماً أم أبداً؟"
+            },
+            {
+                type: "content",
+                emoji: "⏰",
+                title: "Content & Dialogue Practice",
+                english: "I always do my homework. \nYesterday, the celebration was fun.",
+                arabic: "الممارسة: أنا دائماً أكتب واجبي. أمس، كان الاحتفال ممتعاً."
+            },
+            {
+                type: "quiz",
+                emoji: "💬",
+                title: "Concept Check Question",
+                question: "We ______ happy at the celebration yesterday.",
+                options: [
+                    { text: "A) was", isCorrect: false },
+                    { text: "B) were", isCorrect: true }
+                ]
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Game: Habit Guessing",
+                english: "Tell a habit using (always, usually, sometimes, never) and let classmates guess if it's true!",
+                arabic: "لعبة تخمين العادات: قل عادة لك ودع بقية الفصل يخمن مدى صحتها!"
+            }
+        ]
+    },
+    5: {
+        title: "Family Photos",
+        slides: [
+            {
+                type: "title",
+                emoji: "👩‍👩‍👦",
+                title: "Family Photos & Relatives",
+                subtitle: "Unit 1: Lesson 5 - Talking about relatives",
+                arabic: "الحديث عن شجرة وأفراد العائلة"
+            },
+            {
+                type: "warmup",
+                emoji: "🧠",
+                title: "Warm-up & Brainstorming",
+                english: "Do you have cousins? How many?",
+                arabic: "هل لديك أبناء عم/خال؟ كم عددهم؟"
+            },
+            {
+                type: "content",
+                emoji: "👨‍👩‍👧",
+                title: "Relatives & Extended Family",
+                english: "uncle (عم/خال), aunt (عمة/خالة), cousin (ابن عم), grandson (حفيد)",
+                arabic: "المفردات: مفردات القرابة والعائلة الكبيرة"
+            },
+            {
+                type: "quiz",
+                emoji: "💬",
+                title: "Concept Check Question",
+                question: "Your father's brother is your:",
+                options: [
+                    { text: "A) uncle", isCorrect: true },
+                    { text: "B) cousin", isCorrect: false }
+                ]
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Game: Relative Mimic",
+                english: "Mimic a relative (like grandfather or baby) and let your group name them!",
+                arabic: "لعبة تقمص الأدوار: مثل حركة تعبر عن أحد الأقارب ودع مجموعتك تخمن الاسم!"
+            }
+        ]
+    },
+    6: {
+        title: "Grammar: How Often",
+        slides: [
+            {
+                type: "title",
+                emoji: "⏰",
+                title: "How Often do you...?",
+                subtitle: "Unit 1: Lesson 6 - Asking about frequency",
+                arabic: "قاعدة السؤال عن معدل تكرار الأنشطة"
+            },
+            {
+                type: "warmup",
+                emoji: "🧠",
+                title: "Warm-up & Brainstorming",
+                english: "How often do you visit your grandparents?",
+                arabic: "كم مرة تزور فيها جدك وجدتك؟"
+            },
+            {
+                type: "content",
+                emoji: "📝",
+                title: "Asking and Answering Grammar",
+                english: "How often do you see them? \nI see them once a week / twice a month.",
+                arabic: "قواعد وصياغة: كم مرة تراهم؟ ➔ أراهم مرة واحدة في الأسبوع."
+            },
+            {
+                type: "quiz",
+                emoji: "💬",
+                title: "Concept Check Question",
+                question: "How often ______ your sister help at home?",
+                options: [
+                    { text: "A) do", isCorrect: false },
+                    { text: "B) does", isCorrect: true }
+                ]
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Game: The Survey Race",
+                english: "Quickly ask 3 friends: 'How often do you speak English?'",
+                arabic: "لعبة الاستقصاء السريع: اسأل ٣ زملاء عن معدل ممارستهم للغة الإنجليزية!"
+            }
+        ]
+    }
+};
+
+let currentLesson = 1;
+let currentSlideIdx = 0;
+
+function loadLesson(lNum) {
+    currentLesson = lNum;
+    currentSlideIdx = 0;
+    renderSlide();
+}
+
+function speak(txt) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'en-US';
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function renderSlide() {
+    const lesson = lessonsData[currentLesson];
+    const slideData = lesson.slides[currentSlideIdx];
+    const screen = document.getElementById('slide-screen');
+    const ind = document.getElementById('slide-ind');
+    
+    ind.textContent = `الشريحة ${currentSlideIdx + 1} / ${lesson.slides.length}`;
+    document.getElementById('prev-btn').disabled = currentSlideIdx === 0;
+    document.getElementById('next-btn').disabled = currentSlideIdx === lesson.slides.length - 1;
+    
+    let inner = `<div class="slide-watermark">Smart.Learning Classroom</div>`;
+    inner += `<div class="slide-emoji">${slideData.emoji}</div>`;
+    inner += `<div class="slide-title">${slideData.title}</div>`;
+    
+    if (slideData.type === "title") {
+        inner += `<div class="slide-subtitle">${slideData.subtitle}</div>`;
+        inner += `<div class="slide-ar-text" style="margin-top:15px;">${slideData.arabic}</div>`;
+    } else if (slideData.type === "quiz") {
+        inner += `<div style="font-size:20px; font-weight:bold; margin-bottom:15px; color:#f1f5f9;">${slideData.question}</div>`;
+        inner += `<div class="slide-options">`;
+        slideData.options.forEach((opt, index) => {
+            inner += `<button class="slide-option-btn" onclick="checkQuizSlide(this, ${opt.isCorrect})">${opt.text}</button>`;
+        });
+        inner += `</div>`;
+    } else {
+        if(slideData.english) {
+            inner += `<div class="slide-eng-box" onclick="speak('${slideData.english.replace(/'/g, "\\'")}')" style="cursor:pointer;">${slideData.english.replace(/\n/g, '<br>')} 🔊</div>`;
+        }
+        inner += `<div class="slide-ar-text">${slideData.arabic}</div>`;
+    }
+    
+    screen.innerHTML = inner;
+}
+
+function checkQuizSlide(btn, isCorrect) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.slide-option-btn').forEach(b => b.className = 'slide-option-btn');
+    if (isCorrect) {
+        btn.classList.add('correct');
+        speak('Well done! That is correct.');
+    } else {
+        btn.classList.add('wrong');
+        speak('Try again!');
+    }
+}
+
+function nextSlide() {
+    const lesson = lessonsData[currentLesson];
+    if (currentSlideIdx < lesson.slides.length - 1) {
+        currentSlideIdx++;
+        renderSlide();
+    }
+}
+
+function prevSlide() {
+    if (currentSlideIdx > 0) {
+        currentSlideIdx--;
+        renderSlide();
+    }
+}
+
+// Powerpoint pptx generation using PptxGenJS
+function triggerPPTXDownload() {
+    const pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+    
+    const lesson = lessonsData[currentLesson];
+    
+    lesson.slides.forEach((s) => {
+        const slide = pptx.addSlide();
+        // Background color (Dark theme matching layout)
+        slide.background = { fill: '1e293b' };
+        
+        // Watermark/Header
+        slide.addText("Smart.Learning Classroom", {
+            x: 0.5, y: 0.3, width: 9.0, height: 0.4,
+            fontSize: 12, bold: true, color: '64748b'
+        });
+        
+        // Emoji
+        slide.addText(s.emoji, {
+            x: 0.5, y: 1.0, width: 9.0, height: 1.0,
+            fontSize: 48, align: 'center'
+        });
+        
+        // Slide title
+        slide.addText(s.title, {
+            x: 0.5, y: 2.2, width: 9.0, height: 0.8,
+            fontSize: 28, bold: true, color: '38bdf8', align: 'center'
+        });
+        
+        if (s.type === 'title') {
+            slide.addText(s.subtitle, {
+                x: 0.5, y: 3.2, width: 9.0, height: 0.6,
+                fontSize: 18, color: 'f1f5f9', align: 'center'
+            });
+            slide.addText(s.arabic, {
+                x: 0.5, y: 4.0, width: 9.0, height: 0.6,
+                fontSize: 16, color: '94a3b8', align: 'center'
+            });
+        } else if (s.type === 'quiz') {
+            slide.addText(s.question, {
+                x: 0.5, y: 3.2, width: 9.0, height: 0.8,
+                fontSize: 20, bold: true, color: 'ffffff', align: 'center'
+            });
+            let optionsText = "";
+            s.options.forEach(opt => {
+                optionsText += opt.text + "\n";
+            });
+            slide.addText(optionsText, {
+                x: 1.0, y: 4.2, width: 8.0, height: 1.5,
+                fontSize: 16, color: 'f1f5f9', align: 'center'
+            });
+        } else {
+            if (s.english) {
+                slide.addText(s.english, {
+                    x: 0.5, y: 3.2, width: 9.0, height: 1.2,
+                    fontSize: 20, bold: true, color: 'f1f5f9', align: 'center'
+                });
+            }
+            slide.addText(s.arabic, {
+                x: 0.5, y: 4.6, width: 9.0, height: 0.8,
+                fontSize: 16, color: '94a3b8', align: 'center'
+            });
+        }
+    });
+    
+    pptx.writeFile({ fileName: `Grade4_Unit1_${lesson.title.replace(/\s+/g, '_')}` });
+}
+
+// Initial Load
+loadLesson(1);
+</script>
+</body>
+</html>

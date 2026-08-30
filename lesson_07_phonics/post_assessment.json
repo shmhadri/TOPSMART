@@ -1,0 +1,52 @@
+[
+  {
+    "q": "I want to eat a p______. (إجاص/كمثرى)",
+    "choices": [
+      "ear",
+      "air",
+      "ere",
+      "are"
+    ],
+    "ans": "ear"
+  },
+  {
+    "q": "Look at this p______ of shoes.",
+    "choices": [
+      "air",
+      "ear",
+      "ere",
+      "are"
+    ],
+    "ans": "air"
+  },
+  {
+    "q": "He's w______ing a blue coat.",
+    "choices": [
+      "ear",
+      "air",
+      "ere",
+      "are"
+    ],
+    "ans": "ear"
+  },
+  {
+    "q": "Where does the word 'boy' end?",
+    "choices": [
+      "oy",
+      "oi",
+      "ay",
+      "ey"
+    ],
+    "ans": "oy"
+  },
+  {
+    "q": "Which word has 'ere'?",
+    "choices": [
+      "where",
+      "bear",
+      "hair",
+      "pair"
+    ],
+    "ans": "where"
+  }
+]

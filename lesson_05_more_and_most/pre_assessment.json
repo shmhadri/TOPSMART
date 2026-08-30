@@ -1,0 +1,52 @@
+[
+  {
+    "q": "What does 'exciting' mean? 🌟",
+    "choices": [
+      "مثير",
+      "ممل",
+      "خطير",
+      "سهل"
+    ],
+    "ans": "مثير"
+  },
+  {
+    "q": "Horse riding is ______ exciting than cycling.",
+    "choices": [
+      "more",
+      "most",
+      "the most",
+      "many"
+    ],
+    "ans": "more"
+  },
+  {
+    "q": "Hang gliding is ______ most dangerous.",
+    "choices": [
+      "more",
+      "the",
+      "than",
+      "very"
+    ],
+    "ans": "the"
+  },
+  {
+    "q": "Rock climbing is more dangerous ______ jogging.",
+    "choices": [
+      "then",
+      "than",
+      "to",
+      "for"
+    ],
+    "ans": "than"
+  },
+  {
+    "q": "Rearrange: dangerous / climbing / Rock / is",
+    "choices": [
+      "Rock climbing is dangerous.",
+      "Dangerous rock climbing is.",
+      "Is rock climbing dangerous.",
+      "Rock is climbing dangerous."
+    ],
+    "ans": "Rock climbing is dangerous."
+  }
+]

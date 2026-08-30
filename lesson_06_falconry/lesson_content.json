@@ -1,0 +1,56 @@
+{
+  "title": "The Traditional Sport of Falconry",
+  "desc": "Read a cultural text about falconry in Saudi Arabia and check understanding.",
+  "vocab": [
+    {
+      "word": "falconry",
+      "ar": "الصقارة"
+    },
+    {
+      "word": "popular",
+      "ar": "شائع"
+    },
+    {
+      "word": "trained",
+      "ar": "مدرب"
+    },
+    {
+      "word": "hunt",
+      "ar": "يصطاد"
+    },
+    {
+      "word": "dive",
+      "ar": "ينقض بسرعة"
+    },
+    {
+      "word": "spot",
+      "ar": "يلاحظ أو يرى"
+    },
+    {
+      "word": "sharp talons",
+      "ar": "مخالب حادة"
+    },
+    {
+      "word": "prey",
+      "ar": "فريسة"
+    },
+    {
+      "word": "traditional sport",
+      "ar": "رياضة تقليدية"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "Falconry is a popular sport in Saudi Arabia.",
+      "ar": "الصقارة رياضة شعبية في المملكة العربية السعودية."
+    },
+    {
+      "en": "Falcons are strong birds.",
+      "ar": "الصقور طيور قوية."
+    },
+    {
+      "en": "They have sharp talons to catch prey.",
+      "ar": "لديها مخالب حادة للإمساك بالفريسة."
+    }
+  ]
+}

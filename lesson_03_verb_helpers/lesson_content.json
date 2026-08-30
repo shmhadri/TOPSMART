@@ -1,0 +1,31 @@
+{
+  "title": "Grammar in Action - Verb Helpers",
+  "desc": "Mastering Do/Does in questions and short answers.",
+  "vocab": [
+    {
+      "word": "play tennis",
+      "type": "sport",
+      "ar": "يلعب التنس"
+    },
+    {
+      "word": "go horse riding",
+      "type": "sport",
+      "ar": "يركب الخيل"
+    },
+    {
+      "word": "do pottery",
+      "type": "activity",
+      "ar": "يصنع الفخار"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "Do you play tennis? Yes, I do.",
+      "ar": "هل تلعب التنس؟ نعم، أفعل."
+    },
+    {
+      "en": "Does he play golf? No, he doesn't.",
+      "ar": "هل يلعب الجولف؟ لا، لا يفعل."
+    }
+  ]
+}

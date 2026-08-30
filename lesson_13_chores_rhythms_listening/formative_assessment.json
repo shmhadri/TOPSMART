@@ -1,0 +1,32 @@
+[
+  {
+    "q": "What does the clever robot do? -> It ______.",
+    "choices": [
+      "sets the table",
+      "set table",
+      "setting table",
+      "sets table too"
+    ],
+    "ans": "sets the table"
+  },
+  {
+    "q": "He ______ the fish twice a day.",
+    "choices": [
+      "feeds",
+      "feed",
+      "feeding",
+      "feeded"
+    ],
+    "ans": "feeds"
+  },
+  {
+    "q": "We ______ our room tidy.",
+    "choices": [
+      "keep",
+      "keeps",
+      "keeping",
+      "kept"
+    ],
+    "ans": "keep"
+  }
+]

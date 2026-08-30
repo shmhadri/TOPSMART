@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Do you wash the dishes? -> Yes, I do ______ (أحياناً).",
+    "choices": [
+      "sometimes",
+      "always",
+      "never",
+      "do"
+    ],
+    "ans": "sometimes"
+  },
+  {
+    "q": "If your score is 6, you are an ______ helper.",
+    "choices": [
+      "average",
+      "great",
+      "good",
+      "poor"
+    ],
+    "ans": "average"
+  },
+  {
+    "q": "Do you clean up your room? -> Yes, I ______ (دائماً) do.",
+    "choices": [
+      "always",
+      "sometimes",
+      "never",
+      "not"
+    ],
+    "ans": "always"
+  }
+]

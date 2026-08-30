@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وسائل ومطبوعات المعلم - الوحدة 1: التعارف - إنجليزي الصف الثالث | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+/* NAVIGATION TABS */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap
+}
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    border: 2px solid var(--border);
+    transition: var(--tr);
+    background: var(--bg-card)
+}
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+.main-wrap {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px
+}
+
+.sheet-container {
+    display: none
+}
+.sheet-container.active {
+    display: block
+}
+
+/* A4 SHEET LOOK */
+.a4-sheet {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    min-height: auto;
+    position: relative;
+    margin-bottom: 30px;
+    color: #000 !important;
+}
+[data-theme=dark] .a4-sheet {
+    background: #ffffff;
+    border-color: #cbd5e1
+}
+
+/* HEADER */
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px
+}
+.header-school {
+    font-size: 14px;
+    font-weight: 800;
+    color: #475569;
+    text-align: right;
+    line-height: 1.5
+}
+.header-title-box {
+    text-align: center
+}
+.header-title-box h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.header-title-box h2 {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    margin-top: 4px
+}
+.header-logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary)
+}
+
+/* FLASHCARDS */
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px
+}
+@media(max-width: 600px) {
+    .flashcards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.f-card {
+    border: 3px dashed #4f46e5;
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    text-align: center;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+    position: relative
+}
+.f-card-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px
+}
+
+/* DOMINO CARDS */
+.domino-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+@media(max-width: 600px) {
+    .domino-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.domino-card {
+    border: 3px solid #0f172a;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff;
+    overflow: hidden;
+}
+.domino-half {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    border-left: 2.5px solid #0f172a;
+}
+.domino-half:last-child {
+    border-left: none;
+    background: #f8fafc;
+}
+.domino-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.flashcards-instructions {
+    background: rgba(79, 70, 229, 0.05);
+    border: 2px dashed var(--primary);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.6
+}
+
+.sheet-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed #cbd5e1
+}
+.btn-c {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--tr)
+}
+.btn-c:hover {
+    background: var(--primary-light)
+}
+.btn-accent {
+    background: var(--accent)
+}
+.btn-accent:hover {
+    background: #0d9488
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div>
+    <a href="grade3-unit1-english.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div>
+    <button class="back-btn-top" onclick="tgl()">🌙</button>
+  </div>
+</nav>
+
+<!-- NAVIGATION TABS -->
+<div class="tabs-nav">
+  <button class="tab-btn active" id="tab0" onclick="sw(0)">🧩 استراتيجية 1: بطاقات الأسئلة والضمائر</button>
+  <button class="tab-btn" id="tab1" onclick="sw(1)">🧩 استراتيجية 2: دومينو التعارف والملكية</button>
+</div>
+
+<div class="main-wrap">
+
+  <!-- ==================== STRATEGY 1: FLASHCARDS ==================== -->
+  <div class="sheet-container active" id="sheet0">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">الوسائل والألعاب التعليمية<br>الوحدة الأولى: التعارف</div>
+          <div class="header-title-box">
+            <h1>استراتيجية 1: البطاقات الفلاشية للدروس الثمانية</h1>
+            <h2>Introductions Q&A, Pronouns & Clothes Cards</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+      </div>
+
+      <div class="flashcards-instructions">
+        💡 **طريقة استخدام البطاقات الفلاشية**: <br>
+        1. قم بطباعة هذه الصفحة على ورق مقوى. <br>
+        2. قص البطاقات على طول الحدود الخارجية. <br>
+        3. قم بثني البطاقة من المنتصف ليصبح السؤال أو الكلمة في وجه والتوضيح في الوجه الآخر!
+      </div>
+
+      <div class="flashcards-grid">
+        <!-- Flashcard 1 -->
+        <div class="f-card">
+          <span class="f-card-label">قص وثني ✂️</span>
+          <div style="font-size:24px; margin-bottom:8px;">❓</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--primary);">What's your name?</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">ما اسمك؟</div>
+        </div>
+        <div class="f-card" style="border-style:solid; border-color:var(--accent);">
+          <span class="f-card-label">الوجه الآخر 💡</span>
+          <div style="font-size:24px; margin-bottom:8px;">👤</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--accent);">My name's Hashim.</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">اسمي هاشم.</div>
+        </div>
+
+        <!-- Flashcard 2 -->
+        <div class="f-card">
+          <span class="f-card-label">قص وثني ✂️</span>
+          <div style="font-size:24px; margin-bottom:8px;">🎂</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--primary);">How old are you?</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">كم عمرك؟</div>
+        </div>
+        <div class="f-card" style="border-style:solid; border-color:var(--accent);">
+          <span class="f-card-label">الوجه الآخر 💡</span>
+          <div style="font-size:24px; margin-bottom:8px;">🔢</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--accent);">I'm eleven years old.</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">عمري 11 سنة.</div>
+        </div>
+
+        <!-- Flashcard 3 -->
+        <div class="f-card">
+          <span class="f-card-label">قص وثني ✂️</span>
+          <div style="font-size:24px; margin-bottom:8px;">📍</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--primary);">Where do you live?</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">أين تعيش؟</div>
+        </div>
+        <div class="f-card" style="border-style:solid; border-color:var(--accent);">
+          <span class="f-card-label">الوجه الآخر 💡</span>
+          <div style="font-size:24px; margin-bottom:8px;">🏢</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--accent);">I live in Jeddah.</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">أعيش في جدة.</div>
+        </div>
+
+        <!-- Flashcard 4: Possessive -->
+        <div class="f-card">
+          <span class="f-card-label">قص وثني ✂️</span>
+          <div style="font-size:24px; margin-bottom:8px;">👟</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--primary);">Whose shoes are these?</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">لمن هذا الحذاء؟</div>
+        </div>
+        <div class="f-card" style="border-style:solid; border-color:var(--accent);">
+          <span class="f-card-label">الوجه الآخر 💡</span>
+          <div style="font-size:24px; margin-bottom:8px;">👦</div>
+          <div style="font-family:'Outfit'; font-size:20px; font-weight:800; color:var(--accent);">They're Steve's. They're his.</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">إنها لستيف. إنها له.</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet0', 'Printable_Strategy1_Flashcards.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet0', 'Printable_Strategy1_Flashcards.pdf')">📥 تحميل PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STRATEGY 2: DOMINOES ==================== -->
+  <div class="sheet-container" id="sheet1">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">الوسائل والألعاب التعليمية<br>الوحدة الأولى: التعارف</div>
+          <div class="header-title-box">
+            <h1>استراتيجية 2: لعبة دومينو التعارف والملكية</h1>
+            <h2>Greetings & Pronouns Domino Matching Game</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+      </div>
+
+      <div class="flashcards-instructions">
+        🧩 **طريقة لعبة دومينو التعارف الصفية**: <br>
+        1. اطبع هذه الصفحة وقص بطاقات الدومينو الثنائية على طول الخط الأسود العريض. <br>
+        2. يحصل كل طالب أو مجموعة على بضع بطاقات. <br>
+        3. يبدأ الطالب الأول بوضع بطاقة، ويقوم التالي بمطابقة **السؤال أو الكلمة** بالجواب المناسب لتكوين سلسلة مترابطة!
+      </div>
+
+      <div class="domino-grid">
+        <!-- Domino 1 -->
+        <div class="domino-card">
+          <div class="domino-half">What's your name? (ما اسمك؟)</div>
+          <div class="domino-half"><span class="domino-word">My name's Hashim.</span></div>
+        </div>
+
+        <!-- Domino 2 -->
+        <div class="domino-card">
+          <div class="domino-half">How old are you? (كم عمرك؟)</div>
+          <div class="domino-half"><span class="domino-word">I'm eleven.</span></div>
+        </div>
+
+        <!-- Domino 3 -->
+        <div class="domino-card">
+          <div class="domino-half">Where do you live? (أين تعيش؟)</div>
+          <div class="domino-half"><span class="domino-word">I live in Jeddah.</span></div>
+        </div>
+
+        <!-- Domino 4 -->
+        <div class="domino-card">
+          <div class="domino-half">Whose shoes are these?</div>
+          <div class="domino-half"><span class="domino-word">They're Steve's. They're his.</span></div>
+        </div>
+
+        <!-- Domino 5 -->
+        <div class="domino-card">
+          <div class="domino-half">Whose dress is this?</div>
+          <div class="domino-half"><span class="domino-word">It's Noura's. It's hers.</span></div>
+        </div>
+
+        <!-- Domino 6 -->
+        <div class="domino-card">
+          <div class="domino-half">Phonics: /ea/ sound</div>
+          <div class="domino-half"><span class="domino-word">meat / read</span></div>
+        </div>
+      </div>
+
+      <div class="sheet-actions" style="margin-top:24px">
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Printable_Strategy2_Dominoes.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" style="background:var(--accent); border-color:var(--accent)" onclick="downloadPDF('sheet1', 'Printable_Strategy2_Dominoes.pdf')">📥 تحميل PDF</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+/* Theme Toggle */
+function tgl() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+}
+
+/* Switch Tabs */
+function sw(idx) {
+    const sheets = document.querySelectorAll('.sheet-container');
+    const btns = document.querySelectorAll('.tab-btn');
+    
+    sheets.forEach(s => s.classList.remove('active'));
+    btns.forEach(b => b.classList.remove('active'));
+
+    sheets[idx].classList.add('active');
+    btns[idx].classList.add('active');
+}
+
+/* PDF Download */
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        html, body, .main-wrap, .sheet-container {
+            overflow: visible !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .flashcards-instructions {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    });
+}
+
+/* Word Export */
+function downloadWord(sheetId, filename) {
+    const htmlContent = document.querySelector('#' + sheetId + ' .a4-sheet').innerHTML;
+    const blob = new Blob(['\ufeff' + htmlContent], {
+        type: 'application/msword'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أدوات المعلم الذكية - عجلة الأسماء والتقارير | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+    font-size: 17px;
+    transition: background var(--tr), color var(--tr);
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: var(--tr);
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+.tcontrols {
+    display: flex;
+    gap: 12px;
+}
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-accent:hover {
+    background: #059669;
+}
+.theme-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    color: var(--text);
+}
+
+/* TABS SYSTEM */
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 100px auto 20px;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+.tab-btn {
+    padding: 12px 28px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
+}
+
+.tab-content {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.tab-content.active {
+    display: block;
+}
+
+/* MAIN LAYOUT FOR WHEEL TAB */
+.wheel-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+}
+@media (max-width: 900px) {
+    .wheel-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* LEFT SIDE: WHEEL & SECRET STUDENT */
+.wheel-section {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    transition: var(--tr);
+}
+.wheel-container {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    max-width: 100%;
+}
+#wheel-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: rotate(0deg);
+}
+.wheel-pointer {
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%) rotate(90deg);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid var(--danger);
+    z-index: 10;
+}
+.wheel-center-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: var(--bg-card);
+    border: 4px solid var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--text);
+    transition: var(--tr);
+}
+.spin-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    transition: var(--tr);
+    font-family: inherit;
+}
+.spin-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+.spin-btn:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* SECRET STUDENT BOX */
+.secret-box {
+    margin-top: 30px;
+    width: 100%;
+    background: rgba(79, 70, 229, 0.04);
+    border: 2px dashed var(--primary);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+}
+.secret-title {
+    font-weight: 800;
+    color: var(--primary);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.secret-name {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--accent);
+    margin: 10px 0;
+    display: none;
+}
+
+/* CONTROL PANEL */
+.control-panel {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    transition: var(--tr);
+}
+.panel-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.textarea-names {
+    width: 100%;
+    height: 180px;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 15px;
+    resize: none;
+    background: var(--bg);
+    color: var(--text);
+}
+.ocr-box {
+    border: 2px dashed var(--primary);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    text-align: center;
+    background: rgba(79, 70, 229, 0.02);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.ocr-box input[type="file"] {
+    display: none;
+}
+
+/* PARTICIPANTS BOX */
+.chosen-box {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    background: var(--bg);
+}
+.chosen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.chosen-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+.chosen-pill {
+    padding: 4px 10px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* QUESTION MODAL */
+.win-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn .3s ease;
+}
+.win-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    border: 3px solid var(--accent);
+    color: var(--text);
+    transition: var(--tr);
+}
+.q-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+.q-emoji {
+    font-size: 64px;
+    margin-bottom: 12px;
+}
+.q-speak-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.q-speak-btn:hover {
+    transform: scale(1.1);
+}
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+.option-btn {
+    padding: 14px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--bg);
+    transition: var(--tr);
+    text-align: center;
+}
+.option-btn:hover {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+}
+.option-btn.correct {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-color: var(--accent) !important;
+    color: #047857 !important;
+}
+.option-btn.wrong {
+    background: rgba(244, 63, 94, 0.15) !important;
+    border-color: var(--danger) !important;
+    color: #b91c1c !important;
+}
+
+/* ==================== STRATEGY REPORT SHEET STYLING (MINISTRY LAYOUT) ==================== */
+.report-tools-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.report-paper-container {
+    background: #78909c; /* Soft board look behind sheet */
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: var(--radius);
+}
+.report-sheet {
+    background: #fff;
+    width: 800px;
+    min-height: 1120px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    color: #0f172a;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* REPORT HEADER */
+.rep-header {
+    background: linear-gradient(135deg, #00796b, #004d40);
+    color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.rep-header-right {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 800;
+}
+.rep-header-center {
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 24px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+.rep-header-center h1 {
+    font-size: 20px;
+    font-weight: 900;
+}
+.rep-header-left {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* INPUT BOXES */
+.rep-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+.rep-field {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    position: relative;
+    background: #fff;
+}
+.rep-field label {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #00796b;
+}
+.rep-input {
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: #374151;
+    margin-top: 4px;
+}
+.rep-input:focus {
+    outline: none;
+}
+
+.rep-field-full {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.rep-field-full label {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #00796b;
+}
+
+/* CONTENT BLOCKS GRID */
+.rep-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.rep-block {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    min-height: 250px;
+}
+.rep-block label {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #00796b;
+}
+
+/* CHECKBOXES LIST */
+.tools-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.check-item input {
+    width: 16px;
+    height: 16px;
+    accent-color: #00796b;
+}
+
+/* WITNESSES BOX */
+.witness-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.witness-card {
+    border: 2px dashed #b2dfdb;
+    border-radius: 8px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+.witness-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.witness-upload-btn {
+    font-size: 13px;
+    font-weight: 800;
+    color: #00796b;
+    text-align: center;
+}
+
+/* SIGNATURES */
+.rep-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 20px;
+}
+.sig-block {
+    text-align: center;
+    width: 200px;
+}
+.sig-title {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+.sig-name {
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 6px;
+}
+
+/* LOADING MODAL OVERLAY FOR OCR */
+.ocr-loading {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-direction: column;
+    gap: 16px;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+    .topbar, .tabs-nav, .report-tools-bar {
+        display: none !important;
+    }
+    .report-paper-container {
+        padding: 0 !important;
+        background: none !important;
+    }
+    .report-sheet {
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div style="display:flex; gap:8px; align-items:center;">
+    <button class="theme-btn" onclick="tglTheme()">🌙</button>
+    <a href="index.html" class="btn-c btn-primary">↩️ العودة للرئيسية</a>
+  </div>
+</nav>
+
+<!-- TABS -->
+<div class="tabs-nav">
+  <button class="tab-btn active" onclick="switchTab('wheel')">🎯 عجلة الأسماء والأسئلة</button>
+  <button class="tab-btn" onclick="switchTab('report')">📋 نموذج تقرير الاستراتيجية</button>
+</div>
+
+<!-- ==================== TAB 1: WHEEL ==================== -->
+<div class="tab-content active" id="tab-wheel">
+  <div class="wheel-layout">
+    
+    <!-- Left column: Wheel and Secret student -->
+    <div class="wheel-section">
+      <div class="wheel-container">
+        <div class="wheel-pointer"></div>
+        <canvas id="wheel-canvas" width="500" height="500"></canvas>
+        <div class="wheel-center-cap" onclick="spinWheel()">🎉</div>
+      </div>
+      <button class="spin-btn" id="spin-btn" onclick="spinWheel()">💡 اسحب العجلة الدوارة!</button>
+
+      <!-- Secret student box -->
+      <div class="secret-box">
+        <div class="secret-title">🕵️‍♂️ استراتيجية الطالب السري (Secret Student)</div>
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">اختر طالباً سرياً لمراقبة التزامه خلال الحصة دون الإعلان عن اسمه حتى النهاية!</p>
+        <button class="btn-c btn-primary" onclick="pickSecretStudent()">🤫 اختيار طالب سري عشوائي</button>
+        <button class="btn-c btn-accent" id="reveal-secret-btn" style="display:none" onclick="revealSecretStudent()">👀 كشف هوية الطالب السري</button>
+        <div class="secret-name" id="secret-student-display">الطالب السري هو: </div>
+      </div>
+    </div>
+
+    <!-- Right column: Controls -->
+    <div class="control-panel">
+      <div class="panel-title">
+        <span>✍️ كشف أسماء الطلاب</span>
+        <button class="btn-c" style="padding: 2px 8px; font-size:12px; border-color:var(--danger); color:var(--danger); background:transparent;" onclick="clearAllNames()">مسح الكشف 🗑️</button>
+      </div>
+
+      <!-- OCR Box -->
+      <label class="ocr-box">
+        <span class="ocr-text">📸 رفع صورة الكشف (OCR)</span>
+        <div class="ocr-desc">اختر صورة لقراءة قائمة الطلاب تلقائياً</div>
+        <input type="file" accept="image/*" onchange="processOCR(this.files[0])">
+      </label>
+
+      <!-- Lesson selector for Wheel question bank -->
+      <div style="margin-bottom: 8px;">
+        <label style="font-weight: 800; font-size: 14px; margin-bottom: 6px; display: block; color: var(--primary);">🎯 اختر درس الأسئلة للعجلة:</label>
+        <select id="wheel-lesson-select" style="width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 2px solid var(--border); font-size: 14px; font-weight: 700; background: var(--bg-card); color: var(--text);">
+          <option value="all">جميع دروس الوحدات 1 و 2 و 3 و 4 (عشوائي)</option>
+          <option value="1">الدرس 1: محادثة التعارف (Nice to meet you)</option>
+          <option value="2">الدرس 2: خريطة السكن (Where do you live? - p.3)</option>
+          <option value="3">الدرس 3: إطار العائلة والضمائر (Family Photo - p.4)</option>
+          <option value="4">الدرس 4: لمن هذه الملابس؟ (Whose clothes? - p.5)</option>
+          <option value="5">الدرس 5: أنشودة التهجئة (Bicycle & Computer - p.6)</option>
+          <option value="6">الدرس 6: لعبة تكوين الكلمات (dress / hat - p.7)</option>
+          <option value="7">الدرس 7: الأصوات Phonics (ea, ee, ie, ai, ay - p.8)</option>
+          <option value="8">الدرس 8: استبيان نورة والزملاء (Interview Table - p.9)</option>
+          <option value="201">الوحدة 2 - الدرس 1: حيوانات البحر (Sea Animals - p.10)</option>
+          <option value="202">الوحدة 2 - الدرس 2: مقارنة الصفات (Grammar in Action - p.12)</option>
+          <option value="203">الوحدة 2 - الدرس 3: أنشودة التشبيه (Rhythms & Reading - p.14)</option>
+          <option value="204">الوحدة 2 - الدرس 4: الأصوات Phonics (oa / ow / ou - p.16)</option>
+          <option value="205">الوحدة 2 - الدرس 5: وقت التحدي (Jack's House Rhyme - p.17)</option>
+          <option value="206">الوحدة 2 - الدرس 6: مراجعة شاملة للوحدة الثانية</option>
+          <option value="301">الوحدة 3 - الدرس 1: الرياضات والأنشطة (Sports & Activities - p.18)</option>
+          <option value="302">الوحدة 3 - الدرس 2: اختبار الذاكرة (Memory Quiz - p.19)</option>
+          <option value="303">الوحدة 3 - الدرس 3: الأفعال المساعدة (Verb Helpers - p.20)</option>
+          <option value="304">الوحدة 3 - الدرس 4: سباق الأسئلة والردود (Q&A Race - p.21)</option>
+          <option value="305">الوحدة 3 - الدرس 5: مقارنة الصفات (Comparisons - p.22)</option>
+          <option value="306">الوحدة 3 - الدرس 6: الصقارة التقليدية (Traditional Falconry - p.23)</option>
+          <option value="307">الوحدة 3 - الدرس 7: أصوات الفونكس (Phonics - p.24)</option>
+          <option value="308">الوحدة 3 - الدرس 8: الرغبة والعوائق (Desire & Obstacles - p.25)</option>
+          <option value="309">الوحدة 4 - الدرس 1: وقت البحث (Finding Out Time - p.26)</option>
+          <option value="310">الوحدة 4 - الدرس 2: الكلمات النشطة (Words in Action - p.27)</option>
+          <option value="311">الوحدة 4 - الدرس 3: القواعد الصفية (Grammar in Action - p.28)</option>
+          <option value="312">الوحدة 4 - الدرس 4: سباق تحدي المهام (Challenge Time - p.29)</option>
+          <option value="313">الوحدة 4 - الدرس 5: إيقاع الروبوت 1 (Clever Robot 1 - p.30)</option>
+          <option value="314">الوحدة 4 - الدرس 6: إيقاع الروبوت 2 (Clever Robot 2 - p.31)</option>
+          <option value="315">الوحدة 4 - الدرس 7: صوتيات المطبخ والصف (Phonics - p.32)</option>
+          <option value="316">الوحدة 4 - الدرس 8: سباق تهجئة الصوتيات (Phonics Challenge - p.33)</option>
+        </select>
+      </div>
+
+      <!-- Text area list -->
+      <textarea class="textarea-names" id="names-input" placeholder="اكتب اسم طالب في كل سطر..." oninput="updateWheelFromText()"></textarea>
+
+      <!-- Chosen box -->
+      <div class="chosen-box">
+        <div class="chosen-header">
+          <span>🚫 الطلاب الذين تم اختيارهم:</span>
+          <button class="btn-c" style="padding: 2px 8px; font-size:12px; border-color:var(--danger); color:var(--danger); background:transparent;" onclick="resetChosen()">إعادة تعيين 🔄</button>
+        </div>
+        <div class="chosen-list" id="chosen-list-container">
+          <!-- Pills go here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== TAB 2: REPORT ==================== -->
+<div class="tab-content" id="tab-report">
+  <div class="report-tools-bar">
+    <button class="btn-c btn-primary" onclick="exportReportPDF()">📥 تصدير التقرير PDF</button>
+    <button class="btn-c btn-accent" onclick="exportReportPNG()">🖼️ تصدير التقرير كصورة</button>
+  </div>
+
+  <div class="report-paper-container">
+    <div class="report-sheet" id="report-sheet-element">
+      
+      <!-- Ministry header -->
+      <div class="rep-header">
+        <div class="rep-header-right">
+          <div contenteditable="true">وزارة التعليم</div>
+          <div contenteditable="true">الإدارة العامة للتعليم بالمنطقة الشمالية</div>
+          <div contenteditable="true">مكتب التعليم</div>
+        </div>
+        <div class="rep-header-center">
+          <h1 contenteditable="true">نموذج تنفيذ استراتيجية مختصرة</h1>
+        </div>
+        <div class="rep-header-left">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span contenteditable="true">المدرسة:</span>
+            <input type="text" class="rep-input" value="مدرسة أسامة بن زيد" style="background:transparent; color:#fff; width:150px">
+          </div>
+        </div>
+      </div>
+
+      <!-- Field Grid 1 -->
+      <div class="rep-grid-3">
+        <div class="rep-field" style="display:flex; flex-direction:column; justify-content:center; padding-bottom: 2px;">
+          <label contenteditable="true">الاستراتيجية</label>
+          <input type="text" class="rep-input" id="rep-strategy" value="عجلة الأسماء والتعلم التفاعلي" style="width: 80%; display:inline-block; border:none; margin-top:2px;">
+          <select onchange="document.getElementById('rep-strategy').value = this.value" style="width:100%; border:none; background:transparent; font-size:11px; color:#00796b; cursor:pointer; font-family:'Tajawal',sans-serif; font-weight:bold; outline:none; margin-top: 4px;">
+            <option value="عجلة الأسماء والتعلم التفاعلي">-- اختر استراتيجية أو اكتب --</option>
+            <option value="عجلة الأسماء والتعلم التفاعلي">عجلة الأسماء والتعلم التفاعلي</option>
+            <option value="استراتيجية الطالب السري">استراتيجية الطالب السري</option>
+            <option value="التعلم المبني على حل المشكلات">التعلم المبني على حل المشكلات</option>
+            <option value="العصف الذهني">العصف الذهني</option>
+            <option value="التعلم باللعب">التعلم باللعب</option>
+            <option value="الكرسي الساخن">الكرسي الساخن</option>
+            <option value="الرؤوس المرقمة">الرؤوس المرقمة</option>
+            <option value="أوراق العمل التفاعلية">أوراق العمل التفاعلية</option>
+          </select>
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">المادة</label>
+          <input type="text" class="rep-input" id="rep-subject" value="اللغة الإنجليزية">
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">تاريخ التنفيذ</label>
+          <input type="text" class="rep-input" id="rep-date" value="">
+        </div>
+      </div>
+
+      <div class="rep-grid-3">
+        <div class="rep-field">
+          <label contenteditable="true">المرحلة الدراسية</label>
+          <input type="text" class="rep-input" id="rep-stage" value="الصف الثاني الابتدائي">
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">الفصل</label>
+          <input type="text" class="rep-input" id="rep-class" value="جميع الفصول">
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">عدد الطلاب</label>
+          <input type="text" class="rep-input" id="rep-count" value="30 طالب">
+        </div>
+      </div>
+
+      <!-- Lesson -->
+      <div class="rep-field-full">
+        <label contenteditable="true">اسم الدرس</label>
+        <input type="text" class="rep-input" id="rep-lesson" value="Feelings - Greetings / Ordinal Numbers / Clothes">
+      </div>
+
+      <!-- Objectives & Tools -->
+      <div class="rep-content-grid">
+        <div class="rep-block">
+          <label contenteditable="true">أهداف الدرس</label>
+          <textarea class="rep-input" style="height:100%; resize:none;" id="rep-objectives">1. تهيئة أذهان الطلاب وجذب انتباههم عبر العصف الذهني.
+2. تفعيل المشاركة العشوائية للطلاب دون تحيز.
+3. التقييم الفوري للفهم والنطق السليم للكلمات.
+4. ممارسة المحادثة بشكل تفاعلي وممتع في الحصة.</textarea>
+        </div>
+        
+        <div class="rep-block">
+          <label contenteditable="true">الوسائل والأدوات المستخدمة</label>
+          <div class="tools-checklist">
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">سبورة ذكية</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">بطاقات تعليمية</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">أوراق عمل</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">عرض تقديمي</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">جهاز عرض</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">جهاز حاسب</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">صور توضيحية</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">أدوات رياضية</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">كتاب مدرسي</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">سبورة تقليدية</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Participants list & Witnesses -->
+      <div class="rep-content-grid">
+        <div class="rep-block" style="display:flex; flex-direction:column;">
+          <label contenteditable="true">الطلاب المشاركون (الذين تم اختيارهم من العجلة)</label>
+          <textarea class="rep-input" style="flex:1; resize:none; min-height:120px;" id="rep-participants" placeholder="اكتب أسماء الطلاب المشاركين يدوياً، أو اضغط على الزر بالأسفل لسحبهم من العجلة..."></textarea>
+          <button type="button" class="btn-c" style="padding: 4px 10px; font-size:12px; margin-top:8px; background:var(--primary); color:#fff; align-self:flex-start; border:none; border-radius:4px;" onclick="pullParticipantsFromWheel()">📥 سحب أسماء طلاب العجلة</button>
+        </div>
+        
+        <div class="rep-block" style="min-height:auto">
+          <label contenteditable="true">صور الشواهد والأدلة</label>
+          <div class="witness-row">
+            <label class="witness-card">
+              <input type="file" accept="image/*" style="display:none" onchange="previewWitness(this, 'witness-img-1')">
+              <img id="witness-img-1" style="display:none">
+              <div class="witness-upload-btn" id="witness-txt-1">📸 الشاهد الأول<br><span style="font-size:11px; opacity:0.7">اضغط للرفع</span></div>
+            </label>
+            <label class="witness-card">
+              <input type="file" accept="image/*" style="display:none" onchange="previewWitness(this, 'witness-img-2')">
+              <img id="witness-img-2" style="display:none">
+              <div class="witness-upload-btn" id="witness-txt-2">📸 الشاهد الثاني<br><span style="font-size:11px; opacity:0.7">اضغط للرفع</span></div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signatures -->
+      <div class="rep-footer" style="flex-wrap: wrap; gap: 15px;">
+        <div class="sig-block">
+          <div class="sig-title" contenteditable="true">اسم المعلم المنفذ</div>
+          <input type="text" class="rep-input" value="تركي فهد خالد" style="text-align:center;">
+        </div>
+        <div class="sig-block">
+          <div class="sig-title" contenteditable="true">قائد / مدير المدرسة</div>
+          <input type="text" class="rep-input" value="سلطان الفيصل" style="text-align:center;">
+        </div>
+        <div class="sig-block">
+          <div class="sig-title" contenteditable="true">اسم آخر (دور آخر)</div>
+          <input type="text" class="rep-input" value="المشرف التربوي" style="text-align:center;">
+        </div>
+        
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 15px; border-top: 1px dashed #e2e8f0; padding-top: 10px;">
+          <div style="font-size:14px; font-weight:700; color:var(--text-muted); display:flex; align-items:center; gap:8px;">
+            <span contenteditable="true">🐦 حساب تويتر:</span>
+            <input type="text" class="rep-input" value="" placeholder="اكتب حساب تويتر هنا..." style="width:220px; text-align:right;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- WIN MODAL / INTERACTIVE QUESTION -->
+<div class="win-overlay" id="win-modal">
+  <div class="win-card">
+    <div class="q-emoji" id="win-emoji">🏆</div>
+    <h2 style="font-weight: 800; color: var(--accent); margin-bottom: 6px;" id="win-student-title">الطالب المختار!</h2>
+    <div class="q-title" id="win-question-text">Loading question...</div>
+    <div>
+      <button class="q-speak-btn" id="win-speak-btn" onclick="speakQuestion()">🔊 استمع للسؤال</button>
+    </div>
+    
+    <div class="options-grid" id="win-options-container">
+      <!-- Options go here -->
+    </div>
+    
+    <button class="btn-c btn-primary" style="width:100%; justify-content:center; margin-top:20px; display:none" id="win-continue-btn" onclick="closeWinModal()">موافق، استمر</button>
+  </div>
+</div>
+
+<!-- OCR LOADING OVERLAY -->
+<div class="ocr-loading" id="ocr-loading">
+  <div class="spinner"></div>
+  <h2 style="font-weight: 800;">جاري قراءة كشف الأسماء بالذكاء الاصطناعي...</h2>
+  <p style="font-size:14px; opacity:0.8;">قد يستغرق ذلك بضع ثوانٍ</p>
+</div>
+
+<!-- LIBRARIES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+/* QUESTION BANK FOR GRADE 2 & 3 ENGLISH */
+/* QUESTION BANK FOR GRADE 3 ENGLISH UNIT 1 (BY LESSON) */
+const questionBank = [
+    // Lesson 1: Greetings & Introductions
+    {
+        lesson: 1,
+        emoji: "🤝",
+        question: "Hi! What's your name?",
+        translation: "مرحباً! ما اسمك؟",
+        options: ["My name's Hashim. (اسمي هاشم)", "I live in Jeddah. (أعيش في جدة)", "I'm eleven. (عمري 11)"],
+        correct: 0
+    },
+    {
+        lesson: 1,
+        emoji: "🎂",
+        question: "How old are you?",
+        translation: "كم عمرك؟",
+        options: ["I live in Riyadh. (أعيش في الرياض)", "I'm eleven years old. (عمري 11 سنة)", "Nice to meet you. (سعيد بلقائك)"],
+        correct: 1
+    },
+    {
+        lesson: 1,
+        emoji: "😊",
+        question: "Nice to meet you.",
+        translation: "سعيد بلقائك.",
+        options: ["Nice to meet you, too. (سعيد بلقائك أيضاً)", "Thank you. (شكراً لك)", "Goodbye. (مع السلامة)"],
+        correct: 0
+    },
+    
+    // Lesson 2: Where do you live?
+    {
+        lesson: 2,
+        emoji: "📍",
+        question: "Where do you live?",
+        translation: "أين تعيش؟",
+        options: ["My name's Jack. (اسمي جاك)", "I'm ten. (عمري 10)", "I live in Jeddah. (أعيش في جدة)"],
+        correct: 2
+    },
+    {
+        lesson: 2,
+        emoji: "🇸🇦",
+        question: "Faisal lives in...",
+        translation: "فيصل يعيش في...",
+        options: ["Riyadh (الرياض)", "Jeddah (جدة)", "Abha (أبها)"],
+        correct: 0
+    },
+    {
+        lesson: 2,
+        emoji: "👬",
+        question: "Saeed and Badr live in...",
+        translation: "سعيد وبدر يعيشان في...",
+        options: ["Dammam (الدمام)", "Abha (أبها)", "Riyadh (الرياض)"],
+        correct: 0
+    },
+
+    // Lesson 3: Family & Pronouns
+    {
+        lesson: 3,
+        emoji: "👩",
+        question: "Complete: This is my mother. ___ name is Jasmine.",
+        translation: "أكمل: هذه أمي. ___ اسمها ياسمين.",
+        options: ["Her (اسمها للمؤنث)", "His (اسمه للمذكر)", "Their (أسماؤهم للجمع)"],
+        correct: 0
+    },
+    {
+        lesson: 3,
+        emoji: "👶",
+        question: "Complete: This is our little brother. ___ name is Pete.",
+        translation: "أكمل: هذا أخينا الصغير. ___ اسمه بيت.",
+        options: ["His (اسمه للمذكر)", "Her (اسمها للمؤنث)", "Our (اسمنا للجميع)"],
+        correct: 0
+    },
+    {
+        lesson: 3,
+        emoji: "👭",
+        question: "Complete: These are my sisters. ___ names are Judy and Rose.",
+        translation: "أكمل: هاتان أختاي. ___ أسماؤهن جودي وروز.",
+        options: ["Their (أسماؤهن للجمع)", "Her (اسمها للمفرد)", "His (اسمه للمذكر)"],
+        correct: 0
+    },
+
+    // Lesson 4: Whose clothes are these?
+    {
+        lesson: 4,
+        emoji: "🧢",
+        question: "Whose cap is this? It's Pete's. It is...",
+        translation: "لمن هذه القبعة؟ إنها لبيت. إنها...",
+        options: ["his (له)", "hers (لها)", "theirs (لهن)"],
+        correct: 0
+    },
+    {
+        lesson: 4,
+        emoji: "👗",
+        question: "Whose dress is this? It's Noura's. It is...",
+        translation: "لمن هذا الفستان؟ إنه لنورة. إنه...",
+        options: ["hers (لها)", "his (له)", "mine (لي)"],
+        correct: 0
+    },
+    {
+        lesson: 4,
+        emoji: "👟",
+        question: "Whose shoes are these? They are Steve's. They are...",
+        translation: "لمن هذا الحذاء؟ إنه لستيف. إنه...",
+        options: ["his (له)", "hers (لها)", "ours (لنا)"],
+        correct: 0
+    },
+
+    // Lesson 5: Spelling Chant
+    {
+        lesson: 5,
+        emoji: "🚲",
+        question: "How do you spell 'bicycle'?",
+        translation: "كيف تتهجى كلمة 'دراجة'؟",
+        options: ["b-i-c-y-c-l-e", "c-o-m-p-u-t-e-r", "b-i-k-e"],
+        correct: 0
+    },
+    {
+        lesson: 5,
+        emoji: "💻",
+        question: "Complete: If you have u-t-e-r, you can write...",
+        translation: "أكمل: إذا كان لديك u-t-e-r، فستكتب...",
+        options: ["computer (حاسوب)", "bicycle (دراجة)", "train (قطار)"],
+        correct: 0
+    },
+
+    // Lesson 6: Letter Sharing Game
+    {
+        lesson: 6,
+        emoji: "👗",
+        question: "Can we write 'dress' if we have: d, e, s, r, s?",
+        translation: "هل نستطيع كتابة كلمة 'dress' إذا كان لدينا الحروف المذكورة؟",
+        options: ["Yes, we can. (نعم نستطيع)", "No, we can't. (لا نستطيع)", "Maybe (ربما)"],
+        correct: 0
+    },
+    {
+        lesson: 6,
+        emoji: "🎩",
+        question: "Can we write 'hat' if we only have: d, e, s, r, s?",
+        translation: "هل نستطيع كتابة كلمة 'hat' إذا كان لدينا الحروف المذكورة؟",
+        options: ["No, we can't. (لا نستطيع)", "Yes, we can. (نعم نستطيع)", "Yes (نعم)"],
+        correct: 0
+    },
+
+    // Lesson 7: Phonics ea/ee
+    {
+        lesson: 7,
+        emoji: "🦭",
+        question: "Complete spelling of فقمة: s_ _l",
+        translation: "أكمل تهجئة الكلمة:",
+        options: ["ea", "ee", "ai"],
+        correct: 0
+    },
+    {
+        lesson: 7,
+        emoji: "😴",
+        question: "Complete spelling of ينام: sl_ _p",
+        translation: "أكمل تهجئة الكلمة:",
+        options: ["ee", "ea", "ay"],
+        correct: 0
+    },
+    {
+        lesson: 7,
+        emoji: "🌧️",
+        question: "Which word matches the sound of 'rain'?",
+        translation: "أي كلمة تتطابق مع صوت كلمة مطر (rain)؟",
+        options: ["train (قطار)", "play (لعب)", "pie (فطيرة)"],
+        correct: 0
+    },
+
+    // Lesson 8: Noura's Interview table
+    {
+        lesson: 8,
+        emoji: "🚌",
+        question: "How does Noura go to school?",
+        translation: "كيف تذهب نورة إلى المدرسة؟",
+        options: ["by school bus (بالباص المدرسى)", "by taxi (بالتاكسي)", "by train (بالقطار)"],
+        correct: 0
+    },
+    {
+        lesson: 8,
+        emoji: "👧",
+        question: "Noura is...",
+        translation: "عمر نورة هو...",
+        options: ["12 years old", "11 years old", "10 years old"],
+        correct: 0
+    },
+    // Unit 2 - Lesson 1: Sea Animals
+    {
+        lesson: 201,
+        emoji: "🐳",
+        question: "What's that? It's a...",
+        translation: "ما هذا؟ إنه...",
+        options: ["whale (حوت)", "seahorse (فرس البحر)", "walrus (فيل البحر)"],
+        correct: 0
+    },
+    {
+        lesson: 201,
+        emoji: "🦈",
+        question: "What do you think about sharks?",
+        translation: "ما رأيك في أسماك القرش؟",
+        options: ["I think they're scary. (أعتقد أنها مخيفة)", "I think they're cute. (أعتقد أنها لطيفة)", "I think they're slow. (أعتقد أنها بطيئة)"],
+        correct: 0
+    },
+    {
+        lesson: 201,
+        emoji: "🐬",
+        question: "Complete: Dolphins are...",
+        translation: "أكمل: الدلافين...",
+        options: ["fast (سريعة)", "slow (بطيئة)", "fat (سمينة)"],
+        correct: 0
+    },
+    // Unit 2 - Lesson 2: Grammar in Action (Comparatives)
+    {
+        lesson: 202,
+        emoji: "🐎",
+        question: "Complete: A seahorse is _______ than a dolphin.",
+        translation: "أكمل: فرس البحر _______ من الدلفين.",
+        options: ["cuter (ألطف)", "scarier (أخوف)", "bigger (أكبر)"],
+        correct: 0
+    },
+    {
+        lesson: 202,
+        emoji: "🦭",
+        question: "Complete: A baby seal is the _______.",
+        translation: "أكمل: فقمة الرضيع هي _______.",
+        options: ["cutest (الألطف)", "cuter than (ألطف من)", "cute (لطيفة)"],
+        correct: 0
+    },
+    {
+        lesson: 202,
+        emoji: "🦈",
+        question: "Complete: Sharks are _______ than whales.",
+        translation: "أكمل: القروش _______ من الحيتان.",
+        options: ["faster (أسرع)", "fastest (الأسرع)", "fast (سريعة)"],
+        correct: 0
+    },
+    {
+        lesson: 202,
+        emoji: "🐬",
+        question: "Complete: Dolphins are the _______.",
+        translation: "أكمل: الدلافين هي _______.",
+        options: ["fastest (الأسرع)", "faster (أسرع)", "fast (سريعة)"],
+        correct: 0
+    },
+    // Unit 2 - Lesson 3: Just Like Something (Similes)
+    {
+        lesson: 203,
+        emoji: "🐳",
+        question: "Complete the simile: As big as a ______.",
+        translation: "أكمل التشبيه: كبير مثل ______.",
+        options: ["whale (حوت)", "seahorse (فرس البحر)", "seagull (النورس)"],
+        correct: 0
+    },
+    {
+        lesson: 203,
+        emoji: "🦭",
+        question: "Complete the simile: As cute as a ______.",
+        translation: "أكمل التشبيه: لطيف مثل ______.",
+        options: ["baby seal (الفقمة الصغيرة)", "shark (القرش)", "walrus (فيل البحر)"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 1: Sports and Activities (p.18)
+    {
+        lesson: 301,
+        emoji: "⚽",
+        question: "Which of these is a common sport?",
+        translation: "أي من هذه الألعاب هي رياضة شائعة؟",
+        options: ["football (كرة القدم)", "sky diving (القفز المظلي)", "scuba diving (الغوص)"],
+        correct: 0
+    },
+    {
+        lesson: 301,
+        emoji: "🪂",
+        question: "Which of these is a dangerous sport?",
+        translation: "أي من هذه الألعاب هي رياضة خطيرة؟",
+        options: ["sky diving (القفز المظلي)", "tennis (تنس)", "volleyball (طائرة)"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 2: Memory Quiz (p.19)
+    {
+        lesson: 302,
+        emoji: "🧠",
+        question: "Complete: Faisal likes ______.",
+        translation: "أكمل: فيصل يحب ______.",
+        options: ["basketball (كرة السلة)", "football (كرة القدم)", "tennis (التنس)"],
+        correct: 0
+    },
+    {
+        lesson: 302,
+        emoji: "🧗‍♂️",
+        question: "Complete: Faisal wants to try ______.",
+        translation: "أكمل: فيصل يريد تجربة ______.",
+        options: ["rock climbing (تسلق الصخور)", "pottery (صناعة الفخار)", "painting (الرسم)"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 3: Verb Helpers (p.20)
+    {
+        lesson: 303,
+        emoji: "❓",
+        question: "Do you play tennis? -> Yes, I ______.",
+        translation: "أكمل الإجابة القصيرة:",
+        options: ["do", "does", "don't"],
+        correct: 0
+    },
+    {
+        lesson: 303,
+        emoji: "❓",
+        question: "Does he play golf? -> No, he ______.",
+        translation: "أكمل الإجابة القصيرة المنفية:",
+        options: ["doesn't", "don't", "does"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 4: Q&A Speed Race (p.21)
+    {
+        lesson: 304,
+        emoji: "⚡",
+        question: "______ your father play golf?",
+        translation: "أكمل السؤال بالأداة الصحيحة:",
+        options: ["Does", "Do", "Is"],
+        correct: 0
+    },
+    {
+        lesson: 304,
+        emoji: "⚡",
+        question: "______ your brother do karate?",
+        translation: "أكمل السؤال بالأداة الصحيحة:",
+        options: ["Does", "Do", "Are"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 5: Comparisons (p.22)
+    {
+        lesson: 305,
+        emoji: "🏇",
+        question: "Horse riding is ______ exciting than cycling.",
+        translation: "ركوب الخيل ______ إثارة من ركوب الدراجات.",
+        options: ["more", "most", "the most"],
+        correct: 0
+    },
+    {
+        lesson: 305,
+        emoji: "🪂",
+        question: "Hang gliding is the ______ dangerous sport.",
+        translation: "الطيران الشراعي هو الرياضة ______ خطورة.",
+        options: ["most", "more", "much"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 6: Traditional Falconry (p.23)
+    {
+        lesson: 306,
+        emoji: "🦅",
+        question: "Falcons have very ______ talons.",
+        translation: "تمتلك الصقور مخالب ______.",
+        options: ["sharp (حادة)", "soft (ناعمة)", "weak (ضعيفة)"],
+        correct: 0
+    },
+    {
+        lesson: 306,
+        emoji: "🦅",
+        question: "Do falcons slow down when they dive? No, they dive ______.",
+        translation: "أكمل:",
+        options: ["even faster (أسرع بكثير)", "slowly (ببطء)", "normally (بشكل طبيعي)"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 7: Phonics (p.24)
+    {
+        lesson: 307,
+        emoji: "🪙",
+        question: "Complete spelling for c_ _n (عملة):",
+        translation: "أكمل الحروف الناقصة:",
+        options: ["oi", "oy", "ay"],
+        correct: 0
+    },
+    {
+        lesson: 307,
+        emoji: "🧸",
+        question: "Complete spelling for t_ _ (لعبة):",
+        translation: "أكمل الحروف الناقصة:",
+        options: ["oy", "oi", "ay"],
+        correct: 0
+    },
+    // Unit 3 - Lesson 8: Desire & Obstacle (p.25)
+    {
+        lesson: 308,
+        emoji: "🎾",
+        question: "I'd like to play tennis, ______ I have no racket.",
+        translation: "أكمل باستخدام أداة الربط المناسبة:",
+        options: ["but (ولكن)", "and (و)", "so (لذلك)"],
+        correct: 0
+    },
+    {
+        lesson: 308,
+        emoji: "🤿",
+        question: "I'd like to try scuba diving, but there is no ______.",
+        translation: "أكمل بمطابقة العائق المناسب للغوص:",
+        options: ["sea (بحر)", "horse (حصان)", "plane (طائرة)"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 1: Finding Out Time (p.26)
+    {
+        lesson: 309,
+        emoji: "🐠",
+        question: "What chores do you do? I ______ the fish.",
+        translation: "أكمل الجملة:",
+        options: ["feed (أطعم)", "set (أجهز)", "wash (أغسل)"],
+        correct: 0
+    },
+    {
+        lesson: 309,
+        emoji: "🍽️",
+        question: "Complete: I ______ the table.",
+        translation: "أكمل الجملة:",
+        options: ["set (أجهز)", "take out (أخرج)", "fold (أطوي)"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 2: Words in Action (p.27)
+    {
+        lesson: 310,
+        emoji: "🧹",
+        question: "I ______ my room.",
+        translation: "أكمل الجملة:",
+        options: ["clean up (أرتب)", "vacuum (أكنس)", "fold (أطوي)"],
+        correct: 0
+    },
+    {
+        lesson: 310,
+        emoji: "🧺",
+        question: "I ______ the laundry.",
+        translation: "أكمل الجملة:",
+        options: ["fold (أطوي)", "go (أذهب)", "feed (أطعم)"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 3: Grammar in Action (p.28)
+    {
+        lesson: 311,
+        emoji: "🧑",
+        question: "He ______ the fish.",
+        translation: "أكمل بصيغة الفعل الصحيحة للمفرد:",
+        options: ["feeds", "feed", "feeding"],
+        correct: 0
+    },
+    {
+        lesson: 311,
+        emoji: "👧",
+        question: "She ______ the dishes.",
+        translation: "أكمل بصيغة الفعل الصحيحة للمفرد:",
+        options: ["washes", "wash", "washing"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 4: Chores Challenge Time (p.29)
+    {
+        lesson: 312,
+        emoji: "⚡",
+        question: "What chores ______ your sister do?",
+        translation: "أكمل السؤال بالأداة الصحيحة للمفرد:",
+        options: ["does", "do", "is"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 5: Rhythms & Listening (p.30)
+    {
+        lesson: 313,
+        emoji: "🤖",
+        question: "I'm a ______ robot.",
+        translation: "أكمل من أنشودة الروبوت:",
+        options: ["clever (ذكي)", "lazy (كسول)", "noisy (مزعج)"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 6: Rhythms & Reading (p.31)
+    {
+        lesson: 314,
+        emoji: "🛍️",
+        question: "I go ______ and fold the laundry.",
+        translation: "أكمل من الجزء الثاني للأنشودة:",
+        options: ["shopping (تسوق)", "running (جري)", "swimming (سباحة)"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 7: Phonics (p.32)
+    {
+        lesson: 315,
+        emoji: "🍴",
+        question: "Complete spelling for f_ _k (شوكة):",
+        translation: "أكمل الحروف الناقصة لصوت or:",
+        options: ["or", "ar", "er"],
+        correct: 0
+    },
+    {
+        lesson: 315,
+        emoji: "🚗",
+        question: "Complete spelling for c_ _ (سيارة):",
+        translation: "أكمل الحروف الناقصة لصوت ar:",
+        options: ["ar", "or", "er"],
+        correct: 0
+    },
+    // Unit 4 - Lesson 8: Phonics Challenge (p.33)
+    {
+        lesson: 316,
+        emoji: "❄️",
+        question: "It is ______ in winter.",
+        translation: "أكمل الجملة:",
+        options: ["dark (مظلم)", "short (قصير)", "hot (حار)"],
+        correct: 0
+    }
+];
+
+let names = ["أحمد", "سارة", "محمد", "نورة", "خالد", "فاطمة", "علي", "منى"];
+let chosenNames = [];
+let secretStudent = "";
+let currentQuestion = null;
+
+const canvas = document.getElementById("wheel-canvas");
+const ctx = canvas.getContext("2d");
+const namesInput = document.getElementById("names-input");
+const chosenContainer = document.getElementById("chosen-list-container");
+const spinBtn = document.getElementById("spin-btn");
+
+let startAngle = 0;
+let arc = Math.PI / (names.length / 2);
+let spinTimeout = null;
+let spinArcStart = 10;
+let spinTime = 0;
+let spinTimeTotal = 0;
+
+const colors = ["#4f46e5", "#10b981", "#f59e0b", "#f43f5e", "#8b5cf6", "#ec4899", "#06b6d4", "#14b8a6", "#f97316"];
+
+// Initialize
+namesInput.value = names.join("\n");
+setReportDate();
+
+function tglTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    document.querySelector('.theme-btn').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    drawWheel();
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(cnt => cnt.classList.remove('active'));
+    
+    if (tabId === 'wheel') {
+        document.querySelector('[onclick="switchTab(\'wheel\')"]').classList.add('active');
+        document.getElementById('tab-wheel').classList.add('active');
+    } else {
+        document.querySelector('[onclick="switchTab(\'report\')"]').classList.add('active');
+        document.getElementById('tab-report').classList.add('active');
+    }
+}
+
+// SET REPORT DATE AUTOMATICALLY WITH ARABIC DAY NAME
+function setReportDate() {
+    const today = new Date();
+    const days = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
+    const dayName = days[today.getDay()];
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const dateStr = today.toLocaleDateString('ar-SA', options) + "هـ" + ` - (${dayName})`;
+    document.getElementById("rep-date").value = dateStr;
+}
+
+function getActiveNames() {
+    return names.filter(n => !chosenNames.includes(n));
+}
+
+function updateWheelFromText() {
+    const rawText = namesInput.value;
+    names = rawText.split("\n")
+                  .map(s => s.trim())
+                  .filter(s => s.length > 0);
+    drawWheel();
+}
+
+function clearAllNames() {
+    if(confirm("هل أنت متأكد من مسح جميع الأسماء؟")) {
+        names = [];
+        namesInput.value = "";
+        drawWheel();
+    }
+}
+
+function drawWheel() {
+    ctx.clearRect(0, 0, 500, 500);
+    const active = getActiveNames();
+    
+    if (active.length === 0) {
+        ctx.fillStyle = "#64748b";
+        ctx.beginPath();
+        ctx.arc(250, 250, 240, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#fff";
+        ctx.font = "bold 20px Tajawal";
+        ctx.textAlign = "center";
+        ctx.fillText("الرجاء إضافة أسماء للبدء!", 250, 250);
+        return;
+    }
+    
+    arc = Math.PI / (active.length / 2);
+    
+    for (let i = 0; i < active.length; i++) {
+        const angle = startAngle + i * arc;
+        ctx.fillStyle = colors[i % colors.length];
+        
+        ctx.beginPath();
+        ctx.arc(250, 250, 240, angle, angle + arc, false);
+        ctx.lineTo(250, 250);
+        ctx.fill();
+        
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        ctx.save();
+        ctx.fillStyle = "#fff";
+        ctx.translate(250 + Math.cos(angle + arc / 2) * 160, 250 + Math.sin(angle + arc / 2) * 160);
+        ctx.rotate(angle + arc / 2 + Math.PI);
+        
+        // Adjust font size dynamically for long names
+        const nameText = active[i];
+        let fontSize = 16;
+        if(nameText.length > 15) fontSize = 11;
+        else if(nameText.length > 10) fontSize = 13;
+        
+        ctx.font = `bold ${fontSize}px Tajawal`;
+        ctx.textAlign = "center";
+        ctx.fillText(nameText, 0, 5);
+        ctx.restore();
+    }
+}
+
+// Sound click
+let audioCtx = null;
+function playClickSound() {
+    try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.06);
+    } catch(e){}
+}
+
+function playWinSound() {
+    try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioCtx.currentTime;
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.frequency.setValueAtTime(freq, now + idx * 0.1);
+            gain.gain.setValueAtTime(0.1, now + idx * 0.1);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.1 + 0.25);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + idx * 0.1);
+            osc.stop(now + idx * 0.1 + 0.3);
+        });
+    } catch(e){}
+}
+
+// Spin Wheel
+function spinWheel() {
+    const active = getActiveNames();
+    if (active.length === 0) return;
+    
+    spinBtn.disabled = true;
+    spinArcStart = Math.random() * 10 + 10;
+    spinTime = 0;
+    spinTimeTotal = Math.random() * 3000 + 4000;
+    
+    playClickSound();
+    rotateWheel();
+}
+
+function rotateWheel() {
+    spinTime += 30;
+    if (spinTime >= spinTimeTotal) {
+        stopRotateWheel();
+        return;
+    }
+    const spinAngle = spinArcStart - easeOut(spinTime, 0, spinArcStart, spinTimeTotal);
+    startAngle += (spinAngle * Math.PI / 180);
+    drawWheel();
+    
+    if (Math.random() < 0.15) playClickSound();
+    
+    spinTimeout = setTimeout(rotateWheel, 30);
+}
+
+function easeOut(t, b, c, d) {
+    const ts = (t /= d) * t;
+    const tc = ts * t;
+    return b + c * (tc + -3 * ts + 3 * t);
+}
+
+function stopRotateWheel() {
+    clearTimeout(spinTimeout);
+    spinBtn.disabled = false;
+    
+    const active = getActiveNames();
+    if (active.length === 0) return;
+    
+    const degrees = startAngle * 180 / Math.PI + 90;
+    const arcd = arc * 180 / Math.PI;
+    const index = Math.floor((360 - degrees % 360) / arcd) % active.length;
+    
+    const winner = active[index < 0 ? index + active.length : index];
+    
+    chosenNames.push(winner);
+    updateChosenUI();
+    
+    // Trigger question modal
+    showQuestionModal(winner);
+    
+    drawWheel();
+}
+
+function showQuestionModal(studentName) {
+    document.getElementById("win-student-title").textContent = `السؤال موجه للطالب: ${studentName} 🎯`;
+    
+    // Filter questions based on selected lesson dropdown
+    const selectedLesson = document.getElementById("wheel-lesson-select").value;
+    let filteredQuestions = [];
+    if (selectedLesson === "all") {
+        filteredQuestions = questionBank;
+    } else {
+        const lessonNum = parseInt(selectedLesson);
+        filteredQuestions = questionBank.filter(q => q.lesson === lessonNum);
+    }
+    
+    // Fallback if no questions are found for the selected lesson
+    if (filteredQuestions.length === 0) {
+        filteredQuestions = questionBank;
+    }
+    
+    currentQuestion = filteredQuestions[Math.floor(Math.random() * filteredQuestions.length)];
+    
+    document.getElementById("win-emoji").textContent = currentQuestion.emoji;
+    document.getElementById("win-question-text").innerHTML = `${currentQuestion.question}<br><span style="font-size:16px; color:var(--text-muted); font-weight:normal">${currentQuestion.translation}</span>`;
+    
+    // Render options
+    const container = document.getElementById("win-options-container");
+    container.innerHTML = "";
+    
+    currentQuestion.options.forEach((optText, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.textContent = optText;
+        btn.onclick = () => selectOption(btn, idx);
+        container.appendChild(btn);
+    });
+    
+    document.getElementById("win-continue-btn").style.display = "none";
+    document.getElementById("win-modal").style.display = "flex";
+    
+    // Auto speak question
+    speakQuestion();
+}
+
+function speakQuestion() {
+    if (currentQuestion && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        // Remove Arabic transl if any in clean text to speech
+        let cleanText = currentQuestion.question;
+        let utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+function selectOption(btn, selectedIdx) {
+    const btns = document.querySelectorAll(".option-btn");
+    btns.forEach(b => b.disabled = true); // Lock options
+    
+    if (selectedIdx === currentQuestion.correct) {
+        btn.classList.add("correct");
+        playWinSound();
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 80,
+                spread: 50,
+                origin: { y: 0.6 }
+            });
+        }
+    } else {
+        btn.classList.add("wrong");
+        // Highlight correct option
+        btns[currentQuestion.correct].classList.add("correct");
+    }
+    
+    // Show continue button
+    document.getElementById("win-continue-btn").style.display = "inline-flex";
+}
+
+function closeWinModal() {
+    document.getElementById("win-modal").style.display = "none";
+}
+
+// Sync chosen UI
+function updateChosenUI() {
+    chosenContainer.innerHTML = "";
+    chosenNames.forEach(name => {
+        const pill = document.createElement("span");
+        pill.className = "chosen-pill";
+        pill.innerHTML = `${name} <span style="cursor:pointer" onclick="removeChosen('${name}')">×</span>`;
+        chosenContainer.appendChild(pill);
+    });
+}
+
+function pullParticipantsFromWheel() {
+    document.getElementById("rep-participants").value = chosenNames.join(" ، ");
+}
+
+function removeChosen(name) {
+    chosenNames = chosenNames.filter(n => n !== name);
+    updateChosenUI();
+    drawWheel();
+}
+
+function resetChosen() {
+    chosenNames = [];
+    updateChosenUI();
+    drawWheel();
+}
+
+// SECRET STUDENT STRATEGY
+function pickSecretStudent() {
+    const active = getActiveNames();
+    if (active.length === 0) {
+        alert("يرجى إدخال أسماء الطلاب أولاً!");
+        return;
+    }
+    secretStudent = active[Math.floor(Math.random() * active.length)];
+    
+    document.getElementById("secret-student-display").style.display = "none";
+    document.getElementById("reveal-secret-btn").style.display = "inline-flex";
+    
+    alert("🤫 تم اختيار الطالب السري بنجاح وبسرية تامة! راقب سلوك الفصل وكافئه بنهاية الحصة.");
+}
+
+function revealSecretStudent() {
+    if(!secretStudent) return;
+    const disp = document.getElementById("secret-student-display");
+    disp.textContent = `🕵️‍♂️ الطالب السري المتميز اليوم هو: (${secretStudent}) 🎉`;
+    disp.style.display = "block";
+    document.getElementById("reveal-secret-btn").style.display = "none";
+    
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+}
+
+// OCR IMAGE PROCESSING (TESSERACT)
+function processOCR(file) {
+    if (!file) return;
+    const loading = document.getElementById("ocr-loading");
+    loading.style.display = "flex";
+    
+    Tesseract.recognize(
+        file,
+        'ara+eng',
+        { logger: m => console.log(m) }
+    ).then(({ data: { text } }) => {
+        loading.style.display = "none";
+        if (text) {
+            // Extracted name lines cleanup
+            const skipWords = ["الاسم", "اسم الطالب", "كشف", "رصد", "درجات", "مسلسل", "الفصل", "المدرسة", "كشف أسماء", "قائمة", "طالب", "المادة", "التاريخ", "الرقم", "smart", "learning", "grade", "unit", "nice to", "student", "chores", "wheel", "names", "questions"];
+            let lines = text.split("\n")
+                            .map(line => line.replace(/[0-9\-\.\,\/\(\)\[\]\{\}\*]/g, "").trim())
+                            .filter(line => {
+                                if (line.length <= 2) return false;
+                                const lowerLine = line.toLowerCase();
+                                return !skipWords.some(word => lowerLine.includes(word));
+                            });
+            if (lines.length > 0) {
+                alert(`🎉 نجاح! تم استخراج ${lines.length} اسماً من الكشف بنجاح!`);
+                namesInput.value = lines.join("\n");
+                updateWheelFromText();
+            } else {
+                alert("⚠️ لم نتمكن من استخراج أسماء واضحة من كشف الصورة. يرجى تعديل كشف الأسماء يدوياً.");
+            }
+        }
+    }).catch(err => {
+        loading.style.display = "none";
+        console.error(err);
+        alert("❌ حدث خطأ أثناء معالجة الصورة. يرجى المحاولة يدوياً.");
+    });
+}
+
+// WITNESSES PREVIEW
+function previewWitness(input, imgId) {
+    const file = input.files[0];
+    if(file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById(imgId);
+            img.src = e.target.result;
+            img.style.display = 'block';
+            
+            // Hide placeholder text
+            const card = img.parentElement;
+            const txt = card.querySelector(".witness-upload-btn");
+            if(txt) txt.style.display = 'none';
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+// EXPORT PDF
+function exportReportPDF() {
+    const element = document.getElementById("report-sheet-element");
+    
+    // Temporary styling overrides for print fit
+    const style = document.createElement("style");
+    style.id = "print-pdf-style";
+    style.innerHTML = `
+        #report-sheet-element {
+            width: 780px !important;
+            padding: 30px !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        .rep-input {
+            border-bottom: 1px solid #00796b !important;
+        }
+        .rep-block {
+            border: 2px solid #00796b !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    const opt = {
+        margin:       [0.2, 0.2, 0.2, 0.2],
+        filename:     `Strategy_Report_${new Date().toISOString().slice(0,10)}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        document.getElementById("print-pdf-style").remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById("print-pdf-style");
+        if(s) s.remove();
+    });
+}
+
+// EXPORT IMAGE (PNG)
+function exportReportPNG() {
+    const element = document.getElementById("report-sheet-element");
+    
+    // Scale container briefly to ensure high quality rendering
+    html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff"
+    }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = `Strategy_Report_${new Date().toISOString().slice(0,10)}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+}
+
+// Initial Draw
+drawWheel();
+</script>
+</body>
+</html>

@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - Unit 1: We have different interests - إنجليزي الصف الخامس | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease;
+}
+
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr);
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9);
+}
+
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.top-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: var(--tr);
+}
+.top-action-btn.lesson { background: #4f46e5; }
+.top-action-btn.pr { background: #10b981; }
+.top-action-btn.ppt { background: #f59e0b; }
+.top-action-btn.wheel { background: #ec4899; }
+.top-action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+/* TABS NAVIGATION */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+    position: sticky;
+    top: 70px;
+    z-index: 90;
+}
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    border: 2px solid var(--border);
+    transition: var(--tr);
+    background: var(--bg-card);
+    cursor: pointer;
+}
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* MAIN WRAPPER */
+.main-wrap {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.sheet-container {
+    display: none;
+}
+.sheet-container.active {
+    display: block;
+}
+
+/* A4 SHEET LOOK */
+.a4-sheet {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+    min-height: 1050px;
+    position: relative;
+    margin-bottom: 30px;
+    color: #0f172a !important;
+}
+
+/* HEADER */
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.header-school {
+    font-size: 14px;
+    font-weight: 800;
+    color: #475569;
+    text-align: right;
+    line-height: 1.5;
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-title-box h2 {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    margin-top: 4px;
+}
+.header-logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-student-info {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px dashed var(--primary);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+}
+.student-field span {
+    font-weight: normal;
+    color: #64748b;
+}
+
+/* BLOOM TAXONOMY SECTIONS */
+.bloom-section {
+    margin-bottom: 28px;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    background: #fafafb;
+}
+.bloom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+}
+.bloom-label {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.08);
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+.bloom-desc {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 700;
+}
+
+.q-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.handwriting-line {
+    border: none;
+    border-bottom: 2px dashed #475569;
+    background: transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    width: 140px;
+    text-align: center;
+    outline: none;
+    color: #0f172a;
+}
+.handwriting-line:focus {
+    border-bottom-color: var(--primary);
+}
+
+.q-box {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    background: #fff;
+    margin-bottom: 14px;
+}
+.q-header {
+    font-weight: 800;
+    font-size: 15px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.ar-trans {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 700;
+}
+
+.trace-dots {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    color: #94a3b8;
+    border-bottom: 1.5px dashed #cbd5e1;
+    padding: 0 8px;
+    letter-spacing: 2px;
+    text-decoration: underline dotted #64748b;
+}
+
+/* ACTIONS BAR */
+.sheet-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    transition: var(--tr);
+    cursor: pointer;
+    border: none;
+}
+.action-btn.check {
+    background: var(--accent);
+    color: #fff;
+}
+.action-btn.print {
+    background: var(--primary);
+    color: #fff;
+}
+.action-btn.word {
+    background: #2563eb;
+    color: #fff;
+}
+.action-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+.score-badge {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+/* PRINT MEDIA QUERIES */
+@media print {
+    .topbar, .tabs-nav, .sheet-actions, .theme-btn {
+        display: none !important;
+    }
+    body {
+        background: #fff !important;
+        padding: 0 !important;
+    }
+    .main-wrap {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .sheet-container {
+        display: block !important;
+        page-break-after: always;
+    }
+    .a4-sheet {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+        min-height: auto !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+    <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="grade5-unit1-english.html" class="back-btn-top">
+            <span>←</span> الدرس التفاعلي
+        </a>
+        <div class="tlogo">Smart<span>Worksheets</span></div>
+    </div>
+    
+    <div class="top-actions">
+        <a href="grade5-unit1-english.html" class="top-action-btn lesson">📖 الدرس</a>
+        <a href="grade5-unit1-printables.html" class="top-action-btn pr">🖨️ المطبوعات</a>
+        <a href="grade5-unit1-presentation.html" class="top-action-btn ppt">💻 العرض</a>
+        <a href="wheel.html" class="top-action-btn wheel">🎯 العجلة</a>
+    </div>
+</header>
+
+<!-- TABS NAVIGATION (19 COMPREHENSIVE SHEETS & EXAMS) -->
+<nav class="tabs-nav">
+    <button class="tab-btn active" onclick="switchSheet(1)">ورقة 1: التذكر (Matching & Trace)</button>
+    <button class="tab-btn" onclick="switchSheet(2)">ورقة 2: الفهم (Quotes & Flyer)</button>
+    <button class="tab-btn" onclick="switchSheet(3)">ورقة 3: التطبيق (Complete the Article)</button>
+    <button class="tab-btn" onclick="switchSheet(4)">ورقة 4: التحليل (Antonyms & Context)</button>
+    <button class="tab-btn" onclick="switchSheet(5)">ورقة 5: التقييم (True/False & Opinions)</button>
+    <button class="tab-btn" onclick="switchSheet(6)">ورقة 6: الابتكار (My Interest Poster)</button>
+    <button class="tab-btn" onclick="switchSheet(7)" style="border-color:#10b981; color:#10b981;">ورقة 7: قواعد المضارع والماضي (Page 12)</button>
+    <button class="tab-btn" onclick="switchSheet(8)" style="border-color:#10b981; color:#10b981;">ورقة 8: محادثة كارتر وأرورا (Page 12)</button>
+    <button class="tab-btn" onclick="switchSheet(9)" style="border-color:#10b981; color:#10b981;">ورقة 9: استنتاج القواعد والنفي (Page 12)</button>
+    <button class="tab-btn" onclick="switchSheet(10)" style="border-color:#f59e0b; color:#f59e0b;">ورقة 10: أنشودة القواعد والكتابة (Page 13)</button>
+    <button class="tab-btn" onclick="switchSheet(11)" style="border-color:#ec4899; color:#ec4899;">ورقة 11: قصة تكوين الصداقات (Page 14)</button>
+    <button class="tab-btn" onclick="switchSheet(12)" style="border-color:#06b6d4; color:#06b6d4;">ورقة 12: مقابلة أوتمن سميث (Page 15)</button>
+    <button class="tab-btn" onclick="switchSheet(13)" style="border-color:#8b5cf6; color:#8b5cf6;">ورقة 13: مفردات الملاهي (Page 16)</button>
+    <button class="tab-btn" onclick="switchSheet(14)" style="border-color:#10b981; color:#10b981;">ورقة 14: أفعال الحالة والحركة (Page 17)</button>
+    <button class="tab-btn" onclick="switchSheet(15)" style="border-color:#f59e0b; color:#f59e0b;">ورقة 15: رسالة روز عن الأوريغامي (Page 18)</button>
+    <button class="tab-btn" onclick="switchSheet(16)" style="border-color:#f43f5e; color:#f43f5e;">ورقة 16: بادئة النفي والإيميل (Page 19)</button>
+    <button class="tab-btn" onclick="switchSheet(17)" style="border-color:#0ea5e9; color:#0ea5e9;">ورقة 17: دراسات اجتماعية (Page 20)</button>
+    <button class="tab-btn" onclick="switchSheet(18)" style="border-color:#eab308; color:#eab308;">ورقة 18: المراجعة الشاملة للوحدة</button>
+    <button class="tab-btn" onclick="switchSheet(19)" style="border-color:#10b981; color:#10b981; font-weight:900;">ورقة 19: اختبار الوحدة الشامل 🏆</button>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<main class="main-wrap">
+
+    <!-- ==================== SHEET 1: REMEMBERING ==================== -->
+    <div class="sheet-container active" id="sheetContainer1">
+        <div class="a4-sheet" id="sheet1">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 1: تذكر الصفات والمفردات</h1>
+                        <h2>Worksheet 1: Remembering - Target Adjectives (Page 10)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Bloom Section 1 -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Bloom Level 1: Remembering (التذكر والمطابقة)</span>
+                    <span class="bloom-desc">مستوى المعرفة والاسترجاع البصري</span>
+                </div>
+                <div class="q-title">Q1: Match the adjective to its Arabic meaning and emoji: (صل الكلمة بمعناها)</div>
+                
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif; width:40%;">1. popular 🌟</td>
+                        <td style="padding: 10px;">
+                            ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="B" id="s1_q1"> ) A. مخيف ومرعب
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">2. frightening 🕷️</td>
+                        <td style="padding: 10px;">
+                            ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="A" id="s1_q2"> ) B. شائع ومحبوب
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">3. enormous ↔️</td>
+                        <td style="padding: 10px;">
+                            ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="D" id="s1_q3"> ) C. مرتب ونظيف
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">4. tidy 🧼</td>
+                        <td style="padding: 10px;">
+                            ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="C" id="s1_q4"> ) D. ضخم جداً وهائل
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Bloom Section 2 -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Handwriting & Tracing (تتبع الكلمات بخط جميل)</span>
+                    <span class="bloom-desc">تحسين مهارات الكتابة والتهجئة</span>
+                </div>
+                <div class="q-title">Q2: Trace the 4 adjectives carefully: (تتبع الكلمات التالية):</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px;">
+                    <div class="q-box"><span class="trace-dots">interesting</span> <span class="ar-trans">(ممتع)</span></div>
+                    <div class="q-box"><span class="trace-dots">wonderful</span> <span class="ar-trans">(رائع)</span></div>
+                    <div class="q-box"><span class="trace-dots">important</span> <span class="ar-trans">(مهم)</span></div>
+                    <div class="q-box"><span class="trace-dots">excellent</span> <span class="ar-trans">(ممتاز)</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <button class="action-btn check" onclick="checkSheet1()">
+                <span>✅</span> تحقق تفاعلياً من الإجابات
+            </button>
+            <span class="score-badge" id="scoreSheet1"></span>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet1', 'Grade5_Unit1_Worksheet1')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 2: UNDERSTANDING ==================== -->
+    <div class="sheet-container" id="sheetContainer2">
+        <div class="a4-sheet" id="sheet2">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 2: فهم تعليقات الشخصيات والإعلان</h1>
+                        <h2>Worksheet 2: Understanding - Quotes & Flyer (Page 10)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Bloom Level 2: Understanding (الفهم والاستيعاب)</span>
+                    <span class="bloom-desc">استيعاب نصوص الشخصيات وتحديد المتحدث</span>
+                </div>
+                <div class="q-title">Q1: Who said it? Write the name (Abi, Jack, Kinsley, Noah):</div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>1. "The game night was great! The games were amazing!"</span>
+                        <span class="ar-trans">المتحدث:</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="abi" id="s2_q1" placeholder="اكتب الاسم"></div>
+                </div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>2. "Yes, everyone is friendly and the place is excellent!"</span>
+                        <span class="ar-trans">المتحدث:</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="jack" id="s2_q2" placeholder="اكتب الاسم"></div>
+                </div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>3. "It's so important to have a lovely place to meet people."</span>
+                        <span class="ar-trans">المتحدث:</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="kinsley" id="s2_q3" placeholder="اكتب الاسم"></div>
+                </div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>4. "The building is enormous and tidy, but it gets a little noisy..."</span>
+                        <span class="ar-trans">المتحدث:</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="noah" id="s2_q4" placeholder="اكتب الاسم"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <button class="action-btn check" onclick="checkSheet2()">
+                <span>✅</span> تحقق تفاعلياً من الإجابات
+            </button>
+            <span class="score-badge" id="scoreSheet2"></span>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet2', 'Grade5_Unit1_Worksheet2')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 3: APPLYING ==================== -->
+    <div class="sheet-container" id="sheetContainer3">
+        <div class="a4-sheet" id="sheet3">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 3: تطبيق المفردات وإكمال المقال</h1>
+                        <h2>Worksheet 3: Applying - Complete the Article (Page 11)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Bloom Level 3: Applying (التطبيق وسياق الكلمات)</span>
+                    <span class="bloom-desc">بنك الكلمات: [enormous, amazing, friendly, popular, frightening, special, lucky, lovely, noisy, important, tidy, wonderful, interesting, excellent]</span>
+                </div>
+
+                <div class="q-title">Q1: Fill in the blanks with the correct adjectives from the box:</div>
+
+                <div style="background:#fff; border:1px solid #cbd5e1; border-radius:8px; padding:18px; line-height:2.2; font-size:16px;">
+                    Join us in the (1. <input type="text" class="handwriting-line" data-ans="enormous" id="s3_q1">) youth center for some (2. <input type="text" class="handwriting-line" data-ans="amazing" id="s3_q2">) activities! We have different events every day, and you can meet some (3. <input type="text" class="handwriting-line" data-ans="friendly" id="s3_q3">) people, too! The most (4. <input type="text" class="handwriting-line" data-ans="popular" id="s3_q4">) activity is the horror movie night when we show (5. <input type="text" class="handwriting-line" data-ans="frightening" id="s3_q5">) movies! You can win a (6. <input type="text" class="handwriting-line" data-ans="special" id="s3_q6">) prize if you're (7. <input type="text" class="handwriting-line" data-ans="lucky" id="s3_q7">)!
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <button class="action-btn check" onclick="checkSheet3()">
+                <span>✅</span> تحقق تفاعلياً من الإجابات
+            </button>
+            <span class="score-badge" id="scoreSheet3"></span>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet3', 'Grade5_Unit1_Worksheet3')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 4: ANALYZING ==================== -->
+    <div class="sheet-container" id="sheetContainer4">
+        <div class="a4-sheet" id="sheet4">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 4: تحليل الأضداد وسياق الجمل</h1>
+                        <h2>Worksheet 4: Analyzing - Opposites & Context Clues</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Bloom Level 4: Analyzing (التحليل والتمييز)</span>
+                    <span class="bloom-desc">تمييز الأضداد والعلاقات بين الصفات</span>
+                </div>
+                <div class="q-title">Q1: Match the adjective with its opposite (الضد):</div>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif; width:40%;">1. noisy (صاخب)</td>
+                        <td style="padding: 10px;">( <input type="text" class="handwriting-line" style="width:40px;" data-ans="B" id="s4_q1"> ) A. tiny (صغير جداً)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">2. tidy (مرتب)</td>
+                        <td style="padding: 10px;">( <input type="text" class="handwriting-line" style="width:40px;" data-ans="C" id="s4_q2"> ) B. quiet (هادئ)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">3. enormous (ضخم)</td>
+                        <td style="padding: 10px;">( <input type="text" class="handwriting-line" style="width:40px;" data-ans="A" id="s4_q3"> ) C. messy (فوضوي)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <button class="action-btn check" onclick="checkSheet4()">
+                <span>✅</span> تحقق تفاعلياً من الإجابات
+            </button>
+            <span class="score-badge" id="scoreSheet4"></span>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet4', 'Grade5_Unit1_Worksheet4')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 5: EVALUATING ==================== -->
+    <div class="sheet-container" id="sheetContainer5">
+        <div class="a4-sheet" id="sheet5">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 5: تقييم العبارات وصحة المعنى</h1>
+                        <h2>Worksheet 5: Evaluating - True or False Assessment</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Bloom Level 5: Evaluating (التقييم وإصدار الحكم)</span>
+                    <span class="bloom-desc">حدد صحة العبارة بناءً على ما ورد في الدرس</span>
+                </div>
+                <div class="q-title">Q1: Write (True) or (False):</div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>1. Horror movie night is held on Saturdays.</span>
+                        <span class="ar-trans">(True / False)</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="false" id="s5_q1" placeholder="True / False"></div>
+                </div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>2. Noah said the building is enormous and tidy.</span>
+                        <span class="ar-trans">(True / False)</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="true" id="s5_q2" placeholder="True / False"></div>
+                </div>
+
+                <div class="q-box">
+                    <div class="q-header">
+                        <span>3. The book club always reads something frightening.</span>
+                        <span class="ar-trans">(True / False)</span>
+                    </div>
+                    <div>Answer: <input type="text" class="handwriting-line" data-ans="false" id="s5_q3" placeholder="True / False"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <button class="action-btn check" onclick="checkSheet5()">
+                <span>✅</span> تحقق تفاعلياً من الإجابات
+            </button>
+            <span class="score-badge" id="scoreSheet5"></span>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet5', 'Grade5_Unit1_Worksheet5')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 6: CREATING ==================== -->
+    <div class="sheet-container" id="sheetContainer6">
+        <div class="a4-sheet" id="sheet6">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 6: ابتكار وتصميم ملصق الهواية</h1>
+                        <h2>Worksheet 6: Creating - My Favorite Interest Poster (Page 11)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Bloom Level 6: Creating (الابتكار والإنتاج)</span>
+                    <span class="bloom-desc">صمم ملصقك واكتب فقرة متكاملة عن اهتمامك المفضل</span>
+                </div>
+                
+                <div class="q-title">Task A: Complete your poster sentences:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. My favorite interest is <input type="text" class="handwriting-line" style="width:200px;" placeholder="e.g. playing guitar">.<br>
+                    2. You can meet <input type="text" class="handwriting-line" style="width:160px;" placeholder="e.g. friendly"> people.<br>
+                    3. You can have an <input type="text" class="handwriting-line" style="width:160px;" placeholder="e.g. amazing"> time!
+                </div>
+
+                <div class="q-title" style="margin-top: 20px;">Task B: Draw your favorite interest in the box below: (ارسم هوايتك)</div>
+                <div style="height: 180px; border: 2px dashed #94a3b8; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-weight: 700;">
+                    🎨 مساحة الرسم والتصميم (Draw your interest here)
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <span class="score-badge">🌟 نشاط إنتاجي وابتكاري مفتوح</span>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet6', 'Grade5_Unit1_Worksheet6')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 7: GRAMMAR MASTERY (PAGE 12) ==================== -->
+    <div class="sheet-container" id="sheetContainer7">
+        <div class="a4-sheet" id="sheet7">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 7: مقارنة قواعد المضارع والماضي البسيط</h1>
+                        <h2>Worksheet 7: Simple Present vs. Simple Past Grammar (Page 12)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Verb Conjugation Table -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Grammar Table (تصريف الأفعال بين المضارع والماضي)</span>
+                    <span class="bloom-desc">تحويل الأفعال من صيغة المضارع البسيط إلى الماضي البسيط</span>
+                </div>
+                <div class="q-title">Q1: Complete the table with the correct Simple Past form: (أكمل جدول تصريف الأفعال)</div>
+                
+                <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                    <thead>
+                        <tr style="background: rgba(79,70,229,0.08); border-bottom: 2px solid #cbd5e1;">
+                            <th style="padding: 10px; text-align: right; color: var(--primary);">المعنى (Meaning)</th>
+                            <th style="padding: 10px; text-align: right; color: var(--primary);">Simple Present (المضارع)</th>
+                            <th style="padding: 10px; text-align: right; color: var(--accent);">Simple Past (الماضي المطلوب)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #cbd5e1;">
+                            <td style="padding: 10px;">يحب (Love)</td>
+                            <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">I love hockey.</td>
+                            <td style="padding: 10px;">I <input type="text" class="handwriting-line" style="width:90px;" data-ans="loved" id="s7_q1"> the game on Saturday.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #cbd5e1;">
+                            <td style="padding: 10px;">يفوز (Win)</td>
+                            <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">I win matches.</td>
+                            <td style="padding: 10px;">My team <input type="text" class="handwriting-line" style="width:90px;" data-ans="won" id="s7_q2"> last Saturday.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #cbd5e1;">
+                            <td style="padding: 10px;">يرسم (Paint)</td>
+                            <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">She paints pictures.</td>
+                            <td style="padding: 10px;">She <input type="text" class="handwriting-line" style="width:90px;" data-ans="painted" id="s7_q3"> a landscape yesterday.</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #cbd5e1;">
+                            <td style="padding: 10px;">يذهب (Go)</td>
+                            <td style="padding: 10px; font-weight:800; font-family:'Outfit',sans-serif;">I go every day.</td>
+                            <td style="padding: 10px;">I <input type="text" class="handwriting-line" style="width:90px;" data-ans="went" id="s7_q4"> to the youth center last Thursday.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Task 2: Choose the correct option -->
+            <div class="bloom-section" style="margin-top: 20px;">
+                <div class="bloom-header">
+                    <span class="bloom-label">Sentence Application (اختيار الزمن الصحيح)</span>
+                    <span class="bloom-desc">التمييز بين الروتين اليومي والأحداث الماضية</span>
+                </div>
+                <div class="q-title">Q2: Circle the correct verb: (اختر الكلمة الصحيحة لكل جملة):</div>
+                <div class="q-box" style="line-height:2.2;">
+                    1. Carter ( <input type="text" class="handwriting-line" style="width:80px;" data-ans="goes" id="s7_q5" placeholder="goes/went"> ) to the center nearly every day.<br>
+                    2. I ( <input type="text" class="handwriting-line" style="width:110px;" data-ans="didn't watch" id="s7_q6" placeholder="don't / didn't watch"> ) the movie yesterday because I was busy.<br>
+                    3. What day ( <input type="text" class="handwriting-line" style="width:60px;" data-ans="did" id="s7_q7" placeholder="do / did"> ) you go to the center last week?
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet7()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet7">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet7', 'Grade5_Unit1_Worksheet7_Grammar')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 8: CARTER & AURORA DIALOGUE (PAGE 12) ==================== -->
+    <div class="sheet-container" id="sheetContainer8">
+        <div class="a4-sheet" id="sheet8">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 8: استيعاب محادثة كارتر وأورورا</h1>
+                        <h2>Worksheet 8: Carter & Aurora Dialogue Comprehension (Page 12)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Bloom Section: Match Characters to Facts -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Reading & Matching (المطابقة واستيعاب المقروء)</span>
+                    <span class="bloom-desc">مطابقة الشخصيات مع العبارات المناسبة حسب نص المحادثة</span>
+                </div>
+                <div class="q-title">Q1: Match each person to their TWO correct letters (a, b, c, or d):</div>
+                
+                <div style="background: rgba(0,0,0,0.02); border: 1px dashed #cbd5e1; border-radius: 8px; padding: 12px; margin-bottom: 14px; font-size: 14px; line-height: 1.8;">
+                    <b>a.</b> went to the youth center once in the past &nbsp;|&nbsp; 
+                    <b>b.</b> didn't go last Thursday &nbsp;|&nbsp; 
+                    <b>c.</b> doesn't go regularly &nbsp;|&nbsp; 
+                    <b>d.</b> goes regularly
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 12px; font-weight:800; width:40%;">1. Carter (كارتر):</td>
+                        <td style="padding: 12px;">
+                            [ <input type="text" class="handwriting-line" style="width:50px;" data-ans="b" id="s8_q1" placeholder="letter"> ] and 
+                            [ <input type="text" class="handwriting-line" style="width:50px;" data-ans="d" id="s8_q2" placeholder="letter"> ]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; font-weight:800;">2. Aurora (أورورا):</td>
+                        <td style="padding: 12px;">
+                            [ <input type="text" class="handwriting-line" style="width:50px;" data-ans="a" id="s8_q3" placeholder="letter"> ] and 
+                            [ <input type="text" class="handwriting-line" style="width:50px;" data-ans="c" id="s8_q4" placeholder="letter"> ]
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- True/False Section -->
+            <div class="bloom-section" style="margin-top: 20px;">
+                <div class="bloom-header">
+                    <span class="bloom-label">Detail Verification (صح أم خطأ)</span>
+                    <span class="bloom-desc">التحقق من تفاصيل المحادثة الدقيقة</span>
+                </div>
+                <div class="q-title">Q2: Write (T) for True or (F) for False: (اكتب صح أو خطأ):</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Carter's sister goes to the youth center every day. ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="F" id="s8_q5"> )<br>
+                    2. Aurora went to the youth center for the first time last Thursday. ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="T" id="s8_q6"> )<br>
+                    3. Carter didn't go last Thursday because he was ill. ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="T" id="s8_q7"> )
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet8()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet8">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet8', 'Grade5_Unit1_Worksheet8_Dialogue')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 9: GRAMMAR RULES & FORMULATION (PAGE 12) ==================== -->
+    <div class="sheet-container" id="sheetContainer9">
+        <div class="a4-sheet" id="sheet9">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 9: استنتاج القواعد وصياغة الجمل</h1>
+                        <h2>Worksheet 9: Grammar Rules & Sentence Formation (Page 12)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Rule completion -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Rule Formulation (صياغة القاعدة الرسمية)</span>
+                    <span class="bloom-desc">إكمال الفراغات من بنك الكلمات لتثبيت القاعدة</span>
+                </div>
+                <div class="q-title">Q1: Fill in the blanks with: [ moments or events | facts or feelings | regular routines ]:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. We use action words in the past to talk about single <input type="text" class="handwriting-line" style="width:180px;" data-ans="moments or events" id="s9_q1"> before now.<br>
+                    2. We use action words in the present to talk about <input type="text" class="handwriting-line" style="width:160px;" data-ans="facts or feelings" id="s9_q2"> that are always true and to talk about <input type="text" class="handwriting-line" style="width:160px;" data-ans="regular routines" id="s9_q3">.
+                </div>
+            </div>
+
+            <!-- Task 2: Negative and Questions Conversion -->
+            <div class="bloom-section" style="margin-top: 20px;">
+                <div class="bloom-header">
+                    <span class="bloom-label">Sentence Transformation (التحويل للنفي والماضي)</span>
+                    <span class="bloom-desc">تحويل الجمل إلى صيغة الماضي المنفي باستخدام didn't</span>
+                </div>
+                <div class="q-title">Q2: Change these sentences into the Simple Past Negative form: (حول للنفي في الماضي):</div>
+                <div class="q-box" style="line-height:2.2;">
+                    1. I went to the park. ➔ I <input type="text" class="handwriting-line" style="width:140px;" data-ans="didn't go" id="s9_q4" placeholder="didn't ..."> to the park.<br>
+                    2. She painted a picture. ➔ She <input type="text" class="handwriting-line" style="width:140px;" data-ans="didn't paint" id="s9_q5" placeholder="didn't ..."> a picture.<br>
+                    3. My team won the game. ➔ My team <input type="text" class="handwriting-line" style="width:140px;" data-ans="didn't win" id="s9_q6" placeholder="didn't ..."> the game.
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet9()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet9">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet9', 'Grade5_Unit1_Worksheet9_Rules')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 10: GRAMMAR CHANT & LOOK AND WRITE (PAGE 13) ==================== -->
+    <div class="sheet-container" id="sheetContainer10">
+        <div class="a4-sheet" id="sheet10">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 10: أنشودة القواعد والكتابة من الصور</h1>
+                        <h2>Worksheet 10: Grammar Chant & Sentence Formation (Page 13)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Grammar Chant blanks -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Chant Completion (إكمال أنشودة القواعد)</span>
+                    <span class="bloom-desc">اختر الصيغة الصحيحة بين المضارع والماضي حسب الروتين والزمن</span>
+                </div>
+                <div class="q-title">Q1: Complete the chant lines with the correct word:</div>
+                <div class="q-box" style="line-height:2.2;">
+                    1. On Mondays, we ( <input type="text" class="handwriting-line" style="width:70px;" data-ans="play" id="s10_q1" placeholder="play/played"> ) football!<br>
+                    2. Last Monday my team ( <input type="text" class="handwriting-line" style="width:70px;" data-ans="won" id="s10_q2" placeholder="win/won"> )!<br>
+                    3. On Thursdays, they ( <input type="text" class="handwriting-line" style="width:70px;" data-ans="teach" id="s10_q3" placeholder="teach/taught"> ) us how to cook!<br>
+                    4. Last week I ( <input type="text" class="handwriting-line" style="width:75px;" data-ans="cooked" id="s10_q4" placeholder="cook/cooked"> ) my favorite dishes!<br>
+                    5. We ( <input type="text" class="handwriting-line" style="width:80px;" data-ans="watched" id="s10_q5" placeholder="watch/watched"> ) a movie that was frightening!
+                </div>
+            </div>
+
+            <!-- Task 2: Look and write -->
+            <div class="bloom-section" style="margin-top: 20px;">
+                <div class="bloom-header">
+                    <span class="bloom-label">Sentence Construction (تكوين الجمل من الكلمات المفتاحية)</span>
+                    <span class="bloom-desc">كتابة جملة كاملة وصحيحة نحوياً</span>
+                </div>
+                <div class="q-title">Q2: Rearrange / write full sentences using the clues:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. <b>Last week / go / adventure park:</b><br>
+                    ➔ <input type="text" class="handwriting-line" style="width:400px; text-align:right;" data-ans="Last week I went to an adventure park." id="s10_q6" placeholder="Last week I went to an adventure park."><br>
+                    2. <b>do / exercise / every morning?</b><br>
+                    ➔ <input type="text" class="handwriting-line" style="width:350px; text-align:right;" data-ans="Do you exercise every morning?" id="s10_q7" placeholder="Do you exercise every morning?"><br>
+                    3. <b>On Saturdays / not play / football:</b><br>
+                    ➔ <input type="text" class="handwriting-line" style="width:380px; text-align:right;" data-ans="On Saturdays, I don't play football." id="s10_q8" placeholder="On Saturdays, I don't play football.">
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet10()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet10">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet10', 'Grade5_Unit1_Worksheet10_Chant')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 11: STORY & SEL (PAGE 14) ==================== -->
+    <div class="sheet-container" id="sheetContainer11">
+        <div class="a4-sheet" id="sheet11">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 11: قصة تكوين الصداقات والتعلم العاطفي</h1>
+                        <h2>Worksheet 11: Making New Friends Story & SEL (Page 14)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Story Details Comprehension -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Reading Comprehension (استيعاب أحداث وشخصيات القصة)</span>
+                    <span class="bloom-desc">أجب باختيار الإجابة الصحيحة بناءً على قصة Making New Friends</span>
+                </div>
+                <div class="q-title">Q1: Choose the correct answer: (اختر الإجابة الصحيحة):</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Lia felt upset because: ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="A" id="s11_q1" placeholder="A/B"> )<br>
+                    &nbsp;&nbsp;&nbsp;<b>A.</b> She was worried a new friend would change her friendship with Chloe.<br>
+                    &nbsp;&nbsp;&nbsp;<b>B.</b> She lost her favorite video game.<br>
+                    2. Chloe's house was unusually: ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="B" id="s11_q2" placeholder="A/B"> )<br>
+                    &nbsp;&nbsp;&nbsp;<b>A.</b> Noisy and crowded.<br>
+                    &nbsp;&nbsp;&nbsp;<b>B.</b> Tidy and clean because they had a new guest.<br>
+                    3. What did Ava and Lia play together at the end? ( <input type="text" class="handwriting-line" style="width:40px;" data-ans="A" id="s11_q3" placeholder="A/B"> )<br>
+                    &nbsp;&nbsp;&nbsp;<b>A.</b> A racing video game 🏎️<br>
+                    &nbsp;&nbsp;&nbsp;<b>B.</b> Basketball 🏀
+                </div>
+            </div>
+
+            <!-- Task 2: SEL Sentences -->
+            <div class="bloom-section" style="margin-top: 20px;">
+                <div class="bloom-header">
+                    <span class="bloom-label">Social & Emotional Reflection (التعلم الاجتماعي والعاطفي)</span>
+                    <span class="bloom-desc">إكمال مهارات بناء الصداقات الإيجابية</span>
+                </div>
+                <div class="q-title">Q2: Fill in the blanks with: [ smile and say hello | be kind and listen | shy ]:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Making new friends can be difficult because I feel <input type="text" class="handwriting-line" style="width:100px;" data-ans="shy" id="s11_q4">.<br>
+                    2. When I meet someone new, I <input type="text" class="handwriting-line" style="width:180px;" data-ans="smile and say hello" id="s11_q5">.<br>
+                    3. When you talk to new people, it's important to <input type="text" class="handwriting-line" style="width:180px;" data-ans="be kind and listen" id="s11_q6">.
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet11()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet11">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet11', 'Grade5_Unit1_Worksheet11_Story_SEL')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 12: AUTUMN SMITH INTERVIEW & LISTENING (PAGE 15) ==================== -->
+    <div class="sheet-container" id="sheetContainer12">
+        <div class="a4-sheet" id="sheet12">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 12: مقابلة الكاتبة أوتمن سميث</h1>
+                        <h2>Worksheet 12: Listening & Speaking - Autumn Smith Interview (Page 15)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: True or False with correction -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Listening Comprehension (الاستماع والتحقق من العبارات)</span>
+                    <span class="bloom-desc">اكتب (T) للعبارة الصحيحة أو (F) للعبارة الخطأ مع التصحيح</span>
+                </div>
+                <div class="q-title">Q1: Write T (True) or F (False) and complete the correct statement:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Autumn Smith is a musician. [ <input type="text" class="handwriting-line" style="width:30px;" data-ans="F" id="s12_q1"> ] ➔ Correction: Autumn Smith is a <input type="text" class="handwriting-line" style="width:100px;" data-ans="writer" id="s12_q2">.<br>
+                    2. She started writing in school. [ <input type="text" class="handwriting-line" style="width:30px;" data-ans="T" id="s12_q3"> ]<br>
+                    3. Her parents told her to write her ideas down. [ <input type="text" class="handwriting-line" style="width:30px;" data-ans="F" id="s12_q4"> ] ➔ Correction: Her <input type="text" class="handwriting-line" style="width:100px;" data-ans="teacher" id="s12_q5"> told her.<br>
+                    4. She listens to all kinds of music and sings. [ <input type="text" class="handwriting-line" style="width:30px;" data-ans="F" id="s12_q6"> ] ➔ Correction: She listens and <input type="text" class="handwriting-line" style="width:100px;" data-ans="dances" id="s12_q7">.
+                </div>
+            </div>
+
+            <!-- Task 2: Interview Questions Match -->
+            <div class="bloom-section" style="margin-top: 20px;">
+                <div class="bloom-header">
+                    <span class="bloom-label">Interview Roleplay Questions (أسئلة المقابلة الصحفية)</span>
+                    <span class="bloom-desc">أكمل تكوين السؤال الصحفي المناسب</span>
+                </div>
+                <div class="q-title">Q2: Complete the interviewer's questions: [ What | When | Why ]:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. <input type="text" class="handwriting-line" style="width:70px;" data-ans="What" id="s12_q8"> do you do? ➔ "I'm a writer."<br>
+                    2. <input type="text" class="handwriting-line" style="width:70px;" data-ans="When" id="s12_q9"> did you start? ➔ "I started when I was in school."<br>
+                    3. <input type="text" class="handwriting-line" style="width:70px;" data-ans="What" id="s12_q10"> other interests do you have? ➔ "I love music and dancing!"
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet12()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet12">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet12', 'Grade5_Unit1_Worksheet12_AutumnSmith')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 13: AMUSEMENT PARK VOCABULARY (PAGE 16) ==================== -->
+    <div class="sheet-container" id="sheetContainer13">
+        <div class="a4-sheet" id="sheet13">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 13: مفردات مدينة الملاهي</h1>
+                        <h2>Worksheet 13: Amusement Park Vocabulary (Page 16)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Vocabulary Match -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Vocabulary Application (مطابقة مفردات الملاهي)</span>
+                    <span class="bloom-desc">اختر الكلمة المناسبة لكل معنى: [ horrible | excited | ride | messy ]</span>
+                </div>
+                <div class="q-title">Q1: Fill in the blanks with the suitable word:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. The rollercoaster is an exciting <input type="text" class="handwriting-line" style="width:90px;" data-ans="ride" id="s13_q1">.<br>
+                    2. She dropped her ice cream and made a <input type="text" class="handwriting-line" style="width:90px;" data-ans="messy" id="s13_q2"> stain.<br>
+                    3. The monster ride looks frightening and <input type="text" class="handwriting-line" style="width:90px;" data-ans="horrible" id="s13_q3">.<br>
+                    4. All the children felt very <input type="text" class="handwriting-line" style="width:90px;" data-ans="excited" id="s13_q4"> to visit the park.
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet13()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet13">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet13', 'Grade5_Unit1_Worksheet13_ParkVocab')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 14: STATE VS ACTION VERBS (PAGE 17) ==================== -->
+    <div class="sheet-container" id="sheetContainer14">
+        <div class="a4-sheet" id="sheet14">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 14: أفعال الحالة مقابل أفعال الحركة</h1>
+                        <h2>Worksheet 14: State Verbs vs. Action Verbs (Page 17)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Classify State vs Action -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Grammar Classification (تصنيف نوع الفعل)</span>
+                    <span class="bloom-desc">اكتب (State) لأفعال الحالة أو (Action) لأفعال الحركة</span>
+                </div>
+                <div class="q-title">Q1: Classify the following verbs as [ State ] or [ Action ]:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. <b>love</b> ➔ [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="State" id="s14_q1"> ]<br>
+                    2. <b>write</b> ➔ [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="Action" id="s14_q2"> ]<br>
+                    3. <b>want</b> ➔ [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="State" id="s14_q3"> ]<br>
+                    4. <b>walk</b> ➔ [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="Action" id="s14_q4"> ]<br>
+                    5. <b>know</b> ➔ [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="State" id="s14_q5"> ]<br>
+                    6. <b>cook</b> ➔ [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="Action" id="s14_q6"> ]
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet14()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet14">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet14', 'Grade5_Unit1_Worksheet14_StateAction')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 15: ROSE'S ORIGAMI EMAIL (PAGE 18) ==================== -->
+    <div class="sheet-container" id="sheetContainer15">
+        <div class="a4-sheet" id="sheet15">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 15: قراءة رسالة الأوريغامي</h1>
+                        <h2>Worksheet 15: Rose's Origami Reading Comprehension (Page 18)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Comprehension questions -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Reading Comprehension (استيعاب رسالة روز)</span>
+                    <span class="bloom-desc">أجب عن الأسئلة بناءً على رسالة روز الإلكترونية</span>
+                </div>
+                <div class="q-title">Q1: Answer the questions:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Rose's special interest is <input type="text" class="handwriting-line" style="width:120px;" data-ans="origami" id="s15_q1">.<br>
+                    2. Origami is making models with <input type="text" class="handwriting-line" style="width:100px;" data-ans="paper" id="s15_q2">.<br>
+                    3. She found an origami book on the <input type="text" class="handwriting-line" style="width:120px;" data-ans="sidewalk" id="s15_q3">.<br>
+                    4. Origami helped Rose to keep her room <input type="text" class="handwriting-line" style="width:90px;" data-ans="tidy" id="s15_q4">.
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet15()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet15">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet15', 'Grade5_Unit1_Worksheet15_Origami')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 16: PREFIX UN- & EMAIL WRITING (PAGE 19) ==================== -->
+    <div class="sheet-container" id="sheetContainer16">
+        <div class="a4-sheet" id="sheet16">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 16: بادئة النفي un- وكتابة الإيميل</h1>
+                        <h2>Worksheet 16: Prefix un- & Email Writing (Page 19)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Prefix un- -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Prefix un- (إضافة بادئة النفي)</span>
+                    <span class="bloom-desc">أضف بادئة (un-) للصفات التالية لكتابة عكسها</span>
+                </div>
+                <div class="q-title">Q1: Write the negative adjective using [ un- ]:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. kind ➔ <input type="text" class="handwriting-line" style="width:100px;" data-ans="unkind" id="s16_q1"><br>
+                    2. friendly ➔ <input type="text" class="handwriting-line" style="width:120px;" data-ans="unfriendly" id="s16_q2"><br>
+                    3. tidy ➔ <input type="text" class="handwriting-line" style="width:100px;" data-ans="untidy" id="s16_q3"><br>
+                    4. lucky ➔ <input type="text" class="handwriting-line" style="width:100px;" data-ans="unlucky" id="s16_q4">
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet16()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet16">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet16', 'Grade5_Unit1_Worksheet16_Writing')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 17: SOCIAL STUDIES (PAGE 20) ==================== -->
+    <div class="sheet-container" id="sheetContainer17">
+        <div class="a4-sheet" id="sheet17">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 17: دراسات اجتماعية - اهتمامات حول العالم</h1>
+                        <h2>Worksheet 17: Social Studies - Unusual Interests (Page 20)</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Complete sentences -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Comprehension & Knowledge (استيعاب ثقافات العالم)</span>
+                    <span class="bloom-desc">أكمل الفراغات بالكلمة المناسبة: [ Texas | soap | photos | world ]</span>
+                </div>
+                <div class="q-title">Q1: Complete the sentences about world interests:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Unusual interests can be found all over the <input type="text" class="handwriting-line" style="width:100px;" data-ans="world" id="s17_q1">.<br>
+                    2. Yarn bombing started in <input type="text" class="handwriting-line" style="width:100px;" data-ans="Texas" id="s17_q2"> (USA).<br>
+                    3. Toy voyaging is taking <input type="text" class="handwriting-line" style="width:100px;" data-ans="photos" id="s17_q3"> of toys in special places.<br>
+                    4. In Thailand, people make art with <input type="text" class="handwriting-line" style="width:90px;" data-ans="soap" id="s17_q4"> carving.
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet17()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet17">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet17', 'Grade5_Unit1_Worksheet17_SocialStudies')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 18: UNIT 1 COMPREHENSIVE REVISION ==================== -->
+    <div class="sheet-container" id="sheetContainer18">
+        <div class="a4-sheet" id="sheet18">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 18: مراجعة شاملة لمهارات وقواعد الوحدة الأولى</h1>
+                        <h2>Worksheet 18: Unit 1 Comprehensive Revision</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Task 1: Grammar & Vocabulary Revision -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Grammar & Vocabulary Review (مراجعة القواعد والمفردات)</span>
+                    <span class="bloom-desc">اختر الكلمة أو الصيغة الصحيحة بين القوسين</span>
+                </div>
+                <div class="q-title">Q1: Choose the correct answer:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Last Thursday, I [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="went" id="s18_q1"> ] (go / went) to the youth center.<br>
+                    2. 'I want to sleep.' The verb 'want' is a [ <input type="text" class="handwriting-line" style="width:70px;" data-ans="state" id="s18_q2"> ] (state / action) verb.<br>
+                    3. The negative of 'friendly' is [ <input type="text" class="handwriting-line" style="width:110px;" data-ans="unfriendly" id="s18_q3"> ] (unfriendly / disfriendly).<br>
+                    4. A huge building with lots of space is [ <input type="text" class="handwriting-line" style="width:100px;" data-ans="enormous" id="s18_q4"> ] (enormous / messy).
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet18()">
+                    <span>✓</span> تصحيح الورقة (Check Answers)
+                </button>
+                <span class="score-badge" id="scoreSheet18">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet18', 'Grade5_Unit1_Worksheet18_Revision')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SHEET 19: UNIT 1 FINAL EXAM ==================== -->
+    <div class="sheet-container" id="sheetContainer19">
+        <div class="a4-sheet" id="sheet19">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-school">
+                        المملكة العربية السعودية<br>
+                        وزارة التعليم - الصف الخامس الابتدائي<br>
+                        الفصل الدراسي الأول (Term 1)
+                    </div>
+                    <div class="header-title-box">
+                        <h1>ورقة عمل 19: الاختبار التشخيصي والختامي للوحدة الأولى</h1>
+                        <h2>Worksheet 19: Unit 1 Final Achievement Exam 🏆</h2>
+                    </div>
+                    <div class="header-logo">SmartLearning</div>
+                </div>
+                <div class="header-student-info">
+                    <div class="student-field">اسم الطالب: <span>................................................</span></div>
+                    <div class="student-field">الفصل: <span>خامس / .....</span></div>
+                    <div class="student-field">الدرجة: <span>....... / 10</span></div>
+                </div>
+            </div>
+
+            <!-- Final Exam Tasks -->
+            <div class="bloom-section">
+                <div class="bloom-header">
+                    <span class="bloom-label">Unit 1 Final Assessment (الاختبار النهائي المقنن)</span>
+                    <span class="bloom-desc">أكمل الفراغات بالحل الصحيح لكامل مهارات الوحدة</span>
+                </div>
+                <div class="q-title">Q1: Final Assessment Questions:</div>
+                <div class="q-box" style="line-height:2.4;">
+                    1. Autumn Smith is a famous <input type="text" class="handwriting-line" style="width:90px;" data-ans="writer" id="s19_q1">.<br>
+                    2. Rose makes paper models with <input type="text" class="handwriting-line" style="width:90px;" data-ans="origami" id="s19_q2">.<br>
+                    3. Yesterday, our team <input type="text" class="handwriting-line" style="width:70px;" data-ans="won" id="s19_q3"> (win/won) the match.<br>
+                    4. The negative of 'lucky' is <input type="text" class="handwriting-line" style="width:90px;" data-ans="unlucky" id="s19_q4">.
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-actions">
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <button class="action-btn check" onclick="checkSheet19()">
+                    <span>✓</span> تصحيح الاختبار (Check Exam)
+                </button>
+                <span class="score-badge" id="scoreSheet19">النتيجة: -- / 10</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn word" onclick="exportToWord('sheet19', 'Grade5_Unit1_Worksheet19_FinalExam')">
+                    <span>📄</span> تحميل Word (.doc)
+                </button>
+                <button class="action-btn print" onclick="window.print()">
+                    <span>🖨️</span> طباعة PDF (A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+/* --------------------------------------------------------------------------
+   TAB SWITCHING
+-------------------------------------------------------------------------- */
+function switchSheet(num) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const containers = document.querySelectorAll('.sheet-container');
+
+    tabs.forEach((t, i) => t.classList.toggle('active', i === (num - 1)));
+    containers.forEach((c, i) => c.classList.toggle('active', i === (num - 1)));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE CHECKERS
+-------------------------------------------------------------------------- */
+function checkSheet1() {
+    let score = 0;
+    const inputs = ['s1_q1', 's1_q2', 's1_q3', 's1_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toUpperCase();
+        if (el.value.trim().toUpperCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet1').innerText = `النتيجة: ${score} / 10`;
+}
+
+function checkSheet2() {
+    let score = 0;
+    const inputs = ['s2_q1', 's2_q2', 's2_q3', 's2_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet2').innerText = `النتيجة: ${score} / 10`;
+}
+
+function checkSheet3() {
+    let score = 0;
+    const inputs = ['s3_q1', 's3_q2', 's3_q3', 's3_q4', 's3_q5', 's3_q6', 's3_q7'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score++;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet3').innerText = `النتيجة: ${score} / 7`;
+}
+
+function checkSheet4() {
+    let score = 0;
+    const inputs = ['s4_q1', 's4_q2', 's4_q3'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toUpperCase();
+        if (el.value.trim().toUpperCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 3.33;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet4').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet5() {
+    let score = 0;
+    const inputs = ['s5_q1', 's5_q2', 's5_q3'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 3.33;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet5').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet7() {
+    let score = 0;
+    const inputs = ['s7_q1', 's7_q2', 's7_q3', 's7_q4', 's7_q5', 's7_q6', 's7_q7'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1.43;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet7').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet8() {
+    let score = 0;
+    const inputs = ['s8_q1', 's8_q2', 's8_q3', 's8_q4', 's8_q5', 's8_q6', 's8_q7'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1.43;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet8').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet9() {
+    let score = 0;
+    const inputs = ['s9_q1', 's9_q2', 's9_q3', 's9_q4', 's9_q5', 's9_q6'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1.66;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet9').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet10() {
+    let score = 0;
+    const inputs = ['s10_q1', 's10_q2', 's10_q3', 's10_q4', 's10_q5', 's10_q6', 's10_q7', 's10_q8'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase().replace(/[.,?]/g, '');
+        const userVal = el.value.trim().toLowerCase().replace(/[.,?]/g, '');
+        if (userVal === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1.25;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet10').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet11() {
+    let score = 0;
+    const inputs = ['s11_q1', 's11_q2', 's11_q3', 's11_q4', 's11_q5', 's11_q6'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1.66;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet11').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet12() {
+    let score = 0;
+    const inputs = ['s12_q1', 's12_q2', 's12_q3', 's12_q4', 's12_q5', 's12_q6', 's12_q7', 's12_q8', 's12_q9', 's12_q10'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet12').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet13() {
+    let score = 0;
+    const inputs = ['s13_q1', 's13_q2', 's13_q3', 's13_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet13').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet14() {
+    let score = 0;
+    const inputs = ['s14_q1', 's14_q2', 's14_q3', 's14_q4', 's14_q5', 's14_q6'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 1.66;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet14').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet15() {
+    let score = 0;
+    const inputs = ['s15_q1', 's15_q2', 's15_q3', 's15_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet15').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet16() {
+    let score = 0;
+    const inputs = ['s16_q1', 's16_q2', 's16_q3', 's16_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet16').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet17() {
+    let score = 0;
+    const inputs = ['s17_q1', 's17_q2', 's17_q3', 's17_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet17').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet18() {
+    let score = 0;
+    const inputs = ['s18_q1', 's18_q2', 's18_q3', 's18_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet18').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+function checkSheet19() {
+    let score = 0;
+    const inputs = ['s19_q1', 's19_q2', 's19_q3', 's19_q4'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        const ans = el.getAttribute('data-ans').toLowerCase();
+        if (el.value.trim().toLowerCase() === ans) {
+            el.style.borderBottomColor = '#10b981';
+            el.style.color = '#047857';
+            score += 2.5;
+        } else {
+            el.style.borderBottomColor = '#f43f5e';
+            el.style.color = '#be123c';
+        }
+    });
+    document.getElementById('scoreSheet19').innerText = `النتيجة: ${Math.round(score)} / 10`;
+}
+
+/* --------------------------------------------------------------------------
+   EXPORT TO WORD (.DOC) WITH TABLE FORMATTING
+-------------------------------------------------------------------------- */
+function exportToWord(elementId, filename) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    // Clone element to sanitize inputs for Word
+    const clone = el.cloneNode(true);
+    const inputs = clone.querySelectorAll('input');
+    inputs.forEach(input => {
+        const val = input.value || '__________';
+        const span = document.createElement('span');
+        span.style.textDecoration = 'underline';
+        span.style.fontWeight = 'bold';
+        span.innerText = ` ${val} `;
+        input.parentNode.replaceChild(span, input);
+    });
+
+    const htmlContent = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+            <meta charset='utf-8'>
+            <title>${filename}</title>
+            <style>
+                body { font-family: 'Arial', sans-serif; direction: rtl; text-align: right; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+                td, th { border: 1px solid #4f46e5; padding: 8px; }
+                .header-box { border: 2px solid #4f46e5; padding: 12px; margin-bottom: 20px; text-align: center; }
+            </style>
+        </head>
+        <body>
+            <div class="header-box">
+                <h2>المملكة العربية السعودية - وزارة التعليم</h2>
+                <h3>SmartLearning - Grade 5 Unit 1 Worksheets</h3>
+            </div>
+            ${clone.innerHTML}
+        </body>
+        </html>
+    `;
+
+    const blob = new Blob(['\ufeff', htmlContent], {
+        type: 'application/msword'
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${filename}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

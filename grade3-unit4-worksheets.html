@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - الوحدة 4: Chores | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: none;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+    transition: background var(--tr), color var(--tr);
+}
+
+/* TOPBAR */
+.topbar {
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.tlogo {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+.theme-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    color: var(--text);
+}
+
+/* TABS NAVIGATION */
+.tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+.tab-btn {
+    padding: 8px 15px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.tab-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* CONTAINER */
+.sheet-container {
+    max-width: 850px;
+    margin: 0 auto 30px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* WORKSHEET HEADER & INFO */
+.ws-header {
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.ws-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.ws-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+.student-info-table {
+    width: 100%;
+    margin-bottom: 25px;
+    border-collapse: collapse;
+}
+.student-info-table td {
+    padding: 8px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    background: rgba(0,0,0,0.01);
+}
+
+/* QUESTION STYLING */
+.question-block {
+    margin-bottom: 25px;
+    background: rgba(79, 70, 229, 0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+}
+.q-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.input-text {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    outline: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    background: transparent;
+    padding: 2px 8px;
+    text-align: center;
+    transition: var(--tr);
+}
+.input-text:focus {
+    border-bottom-style: solid;
+    color: var(--primary-light);
+}
+
+/* SVG ILLUSTRATIONS GRID */
+.svg-illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+.svg-ill-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    text-align: center;
+    transition: var(--tr);
+    box-shadow: var(--shadow);
+}
+.svg-ill-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+.svg-card-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+}
+.svg-card-input-wrap {
+    margin-top: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* INTERACTIVE ACTION BUTTONS */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+.btn {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-light); }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: #059669; }
+.btn-outline { background: transparent; border: 2px solid var(--border); color: var(--text); }
+.btn-outline:hover { background: var(--border); }
+
+/* FEEDBACK MESSAGE OVERLAY */
+.feedback-msg {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    display: none;
+    text-align: center;
+}
+.feedback-msg.correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #047857;
+    border: 1px solid var(--accent);
+}
+.feedback-msg.wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+    border: 1px solid var(--danger);
+}
+
+/* ==========================================
+   GAMES HUB LAYOUT
+   ========================================== */
+.games-hub-container {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--border);
+    margin-top: 10px;
+}
+.game-selector-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+.game-sel-btn {
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.game-sel-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.game-sel-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+.game-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.game-panel.active {
+    display: block;
+}
+
+/* 1. Balloon Pop Styles */
+.balloon-arena {
+    position: relative;
+    height: 400px;
+    background: linear-gradient(180deg, #dbeafe, #ede9fe);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid var(--border);
+    margin-bottom: 20px;
+}
+[data-theme=dark] .balloon-arena {
+    background: linear-gradient(180deg, #1e1b4b, #0f172a);
+}
+.balloon-header {
+    background: rgba(255,255,255,0.9);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+[data-theme=dark] .balloon-header {
+    background: rgba(30,41,59,0.9);
+}
+.balloon-q-box {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+.balloon-q-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.balloon-q-ar {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+.balloon-score-panel {
+    font-size: 16px;
+    font-weight: 800;
+}
+.balloon {
+    position: absolute;
+    bottom: -110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    animation: rise var(--dur, 8s) linear forwards;
+}
+.balloon-body {
+    width: 80px;
+    height: 96px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    padding: 6px;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    position: relative;
+}
+.balloon-string {
+    width: 2px;
+    height: 30px;
+    background: rgba(0,0,0,0.15);
+    margin-top: 2px;
+}
+@keyframes rise {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-550px); }
+}
+.balloon.pop {
+    animation: none;
+    transform: scale(1.4);
+    opacity: 0;
+    transition: all 0.2s ease-out;
+}
+
+/* 2. Interactive Matching Game Styles */
+.match-game-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin: 25px 0;
+    min-height: 400px;
+}
+.match-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.match-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+    user-select: none;
+    box-shadow: var(--shadow);
+}
+.match-card:hover {
+    border-color: var(--primary-light);
+    transform: scale(1.02);
+}
+.match-card.selected {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.05);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+.match-card.matched {
+    border-color: var(--accent);
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--accent);
+    cursor: default;
+    transform: none;
+}
+.match-card.wrong-flash {
+    border-color: var(--danger);
+    background: rgba(244, 63, 94, 0.08);
+    animation: shake 0.3s ease;
+}
+.match-svg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* 3. Spelling Flip Game Styles */
+.spelling-flip-container {
+    text-align: center;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+}
+.spelling-flip-img-wrap {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px;
+    background: var(--bg);
+    border-radius: 50%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+}
+.spelling-flip-img-wrap svg {
+    width: 120px;
+    height: 120px;
+}
+.spelling-flip-word-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+.spelling-letters-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+    direction: ltr;
+}
+.letter-card {
+    width: 55px;
+    height: 55px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+    transition: transform .2s ease, background .2s ease;
+    user-select: none;
+}
+.letter-card:hover {
+    transform: translateY(-4px);
+    background: var(--primary-light);
+}
+.letter-card.selected {
+    background: var(--danger);
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.4);
+}
+.letter-card.correct-order {
+    background: var(--accent);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+    cursor: default;
+}
+
+/* COMPREHENSIVE REVIEW TABLE Layout */
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 15px;
+}
+.review-table th, .review-table td {
+    border: 1px solid var(--border);
+    padding: 12px;
+    text-align: center;
+}
+.review-table th {
+    background: rgba(79, 70, 229, 0.05);
+    color: var(--primary);
+    font-weight: 900;
+}
+.review-table td.text-left {
+    text-align: left;
+    font-weight: 700;
+}
+
+/* PRINTING A4 */
+@media print {
+    body { background: #fff; color: #000; padding: 0; }
+    .topbar, .tabs-nav, .action-buttons, .game-selector-buttons, .games-hub-container { display: none !important; }
+    .sheet-container { border: none; box-shadow: none; padding: 0; margin: 0; width: 100%; max-width: 100%; }
+    .tab-content { display: none !important; }
+    .tab-content.active { display: block !important; }
+    
+    /* When printing all worksheets */
+    body.print-all-mode .tab-content {
+        display: block !important;
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+    body.print-all-mode .tab-content:last-child {
+        page-break-after: avoid;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="grade3-unit4-english.html" class="back-btn-top">↩️ العودة للحصة</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left" style="display:flex; gap:8px;">
+    <button class="btn btn-outline" style="font-size:12px; padding:6px 12px;" onclick="window.print()">🖨️ طباعة الورقة الحالية</button>
+    <button class="btn btn-primary" style="font-size:12px; padding:6px 12px;" onclick="printAllWorksheets()">🖨️ طباعة جميع الأوراق</button>
+    <button class="btn btn-accent" style="font-size:12px; padding:6px 12px;" onclick="exportToWord()">📥 تنزيل Word (.doc)</button>
+    <button class="btn btn-accent" style="font-size:12px; padding:6px 12px; background:var(--accent); border-color:var(--accent);" onclick="downloadPDF()">📥 تنزيل PDF عالية الجودة</button>
+    <button class="theme-btn" onclick="tglTheme()">🌙</button>
+  </div>
+</nav>
+
+<!-- TABS NAVIGATION -->
+<div class="tabs-nav">
+  <button class="tab-btn active" id="tab0" onclick="swTab(0)">ورقة 1: Finding Out Time</button>
+  <button class="tab-btn" id="tab1" onclick="swTab(1)">ورقة 2: Chore Survey</button>
+  <button class="tab-btn" id="tab2" onclick="swTab(2)">ورقة 3: Grammar in Action</button>
+  <button class="tab-btn" id="tab3" onclick="swTab(3)">ورقة 4: Chores Challenge</button>
+  <button class="tab-btn" id="tab4" onclick="swTab(4)">ورقة 5: Robot Chant 1</button>
+  <button class="tab-btn" id="tab5" onclick="swTab(5)">ورقة 6: Robot Chant 2</button>
+  <button class="tab-btn" id="tab6" onclick="swTab(6)">ورقة 7: Phonics</button>
+  <button class="tab-btn" id="tab7" onclick="swTab(7)">ورقة 8: Phonics Challenge</button>
+  <button class="tab-btn" id="tab8" onclick="swTab(8)" style="border-color: var(--primary); color: var(--primary);">ورقة 9: المراجعة الشاملة</button>
+  <button class="tab-btn" id="tab9" onclick="swTab(9)" style="border-color: var(--accent); color: var(--accent); background: rgba(16, 185, 129, 0.03);">🎮 الألعاب التفاعلية</button>
+</div>
+
+<!-- SHEET CONTAINER -->
+<div class="sheet-container" id="printable-area">
+  
+  <!-- Student info header -->
+  <table class="student-info-table">
+    <tr>
+      <td><b>اسم الطالب (Student Name):</b> ___________________________</td>
+      <td><b>الصف (Class):</b> ______________</td>
+      <td><b>التاريخ (Date):</b> ____ / ____ / ________</td>
+    </tr>
+  </table>
+
+  <!-- TAB 0: Finding Out Time (p.26) -->
+  <div class="tab-content active" id="ws-content-0">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 1: Finding Out Time</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 26</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Match chores vocabulary with their Arabic meanings (Write letters a-h):</div>
+      <div style="line-height:2.8; font-size:15px; display:grid; grid-template-columns:1.2fr 1fr; gap:20px; direction:ltr; text-align:left;">
+        <div>
+          1. feed the fish: <input type="text" class="input-text" style="width:70px;" id="ws1-q1" placeholder=""><br>
+          2. set the table: <input type="text" class="input-text" style="width:70px;" id="ws1-q2" placeholder=""><br>
+          3. wash the dishes: <input type="text" class="input-text" style="width:70px;" id="ws1-q3" placeholder=""><br>
+          4. take out the trash: <input type="text" class="input-text" style="width:70px;" id="ws1-q4" placeholder="">
+        </div>
+        <div>
+          5. clean up my room: <input type="text" class="input-text" style="width:70px;" id="ws1-q5" placeholder=""><br>
+          6. go shopping: <input type="text" class="input-text" style="width:70px;" id="ws1-q6" placeholder=""><br>
+          7. vacuum the floor: <input type="text" class="input-text" style="width:70px;" id="ws1-q7" placeholder=""><br>
+          8. fold the laundry: <input type="text" class="input-text" style="width:70px;" id="ws1-q8" placeholder="">
+        </div>
+      </div>
+      <div style="margin-top:15px; background:rgba(0,0,0,0.01); padding:10px; border-radius:5px; border:1px solid var(--border); font-size:13px; text-align:right;">
+        أ) أرتب غرفتي | ب) أطوي الغسيل | ج) أجهز المائدة | د) أطعم السمك | هـ) أذهب للتسوق | و) أكنس الأرضية | ز) أغسل الأطباق | ح) أخرج القمامة
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Look at the visual card and write the correct chore phrase in English:</div>
+      <div class="svg-illustration-grid">
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">
+            <circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+            <path d="M30,50 Q45,35 70,50 Q45,65 30,50 Z" fill="#f97316"/><polygon points="20,40 32,50 20,60" fill="#f97316"/><circle cx="58" cy="46" r="3" fill="#000"/>
+          </svg>
+          <div style="margin-top:8px;"><input type="text" class="input-text" style="width:130px;" id="ws1-q9" placeholder=""></div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">
+            <circle cx="50" cy="50" r="45" fill="#fafafa" stroke="#e2e8f0" stroke-width="2"/><circle cx="50" cy="50" r="25" fill="#fff" stroke="#94a3b8" stroke-width="4"/><path d="M22,30 V70 M17,30 H27 M17,50 H27" stroke="#64748b" stroke-width="4"/><path d="M78,30 V70 M73,30 C73,45 83,45 83,30 Z" fill="#64748b" stroke="#64748b" stroke-width="2"/>
+          </svg>
+          <div style="margin-top:8px;"><input type="text" class="input-text" style="width:130px;" id="ws1-q10" placeholder=""></div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">
+            <circle cx="50" cy="50" r="45" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><path d="M25,45 L50,35 L75,45 L50,55 Z" fill="#60a5fa"/><path d="M25,58 L50,48 L75,58 L50,68 Z" fill="#f87171"/><path d="M25,71 L50,61 L75,71 L50,81 Z" fill="#34d399"/>
+          </svg>
+          <div style="margin-top:8px;"><input type="text" class="input-text" style="width:130px;" id="ws1-q11" placeholder=""></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Fill in the blank to complete the question and answer dialogue:</div>
+      <div style="line-height:2.8; font-size:15px; direction:ltr; text-align:left;">
+        1. A: What chores ______ you do? ➡️ B: I ______ the fish.<br>
+        <input type="text" class="input-text" style="width:100px;" id="ws1-q12" placeholder=""> | <input type="text" class="input-text" style="width:120px;" id="ws1-q13" placeholder="">
+      </div>
+      <div class="feedback-msg" id="ws1-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 1: Check Your Chores (p.27) -->
+  <div class="tab-content" id="ws-content-1">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 2: Check Your Chores (Survey & Score)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 27</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Tick (✓) your helper frequency at home:</div>
+      <table style="width:100%; border-collapse:collapse; text-align:center; font-size:14px; margin-top:10px; border:1px solid var(--border);">
+        <thead>
+          <tr style="background:rgba(79, 70, 229, 0.05);">
+            <th style="padding:10px; border:1px solid var(--border);">Chore</th>
+            <th style="padding:10px; border:1px solid var(--border);">Always (2 pts)</th>
+            <th style="padding:10px; border:1px solid var(--border);">Sometimes (1 pt)</th>
+            <th style="padding:10px; border:1px solid var(--border);">Never (0 pts)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:8px; border:1px solid var(--border); text-align:left; font-weight:bold;">Do you set the table? 🍽️</td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-0" value="2" onclick="calcWorksheetScore()"></td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-0" value="1" onclick="calcWorksheetScore()"></td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-0" value="0" onclick="calcWorksheetScore()"></td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid var(--border); text-align:left; font-weight:bold;">Do you wash the dishes? 🧽</td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-1" value="2" onclick="calcWorksheetScore()"></td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-1" value="1" onclick="calcWorksheetScore()"></td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-1" value="0" onclick="calcWorksheetScore()"></td>
+          </tr>
+          <tr>
+            <td style="padding:8px; border:1px solid var(--border); text-align:left; font-weight:bold;">Do you vacuum the floor? 🧹</td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-2" value="2" onclick="calcWorksheetScore()"></td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-2" value="1" onclick="calcWorksheetScore()"></td>
+            <td style="padding:8px; border:1px solid var(--border);"><input type="radio" name="ws-chore-2" value="0" onclick="calcWorksheetScore()"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background:var(--bg); border:2px dashed var(--primary); padding:10px; text-align:center; border-radius:8px; margin-top:12px;">
+        <h4 style="font-size:14px;">My Helper Score: <span id="ws-score-val" style="font-size:18px; font-weight:900; color:var(--accent);">0</span></h4>
+        <p style="font-weight:bold; font-size:13px;" id="ws-helper-text">I'm a... helper at home.</p>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Define textbook Helper Classifications by writing the matching points limit:</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        1. 13 or more points ➡️ I'm a <input type="text" class="input-text" style="width:140px;" id="ws2-q1" placeholder=""> helper at home.<br>
+        2. 9 - 12 points ➡️ I'm a <input type="text" class="input-text" style="width:140px;" id="ws2-q2" placeholder=""> helper at home.<br>
+        3. 0 - 4 points ➡️ I'm a <input type="text" class="input-text" style="width:140px;" id="ws2-q3" placeholder=""> helper at home.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Free Writing: Write a complete English sentence describing what kind of helper you are at home:</div>
+      <div style="direction:ltr; text-align:left;">
+        <input type="text" class="input-text" style="width:90%;" id="ws2-q4" placeholder="">
+      </div>
+      <div class="feedback-msg" id="ws2-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Grammar in Action (p.28) -->
+  <div class="tab-content" id="ws-content-2">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 3: Grammar in Action</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 28</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Grammar Verb Chart - Complete singular third-person forms:</div>
+      <div style="line-height:2.8; font-size:15px; display:grid; grid-template-columns:1fr 1fr; gap:15px; direction:ltr; text-align:left;">
+        <div>
+          1. feed ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v1" placeholder=""><br>
+          2. set ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v2" placeholder=""><br>
+          3. wash ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v3" placeholder=""><br>
+          4. vacuum ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v4" placeholder="">
+        </div>
+        <div>
+          5. clean ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v5" placeholder=""><br>
+          6. go ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v6" placeholder=""><br>
+          7. take ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v7" placeholder=""><br>
+          8. fold ➡️ He/She <input type="text" class="input-text" style="width:120px;" id="l11-v8" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Fill in the correct singular verb conjugation:</div>
+      <div style="line-height:2.8; font-size:15px; direction:ltr; text-align:left;">
+        1. My brother ______ (clean) up his room. ➡️ <input type="text" class="input-text" style="width:140px;" id="ws3-q1" placeholder=""><br>
+        2. She ______ (go) shopping on Monday. ➡️ <input type="text" class="input-text" style="width:140px;" id="ws3-q2" placeholder=""><br>
+        3. They ______ (wash) the dishes together. ➡️ <input type="text" class="input-text" style="width:140px;" id="ws3-q3" placeholder="">
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Complete the Chores Chant lyrics:</div>
+      <div style="line-height:2.4; font-size:15px; direction:ltr; text-align:left; background:rgba(0,0,0,0.02); padding:15px; border-radius:6px; border:1px solid var(--border);">
+        I wash the dishes.<br>
+        He <input type="text" class="input-text" style="width:120px;" id="l11-c1" placeholder=""> the dishes.<br>
+        She <input type="text" class="input-text" style="width:120px;" id="l11-c2" placeholder=""> the dishes.<br>
+        They <input type="text" class="input-text" style="width:120px;" id="l11-c3" placeholder=""> the dishes.
+      </div>
+      <div class="feedback-msg" id="ws3-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Speed Race (p.29) -->
+  <div class="tab-content" id="ws-content-3">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 4: Chores Challenge Time</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 29</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Fill in the gaps with the auxiliary verbs (do / does):</div>
+      <div style="line-height:2.8; font-size:15px; direction:ltr; text-align:left;">
+        1. What chores <input type="text" class="input-text" style="width:90px;" id="ws4-q1" placeholder=""> you do?<br>
+        2. What chores <input type="text" class="input-text" style="width:90px;" id="ws4-q2" placeholder=""> your sister do?<br>
+        3. <input type="text" class="input-text" style="width:90px;" id="ws4-q3" placeholder=""> they fold the laundry?<br>
+        4. <input type="text" class="input-text" style="width:90px;" id="ws4-q4" placeholder=""> he vacuum the floor?
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Q&A Match - Write the correct response letter:</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left; display:grid; grid-template-columns:1.5fr 1fr; gap:15px;">
+        <div>
+          1. Do you wash the dishes? ➡️ <input type="text" class="input-text" style="width:60px;" id="ws4-q5" placeholder=""><br>
+          2. What chores does he do? ➡️ <input type="text" class="input-text" style="width:60px;" id="ws4-q6" placeholder=""><br>
+          3. Does she feed the fish? ➡️ <input type="text" class="input-text" style="width:60px;" id="ws4-q7" placeholder="">
+        </div>
+        <div style="background:rgba(0,0,0,0.01); padding:10px; border-radius:5px; border:1px solid var(--border);">
+          a. He vacuums the floor.<br>
+          b. Yes, she does.<br>
+          c. No, I don't.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Write the positive short answer:</div>
+      <div style="line-height:2.5; font-size:15px; direction:ltr; text-align:left;">
+        Do you set the table? ➡️ Yes, I <input type="text" class="input-text" style="width:100px;" id="ws4-q8" placeholder="">.
+      </div>
+      <div class="feedback-msg" id="ws4-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 4: Robot Chant 1 (p.30) -->
+  <div class="tab-content" id="ws-content-4">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 5: Rhythms and Listening (Robot Chant)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 30</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Complete Clever Robot lyrics Part 1:</div>
+      <div style="line-height:2.8; font-size:15px; direction:ltr; text-align:left; background:rgba(0,0,0,0.02); padding:20px; border-radius:10px;">
+        "I'm a <input type="text" class="input-text" style="width:110px;" id="ws5-q1" placeholder=""> robot,<br>
+        I <input type="text" class="input-text" style="width:110px;" id="ws5-q2" placeholder=""> the table,<br>
+        And <input type="text" class="input-text" style="width:110px;" id="ws5-q3" placeholder=""> the dishes."
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Answer with (True) or (False) about the robot chant:</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        1. The robot is lazy. ➡️ <input type="text" class="input-text" style="width:100px;" id="ws5-q4" placeholder=""><br>
+        2. The robot sets the table. ➡️ <input type="text" class="input-text" style="width:100px;" id="ws5-q5" placeholder="">
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Match robot actions:</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        1. set the table ➡️ <input type="text" class="input-text" style="width:120px;" id="ws5-q6" placeholder=""><br>
+        2. wash the dishes ➡️ <input type="text" class="input-text" style="width:120px;" id="ws5-q7" placeholder="">
+      </div>
+      <div class="feedback-msg" id="ws5-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 5: Robot Chant 2 (p.31) -->
+  <div class="tab-content" id="ws-content-5">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 6: Rhythms and Reading</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 31</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Complete Clever Robot lyrics Part 2:</div>
+      <div style="line-height:2.8; font-size:15px; direction:ltr; text-align:left; background:rgba(0,0,0,0.02); padding:20px; border-radius:10px;">
+        "I <input type="text" class="input-text" style="width:110px;" id="ws6-q1" placeholder=""> the floor,<br>
+        And <input type="text" class="input-text" style="width:110px;" id="ws6-q2" placeholder=""> my room,<br>
+        I go <input type="text" class="input-text" style="width:110px;" id="ws6-q3" placeholder="">,<br>
+        And <input type="text" class="input-text" style="width:110px;" id="ws6-q4" placeholder=""> the laundry."
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Comprehension - True (T) or False (F):</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        1. The robot vacuums the floor. ➡️ <input type="text" class="input-text" style="width:60px;" id="ws6-q5" placeholder=""><br>
+        2. The robot goes to sleep in the afternoon. ➡️ <input type="text" class="input-text" style="width:60px;" id="ws6-q6" placeholder=""><br>
+        3. The robot folds the laundry. ➡️ <input type="text" class="input-text" style="width:60px;" id="ws6-q7" placeholder="">
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Vocabulary Multiple Choice - What does "laundry" mean?</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        laundry means: (a. الغسيل / b. القمامة / c. المائدة) ➡️ <input type="text" class="input-text" style="width:90px;" id="ws6-q8" placeholder="">
+      </div>
+      <div class="feedback-msg" id="ws6-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 6: Phonics (p.32) -->
+  <div class="tab-content" id="ws-content-6">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 7: Phonics (ar, or, er)</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 32</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Fill in the missing vowel sound combination (ar, or, er):</div>
+      <div class="svg-illustration-grid">
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.car}</svg>
+          <div class="svg-card-input-wrap">c <input type="text" class="input-text" style="width:55px;" id="ws7-q1" placeholder=""></div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.fork}</svg>
+          <div class="svg-card-input-wrap">f <input type="text" class="input-text" style="width:55px;" id="ws7-q2" placeholder=""> k</div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.teacher}</svg>
+          <div class="svg-card-input-wrap">teach <input type="text" class="input-text" style="width:55px;" id="ws7-q3" placeholder=""></div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.doctor}</svg>
+          <div class="svg-card-input-wrap">doct <input type="text" class="input-text" style="width:55px;" id="ws7-q4" placeholder=""></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Sound Matching - Choose the correct sound (ar, or, er):</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left; display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+        <div>
+          1. d _ _ k (مظلم) ➡️ <input type="text" class="input-text" style="width:90px;" id="ws7-q5" placeholder=""><br>
+          2. sp _ _ ts (رياضة) ➡️ <input type="text" class="input-text" style="width:90px;" id="ws7-q6" placeholder="">
+        </div>
+        <div>
+          3. p _ _ k (منتزه) ➡️ <input type="text" class="input-text" style="width:90px;" id="ws7-q7" placeholder=""><br>
+          4. sist _ _ (أخت) ➡️ <input type="text" class="input-text" style="width:90px;" id="ws7-q8" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: Word Unscramble - Put letters in correct order:</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        1. r - a - c ➡️ <input type="text" class="input-text" style="width:140px;" id="ws7-q9" placeholder=""><br>
+        2. k - r - o - f ➡️ <input type="text" class="input-text" style="width:140px;" id="ws7-q10" placeholder="">
+      </div>
+      <div class="feedback-msg" id="ws7-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 7: Phonics Challenge (p.33) -->
+  <div class="tab-content" id="ws-content-7">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 8: Phonics Challenge</div>
+      <div class="ws-subtitle">We Can 3 - Unit 4 - Page 33</div>
+    </div>
+    
+    <!-- Q1 -->
+    <div class="question-block">
+      <div class="q-title">Q1: Complete the challenge sentences (ar, or, er):</div>
+      <div style="line-height:2.8; font-size:15px; direction:ltr; text-align:left;">
+        1. It is d<input type="text" class="input-text" style="width:50px;" id="ws8-q1">k in wint<input type="text" class="input-text" style="width:50px;" id="ws8-q2">.<br>
+        2. He plays sp<input type="text" class="input-text" style="width:50px;" id="ws8-q3">ts in the p<input type="text" class="input-text" style="width:50px;" id="ws8-q4">k.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block">
+      <div class="q-title">Q2: Odd Word Out - Which word has a DIFFERENT vowel sound?</div>
+      <div style="line-height:2.6; font-size:15px; direction:ltr; text-align:left;">
+        1. car, park, fork ➡️ <input type="text" class="input-text" style="width:140px;" id="ws8-q5" placeholder=""><br>
+        2. teacher, sister, sports ➡️ <input type="text" class="input-text" style="width:140px;" id="ws8-q6" placeholder=""><br>
+        3. doctor, short, dark ➡️ <input type="text" class="input-text" style="width:140px;" id="ws8-q7" placeholder="">
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block">
+      <div class="q-title">Q3: True or False: "doctor" and "teacher" have similar ending vowel sounds.</div>
+      <div style="line-height:2.5; font-size:15px; direction:ltr; text-align:left;">
+        Answer (True / False): ➡️ <input type="text" class="input-text" style="width:100px;" id="ws8-q8" placeholder="">
+      </div>
+      <div class="feedback-msg" id="ws8-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 8: Comprehensive Review (ورقة 9) -->
+  <div class="tab-content" id="ws-content-8">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 9: Comprehensive Unit 4 Review</div>
+      <div class="ws-subtitle">ورقة عمل شاملة - الوحدة الرابعة: Chores & Phonics</div>
+    </div>
+
+    <!-- Review Q1: Matching -->
+    <div class="question-block">
+      <div class="q-title">Q1: Match chores with translations (Write letter a-f):</div>
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>Chore (المهام بالإنجليزية)</th>
+            <th>Answer (الإجابة)</th>
+            <th>Translation (الترجمة بالعربية)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left">1. feed the fish</td>
+            <td><input type="text" class="input-text" style="width:80px;" id="ws9-match-1" placeholder=""></td>
+            <td>a. أرتب غرفتي</td>
+          </tr>
+          <tr>
+            <td class="text-left">2. wash the dishes</td>
+            <td><input type="text" class="input-text" style="width:80px;" id="ws9-match-2" placeholder=""></td>
+            <td>b. أخرج القمامة</td>
+          </tr>
+          <tr>
+            <td class="text-left">3. clean up my room</td>
+            <td><input type="text" class="input-text" style="width:80px;" id="ws9-match-3" placeholder=""></td>
+            <td>c. أغسل الأطباق</td>
+          </tr>
+          <tr>
+            <td class="text-left">4. take out the trash</td>
+            <td><input type="text" class="input-text" style="width:80px;" id="ws9-match-4" placeholder=""></td>
+            <td>d. أطعم السمك</td>
+          </tr>
+          <tr>
+            <td class="text-left">5. fold the laundry</td>
+            <td><input type="text" class="input-text" style="width:80px;" id="ws9-match-5" placeholder=""></td>
+            <td>e. أطوي الغسيل</td>
+          </tr>
+          <tr>
+            <td class="text-left">6. vacuum the floor</td>
+            <td><input type="text" class="input-text" style="width:80px;" id="ws9-match-6" placeholder=""></td>
+            <td>f. أكنس الأرضية</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Review Q2: Grammar -->
+    <div class="question-block">
+      <div class="q-title">Q2: Grammar Check - Fill the correct conjugated verb or helper:</div>
+      <div style="line-height: 2.8; font-size: 15px; direction: ltr; text-align: left;">
+        1. He ______ the floor (vacuum). ➡️ <input type="text" class="input-text" style="width:120px;" id="ws9-g1" placeholder=""><br>
+        2. What chores ______ you do? ➡️ <input type="text" class="input-text" style="width:100px;" id="ws9-g2" placeholder=""><br>
+        3. She ______ shopping (go). ➡️ <input type="text" class="input-text" style="width:120px;" id="ws9-g3" placeholder=""><br>
+        4. What chores ______ he do? ➡️ <input type="text" class="input-text" style="width:100px;" id="ws9-g4" placeholder="">
+      </div>
+    </div>
+
+    <!-- Review Q3: Phonics spelling check -->
+    <div class="question-block">
+      <div class="q-title">Q3: Complete the Phonics spellings (ar, or, er):</div>
+      <div class="svg-illustration-grid">
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.car}</svg>
+          <div class="svg-card-input-wrap">c <input type="text" class="input-text" style="width:50px;" id="ws9-ph1" placeholder=""></div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.fork}</svg>
+          <div class="svg-card-input-wrap">f <input type="text" class="input-text" style="width:50px;" id="ws9-ph2" placeholder=""> k</div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.doctor}</svg>
+          <div class="svg-card-input-wrap">doct <input type="text" class="input-text" style="width:50px;" id="ws9-ph3" placeholder=""></div>
+        </div>
+        <div class="svg-ill-card">
+          <svg viewBox="0 0 100 100" class="svg-card-icon">${svgs.dark}</svg>
+          <div class="svg-card-input-wrap">d <input type="text" class="input-text" style="width:50px;" id="ws9-ph4" placeholder=""> k</div>
+        </div>
+      </div>
+      <div class="feedback-msg" id="ws9-fb"></div>
+    </div>
+  </div>
+
+  <!-- TAB 9: Interactive Games (Tab 10) -->
+  <div class="tab-content" id="ws-content-9">
+    <div class="ws-header">
+      <div class="ws-title">Interactive Games Hub</div>
+      <div class="ws-subtitle">ألعاب تعليمية تفاعلية لمراجعة وتثبيت مهارات الوحدة</div>
+    </div>
+
+    <div class="games-hub-container">
+      <div class="game-selector-buttons">
+         <button class="game-sel-btn active" id="btn-game-balloon" onclick="switchGame('balloon')">🎈 لعبة البالونات (Balloon Pop)</button>
+         <button class="game-sel-btn" id="btn-game-match" onclick="switchGame('match')">🔌 لعبة التوصيل (Connect Match)</button>
+         <button class="game-sel-btn" id="btn-game-flip" onclick="switchGame('flip')">🔄 لعبة ترتيب الحروف (Spelling Flip)</button>
+      </div>
+
+      <!-- GAME 1: Balloon Pop -->
+      <div class="game-panel active" id="game-panel-balloon">
+        <div class="balloon-arena" id="balloon-arena">
+          <div class="balloon-header">
+            <div class="balloon-score-panel">النقاط: <span id="game-bscore" style="color:var(--accent); font-weight:900;">0</span></div>
+            <div style="font-weight:bold;">فرقع البالون الصحيح!</div>
+            <div class="balloon-score-panel">السؤال: <span id="game-bround" style="color:var(--primary); font-weight:900;">0</span>/8</div>
+          </div>
+          <div class="balloon-q-box">
+            <div class="balloon-q-text" id="balloon-q-text">اضغط على زر البدء للعب!</div>
+            <div class="balloon-q-ar" id="balloon-q-ar">ابحث عن الكلمة المناسبة عندما تبدأ البالونات بالارتفاع.</div>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <button class="btn btn-primary" onclick="startBalloonGame()">🎈 ابدأ لعبة البالونات</button>
+        </div>
+        <div class="feedback-msg" id="game-balloon-fb"></div>
+      </div>
+
+      <!-- GAME 2: Interactive Matching -->
+      <div class="game-panel" id="game-panel-match">
+        <div style="text-align:center; margin-bottom:15px;">
+          <p style="font-weight:bold;">اضغط على الكلمة في اليمين، ثم اضغط على معناها أو صورتها المطابقة في اليسار للتوصيل بينهم!</p>
+        </div>
+        
+        <div class="match-game-container" id="match-game-area">
+          <svg class="match-svg-layer" id="match-svg"></svg>
+          
+          <!-- Left Column (English words) -->
+          <div class="match-col" id="match-col-left"></div>
+          
+          <!-- Right Column (Translations & SVGs) -->
+          <div class="match-col" id="match-col-right"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+          <button class="btn btn-outline" onclick="resetMatchGame()">🔄 إعادة تهيئة اللعبة</button>
+        </div>
+      </div>
+
+      <!-- GAME 3: Spelling Flip (تنقل الحروف) -->
+      <div class="game-panel" id="game-panel-flip">
+        <div style="text-align:center; margin-bottom:15px;">
+          <p style="font-weight:bold;">اضغط على حرفين لتبديل أماكنهم وترتيب الكلمة بالشكل الصحيح بناءً على الصورة!</p>
+        </div>
+
+        <div class="spelling-flip-container">
+          <div class="spelling-flip-img-wrap" id="flip-svg-placeholder"></div>
+          <div class="spelling-flip-word-title" id="flip-hint-text"></div>
+          
+          <!-- Letters row -->
+          <div class="spelling-letters-row" id="flip-letters-container"></div>
+          
+          <div style="display:flex; justify-content:center; gap:12px;">
+            <button class="btn btn-accent" id="btn-next-flip" style="display:none;" onclick="loadNextFlipWord()">الكلمة التالية ➡️</button>
+            <button class="btn btn-outline" onclick="resetCurrentFlipWord()">🔄 إعادة المحاولة</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ACTION BUTTONS -->
+<div class="action-buttons">
+  <button class="btn btn-accent" onclick="checkAnswers()">✔️ تحقق تفاعلياً</button>
+</div>
+
+<!-- LIBRARIES -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+let currentTab = 0;
+
+// Emojis SVGs definitions
+const svgs = {
+    fish: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><path d="M30,50 Q45,35 70,50 Q45,65 30,50 Z" fill="#f97316"/><polygon points="20,40 32,50 20,60" fill="#f97316"/><circle cx="58" cy="46" r="3" fill="#000"/></svg>`,
+    table: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fafafa" stroke="#e2e8f0" stroke-width="2"/><circle cx="50" cy="50" r="25" fill="#fff" stroke="#94a3b8" stroke-width="4"/><path d="M22,30 V70 M17,30 H27 M17,50 H27" stroke="#64748b" stroke-width="4"/><path d="M78,30 V70 M73,30 C73,45 83,45 83,30 Z" fill="#64748b" stroke="#64748b" stroke-width="2"/></svg>`,
+    dishes: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/><circle cx="45" cy="50" r="22" fill="#fff" stroke="#cbd5e1" stroke-width="3"/><rect x="62" y="55" width="22" height="14" rx="3" fill="#eab308"/><circle cx="35" cy="40" r="4" fill="#67e8f9" opacity="0.6"/><circle cx="70" cy="45" r="5" fill="#67e8f9" opacity="0.6"/></svg>`,
+    trash: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fef2f2" stroke="#f43f5e" stroke-width="2"/><path d="M35,35 L40,80 H60 L65,35 Z" fill="#94a3b8"/><rect x="30" y="27" width="40" height="8" rx="2" fill="#64748b"/><line x1="45" y1="42" x2="45" y2="72" stroke="#475569" stroke-width="3"/><line x1="55" y1="42" x2="55" y2="72" stroke="#475569" stroke-width="3"/></svg>`,
+    room: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/><rect x="20" y="55" width="60" height="25" rx="4" fill="#a855f7"/><rect x="25" y="45" width="20" height="12" rx="2" fill="#e9d5ff"/><line x1="75" y1="25" x2="65" y2="65" stroke="#eab308" stroke-width="4"/><path d="M60,65 L70,65 L72,75 L58,75 Z" fill="#facc15"/></svg>`,
+    shopping: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><path d="M20,25 H30 L45,65 H75 L85,35 H32" fill="none" stroke="#3b82f6" stroke-width="4"/><circle cx="50" cy="75" r="8" fill="#1e293b"/><circle cx="70" cy="75" r="8" fill="#1e293b"/></svg>`,
+    laundry: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><path d="M25,45 L50,35 L75,45 L50,55 Z" fill="#60a5fa"/><path d="M25,58 L50,48 L75,58 L50,68 Z" fill="#f87171"/><path d="M25,71 L50,61 L75,71 L50,81 Z" fill="#34d399"/></svg>`,
+    car: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><path d="M25,60 H75 L70,45 H30 Z" fill="#ef4444"/><rect x="20" y="60" width="60" height="15" rx="3" fill="#ef4444"/><circle cx="35" cy="75" r="8" fill="#1e293b"/><circle cx="65" cy="75" r="8" fill="#1e293b"/><rect x="33" y="49" width="13" height="9" fill="#e2e8f0"/><rect x="53" y="49" width="13" height="9" fill="#e2e8f0"/></svg>`,
+    fork: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/><path d="M50,45 V80" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/><path d="M38,25 V45 C38,55 62,55 62,45 V25" fill="none" stroke="#94a3b8" stroke-width="4"/><line x1="44" y1="25" x2="44" y2="45" stroke="#94a3b8" stroke-width="4"/><line x1="56" y1="25" x2="56" y2="45" stroke="#94a3b8" stroke-width="4"/></svg>`,
+    doctor: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fff5f5" stroke="#f43f5e" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#f43f5e"/><rect x="46" y="38" width="8" height="24" fill="#fff" rx="1"/><rect x="38" y="46" width="24" height="8" fill="#fff" rx="1"/><path d="M30,30 Q30,70 50,75 Q70,70 70,30" fill="none" stroke="#94a3b8" stroke-width="4"/></svg>`,
+    teacher: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/><rect x="25" y="22" width="50" height="32" rx="2" fill="#065f46" stroke="#047857" stroke-width="2"/><line x1="32" y1="32" x2="45" y2="32" stroke="#fff" stroke-width="2"/><line x1="32" y1="40" x2="60" y2="40" stroke="#fff" stroke-width="2"/><circle cx="50" cy="74" r="9" fill="#10b981"/><path d="M35,90 C35,78 65,78 65,90" fill="#047857"/></svg>`,
+    dark: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#0f172a" stroke="#1e293b" stroke-width="2"/><path d="M45,25 A20,20 0 1,0 75,55 A25,25 0 1,1 45,25 Z" fill="#facc15"/><circle cx="30" cy="35" r="2" fill="#fff"/><circle cx="65" cy="30" r="1.5" fill="#fff"/><circle cx="55" cy="70" r="2" fill="#fff"/></svg>`
+};
+
+// Theme toggle
+function tglTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    document.querySelector('.theme-btn').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+}
+
+function swTab(idx) {
+    currentTab = idx;
+    
+    // Toggle active tab button
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+    });
+    
+    // Toggle active worksheet content
+    document.querySelectorAll('.tab-content').forEach((content, i) => {
+        content.style.display = i === idx ? 'block' : 'none';
+        content.classList.toggle('active', i === idx);
+    });
+    
+    // Show/Hide bottom action check button (hide it in Game Hub and Survey)
+    const actBtn = document.querySelector('.action-buttons');
+    if(idx === 9 || idx === 1) {
+        actBtn.style.display = 'none';
+    } else {
+        actBtn.style.display = 'flex';
+    }
+
+    // Stop balloon loop if switching away from Games Hub
+    if (idx !== 9) {
+        stopBalloonTimer();
+    } else {
+        setTimeout(redrawMatchLines, 100);
+    }
+}
+
+// Print all worksheets sequentially with A4 page breaks
+function printAllWorksheets() {
+    document.body.classList.add('print-all-mode');
+    window.print();
+    setTimeout(() => {
+        document.body.classList.remove('print-all-mode');
+    }, 1000);
+}
+
+// Interactive sound speech
+function speak(text) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+// Confetti success
+function popConfetti() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 80,
+            spread: 60,
+            origin: { y: 0.7 }
+        });
+    }
+}
+
+// --------------------------------------------------------------------------
+// CALC SURVEY SCORE (Tab 1)
+// --------------------------------------------------------------------------
+function calcWorksheetScore() {
+    let score = 0;
+    // Checking first 3 rows
+    for (let i = 0; i < 3; i++) {
+        const radios = document.getElementsByName(`ws-chore-${i}`);
+        radios.forEach(r => {
+            if (r.checked) score += parseInt(r.value);
+        });
+    }
+    document.getElementById('ws-score-val').textContent = score;
+    const txt = document.getElementById('ws-helper-text');
+    if (score >= 5) {
+        txt.textContent = "🏆 I'm a super helper at home! (مساعد خارق في المنزل)";
+        txt.style.color = "var(--accent)";
+    } else if (score >= 3) {
+        txt.textContent = "👍 I'm a good helper at home! (مساعد جيد في المنزل)";
+        txt.style.color = "var(--primary)";
+    } else {
+        txt.textContent = "🧹 I can try to help more! (أستطيع المحاولة للمساعدة بشكل أكبر)";
+        txt.style.color = "var(--danger)";
+    }
+}
+
+// --------------------------------------------------------------------------
+// MAIN CHECK ANSWERS (ALL WORKSHEETS)
+// --------------------------------------------------------------------------
+function checkAnswers() {
+    // Reset feedback
+    document.querySelectorAll('.feedback-msg').forEach(fb => {
+        fb.className = 'feedback-msg';
+        fb.textContent = '';
+    });
+
+    if (currentTab === 0) {
+        // Worksheet 1
+        const q1 = document.getElementById('ws1-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws1-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws1-q3').value.trim().toLowerCase();
+        const q4 = document.getElementById('ws1-q4').value.trim().toLowerCase();
+        const q5 = document.getElementById('ws1-q5').value.trim().toLowerCase();
+        const q6 = document.getElementById('ws1-q6').value.trim().toLowerCase();
+        const q7 = document.getElementById('ws1-q7').value.trim().toLowerCase();
+        const q8 = document.getElementById('ws1-q8').value.trim().toLowerCase();
+
+        // Q2
+        const q9 = document.getElementById('ws1-q9').value.trim().toLowerCase();
+        const q10 = document.getElementById('ws1-q10').value.trim().toLowerCase();
+        const q11 = document.getElementById('ws1-q11').value.trim().toLowerCase();
+
+        // Q3
+        const q12 = document.getElementById('ws1-q12').value.trim().toLowerCase();
+        const q13 = document.getElementById('ws1-q13').value.trim().toLowerCase();
+
+        let correct = 0;
+        // Q1 Answers mapping: 1->d, 2->c, 3->z (ز), 4->h (ح), 5->a, 6->e, 7->w (و), 8->b
+        // Arabic equivalents checking (d/د, c/ج, z/ز, h/ح, a/أ, e/هـ, w/و, b/ب)
+        const matchAns = {
+            'ws1-q1': ['d', 'د'], 'ws1-q2': ['c', 'ج'], 'ws1-q3': ['z', 'ز'],
+            'ws1-q4': ['h', 'ح'], 'ws1-q5': ['a', 'أ'], 'ws1-q6': ['e', 'هـ'],
+            'ws1-q7': ['w', 'و'], 'ws1-q8': ['b', 'ب']
+        };
+
+        for(let id in matchAns) {
+            const v = document.getElementById(id).value.trim().toLowerCase();
+            if (matchAns[id].includes(v)) {
+                correct++;
+                document.getElementById(id).style.borderColor = 'var(--accent)';
+            } else {
+                document.getElementById(id).style.borderColor = 'var(--danger)';
+            }
+        }
+
+        // Q2 Answers: feed the fish, set the table, fold the laundry
+        if (q9 === 'feed the fish' || q9 === 'feed fish') { correct++; document.getElementById('ws1-q9').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws1-q9').style.borderColor='var(--danger)';
+        
+        if (q10 === 'set the table' || q10 === 'set table') { correct++; document.getElementById('ws1-q10').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws1-q10').style.borderColor='var(--danger)';
+
+        if (q11 === 'fold the laundry' || q11 === 'fold laundry') { correct++; document.getElementById('ws1-q11').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws1-q11').style.borderColor='var(--danger)';
+
+        // Q3 Answers: do / feed
+        if (q12 === 'do') { correct++; document.getElementById('ws1-q12').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws1-q12').style.borderColor='var(--danger)';
+
+        if (q13 === 'feed') { correct++; document.getElementById('ws1-q13').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws1-q13').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws1-fb');
+        if (correct === 13) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 إجابات كاملة وصحيحة 100%! عمل رائع!';
+            speak('Excellent! All answers are correct.');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 13 بشكل صحيح. راجع الأخطاء باللون الأحمر وحاول مجدداً.`;
+            speak('Keep trying!');
+        }
+    }
+    else if (currentTab === 1) {
+        // Worksheet 2
+        const q1 = document.getElementById('ws2-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws2-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws2-q3').value.trim().toLowerCase();
+        const q4 = document.getElementById('ws2-q4').value.trim().toLowerCase();
+
+        let correct = 0;
+        if(q1 === 'great') { correct++; document.getElementById('ws2-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws2-q1').style.borderColor='var(--danger)';
+
+        if(q2 === 'good') { correct++; document.getElementById('ws2-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws2-q2').style.borderColor='var(--danger)';
+
+        if(q3 === 'poor') { correct++; document.getElementById('ws2-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws2-q3').style.borderColor='var(--danger)';
+
+        if(q4.length > 5) { correct++; document.getElementById('ws2-q4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws2-q4').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws2-fb');
+        if (correct === 4) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 إجابات صحيحة بالكامل! تقييم المساعدين صحيح وتعبيرك رائع!';
+            speak('Great job! Classifications and sentences are verified.');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = '❌ يرجى مراجعة تصنيفات النقاط والتأكد من كتابة جملة معبرة كاملة.';
+        }
+    }
+    else if (currentTab === 2) {
+        // Worksheet 3
+        const verbs = ['feeds', 'sets', 'washes', 'vacuums', 'cleans', 'goes', 'takes', 'folds'];
+        let correct = 0;
+        for (let i = 1; i <= 8; i++) {
+            const val = document.getElementById(`l11-v${i}`).value.trim().toLowerCase();
+            if (val === verbs[i-1]) {
+                correct++;
+                document.getElementById(`l11-v${i}`).style.borderColor = 'var(--accent)';
+            } else {
+                document.getElementById(`l11-v${i}`).style.borderColor = 'var(--danger)';
+            }
+        }
+
+        // Q2 Grammar
+        const q1 = document.getElementById('ws3-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws3-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws3-q3').value.trim().toLowerCase();
+        if(q1 === 'cleans') { correct++; document.getElementById('ws3-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws3-q1').style.borderColor='var(--danger)';
+        if(q2 === 'goes') { correct++; document.getElementById('ws3-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws3-q2').style.borderColor='var(--danger)';
+        if(q3 === 'wash') { correct++; document.getElementById('ws3-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws3-q3').style.borderColor='var(--danger)';
+
+        // Q3 Chant
+        const c1 = document.getElementById('l11-c1').value.trim().toLowerCase();
+        const c2 = document.getElementById('l11-c2').value.trim().toLowerCase();
+        const c3 = document.getElementById('l11-c3').value.trim().toLowerCase();
+        if(c1 === 'he washes') { correct++; document.getElementById('l11-c1').style.borderColor='var(--accent)'; }
+        else document.getElementById('l11-c1').style.borderColor='var(--danger)';
+        if(c2 === 'she washes') { correct++; document.getElementById('l11-c2').style.borderColor='var(--accent)'; }
+        else document.getElementById('l11-c2').style.borderColor='var(--danger)';
+        if(c3 === 'they wash') { correct++; document.getElementById('l11-c3').style.borderColor='var(--accent)'; }
+        else document.getElementById('l11-c3').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws3-fb');
+        if (correct === 14) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 إجابات قواعدية صحيحة بالكامل! أنت متميز في قواعد الفعل المفرد!';
+            speak('Perfect grammar scoring!');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 14 بشكل صحيح. راجع تصريف الأفعال.`;
+        }
+    }
+    else if (currentTab === 3) {
+        // Worksheet 4
+        const q1 = document.getElementById('ws4-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws4-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws4-q3').value.trim().toLowerCase();
+        const q4 = document.getElementById('ws4-q4').value.trim().toLowerCase();
+
+        const q5 = document.getElementById('ws4-q5').value.trim().toLowerCase();
+        const q6 = document.getElementById('ws4-q6').value.trim().toLowerCase();
+        const q7 = document.getElementById('ws4-q7').value.trim().toLowerCase();
+
+        const q8 = document.getElementById('ws4-q8').value.trim().toLowerCase();
+
+        let correct = 0;
+        if(q1 === 'do') { correct++; document.getElementById('ws4-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q1').style.borderColor='var(--danger)';
+        if(q2 === 'does') { correct++; document.getElementById('ws4-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q2').style.borderColor='var(--danger)';
+        if(q3 === 'do') { correct++; document.getElementById('ws4-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q3').style.borderColor='var(--danger)';
+        if(q4 === 'does') { correct++; document.getElementById('ws4-q4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q4').style.borderColor='var(--danger)';
+
+        if(q5 === 'c') { correct++; document.getElementById('ws4-q5').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q5').style.borderColor='var(--danger)';
+        if(q6 === 'a') { correct++; document.getElementById('ws4-q6').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q6').style.borderColor='var(--danger)';
+        if(q7 === 'b') { correct++; document.getElementById('ws4-q7').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q7').style.borderColor='var(--danger)';
+
+        if(q8 === 'do') { correct++; document.getElementById('ws4-q8').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws4-q8').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws4-fb');
+        if(correct === 8) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 إجابات صحيحة بالكامل! (do, does) وتوصيل الأسئلة رائع!';
+            speak('Perfect score in Q&A.');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 8 بشكل صحيح. راجع الأسئلة والأجوبة.`;
+        }
+    }
+    else if (currentTab === 4) {
+        // Worksheet 5
+        const q1 = document.getElementById('ws5-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws5-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws5-q3').value.trim().toLowerCase();
+
+        const q4 = document.getElementById('ws5-q4').value.trim().toLowerCase();
+        const q5 = document.getElementById('ws5-q5').value.trim().toLowerCase();
+
+        const q6 = document.getElementById('ws5-q6').value.trim().toLowerCase();
+        const q7 = document.getElementById('ws5-q7').value.trim().toLowerCase();
+
+        let correct = 0;
+        if(q1 === 'clever') { correct++; document.getElementById('ws5-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q1').style.borderColor='var(--danger)';
+        if(q2 === 'set') { correct++; document.getElementById('ws5-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q2').style.borderColor='var(--danger)';
+        if(q3 === 'wash') { correct++; document.getElementById('ws5-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q3').style.borderColor='var(--danger)';
+
+        if(q4 === 'false' || q4 === 'خطأ') { correct++; document.getElementById('ws5-q4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q4').style.borderColor='var(--danger)';
+        if(q5 === 'true' || q5 === 'صح' || q5 === 'صحيح') { correct++; document.getElementById('ws5-q5').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q5').style.borderColor='var(--danger)';
+
+        if(q6 === 'يجهز' || q6 === 'يجهز المائدة') { correct++; document.getElementById('ws5-q6').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q6').style.borderColor='var(--danger)';
+        if(q7 === 'يغسل' || q7 === 'يغسل الأطباق') { correct++; document.getElementById('ws5-q7').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws5-q7').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws5-fb');
+        if(correct === 7) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 أنشودة صحيحة وفهم ممتاز للجزء الأول من الروبوت!';
+            speak('Good job with robot lyrics.');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 7 بشكل صحيح.`;
+        }
+    }
+    else if (currentTab === 5) {
+        // Worksheet 6
+        const q1 = document.getElementById('ws6-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws6-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws6-q3').value.trim().toLowerCase();
+        const q4 = document.getElementById('ws6-q4').value.trim().toLowerCase();
+
+        const q5 = document.getElementById('ws6-q5').value.trim().toLowerCase();
+        const q6 = document.getElementById('ws6-q6').value.trim().toLowerCase();
+        const q7 = document.getElementById('ws6-q7').value.trim().toLowerCase();
+
+        const q8 = document.getElementById('ws6-q8').value.trim().toLowerCase();
+
+        let correct = 0;
+        if(q1 === 'vacuum') { correct++; document.getElementById('ws6-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q1').style.borderColor='var(--danger)';
+        if(q2 === 'clean up') { correct++; document.getElementById('ws6-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q2').style.borderColor='var(--danger)';
+        if(q3 === 'shopping') { correct++; document.getElementById('ws6-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q3').style.borderColor='var(--danger)';
+        if(q4 === 'fold') { correct++; document.getElementById('ws6-q4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q4').style.borderColor='var(--danger)';
+
+        if(q5 === 't' || q5 === 'true') { correct++; document.getElementById('ws6-q5').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q5').style.borderColor='var(--danger)';
+        if(q6 === 'f' || q6 === 'false') { correct++; document.getElementById('ws6-q6').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q6').style.borderColor='var(--danger)';
+        if(q7 === 't' || q7 === 'true') { correct++; document.getElementById('ws6-q7').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q7').style.borderColor='var(--danger)';
+
+        if(q8 === 'a' || q8 === 'الغسيل') { correct++; document.getElementById('ws6-q8').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws6-q8').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws6-fb');
+        if(correct === 8) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 ممتاز! حل صحيح بالكامل للجزء الثاني لقصيدة الروبوت!';
+            speak('Excellent robot reading!');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 8 بشكل صحيح.`;
+        }
+    }
+    else if (currentTab === 6) {
+        // Worksheet 7
+        const q1 = document.getElementById('ws7-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws7-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws7-q3').value.trim().toLowerCase();
+        const q4 = document.getElementById('ws7-q4').value.trim().toLowerCase();
+
+        const q5 = document.getElementById('ws7-q5').value.trim().toLowerCase();
+        const q6 = document.getElementById('ws7-q6').value.trim().toLowerCase();
+        const q7 = document.getElementById('ws7-q7').value.trim().toLowerCase();
+        const q8 = document.getElementById('ws7-q8').value.trim().toLowerCase();
+
+        const q9 = document.getElementById('ws7-q9').value.trim().toLowerCase();
+        const q10 = document.getElementById('ws7-q10').value.trim().toLowerCase();
+
+        let correct = 0;
+        if(q1 === 'ar') { correct++; document.getElementById('ws7-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q1').style.borderColor='var(--danger)';
+        if(q2 === 'or') { correct++; document.getElementById('ws7-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q2').style.borderColor='var(--danger)';
+        if(q3 === 'er') { correct++; document.getElementById('ws7-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q3').style.borderColor='var(--danger)';
+        if(q4 === 'or') { correct++; document.getElementById('ws7-q4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q4').style.borderColor='var(--danger)';
+
+        if(q5 === 'ar') { correct++; document.getElementById('ws7-q5').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q5').style.borderColor='var(--danger)';
+        if(q6 === 'or') { correct++; document.getElementById('ws7-q6').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q6').style.borderColor='var(--danger)';
+        if(q7 === 'ar') { correct++; document.getElementById('ws7-q7').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q7').style.borderColor='var(--danger)';
+        if(q8 === 'er') { correct++; document.getElementById('ws7-q8').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q8').style.borderColor='var(--danger)';
+
+        if(q9 === 'car') { correct++; document.getElementById('ws7-q9').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q9').style.borderColor='var(--danger)';
+        if(q10 === 'fork') { correct++; document.getElementById('ws7-q10').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws7-q10').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws7-fb');
+        if(correct === 10) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 تهجئة وتركيب صوتي صحيح 100%! (car, fork, teacher, doctor, dark, sports, park, sister)';
+            speak('Perfect phonics spelling!');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 10 بشكل صحيح.`;
+        }
+    }
+    else if (currentTab === 7) {
+        // Worksheet 8
+        const q1 = document.getElementById('ws8-q1').value.trim().toLowerCase();
+        const q2 = document.getElementById('ws8-q2').value.trim().toLowerCase();
+        const q3 = document.getElementById('ws8-q3').value.trim().toLowerCase();
+        const q4 = document.getElementById('ws8-q4').value.trim().toLowerCase();
+
+        const q5 = document.getElementById('ws8-q5').value.trim().toLowerCase();
+        const q6 = document.getElementById('ws8-q6').value.trim().toLowerCase();
+        const q7 = document.getElementById('ws8-q7').value.trim().toLowerCase();
+
+        const q8 = document.getElementById('ws8-q8').value.trim().toLowerCase();
+
+        let correct = 0;
+        if(q1 === 'ar') { correct++; document.getElementById('ws8-q1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q1').style.borderColor='var(--danger)';
+        if(q2 === 'er') { correct++; document.getElementById('ws8-q2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q2').style.borderColor='var(--danger)';
+        if(q3 === 'or') { correct++; document.getElementById('ws8-q3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q3').style.borderColor='var(--danger)';
+        if(q4 === 'ar') { correct++; document.getElementById('ws8-q4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q4').style.borderColor='var(--danger)';
+
+        if(q5 === 'fork') { correct++; document.getElementById('ws8-q5').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q5').style.borderColor='var(--danger)';
+        if(q6 === 'sports') { correct++; document.getElementById('ws8-q6').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q6').style.borderColor='var(--danger)';
+        if(q7 === 'dark') { correct++; document.getElementById('ws8-q7').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q7').style.borderColor='var(--danger)';
+
+        if(q8 === 'true' || q8 === 'صح' || q8 === 'صحيح') { correct++; document.getElementById('ws8-q8').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws8-q8').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws8-fb');
+        if(correct === 8) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 مبروك! إجابات التحدي الصوتي كاملة وصحيحة!';
+            speak('Phonics challenge completed successfully.');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ تم حل ${correct} من أصل 8 بشكل صحيح.`;
+        }
+    }
+    else if (currentTab === 8) {
+        // Worksheet 9: Review Sheet Check
+        let score = 0;
+        // Q1 Matches: 1->d, 2->c, 3->a, 4->b, 5->e, 6->f
+        const matches = ['d', 'c', 'a', 'b', 'e', 'f'];
+        for(let i = 1; i <= 6; i++) {
+            const val = document.getElementById(`ws9-match-${i}`).value.trim().toLowerCase();
+            if(val === matches[i-1]) {
+                score++;
+                document.getElementById(`ws9-match-${i}`).style.borderColor = 'var(--accent)';
+            } else {
+                document.getElementById(`ws9-match-${i}`).style.borderColor = 'var(--danger)';
+            }
+        }
+        // Q2 Grammar: 1->vacuums, 2->do, 3->goes, 4->does
+        const g1 = document.getElementById('ws9-g1').value.trim().toLowerCase();
+        const g2 = document.getElementById('ws9-g2').value.trim().toLowerCase();
+        const g3 = document.getElementById('ws9-g3').value.trim().toLowerCase();
+        const g4 = document.getElementById('ws9-g4').value.trim().toLowerCase();
+        if(g1 === 'vacuums') { score++; document.getElementById('ws9-g1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-g1').style.borderColor='var(--danger)';
+        if(g2 === 'do') { score++; document.getElementById('ws9-g2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-g2').style.borderColor='var(--danger)';
+        if(g3 === 'goes') { score++; document.getElementById('ws9-g3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-g3').style.borderColor='var(--danger)';
+        if(g4 === 'does') { score++; document.getElementById('ws9-g4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-g4').style.borderColor='var(--danger)';
+
+        // Q3 Phonics: ph1->ar, ph2->or, ph3->or, ph4->ar
+        const ph1 = document.getElementById('ws9-ph1').value.trim().toLowerCase();
+        const ph2 = document.getElementById('ws9-ph2').value.trim().toLowerCase();
+        const ph3 = document.getElementById('ws9-ph3').value.trim().toLowerCase();
+        const ph4 = document.getElementById('ws9-ph4').value.trim().toLowerCase();
+        if(ph1 === 'ar') { score++; document.getElementById('ws9-ph1').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-ph1').style.borderColor='var(--danger)';
+        if(ph2 === 'or') { score++; document.getElementById('ws9-ph2').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-ph2').style.borderColor='var(--danger)';
+        if(ph3 === 'or') { score++; document.getElementById('ws9-ph3').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-ph3').style.borderColor='var(--danger)';
+        if(ph4 === 'ar') { score++; document.getElementById('ws9-ph4').style.borderColor='var(--accent)'; }
+        else document.getElementById('ws9-ph4').style.borderColor='var(--danger)';
+
+        const fb = document.getElementById('ws9-fb');
+        if(score === 14) {
+            fb.className = 'feedback-msg correct';
+            fb.textContent = '🎉 ممتاز! لقد أنجزت المراجعة الشاملة وحصلت على العلامة الكاملة 14/14!';
+            speak('Congratulations! Perfect review score.');
+            popConfetti();
+        } else {
+            fb.className = 'feedback-msg wrong';
+            fb.textContent = `❌ لقد حصلت على درجة ${score}/14. راجع الأخطاء باللون الأحمر وحاول مجدداً.`;
+            speak('Check your answers.');
+        }
+    }
+}
+
+
+// --------------------------------------------------------------------------
+// GAMES HUB MANAGEMENT (Tab 9)
+// --------------------------------------------------------------------------
+function switchGame(gameKey) {
+    document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
+    document.querySelectorAll('.game-sel-btn').forEach(btn => btn.classList.remove('active'));
+    
+    document.getElementById(`game-panel-${gameKey}`).classList.add('active');
+    document.getElementById(`btn-game-${gameKey}`).classList.add('active');
+
+    stopBalloonTimer();
+
+    if (gameKey === 'balloon') {
+        // ready
+    } else if (gameKey === 'match') {
+        resetMatchGame();
+    } else if (gameKey === 'flip') {
+        startSpellingFlipGame();
+    }
+}
+
+// --- 1. BALLOON POP GAME LOGIC ---
+const balloonQuestions = [
+    {q: 'أطعم السمك 🐠', ans: 'feed the fish', opts: ['feed the fish', 'wash the dishes', 'go shopping', 'fold the laundry']},
+    {q: 'أطوي الغسيل 🧺', ans: 'fold the laundry', opts: ['fold the laundry', 'set the table', 'vacuum the floor', 'clean up my room']},
+    {q: 'أغسل الأطباق 🧽', ans: 'wash the dishes', opts: ['wash the dishes', 'feed the fish', 'take out the trash', 'go shopping']},
+    {q: 'He ______ the dishes.', ans: 'washes', opts: ['wash', 'washes', 'washing', 'washed']},
+    {q: 'What chores ______ you do?', ans: 'do', opts: ['do', 'does', 'doing', 'did']},
+    {q: 'c _ _ (سيارة)', ans: 'ar', opts: ['ar', 'or', 'er', 'ir']},
+    {q: 'f _ _ k (شوكة)', ans: 'or', opts: ['or', 'ar', 'er', 'ur']},
+    {q: 'teach _ _ (معلم)', ans: 'er', opts: ['er', 'or', 'ar', 'ir']}
+];
+const colorsList = ['#4f46e5', '#10b981', '#f43f5e', '#6366f1', '#f59e0b', '#06b6d4', '#ec4899', '#8b5cf6'];
+let bScore = 0;
+let bRound = 0;
+let balloonInterval = null;
+let spawnedBalloons = [];
+
+function stopBalloonTimer() {
+    if(balloonInterval) clearInterval(balloonInterval);
+    const arena = document.getElementById('balloon-arena');
+    const children = Array.from(arena.children);
+    children.forEach(c => {
+        if(!c.classList.contains('balloon-header') && !c.classList.contains('balloon-q-box')) {
+            arena.removeChild(c);
+        }
+    });
+    spawnedBalloons = [];
+}
+
+function startBalloonGame() {
+    bScore = 0;
+    bRound = 0;
+    document.getElementById('game-bscore').textContent = '0';
+    document.getElementById('game-bround').textContent = '0';
+    document.getElementById('game-balloon-fb').className = 'feedback-msg';
+    document.getElementById('game-balloon-fb').textContent = '';
+    
+    stopBalloonTimer();
+    nextBalloonRound();
+}
+
+function nextBalloonRound() {
+    if(bRound >= balloonQuestions.length) {
+        document.getElementById('balloon-q-text').textContent = '🏆 تهانينا! انتهت اللعبة!';
+        document.getElementById('balloon-q-ar').textContent = `النتيجة النهائية: ${bScore} من أصل ${balloonQuestions.length}`;
+        stopBalloonTimer();
+        if(bScore >= 6) {
+            popConfetti();
+            speak('Excellent job! You are a spelling champion.');
+        }
+        return;
+    }
+
+    const q = balloonQuestions[bRound];
+    document.getElementById('balloon-q-text').textContent = q.q;
+    document.getElementById('balloon-q-ar').textContent = 'اختر البالون الصحيح لفرقعته!';
+    document.getElementById('game-bround').textContent = bRound + 1;
+
+    const arena = document.getElementById('balloon-arena');
+    const shuffledOpts = [...q.opts].sort(() => Math.random() - 0.5);
+
+    const oldBalloons = arena.querySelectorAll('.balloon');
+    oldBalloons.forEach(b => b.remove());
+
+    shuffledOpts.forEach((opt, idx) => {
+        const bal = document.createElement('div');
+        bal.className = 'balloon';
+        const dur = 7 + Math.random() * 4;
+        bal.style.cssText = `left:${10 + idx * 22}%; --dur:${dur}s; animation-delay:${idx * 0.2}s`;
+        const color = colorsList[idx % colorsList.length];
+        
+        bal.innerHTML = `<div class="balloon-body" style="background:${color}">${opt}</div><div class="balloon-string"></div>`;
+        
+        bal.addEventListener('click', () => popBalloon(bal, opt, q.ans));
+        arena.appendChild(bal);
+    });
+
+    if(balloonInterval) clearInterval(balloonInterval);
+    balloonInterval = setInterval(() => {
+        const activeBals = arena.querySelectorAll('.balloon');
+        if(activeBals.length > 0) {
+            let allOut = true;
+            activeBals.forEach(b => {
+                const rect = b.getBoundingClientRect();
+                const arenaRect = arena.getBoundingClientRect();
+                if(rect.bottom > arenaRect.top) {
+                    allOut = false;
+                }
+            });
+            if(allOut) {
+                nextBalloonRound();
+            }
+        }
+    }, 1000);
+}
+
+function popBalloon(balEl, chosen, correct) {
+    if(balEl.classList.contains('pop')) return;
+    balEl.classList.add('pop');
+    
+    playPopSound();
+
+    const fb = document.getElementById('game-balloon-fb');
+    if(chosen === correct) {
+        bScore++;
+        document.getElementById('game-bscore').textContent = bScore;
+        fb.className = 'feedback-msg correct';
+        fb.textContent = '🎉 رائع! إجابة صحيحة وفرقعة ممتازة!';
+        speak('Correct!');
+    } else {
+        fb.className = 'feedback-msg wrong';
+        fb.textContent = `❌ الإجابة الصحيحة هي: ${correct}`;
+        speak('Incorrect!');
+    }
+
+    bRound++;
+    setTimeout(() => {
+        fb.className = 'feedback-msg';
+        fb.textContent = '';
+        nextBalloonRound();
+    }, 1500);
+}
+
+function playPopSound() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        
+        osc.frequency.setValueAtTime(150, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.15);
+        
+        osc.start();
+        osc.stop(ctx.currentTime + 0.15);
+    } catch(e){}
+}
+
+
+// --- 2. CLICK TO MATCH GAME LOGIC ---
+const matchPairs = [
+    {id: 1, left: 'feed the fish', right: 'أطعم السمك', type: 'text'},
+    {id: 2, left: 'wash the dishes', right: 'أغسل الأطباق', type: 'text'},
+    {id: 3, left: 'fold the laundry', right: 'أطوي الغسيل', type: 'text'},
+    {id: 4, left: 'set the table', right: 'أجهز المائدة', type: 'text'},
+    {id: 5, left: 'vacuum the floor', right: 'أكنس الأرضية', type: 'text'},
+    {id: 6, left: 'doctor 👨‍⚕️', right: 'doctor-svg', type: 'svg'}
+];
+
+let selectedLeftCard = null;
+let selectedRightCard = null;
+let matchedPairsList = [];
+
+function resetMatchGame() {
+    selectedLeftCard = null;
+    selectedRightCard = null;
+    matchedPairsList = [];
+    
+    const svg = document.getElementById('match-svg');
+    svg.innerHTML = '';
+
+    const leftCol = document.getElementById('match-col-left');
+    const rightCol = document.getElementById('match-col-right');
+    leftCol.innerHTML = '';
+    rightCol.innerHTML = '';
+
+    const leftData = matchPairs.map(p => ({id: p.id, text: p.left})).sort(() => Math.random() - 0.5);
+    const rightData = matchPairs.map(p => {
+        return {id: p.id, val: p.right, type: p.type};
+    }).sort(() => Math.random() - 0.5);
+
+    leftData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'match-card';
+        card.dataset.id = item.id;
+        card.dataset.side = 'left';
+        card.textContent = item.text;
+        card.addEventListener('click', () => handleMatchClick(card));
+        leftCol.appendChild(card);
+    });
+
+    rightData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'match-card';
+        card.dataset.id = item.id;
+        card.dataset.side = 'right';
+        if (item.type === 'svg') {
+            card.innerHTML = `
+              <svg viewBox="0 0 100 100" style="width:45px; height:45px;">
+                <circle cx="50" cy="50" r="45" fill="#fff5f5" stroke="#f43f5e" stroke-width="2"/>
+                <circle cx="50" cy="50" r="18" fill="#f43f5e"/>
+                <rect x="46" y="38" width="8" height="24" fill="#fff"/>
+                <rect x="38" y="46" width="24" height="8" fill="#fff"/>
+              </svg>
+            `;
+        } else {
+            card.textContent = item.val;
+        }
+        card.addEventListener('click', () => handleMatchClick(card));
+        rightCol.appendChild(card);
+    });
+}
+
+function handleMatchClick(card) {
+    if (card.classList.contains('matched')) return;
+
+    const side = card.dataset.side;
+
+    if (side === 'left') {
+        document.querySelectorAll('#match-col-left .match-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedLeftCard = card;
+    } else {
+        document.querySelectorAll('#match-col-right .match-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedRightCard = card;
+    }
+
+    if (selectedLeftCard && selectedRightCard) {
+        const idLeft = parseInt(selectedLeftCard.dataset.id);
+        const idRight = parseInt(selectedRightCard.dataset.id);
+
+        if (idLeft === idRight) {
+            selectedLeftCard.className = 'match-card matched';
+            selectedRightCard.className = 'match-card matched';
+            matchedPairsList.push({left: selectedLeftCard, right: selectedRightCard});
+            
+            drawMatchLine(selectedLeftCard, selectedRightCard);
+            
+            selectedLeftCard = null;
+            selectedRightCard = null;
+
+            speak('Good match!');
+            playPopSound();
+
+            if (matchedPairsList.length === matchPairs.length) {
+                setTimeout(() => {
+                    popConfetti();
+                    speak('Excellent! Matching game completed successfully.');
+                }, 400);
+            }
+        } else {
+            const tempL = selectedLeftCard;
+            const tempR = selectedRightCard;
+            tempL.className = 'match-card wrong-flash';
+            tempR.className = 'match-card wrong-flash';
+            speak('Try another.');
+            
+            selectedLeftCard = null;
+            selectedRightCard = null;
+
+            setTimeout(() => {
+                if(!tempL.classList.contains('matched')) tempL.className = 'match-card';
+                if(!tempR.classList.contains('matched')) tempR.className = 'match-card';
+            }, 500);
+        }
+    }
+}
+
+function drawMatchLine(elLeft, elRight) {
+    const svg = document.getElementById('match-svg');
+    const container = document.getElementById('match-game-area');
+    
+    const rectContainer = container.getBoundingClientRect();
+    const rectLeft = elLeft.getBoundingClientRect();
+    const rectRight = elRight.getBoundingClientRect();
+
+    const x1 = rectLeft.right - rectContainer.left;
+    const y1 = rectLeft.top + rectLeft.height / 2 - rectContainer.top;
+
+    const x2 = rectRight.left - rectContainer.left;
+    const y2 = rectRight.top + rectRight.height / 2 - rectContainer.top;
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    line.setAttribute('stroke', '#10b981');
+    line.setAttribute('stroke-width', '4');
+    line.setAttribute('stroke-linecap', 'round');
+    line.setAttribute('class', 'match-line');
+    
+    svg.appendChild(line);
+}
+
+function redrawMatchLines() {
+    const svg = document.getElementById('match-svg');
+    if (!svg) return;
+    svg.innerHTML = '';
+    matchedPairsList.forEach(pair => {
+        drawMatchLine(pair.left, pair.right);
+    });
+}
+window.addEventListener('resize', redrawMatchLines);
+
+
+// --- 3. SPELLING FLIP GAME LOGIC ---
+const flipWords = [
+    { word: 'car', hint: 'سيارة', svg: svgs.car },
+    { word: 'fork', hint: 'شوكة', svg: svgs.fork },
+    { word: 'dark', hint: 'مظلم', svg: svgs.dark },
+    { word: 'park', hint: 'منتزه', svg: svgs.park },
+    { word: 'trash', hint: 'قمامة', svg: svgs.trash }
+];
+
+let flipIndex = 0;
+let flipCurrentWord = '';
+let flipScrambledArr = [];
+let flipSelectedCardIndex = null;
+
+function startSpellingFlipGame() {
+    flipIndex = 0;
+    loadFlipWord();
+}
+
+function loadFlipWord() {
+    document.getElementById('btn-next-flip').style.display = 'none';
+    const wordData = flipWords[flipIndex];
+    flipCurrentWord = wordData.word;
+    document.getElementById('flip-svg-placeholder').innerHTML = wordData.svg;
+    document.getElementById('flip-hint-text').textContent = `${wordData.hint} (${wordData.word.length} حروف)`;
+
+    let scrambled = [];
+    do {
+        scrambled = wordData.word.split('').sort(() => Math.random() - 0.5);
+    } while(scrambled.join('') === flipCurrentWord);
+
+    flipScrambledArr = scrambled;
+    flipSelectedCardIndex = null;
+    renderFlipLetters();
+}
+
+function renderFlipLetters() {
+    const container = document.getElementById('flip-letters-container');
+    container.innerHTML = '';
+    const isSolved = (flipScrambledArr.join('') === flipCurrentWord);
+
+    flipScrambledArr.forEach((char, idx) => {
+        const card = document.createElement('div');
+        card.className = 'letter-card';
+        if (isSolved) {
+            card.classList.add('correct-order');
+        } else if (flipSelectedCardIndex === idx) {
+            card.classList.add('selected');
+        }
+        card.textContent = char.toUpperCase();
+        if(!isSolved) {
+            card.addEventListener('click', () => handleFlipLetterClick(idx));
+        }
+        container.appendChild(card);
+    });
+}
+
+function handleFlipLetterClick(idx) {
+    if(flipSelectedCardIndex === null) {
+        flipSelectedCardIndex = idx;
+        renderFlipLetters();
+    } else {
+        if(flipSelectedCardIndex === idx) {
+            flipSelectedCardIndex = null;
+        } else {
+            const temp = flipScrambledArr[idx];
+            flipScrambledArr[idx] = flipScrambledArr[flipSelectedCardIndex];
+            flipScrambledArr[flipSelectedCardIndex] = temp;
+            flipSelectedCardIndex = null;
+            
+            if(flipScrambledArr.join('') === flipCurrentWord) {
+                speak(flipCurrentWord);
+                popConfetti();
+                playPopSound();
+                document.getElementById('btn-next-flip').style.display = 'inline-block';
+            } else {
+                playPopSound();
+            }
+        }
+        renderFlipLetters();
+    }
+}
+
+function resetCurrentFlipWord() {
+    loadFlipWord();
+}
+
+function loadNextFlipWord() {
+    flipIndex = (flipIndex + 1) % flipWords.length;
+    loadFlipWord();
+}
+
+
+// --------------------------------------------------------------------------
+// EXPORT TO WORD DOC
+// --------------------------------------------------------------------------
+function exportToWord() {
+    const activeContentEl = document.querySelector('.tab-content.active');
+    if (!activeContentEl) return;
+
+    const studentInfo = `
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-family: Arial;">
+        <tr>
+          <td style="padding: 10px; border: 1px solid #e2e8f0; font-size: 14px;"><b>اسم الطالب (Student Name):</b> ___________________________</td>
+          <td style="padding: 10px; border: 1px solid #e2e8f0; font-size: 14px;"><b>الصف (Class):</b> ______________</td>
+          <td style="padding: 10px; border: 1px solid #e2e8f0; font-size: 14px;"><b>التاريخ (Date):</b> ____ / ____ / ________</td>
+        </tr>
+      </table>
+    `;
+
+    const clone = activeContentEl.cloneNode(true);
+    const inputs = clone.querySelectorAll('input');
+    inputs.forEach(inp => {
+        const span = document.createElement('span');
+        span.style.textDecoration = 'underline';
+        span.style.fontWeight = 'bold';
+        span.style.padding = '0 10px';
+        span.textContent = inp.value ? inp.value : '___________';
+        inp.parentNode.replaceChild(span, inp);
+    });
+
+    const bodyHtml = `
+      <div dir="rtl" style="font-family: 'Times New Roman', serif; padding: 20px;">
+        ${studentInfo}
+        ${clone.innerHTML}
+      </div>
+    `;
+
+    const blob = new Blob(['\ufeff' + bodyHtml], {
+        type: 'application/msword'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `grade3-unit4-worksheet-${currentTab + 1}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+// --------------------------------------------------------------------------
+// EXPORT TO PDF
+// --------------------------------------------------------------------------
+function downloadPDF() {
+    const activeTab = document.querySelector(".tab-content.active");
+    if (!activeTab) return;
+    
+    if (activeTab.id === "ws-content-9") {
+        alert("🎮 هذا التبويب مخصص للألعاب التفاعلية ولا يدعم الطباعة كأوراق عمل.");
+        return;
+    }
+    
+    const studentInfo = document.querySelector(".student-info-table");
+    
+    const tempContainer = document.createElement("div");
+    tempContainer.style.padding = "30px";
+    tempContainer.style.background = "#ffffff";
+    tempContainer.style.color = "#000000";
+    tempContainer.style.fontFamily = "'Tajawal', 'Outfit', sans-serif";
+    tempContainer.style.direction = "rtl";
+    
+    if (studentInfo) {
+        const infoClone = studentInfo.cloneNode(true);
+        infoClone.style.width = "100%";
+        infoClone.style.marginBottom = "25px";
+        infoClone.style.borderCollapse = "collapse";
+        tempContainer.appendChild(infoClone);
+    }
+    
+    const contentClone = activeTab.cloneNode(true);
+    
+    // Clear all inputs so that they print empty dashed lines
+    const inputs = contentClone.querySelectorAll("input");
+    inputs.forEach(input => {
+        if (input.type === "text") {
+            const span = document.createElement("span");
+            span.style.borderBottom = "2px dashed #000";
+            span.style.display = "inline-block";
+            span.style.width = input.style.width || "80px";
+            span.style.height = "18px";
+            span.style.margin = "0 8px";
+            input.parentNode.replaceChild(span, input);
+        } else if (input.type === "radio" || input.type === "checkbox") {
+            input.checked = false; // ensure they are not ticked
+        }
+    });
+    
+    // Hide actions & buttons inside the clone
+    const actions = contentClone.querySelectorAll(".action-buttons, .feedback-msg, button, .btn, .theme-btn");
+    actions.forEach(act => act.style.display = "none");
+    
+    tempContainer.appendChild(contentClone);
+    
+    const opt = {
+        margin:       [0.4, 0.4, 0.4, 0.4],
+        filename:     `Worksheet_Grade3_Unit4_Lesson_${currentTab + 1}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    
+    if (typeof html2pdf === "undefined") {
+        const script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+        script.onload = () => {
+            html2pdf().set(opt).from(tempContainer).save();
+        };
+        document.head.appendChild(script);
+    } else {
+        html2pdf().set(opt).from(tempContainer).save();
+    }
+}
+
+// Initial survey calculation
+calcWorksheetScore();
+</script>
+</body>
+</html>

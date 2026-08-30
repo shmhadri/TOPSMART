@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وسائل ومطبوعات المعلم - الوحدة 1: Welcome & Family Events - إنجليزي الصف الرابع | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.theme-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr)
+}
+.theme-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary)
+}
+
+/* TABS NAV */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap
+}
+.tab-btn {
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border: 2px solid var(--border);
+    background: var(--bg);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.main-wrap {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+.sheet-container {
+    display: none;
+    animation: fadeIn .3s ease;
+}
+.sheet-container.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px) }
+    to { opacity: 1; transform: translateY(0) }
+}
+
+.a4-sheet {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    min-height: 1120px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    color: #0f172a;
+}
+[data-theme=dark] .a4-sheet {
+    background: #ffffff;
+    color: #000000;
+    border-color: #cbd5e1;
+}
+
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-logo-box {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.6;
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary);
+}
+.header-title-box p {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 800;
+}
+
+/* FLASHCARDS */
+.flashcards-instructions {
+    background: #f8fafc;
+    border-right: 4px solid var(--primary);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.flashcard-box {
+    border: 2px dashed #4f46e5;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    background: #fafafb;
+}
+.flashcard-emoji {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+.flashcard-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #4f46e5;
+}
+.flashcard-translation {
+    font-size: 15px;
+    color: #64748b;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+/* DOMINO CARDS */
+.domino-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.domino-card {
+    border: 3px solid #1e293b;
+    border-radius: 8px;
+    display: flex;
+    height: 100px;
+    overflow: hidden;
+}
+.domino-half {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #f8fafc;
+}
+.domino-half:first-child {
+    border-left: 2px dashed #1e293b;
+    background: #eff6ff;
+}
+.domino-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    color: var(--primary);
+}
+
+.sheet-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+.btn-c {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--tr);
+    border: none;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-accent { background: var(--accent); color: #fff; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="topbar-right">
+        <a href="grade4-unit1-english.html" class="back-btn-top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            الرجوع للدرس التفاعلي
+        </a>
+        <div class="tlogo">Smart<span>Learning</span></div>
+    </div>
+    <div class="topbar-left">
+        <button class="theme-btn" onclick="tgl()" aria-label="تبديل المظهر">🌓</button>
+    </div>
+</div>
+
+<!-- TABS NAVIGATION -->
+<div class="tabs-nav">
+    <button class="tab-btn active" onclick="sw(0)">استراتيجية ١: البطاقات التعليمية 📇</button>
+    <button class="tab-btn" onclick="sw(1)">استراتيجية ٢: دومينو الجمل والكلمات 🎲</button>
+</div>
+
+<div class="main-wrap">
+
+    <!-- SHEET 0: FLASHCARDS -->
+    <div class="sheet-container active" id="sheet0">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-logo-box">وزارة التعليم<br>مقرر We Can 1</div>
+                    <div class="header-title-box">
+                        <h1>استراتيجية 1: البطاقات الفلاشية للدروس والصفات</h1>
+                        <p>Unit 1: Welcome & Family Events - Vocabulary Flashcards</p>
+                    </div>
+                    <div class="header-logo-box" style="text-align:left;">الصف الرابع الابتدائي<br>الفصل الدراسي الأول</div>
+                </div>
+            </div>
+
+            <div class="flashcards-instructions">
+                💡 <b>إرشادات للمعلم:</b> قم بقص هذه البطاقات وثنيها من المنتصف لتحصل على بطاقة ثنائية الأوجه (وجه يحتوي على الكلمة الإنجليزية، والوجه الآخر يحتوي على النطق والترجمة والرمز التعبيري).
+            </div>
+
+            <div class="flashcards-grid">
+                <!-- Card 1 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">😨</div>
+                    <div class="flashcard-word">afraid</div>
+                    <div class="flashcard-translation">خائف</div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">🌟</div>
+                    <div class="flashcard-word">brilliant</div>
+                    <div class="flashcard-translation">رائع / ذكي جداً</div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">⚠️</div>
+                    <div class="flashcard-word">dangerous</div>
+                    <div class="flashcard-translation">خطير</div>
+                </div>
+                <!-- Card 4 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">😈</div>
+                    <div class="flashcard-word">naughty</div>
+                    <div class="flashcard-translation">مشاغب</div>
+                </div>
+                <!-- Card 5 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">👩‍🌾</div>
+                    <div class="flashcard-word">aunt</div>
+                    <div class="flashcard-translation">عمة / خالة</div>
+                </div>
+                <!-- Card 6 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">👨‍💼</div>
+                    <div class="flashcard-word">uncle</div>
+                    <div class="flashcard-translation">عم / خال</div>
+                </div>
+                <!-- Card 7 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">👧</div>
+                    <div class="flashcard-word">daughter</div>
+                    <div class="flashcard-translation">ابنة</div>
+                </div>
+                <!-- Card 8 -->
+                <div class="flashcard-box">
+                    <div class="flashcard-emoji">👦</div>
+                    <div class="flashcard-word">grandson</div>
+                    <div class="flashcard-translation">حفيد</div>
+                </div>
+            </div>
+
+            <div class="sheet-actions">
+                <button class="btn-c btn-primary" onclick="downloadWord('sheet0', 'Printable_Strategy1_Flashcards.doc')">تحميل Word 📝</button>
+                <button class="btn-c btn-accent" onclick="downloadPDF('sheet0', 'Printable_Strategy1_Flashcards.pdf')">تحميل PDF 🖨️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHEET 1: DOMINOES -->
+    <div class="sheet-container" id="sheet1">
+        <div class="a4-sheet">
+            <div class="sheet-header">
+                <div class="header-row-1">
+                    <div class="header-logo-box">وزارة التعليم<br>مقرر We Can 1</div>
+                    <div class="header-title-box">
+                        <h1>استراتيجية 2: لعبة دومينو الجمل التفاعلية</h1>
+                        <p>Unit 1: Sentence Domino Matching Game</p>
+                    </div>
+                    <div class="header-logo-box" style="text-align:left;">الصف الرابع الابتدائي<br>الفصل الدراسي الأول</div>
+                </div>
+            </div>
+
+            <div class="flashcards-instructions">
+                💡 <b>طريقة اللعب الصفيّة:</b> يتم توزيع البطاقات على المجموعات. يبدأ أحد الطلاب بوضع بطاقته، ويقوم الطالب التالي بمطابقة الجملة الإنجليزية مع ترجمتها المناسبة أو الكلمة الناقصة لتكوين قطار دومينو متكامل.
+            </div>
+
+            <div class="domino-grid">
+                <!-- Domino 1 -->
+                <div class="domino-card">
+                    <div class="domino-half">Welcome back!</div>
+                    <div class="domino-half"><span class="domino-word">مرحباً بعودتكم!</span></div>
+                </div>
+                <!-- Domino 2 -->
+                <div class="domino-card">
+                    <div class="domino-half">I am afraid of heights.</div>
+                    <div class="domino-half"><span class="domino-word">أنا خائف من المرتفعات.</span></div>
+                </div>
+                <!-- Domino 3 -->
+                <div class="domino-card">
+                    <div class="domino-half">My brother is naughty.</div>
+                    <div class="domino-half"><span class="domino-word">أخي الصغير مشاغب.</span></div>
+                </div>
+                <!-- Domino 4 -->
+                <div class="domino-card">
+                    <div class="domino-half">Where do your cousins live?</div>
+                    <div class="domino-half"><span class="domino-word">أين يعيش أبناء عمك؟</span></div>
+                </div>
+                <!-- Domino 5 -->
+                <div class="domino-card">
+                    <div class="domino-half">How often do you walk?</div>
+                    <div class="domino-half"><span class="domino-word">كم مرة تمشي فيها؟</span></div>
+                </div>
+                <!-- Domino 6 -->
+                <div class="domino-card">
+                    <div class="domino-half">Yesterday, we were happy.</div>
+                    <div class="domino-half"><span class="domino-word">بالأمس، كنا سعداء.</span></div>
+                </div>
+            </div>
+
+            <div class="sheet-actions">
+                <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Printable_Strategy2_Dominoes.doc')">تحميل Word 📝</button>
+                <button class="btn-c btn-accent" onclick="downloadPDF('sheet1', 'Printable_Strategy2_Dominoes.pdf')">تحميل PDF 🖨️</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function tgl() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+}
+
+const tabBtns = document.querySelectorAll('.tab-btn');
+const sheets = document.querySelectorAll('.sheet-container');
+
+function sw(idx) {
+    tabBtns.forEach((btn, i) => {
+        if(i === idx) {
+            btn.classList.add('active');
+            sheets[i].classList.add('active');
+        } else {
+            btn.classList.remove('active');
+            sheets[i].classList.remove('active');
+        }
+    });
+}
+
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        html, body, .main-wrap, .sheet-container {
+            overflow: visible !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .flashcards-instructions {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       10,
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(() => {
+        const styleEl = document.getElementById('pdf-override-style');
+        if (styleEl) styleEl.remove();
+    });
+}
+
+function downloadWord(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    let contentHtml = element.innerHTML;
+    
+    // Hide actions inside content
+    contentHtml = contentHtml.replace(/<div class="sheet-actions">[\s\S]*?<\/div>/g, '');
+    
+    const header = "<" + "html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+          "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+          "xmlns='http://www.w3.org/TR/REC-html40'>"+
+          "<head><meta charset='utf-8'><title>Export HTML to Word</title><style>"+
+          "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; }"+
+          ".a4-sheet { padding: 20px; }"+
+          ".sheet-header { border-bottom: 3px double #4f46e5; padding-bottom: 20px; margin-bottom: 24px; }"+
+          ".header-row-1 { display: flex; justify-content: space-between; align-items: center; }"+
+          ".header-title-box { text-align: center; }"+
+          ".header-title-box h1 { font-size: 22px; font-weight: bold; color: #4f46e5; }"+
+          ".flashcards-grid { display: table; width: 100%; }"+
+          ".flashcard-box { display: inline-block; width: 45%; border: 2px dashed #4f46e5; margin: 10px; padding: 15px; text-align: center; }"+
+          ".domino-grid { display: table; width: 100%; }"+
+          ".domino-card { display: table-row; border: 2px solid #000; }"+
+          ".domino-half { display: table-cell; width: 50%; border: 1px solid #000; padding: 10px; text-align: center; }"+
+          "</style></head><body>" + contentHtml + "</body></html>";
+          
+    const blob = new Blob(['\ufeff' + header], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

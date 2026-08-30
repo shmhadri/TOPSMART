@@ -1,0 +1,31 @@
+{
+  "title": "Rhythms and Listening",
+  "desc": "Listen to the Clever Robot chant and practice chores rhythm.",
+  "vocab": [
+    {
+      "word": "clever",
+      "type": "adjective",
+      "ar": "ذكي"
+    },
+    {
+      "word": "robot",
+      "type": "noun",
+      "ar": "روبوت / إنسان آلي"
+    },
+    {
+      "word": "keep",
+      "type": "verb",
+      "ar": "يحافظ / يبقي"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "I'm a clever robot.",
+      "ar": "أنا روبوت ذكي."
+    },
+    {
+      "en": "I set the table and wash the dishes.",
+      "ar": "أنا أجهز المائدة وأغسل الأطباق."
+    }
+  ]
+}

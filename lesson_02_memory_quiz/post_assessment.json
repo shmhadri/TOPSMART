@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Ali likes ______.",
+    "choices": [
+      "basketball",
+      "basket",
+      "baskets",
+      "to basketball"
+    ],
+    "ans": "basketball"
+  },
+  {
+    "q": "What activities do you want to try? -> I want to try ______.",
+    "choices": [
+      "pottery",
+      "pot",
+      "potting",
+      "potted"
+    ],
+    "ans": "pottery"
+  },
+  {
+    "q": "Change 'I like tennis' to He:",
+    "choices": [
+      "He likes tennis.",
+      "He like tennis.",
+      "He liking tennis.",
+      "He to like tennis."
+    ],
+    "ans": "He likes tennis."
+  },
+  {
+    "q": "Change 'I want to try cooking' to She:",
+    "choices": [
+      "She wants to try cooking.",
+      "She want to try cooking.",
+      "She wants try cooking.",
+      "She wanting to try cooking."
+    ],
+    "ans": "She wants to try cooking."
+  },
+  {
+    "q": "Which is an activity?",
+    "choices": [
+      "football",
+      "tennis",
+      "photography",
+      "volleyball"
+    ],
+    "ans": "photography"
+  }
+]

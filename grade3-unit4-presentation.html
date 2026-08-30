@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - الوحدة 4: Chores | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: none;
+    --shadow-lg: none;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr);
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.theme-btn {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    color: var(--text);
+}
+.theme-btn:hover {
+    transform: rotate(15deg);
+    border-color: var(--primary);
+}
+
+.main-wrap {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* PRESENTATION PLAYER */
+.ppt-player {
+    background: #0f172a;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9;
+    box-shadow: var(--shadow-lg);
+    border: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+}
+.slide-frame {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 30px 45px;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1b4b, #311042);
+    position: relative;
+}
+.slide-watermark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent);
+    background: rgba(16, 185, 129, 0.15);
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+.slide-emoji {
+    font-size: 64px;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+.slide-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #f59e0b;
+    margin-bottom: 15px;
+    font-family: 'Outfit', sans-serif;
+}
+.slide-body {
+    font-size: 20px;
+    max-width: 90%;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* SPECIFIC SLIDE TYPE RENDERERS */
+.slide-eng-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-left: 5px solid var(--accent);
+    padding: 15px 25px;
+    border-radius: var(--radius-sm);
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 15px;
+    direction: ltr;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.slide-ar-text {
+    font-size: 18px;
+    color: #38bdf8;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.pronunciation-box {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px dashed var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Visual Cards */
+.ppt-visual-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+.ppt-visual-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+}
+.ppt-visual-card svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 6px;
+}
+.ppt-visual-card-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #cbd5e1;
+}
+
+/* Quiz styling inside PPT */
+.ppt-choices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 15px;
+    width: 80%;
+    max-width: 600px;
+}
+.ppt-choice-btn {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-sm);
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--tr);
+    font-family: 'Outfit', sans-serif;
+}
+.ppt-choice-btn:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: var(--primary-light);
+}
+.ppt-choice-btn.correct {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+.ppt-choice-btn.wrong {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: #fff;
+}
+
+/* Survey score mockup */
+.survey-mock-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 8px auto;
+    background: rgba(255,255,255,0.05);
+    padding: 8px 15px;
+    border-radius: var(--radius-sm);
+}
+.survey-mock-btn {
+    background: var(--primary);
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Chores Chant Layout */
+.chant-layout {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    padding: 12px 24px;
+    line-height: 1.8;
+    text-align: left;
+    display: inline-block;
+    direction: ltr;
+}
+.chant-highlight {
+    color: var(--accent);
+}
+
+/* CONTROLS */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 20px;
+    box-shadow: var(--shadow);
+}
+.btn-ppt {
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    transition: var(--tr);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.btn-ppt:hover {
+    background: var(--primary-light);
+}
+.btn-ppt:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+.lesson-selector {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    font-size: 15px;
+    font-weight: 800;
+    background: var(--bg-card);
+    color: var(--text);
+    outline: none;
+    cursor: pointer;
+}
+/* Memory Flip Game inside PPT player */
+.memory-card {
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+.memory-card-front, .memory-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    text-align: center;
+    border-radius: var(--radius-sm);
+}
+.memory-card-front {
+    background: var(--primary);
+    color: #fff;
+}
+.memory-card-back {
+    transform: rotateY(180deg);
+}
+.memory-card.matched {
+    transform: rotateY(180deg);
+    cursor: default;
+}
+.memory-card.matched .memory-card-back {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="grade3-unit4-english.html" class="back-btn-top">↩️ العودة لصفحة الحصة</a>
+    <div style="font-size: 18px; font-weight: 900; color: var(--primary);">PowerPoint Presentation Player 💻</div>
+  </div>
+  <div class="topbar-left" style="display: flex; gap:10px;">
+    <button class="back-btn-top" onclick="exportPPTX()" style="border-color:var(--accent); color:var(--accent); cursor:pointer;">📥 تصدير كملف PPTX حقيقي</button>
+    <button class="theme-btn" onclick="tglTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+  
+  <div style="margin-bottom: 20px; display: flex; justify-content:space-between; align-items: center;">
+    <h2 style="font-size:20px; font-weight:800; color:var(--primary);">📺 مشغل الشرائح التفاعلي للوحدة الرابعة</h2>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <label style="font-weight:bold; font-size:15px;">اختر الدرس:</label>
+      <select class="lesson-selector" id="l-select" onchange="changeLesson()">
+        <option value="0">الدرس 1: Finding Out Time (صفحة 26)</option>
+        <option value="1">الدرس 2: Check Your Chores (صفحة 27)</option>
+        <option value="2">الدرس 3: Grammar in Action (صفحة 28)</option>
+        <option value="3">الدرس 4: Speed Q&A Race (صفحة 29)</option>
+        <option value="4">الدرس 5: Rhythms & Listening (صفحة 30)</option>
+        <option value="5">الدرس 6: Rhythms & Reading (صفحة 31)</option>
+        <option value="6">الدرس 7: Phonics (ar, or, er) (صفحة 32)</option>
+        <option value="7">الدرس 8: Phonics Challenge (صفحة 33)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="ppt-player">
+    <div class="slide-frame" id="slide-container">
+      <div class="slide-watermark">We Can 3 - Unit 4</div>
+      <div class="slide-emoji" id="s-emoji">🧹</div>
+      <div class="slide-title" id="s-title">Title Slide</div>
+      <div class="slide-body" id="s-body">Slide content loading...</div>
+      
+      <!-- Placeholder for dynamic HTML structure -->
+      <div id="s-dynamic-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;"></div>
+    </div>
+  </div>
+
+  <!-- CONTROLS BAR -->
+  <div class="controls-bar">
+    <button class="btn-ppt" id="btn-prev" onclick="navigateSlide(-1)">⬅️ الشريحة السابقة</button>
+    <div style="font-weight:bold; font-size:16px;" id="slide-num">الشريحة 1 من 5</div>
+    <button class="btn-ppt" id="btn-next" onclick="navigateSlide(1)">الشريحة التالية ➡️</button>
+  </div>
+
+</div>
+
+<!-- PPTXGENJS LIBRARY -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<!-- CONFETTI LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+// SVG Illustration Icons Definitions to inject inside slides
+const svgs = {
+    fish: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><path d="M30,50 Q45,35 70,50 Q45,65 30,50 Z" fill="#f97316"/><polygon points="20,40 32,50 20,60" fill="#f97316"/><circle cx="58" cy="46" r="3" fill="#000"/></svg>`,
+    table: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fafafa" stroke="#e2e8f0" stroke-width="2"/><circle cx="50" cy="50" r="25" fill="#fff" stroke="#94a3b8" stroke-width="4"/><path d="M22,30 V70 M17,30 H27 M17,50 H27" stroke="#64748b" stroke-width="4" stroke-linecap="round"/><path d="M78,30 V70 M73,30 C73,45 83,45 83,30 Z" fill="#64748b" stroke="#64748b" stroke-width="2"/></svg>`,
+    dishes: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/><circle cx="45" cy="50" r="22" fill="#fff" stroke="#cbd5e1" stroke-width="3"/><rect x="62" y="55" width="22" height="14" rx="3" fill="#eab308"/><circle cx="35" cy="40" r="4" fill="#67e8f9" opacity="0.6"/><circle cx="70" cy="45" r="5" fill="#67e8f9" opacity="0.6"/></svg>`,
+    trash: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fef2f2" stroke="#f43f5e" stroke-width="2"/><path d="M35,35 L40,80 H60 L65,35 Z" fill="#94a3b8"/><rect x="30" y="27" width="40" height="8" rx="2" fill="#64748b"/><line x1="45" y1="42" x2="45" y2="72" stroke="#475569" stroke-width="3"/><line x1="55" y1="42" x2="55" y2="72" stroke="#475569" stroke-width="3"/></svg>`,
+    room: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/><rect x="20" y="55" width="60" height="25" rx="4" fill="#a855f7"/><rect x="25" y="45" width="20" height="12" rx="2" fill="#e9d5ff"/><line x1="75" y1="25" x2="65" y2="65" stroke="#eab308" stroke-width="4"/><path d="M60,65 L70,65 L72,75 L58,75 Z" fill="#facc15"/></svg>`,
+    shopping: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><path d="M20,25 H30 L45,65 H75 L85,35 H32" fill="none" stroke="#3b82f6" stroke-width="4"/><circle cx="50" cy="75" r="8" fill="#1e293b"/><circle cx="70" cy="75" r="8" fill="#1e293b"/></svg>`,
+    laundry: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><path d="M25,45 L50,35 L75,45 L50,55 Z" fill="#60a5fa"/><path d="M25,58 L50,48 L75,58 L50,68 Z" fill="#f87171"/><path d="M25,71 L50,61 L75,71 L50,81 Z" fill="#34d399"/></svg>`,
+    car: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><path d="M25,60 H75 L70,45 H30 Z" fill="#ef4444"/><rect x="20" y="60" width="60" height="15" rx="3" fill="#ef4444"/><circle cx="35" cy="75" r="8" fill="#1e293b"/><circle cx="65" cy="75" r="8" fill="#1e293b"/></svg>`,
+    fork: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/><path d="M50,45 V80" stroke="#94a3b8" stroke-width="6"/><path d="M38,25 V45 C38,55 62,55 62,45 V25" fill="none" stroke="#94a3b8" stroke-width="4"/></svg>`,
+    doctor: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#fff5f5" stroke="#f43f5e" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#f43f5e"/><rect x="46" y="38" width="8" height="24" fill="#fff"/><rect x="38" y="46" width="24" height="8" fill="#fff"/><path d="M30,30 Q30,70 50,75" fill="none" stroke="#94a3b8" stroke-width="4"/></svg>`,
+    teacher: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/><rect x="25" y="22" width="50" height="32" rx="2" fill="#065f46"/><circle cx="50" cy="74" r="9" fill="#10b981"/><path d="M35,90 C35,78 65,78 65,90" fill="#047857"/></svg>`,
+    dark: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#0f172a" stroke="#1e293b" stroke-width="2"/><path d="M45,25 A20,20 0 1,0 75,55 A25,25 0 1,1 45,25 Z" fill="#facc15"/></svg>`
+};
+
+const slidesData = {
+    0: [
+        { 
+            t: "Lesson 1: Finding Out Time (صفحة 26)", 
+            em: "🧹",
+            type: "title",
+            b: "Learn chores vocabulary and ask questions about what chores you or others do at home.",
+            ar: "تعلم مفردات المهام المنزلية وكيفية السؤال والإجابة عما تفعله أنت أو الآخرون في المنزل."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "🧠",
+            type: "normal",
+            b: "Look around your home! What chores do you do to help your family? Let's brainstorm!",
+            ar: "انظر حولك في المنزل! ما هي المهام التي تقوم بها لمساعدة عائلتك؟ دعنا نعصف أفكارنا!"
+        },
+        { 
+            t: "Core Content: The 8 Chores / شرح المهام المنزلية", 
+            em: "🐠",
+            type: "chores_list",
+            b: "Let's learn and pronounce the 8 essential household chores:",
+            ar: "دعنا نتعلم وننطق المهام المنزلية الثمانية الأساسية بالصوت والصورة:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "What chores do you do?",
+            choices: ["I feeds the fish.", "I feed the fish.", "I folding the laundry."],
+            correct: 1,
+            ar: "ماذا تختار للإجابة عما تفعله أنت؟"
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "🎯",
+            type: "normal",
+            b: "Chore Pointing Race: The teacher says 'vacuum the floor!', and students must quickly point to the correct card!",
+            ar: "سباق الإشارة للمهام: ينطق المعلم اسم المهمة المنزلية، وعلى الطلاب الإشارة للبطاقة الصحيحة بسرعة!"
+        }
+    ],
+    1: [
+        { 
+            t: "Lesson 2: Check Your Chores (صفحة 27)", 
+            em: "📊",
+            type: "title",
+            b: "Rate your helper frequency and calculate your helper score (Always = 2, Sometimes = 1, Never = 0).",
+            ar: "قيم معدل مساعدتك المنزلية واحسب نقاطك (دائماً = 2، أحياناً = 1، أبداً = 0)."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "🧺",
+            type: "normal",
+            b: "How often do you help? Let's classify: Always, Sometimes, or Never!",
+            ar: "كم مرة تساعد في المنزل؟ دعنا نصنف عاداتنا: دائماً، أحياناً، أم أبداً!"
+        },
+        { 
+            t: "Helper Scorecard / شرح نقاط المساعدة", 
+            em: "🏆",
+            type: "survey_scorecard",
+            b: "Calculate your score based on always/sometimes/never. Discover what kind of helper you are!",
+            ar: "احسب نقاطك واعرف تصنيفك كمساعد في المنزل بناءً على كتاب الطالب صفحة 27."
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "If your helper score is 14, what helper are you?",
+            choices: ["I'm an average helper.", "I'm a poor helper.", "I'm a great helper!"],
+            correct: 2,
+            ar: "إذا كانت مجموع نقاطك 14، فما هو تصنيفك؟"
+        },
+        { 
+            t: "Classroom Game / لعبة الذاكرة (ذاكرة فلاب)", 
+            em: "🎮",
+            type: "ppt_memory_game",
+            b: "Play Memory Flip Game: Match the chores English phrases with their pictures!",
+            ar: "لعبة الذاكرة: طابق صور وعبارات المهام المنزلية باللغة الإنجليزية والعربية!"
+        }
+    ],
+    2: [
+        { 
+            t: "Lesson 3: Grammar in Action (صفحة 28)", 
+            em: "📝",
+            type: "title",
+            b: "Learn singular third-person verb endings (Add -s / -es) and practice the Chores Chant.",
+            ar: "تعلم نهايات الأفعال مع المفرد الغائب (إضافة s أو es) وتدرب على أنشودة المهام."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "💡",
+            type: "normal",
+            b: "Compare: 'I wash...' versus 'He washes...'. Why does the verb change?",
+            ar: "قارن بين: 'أنا أغسل' و'هو يغسل'. لماذا يتغير الفعل مع المفرد الغائب؟"
+        },
+        { 
+            t: "Verb Pairings & Chant / تصريف الأفعال والأنشودة", 
+            em: "🧽",
+            type: "grammar_chant",
+            b: "Let's review the verb pairings and the Chores Chant:",
+            ar: "دعنا نراجع تصريف الأفعال للأفراد وأنشودة المهام المنزلية:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "Complete: My sister ______ the dishes.",
+            choices: ["wash", "washes", "washs"],
+            correct: 1,
+            ar: "أكمل الجملة السابقة باختيار الفعل الصحيح للمفرد الغائب المؤنث."
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "🎶",
+            type: "normal",
+            b: "Chant Battle: Divide the class into two groups. Group A chants pronouns (I/They), and Group B chants singular pronouns (He/She) with correct verb endings!",
+            ar: "معركة الأنشودة: قسّم الصف لمجموعتين؛ مجموعة أ تنشد الضمائر العادية، ومجموعة ب تنشد المفرد الغائب بنهايات الأفعال الصحيحة!"
+        }
+    ],
+    3: [
+        { 
+            t: "Lesson 4: Speed Q&A Race (صفحة 29)", 
+            em: "🏁",
+            type: "title",
+            b: "Practice asking and answering chores questions at speed with a partner.",
+            ar: "تدرب على سؤال وجواب المهام المنزلية بسرعة مع زميلك."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "⏰",
+            type: "normal",
+            b: "Can you name 3 chores in 10 seconds? Let's test your speed!",
+            ar: "هل تستطيع تسمية 3 مهام منزلية في 10 ثوانٍ؟ دعنا نختبر سرعة بديهتك!"
+        },
+        { 
+            t: "Q&A Patterns / نماذج السؤال والجواب", 
+            em: "🗣️",
+            type: "qa_patterns",
+            b: "Learn the standard patterns for self and other chores questions:",
+            ar: "تعلم الأنماط القياسية للسؤال عن نفسك وعن الآخرين بالصوت والصورة:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "Complete: What chores ______ your brother do?",
+            choices: ["do", "does", "doing"],
+            correct: 1,
+            ar: "أكمل السؤال باختيار أداة السؤال المناسبة للفاعل المفرد المذكر."
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "⏳",
+            type: "normal",
+            b: "60-Second Challenge: Interview as many friends as possible in 1 minute, asking: 'What chores do you do?'",
+            ar: "تحدي الـ 60 ثانية: قابل أكبر عدد ممكن من أصدقائك في دقيقة واحدة واسألهم عن مهامهم المنزلية!"
+        }
+    ],
+    4: [
+        { 
+            t: "Lesson 5: Rhythms & Listening (صفحة 30)", 
+            em: "🤖",
+            type: "title",
+            b: "Chant and analyze Clever Robot Chant Part 1.",
+            ar: "أنشد وحلل الجزء الأول من أنشودة الروبوت الذكي."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "🛠️",
+            type: "normal",
+            b: "Imagine you have a robot at home. What would you like it to do for you?",
+            ar: "تخيل أن لديك روبوت مساعد في المنزل. ما الذي ترغب في أن يفعله من أجلك؟"
+        },
+        { 
+            t: "Robot Chant 1 / أنشودة الروبوت 1", 
+            em: "🤖",
+            type: "robot_chant_1",
+            b: "Clever Robot Chant Part 1 - Listen and learn pronunciation:",
+            ar: "أنشودة الروبوت الذكي الجزء 1 - استمع وتعلم طريقة النطق الصحيحة:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "Complete: I'm a ______ robot.",
+            choices: ["clever", "lazy", "silly"],
+            correct: 0,
+            ar: "أكمل البيت الشعري للروبوت المساعد."
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "👏",
+            type: "normal",
+            b: "Rhythmic Clapping: Chant like a robot and clap on the words: clever, table, dishes!",
+            ar: "التصفيق الإيقاعي: أنشد بطريقة إلكترونية مثل الروبوت وصفق عند الكلمات: clever, table, dishes!"
+        }
+    ],
+    5: [
+        { 
+            t: "Lesson 6: Rhythms & Reading (صفحة 31)", 
+            em: "📖",
+            type: "title",
+            b: "Read and understand Clever Robot Chant Part 2.",
+            ar: "اقرأ وافهم الجزء الثاني من أنشودة الروبوت الذكي."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "🔌",
+            type: "normal",
+            b: "Let's review robot chores! What chores did we learn in Part 1?",
+            ar: "دعنا نراجع مهام الروبوت! ما هي المهام التي تعلمناها في الجزء الأول؟"
+        },
+        { 
+            t: "Robot Chant 2 / أنشودة الروبوت 2", 
+            em: "🧺",
+            type: "robot_chant_2",
+            b: "Clever Robot Chant Part 2 - Listen and learn pronunciation:",
+            ar: "أنشودة الروبوت الذكي الجزء 2 - استمع وتدرب على النطق:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "What does the robot do with the laundry?",
+            choices: ["folds the laundry", "washes the laundry", "vacuum the laundry"],
+            correct: 0,
+            ar: "ماذا يفعل الروبوت بالغسيل؟"
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "🎭",
+            type: "normal",
+            b: "Robot Charades: Act like a robot doing chores, and your classmates must guess which chore you are doing!",
+            ar: "تمثيل الروبوت: قم بتمثيل حركات روبوت يقوم بمهمة منزلية، وعلى زملائك تخمين المهمة!"
+        }
+    ],
+    6: [
+        { 
+            t: "Lesson 7: Phonics (ar, or, er) (صفحة 32)", 
+            em: "🚗",
+            type: "title",
+            b: "Learn spelling and pronunciation of words with r-controlled vowels ar, or, and er.",
+            ar: "تعلم تهجئة ونطق الكلمات التي تحتوي على مصوتات يتحكم بها حرف r وهي (ar, or, er)."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "🗣️",
+            type: "normal",
+            b: "Listen to the sound in: c-ar. What do you notice about the letter 'r'?",
+            ar: "استمع إلى الصوت في كلمة c-ar (سيارة). ما الذي تلاحظه على نطق حرف r؟"
+        },
+        { 
+            t: "Phonics Core Words / شرح كلمات الصوتيات", 
+            em: "🍴",
+            type: "phonics_list",
+            b: "Spell and pronounce the target words with ar, or, er sounds:",
+            ar: "تعلم تهجئة ونطق الكلمات الصوتية المستهدفة بالصوت والصورة:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "Spell the utensil: f _ _ k",
+            choices: ["ar", "or", "er"],
+            correct: 1,
+            ar: "أكمل الأحرف الناقصة لاسم الأداة (الشوكة)."
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "🏷️",
+            type: "normal",
+            b: "Phonics Board Race: Teacher says 'teacher!', and students write either ar, or, or er on the board as fast as possible!",
+            ar: "سباق تهجئة الصوتيات: ينطق المعلم كلمة، ويسرع الطلاب لكتابة التركيب الصوتي الصحيح لها على السبورة!"
+        }
+    ],
+    7: [
+        { 
+            t: "Lesson 8: Phonics Challenge (صفحة 33)", 
+            em: "⚡",
+            type: "title",
+            b: "Apply your phonics skills to spell and read sentences containing ar, or, er.",
+            ar: "طبق مهاراتك الصوتية لتهجئة وقراءة جمل تحتوي على التراكيب ar, or, er."
+        },
+        { 
+            t: "Warm-up / التهيئة", 
+            em: "🏃",
+            type: "normal",
+            b: "Let's review our sound spellings: ar, or, er. Are you ready for the final race?",
+            ar: "دعنا نراجع تهجئة المصوتات: ar, or, er. هل أنت مستعد للسباق الختامي؟"
+        },
+        { 
+            t: "Challenge Sentences / جمل التحدي الصوتي", 
+            em: "🌳",
+            type: "phonics_challenge",
+            b: "Read and spell the target challenge sentences:",
+            ar: "اقرأ وتهجى جمل التحدي الصوتي بالصوت والصورة:"
+        },
+        { 
+            t: "Concept Check / تحقق الفهم", 
+            em: "❓",
+            type: "quiz",
+            q: "Complete: He plays ______ in the park.",
+            choices: ["sports", "spots", "spoons"],
+            correct: 0,
+            ar: "أكمل الجملة السابقة بكلمة صحيحة قواعدياً وإملائياً."
+        },
+        { 
+            t: "Classroom Game / لعبة صفيّة", 
+            em: "🏫",
+            type: "normal",
+            b: "Sentence Builder Relay: Groups race to arrange flashcards to form the challenge sentences correctly!",
+            ar: "تتابع تركيب الجمل: تتسابق المجموعات لترتيب بطاقات الكلمات لتكوين جمل التحدي الصوتي بشكل صحيح!"
+        }
+    ]
+};
+
+let currentLesson = 0;
+let currentSlide = 0;
+
+// Speech synthesis function
+function speakText(text) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.lang = 'en-US';
+        msg.rate = 0.8;
+        window.speechSynthesis.speak(msg);
+    }
+}
+
+// Theme toggler
+function tglTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    document.querySelector('.theme-btn').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+}
+
+function renderSlide() {
+    const slide = slidesData[currentLesson][currentSlide];
+    
+    // Set base titles and contents
+    document.getElementById('s-emoji').textContent = slide.em || '🧹';
+    document.getElementById('s-title').textContent = slide.t;
+    document.getElementById('s-body').textContent = slide.b;
+    document.getElementById('slide-num').textContent = `الشريحة ${currentSlide + 1} من 5`;
+
+    // Enable/disable navigation buttons
+    document.getElementById('btn-prev').disabled = (currentSlide === 0);
+    document.getElementById('btn-next').disabled = (currentSlide === 4);
+
+    const dynamicContent = document.getElementById('s-dynamic-content');
+    dynamicContent.innerHTML = '';
+
+    // Render AR Translation under body
+    if (slide.ar) {
+        const arDiv = document.createElement('div');
+        arDiv.className = 'slide-ar-text';
+        arDiv.textContent = slide.ar;
+        dynamicContent.appendChild(arDiv);
+    }
+
+    // Handle slide type specific views
+    if (slide.type === 'chores_list') {
+        // Render the 8 chores visually (SVG/Emojis) with Audio Buttons
+        const cardContainer = document.createElement('div');
+        cardContainer.className = 'ppt-visual-container';
+        
+        const targetChores = [
+            {t: 'feed the fish', s: 'fish'},
+            {t: 'set the table', s: 'table'},
+            {t: 'wash the dishes', s: 'dishes'},
+            {t: 'take out the trash', s: 'trash'}
+        ];
+
+        targetChores.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'ppt-visual-card';
+            card.style.cursor = 'pointer';
+            card.innerHTML = `${svgs[item.s]}<div class="ppt-visual-card-title">${item.t}</div>`;
+            card.addEventListener('click', () => speakText(item.t));
+            cardContainer.appendChild(card);
+        });
+        dynamicContent.appendChild(cardContainer);
+
+        // Add pronunciation explanation section
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> انطق الحروف المتحركة بوضوح: feed تلفظ /fi:d/ (ياء ممدودة)، و wash تلفظ /wosh/ بفتحة دائرية. اضغط على البطاقات للاستماع للنطق.`;
+        dynamicContent.appendChild(pron);
+    }
+    
+    else if (slide.type === 'survey_scorecard') {
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = "display:flex; gap:20px; width:95%; justify-content:center; align-items:flex-start;";
+
+        const ruleDiv = document.createElement('div');
+        ruleDiv.style.cssText = "background:rgba(255,255,255,0.06); padding:12px; border-radius:10px; font-size:13px; text-align:left; direction:ltr; flex:1.2;";
+        ruleDiv.innerHTML = `
+          <div style="color:#f59e0b; font-weight:bold; margin-bottom:5px;">Checklist Rules:</div>
+          • <b>Always</b> = 2 points<br>
+          • <b>Sometimes</b> = 1 point<br>
+          • <b>Never</b> = 0 points<br><br>
+          <div style="color:var(--accent); font-weight:bold;">Helper Status:</div>
+          • <b>13 or more</b>: Great helper!<br>
+          • <b>9-12</b>: Good helper.<br>
+          • <b>5-8</b>: Average helper.<br>
+          • <b>0-4</b>: Poor helper.
+        `;
+        wrapper.appendChild(ruleDiv);
+
+        const calcDiv = document.createElement('div');
+        calcDiv.style.cssText = "background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:12px; border-radius:10px; font-size:13px; flex:1.8;";
+        calcDiv.innerHTML = `
+          <h4 style="color:#f59e0b; font-weight:bold; margin-bottom:8px; text-align:center;">🎮 استبيان قياس مدى المساعدة (Live Survey)</h4>
+          <table style="width:100%; border-collapse:collapse; color:#fff; text-align:center;">
+            <thead>
+              <tr style="border-bottom:2px solid rgba(255,255,255,0.2);">
+                <th style="padding:4px; text-align:right;">Chore</th>
+                <th style="padding:4px;">Always</th>
+                <th style="padding:4px;">Sometimes</th>
+                <th style="padding:4px;">Never</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                <td style="padding:4px; text-align:right; font-weight:bold;">feed fish 🐠</td>
+                <td><input type="radio" name="ppt-chore-0" value="2" onclick="calcPptSurvey()"></td>
+                <td><input type="radio" name="ppt-chore-0" value="1" onclick="calcPptSurvey()"></td>
+                <td><input type="radio" name="ppt-chore-0" value="0" onclick="calcPptSurvey()"></td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                <td style="padding:4px; text-align:right; font-weight:bold;">set table 🍽️</td>
+                <td><input type="radio" name="ppt-chore-1" value="2" onclick="calcPptSurvey()"></td>
+                <td><input type="radio" name="ppt-chore-1" value="1" onclick="calcPptSurvey()"></td>
+                <td><input type="radio" name="ppt-chore-1" value="0" onclick="calcPptSurvey()"></td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                <td style="padding:4px; text-align:right; font-weight:bold;">wash dishes 🧽</td>
+                <td><input type="radio" name="ppt-chore-2" value="2" onclick="calcPptSurvey()"></td>
+                <td><input type="radio" name="ppt-chore-2" value="1" onclick="calcPptSurvey()"></td>
+                <td><input type="radio" name="ppt-chore-2" value="0" onclick="calcPptSurvey()"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:8px; font-weight:bold; text-align:center; font-size:12px;">
+            <span>Score: <b id="ppt-survey-val" style="color:var(--accent); font-size:14px;">0</b></span> | 
+            <span id="ppt-survey-status" style="color:#cbd5e1;">Rate yourself!</span>
+          </div>
+        `;
+        wrapper.appendChild(calcDiv);
+        dynamicContent.appendChild(wrapper);
+    }
+    
+    else if (slide.type === 'ppt_memory_game') {
+        const gameDiv = document.createElement('div');
+        gameDiv.style.cssText = "width:100%; display:flex; flex-direction:column; align-items:center; margin-top:5px;";
+        gameDiv.innerHTML = `
+          <h4 style="color:#f59e0b; font-weight:bold; margin-bottom:8px; font-size:15px;">🎮 لعبة الذاكرة: بطاقات فلاب للمهام المنزلية (Memory Flip)</h4>
+          <div class="memory-grid" id="ppt-memory-arena" style="width:100%; max-width:400px; display:grid; grid-template-columns: repeat(4, 1fr); gap:8px;"></div>
+          <div id="ppt-memory-fb" style="font-weight:bold; font-size:14px; margin-top:8px; color:var(--accent);"></div>
+          <button class="btn-ppt" style="margin-top:8px; font-size:12px; padding:4px 10px; border-radius:4px;" onclick="startPptMemoryGame()">🔄 إعادة البدء</button>
+        `;
+        dynamicContent.appendChild(gameDiv);
+        setTimeout(startPptMemoryGame, 50);
+    }
+
+    else if (slide.type === 'grammar_chant') {
+        // Lesson 3 Slide 3: Grammar pairing and Chores Chant
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'flex';
+        wrapper.style.gap = '20px';
+        wrapper.style.width = '90%';
+        wrapper.style.justifyContent = 'center';
+
+        // Left: Singular pairing
+        const pairings = document.createElement('div');
+        pairings.style.cssText = "background:rgba(255,255,255,0.05); padding:10px 15px; border-radius:8px; font-size:14px; text-align:left; direction:ltr; flex: 1;";
+        pairings.innerHTML = `
+          <b style="color:#f59e0b;">Singular Verbs (+s / -es):</b><br>
+          • feed ➡️ <span style="color:var(--danger)">feeds</span><br>
+          • set ➡️ <span style="color:var(--danger)">sets</span><br>
+          • wash ➡️ <span style="color:var(--danger)">washes</span><br>
+          • vacuum ➡️ <span style="color:var(--danger)">vacuums</span><br>
+          • go ➡️ <span style="color:var(--danger)">goes</span>
+        `;
+        wrapper.appendChild(pairings);
+
+        // Right: Chores Chant
+        const chant = document.createElement('div');
+        chant.className = 'chant-layout';
+        chant.innerHTML = `
+          I wash the dishes.<br>
+          He <span class="chant-highlight">washes</span> the dishes.<br>
+          She <span class="chant-highlight">washes</span> the dishes.<br>
+          They wash the dishes.
+        `;
+        chant.style.flex = "1";
+        wrapper.appendChild(chant);
+        
+        dynamicContent.appendChild(wrapper);
+
+        // Pronunciation box
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> يلفظ الحرفان (es) في نهاية الفعل washes كصوت /iz/ لتصبح (واشز) ليسهل نطقها بعد صوت الشين. اضغط للاستماع للأنشودة.`;
+        pron.style.cursor = 'pointer';
+        pron.addEventListener('click', () => speakText("I wash the dishes. He washes the dishes. She washes the dishes. They wash the dishes."));
+        dynamicContent.appendChild(pron);
+    }
+
+    else if (slide.type === 'qa_patterns') {
+        // Lesson 4 Slide 3: QA patterns
+        const qaDiv = document.createElement('div');
+        qaDiv.style.cssText = "background:rgba(255,255,255,0.06); padding:15px; border-radius:10px; font-size:16px; text-align:left; width:80%; direction:ltr;";
+        qaDiv.innerHTML = `
+          <b>Q:</b> What chores <span style="color:#f59e0b;">do you</span> do?<br>
+          <b>A:</b> <span style="color:var(--accent);">I clean up</span> my room.<br>
+          <hr style="border:1px solid rgba(255,255,255,0.1); margin:8px 0;">
+          <b>Q:</b> What chores <span style="color:#f59e0b;">does your sister</span> do?<br>
+          <b>A:</b> <span style="color:var(--accent);">She folds</span> the laundry.
+        `;
+        dynamicContent.appendChild(qaDiv);
+
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> عند السؤال السريع، تندمج الكلمتان (does your) لتنطق كصوت /dʌz-jər/ مدمج. اضغط للاستماع.`;
+        pron.style.cursor = 'pointer';
+        pron.addEventListener('click', () => speakText("What chores do you do? I clean up my room. What chores does your sister do? She folds the laundry."));
+        dynamicContent.appendChild(pron);
+    }
+
+    else if (slide.type === 'robot_chant_1') {
+        // Lesson 5 Clever Robot Part 1
+        const chant = document.createElement('div');
+        chant.className = 'chant-layout';
+        chant.style.width = '70%';
+        chant.innerHTML = `
+          "I'm a <span class="chant-highlight">clever</span> robot,<br>
+          I <span class="chant-highlight">set</span> the table,<br>
+          And <span class="chant-highlight">wash</span> the dishes."
+        `;
+        dynamicContent.appendChild(chant);
+
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> كلمة clever تعني ذكي وتلفظ /'klev.ər/. اضغط للاستماع إلى نطق الروبوت.`;
+        pron.style.cursor = 'pointer';
+        pron.addEventListener('click', () => speakText("I'm a clever robot. I set the table and wash the dishes."));
+        dynamicContent.appendChild(pron);
+    }
+
+    else if (slide.type === 'robot_chant_2') {
+        // Lesson 6 Clever Robot Part 2
+        const chant = document.createElement('div');
+        chant.className = 'chant-layout';
+        chant.style.width = '70%';
+        chant.innerHTML = `
+          "I <span class="chant-highlight">vacuum</span> the floor,<br>
+          And <span class="chant-highlight">clean up</span> my room,<br>
+          I go <span class="chant-highlight">shopping</span>,<br>
+          And <span class="chant-highlight">fold</span> the laundry."
+        `;
+        dynamicContent.appendChild(chant);
+
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> كلمة vacuum تلفظ /'væk.juːm/، وكلمة laundry تلفظ /'lɔːn.dri/ (اللام مفخمة). اضغط للاستماع.`;
+        pron.style.cursor = 'pointer';
+        pron.addEventListener('click', () => speakText("I vacuum the floor and clean up my room, I go shopping and fold the laundry."));
+        dynamicContent.appendChild(pron);
+    }
+
+    else if (slide.type === 'phonics_list') {
+        // Lesson 7 Slide 3: Phonics (ar, or, er)
+        const cardContainer = document.createElement('div');
+        cardContainer.className = 'ppt-visual-container';
+        
+        const targetPhonics = [
+            {t: 'c ar 🚗', s: 'car'},
+            {t: 'f or k 🍴', s: 'fork'},
+            {t: 'teach er 👩‍🏫', s: 'teacher'},
+            {t: 'doct or 👨‍⚕️', s: 'doctor'}
+        ];
+
+        targetPhonics.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'ppt-visual-card';
+            card.style.cursor = 'pointer';
+            card.innerHTML = `${svgs[item.s]}<div class="ppt-visual-card-title">${item.t}</div>`;
+            card.addEventListener('click', () => speakText(item.t.replace(/[^a-zA-Z]/g, '')));
+            cardContainer.appendChild(card);
+        });
+        dynamicContent.appendChild(cardContainer);
+
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> التركيب ar مفخم /ɑːr/، والتركيب or مضموم /ɔːr/، والتركيب er مرقق خفيف /ər/. اضغط على البطاقات للاستماع.`;
+        dynamicContent.appendChild(pron);
+    }
+
+    else if (slide.type === 'phonics_challenge') {
+        // Lesson 8 Slide 3: Phonics challenge dark/sports/park
+        const cardContainer = document.createElement('div');
+        cardContainer.className = 'ppt-visual-container';
+
+        const challengeData = [
+            {t: 'd ar k 🌃', s: 'dark'},
+            {t: 'p ar k 🌳', s: 'park'}
+        ];
+        challengeData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'ppt-visual-card';
+            card.style.cursor = 'pointer';
+            card.innerHTML = `${svgs[item.s]}<div class="ppt-visual-card-title">${item.t}</div>`;
+            card.addEventListener('click', () => speakText(item.t.replace(/[^a-zA-Z]/g, '')));
+            cardContainer.appendChild(card);
+        });
+        dynamicContent.appendChild(cardContainer);
+
+        const sentences = document.createElement('div');
+        sentences.style.cssText = "background:rgba(255,255,255,0.06); padding:10px; border-radius:8px; font-size:16px; font-weight:bold; direction:ltr; text-align:left; margin-top:5px;";
+        sentences.innerHTML = `
+          1. It is <span style="color:#f59e0b;">dark</span> in winter.<br>
+          2. He plays <span style="color:#f59e0b;">sports</span> in the <span style="color:#f59e0b;">park</span>.
+        `;
+        dynamicContent.appendChild(sentences);
+
+        const pron = document.createElement('div');
+        pron.className = 'pronunciation-box';
+        pron.innerHTML = `🔊 <b>نصيحة نطق:</b> اقرأ الجملة كاملة بشكل متصل: /hi pleɪz spɔːrts ɪn ðə pɑːrk/. اضغط للاستماع للجمل.`;
+        pron.style.cursor = 'pointer';
+        pron.addEventListener('click', () => speakText("It is dark in winter. He plays sports in the park."));
+        dynamicContent.appendChild(pron);
+    }
+
+    else if (slide.type === 'quiz') {
+        // Render quiz buttons
+        const qTitle = document.createElement('div');
+        qTitle.style.cssText = "font-family:'Outfit',sans-serif; font-size:22px; font-weight:bold; margin-bottom:10px; color:#f59e0b; direction:ltr;";
+        qTitle.textContent = slide.q;
+        dynamicContent.appendChild(qTitle);
+
+        const grid = document.createElement('div');
+        grid.className = 'ppt-choices-grid';
+        
+        slide.choices.forEach((choice, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'ppt-choice-btn';
+            btn.textContent = choice;
+            btn.addEventListener('click', () => handleQuizClick(btn, idx, slide.correct));
+            grid.appendChild(btn);
+        });
+        dynamicContent.appendChild(grid);
+    }
+}
+
+function handleQuizClick(btnEl, selectedIdx, correctIdx) {
+    // Disable all choice buttons to prevent multiple clicks
+    const buttons = document.querySelectorAll('.ppt-choice-btn');
+    buttons.forEach(btn => btn.disabled = true);
+
+    if (selectedIdx === correctIdx) {
+        btnEl.classList.add('correct');
+        speakText("Correct!");
+        popConfetti();
+    } else {
+        btnEl.classList.add('wrong');
+        // highlight correct one
+        buttons[correctIdx].classList.add('correct');
+        speakText("Incorrect. Let's learn from this!");
+    }
+}
+
+function popConfetti() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 80,
+            spread: 50,
+            origin: { y: 0.6 }
+        });
+    }
+}
+
+// Chores Survey calculator for presentation slide
+function calcPptSurvey() {
+    let score = 0;
+    let answered = 0;
+    for(let i=0; i<3; i++) {
+        const radios = document.getElementsByName(`ppt-chore-${i}`);
+        for(let r of radios) {
+            if(r.checked) {
+                score += parseInt(r.value);
+                answered++;
+            }
+        }
+    }
+    const scoreVal = document.getElementById("ppt-survey-val");
+    const scoreStatus = document.getElementById("ppt-survey-status");
+    if(scoreVal) scoreVal.textContent = score;
+    if(scoreStatus) {
+        if(score >= 5) {
+            scoreStatus.style.color = "var(--accent)";
+            scoreStatus.textContent = "🏆 Great Helper! (مساعد رائع)";
+            popConfetti();
+        } else if(score >= 3) {
+            scoreStatus.style.color = "var(--primary-light)";
+            scoreStatus.textContent = "👍 Good Helper! (مساعد جيد)";
+        } else if(score >= 1) {
+            scoreStatus.style.color = "#f59e0b";
+            scoreStatus.textContent = "😐 Average Helper (مساعد متوسط)";
+        } else {
+            scoreStatus.style.color = "var(--danger)";
+            scoreStatus.textContent = "😢 Poor Helper (بحاجة للمساعدة)";
+        }
+    }
+}
+
+// Memory Match Game inside PPT slide player
+let pptFirstCard = null;
+let pptSecondCard = null;
+let pptMatchedCount = 0;
+
+function startPptMemoryGame() {
+    const arena = document.getElementById("ppt-memory-arena");
+    const fb = document.getElementById("ppt-memory-fb");
+    if(!arena) return;
+    arena.innerHTML = "";
+    if(fb) fb.textContent = "";
+    
+    const pairs = [
+        { text: "feed fish", match: "🐠 أطعم السمك" },
+        { text: "set table", match: "🍽️ أجهز المائدة" },
+        { text: "wash dishes", match: "🧽 أغسل الأطباق" },
+        { text: "fold laundry", match: "🧺 أطوي الغسيل" }
+    ];
+    
+    let items = [];
+    pairs.forEach(p => {
+        items.push({ id: p.text, val: p.text });
+        items.push({ id: p.text, val: p.match });
+    });
+    
+    // Shuffle
+    items.sort(() => Math.random() - 0.5);
+    
+    pptFirstCard = null;
+    pptSecondCard = null;
+    pptMatchedCount = 0;
+    
+    items.forEach((item, idx) => {
+        const card = document.createElement("div");
+        card.className = "memory-card";
+        card.style.height = "52px";
+        card.dataset.id = item.id;
+        card.onclick = () => flipPptCard(card);
+        card.innerHTML = `
+            <div class="memory-card-front" style="font-size:18px;">?</div>
+            <div class="memory-card-back" style="font-size:10px; background:#1e293b; color:#fff; border:1px solid var(--primary-light);">${item.val}</div>
+        `;
+        arena.appendChild(card);
+    });
+}
+
+function flipPptCard(card) {
+    if(card.classList.contains("flipped") || card.classList.contains("matched")) return;
+    if(pptFirstCard && pptSecondCard) return;
+    
+    card.classList.add("flipped");
+    speakText(card.dataset.id);
+    
+    if(!pptFirstCard) {
+        pptFirstCard = card;
+    } else {
+        pptSecondCard = card;
+        if(pptFirstCard.dataset.id === pptSecondCard.dataset.id) {
+            setTimeout(() => {
+                pptFirstCard.classList.add("matched");
+                pptSecondCard.classList.add("matched");
+                pptFirstCard = null;
+                pptSecondCard = null;
+                pptMatchedCount++;
+                
+                speakText("Correct!");
+                popConfetti();
+                
+                if(pptMatchedCount === 4) {
+                    const fb = document.getElementById("ppt-memory-fb");
+                    if(fb) fb.textContent = "🎉 أحسنت! تم حل لعبة الذاكرة بنجاح!";
+                }
+            }, 500);
+        } else {
+            setTimeout(() => {
+                pptFirstCard.classList.remove("flipped");
+                pptSecondCard.classList.remove("flipped");
+                pptFirstCard = null;
+                pptSecondCard = null;
+            }, 1000);
+        }
+    }
+}
+
+function navigateSlide(dir) {
+    let nextSlide = currentSlide + dir;
+    if (nextSlide >= 0 && nextSlide < 5) {
+        currentSlide = nextSlide;
+        renderSlide();
+    }
+}
+
+function changeLesson() {
+    currentLesson = parseInt(document.getElementById('l-select').value);
+    currentSlide = 0;
+    renderSlide();
+}
+
+// --------------------------------------------------------------------------
+// POWERPOINT EXPORT (PPTX) USING PPTXGENJS
+// --------------------------------------------------------------------------
+function exportPPTX() {
+    if (typeof PptxGenJS === 'undefined') {
+        alert("⚠️ عذراً، لم تكتمل عملية تحميل مكتبة تصدير PowerPoint من شبكة توزيع المحتوى (CDN) بعد. يرجى التأكد من اتصالك بالإنترنت ثم المحاولة مرة أخرى.");
+        return;
+    }
+    let pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+    
+    const slides = slidesData[currentLesson];
+    slides.forEach((s, idx) => {
+        let slide = pptx.addSlide();
+        
+        // Background color fill: Indigo Navy
+        slide.background = { fill: '1E1B4B' };
+        
+        // Add watermark
+        slide.addText("SmartLearning - We Can 3", {
+            x: 0.3, y: 0.2, w: 4.0, h: 0.4,
+            fontSize: 12, bold: true, color: '10B981',
+            fontFace: 'Arial'
+        });
+
+        // Emojis / icon indicator
+        slide.addText(s.em || '🧹', {
+            x: 0.5, y: 0.8, w: 1.0, h: 1.0,
+            fontSize: 48, align: 'center'
+        });
+
+        // Slide Title (translated)
+        slide.addText(s.t, {
+            x: 1.5, y: 0.8, w: 11.0, h: 1.0,
+            fontSize: 28, bold: true, color: 'F59E0B',
+            align: 'right', fontFace: 'Arial'
+        });
+        
+        // Main content body (English)
+        let bodyText = s.b || "";
+        if (s.type === 'quiz') {
+            bodyText = `Question: ${s.q}\nChoices:\n` + s.choices.map((c, i) => `   [${i+1}] ${c}`).join('\n');
+        }
+        
+        slide.addText(bodyText, {
+            x: 1.0, y: 2.2, w: 11.3, h: 1.8,
+            fontSize: 20, color: 'FFFFFF',
+            align: 'center', fontFace: 'Arial',
+            lineSpacing: 28
+        });
+
+        // Arabic translation text at the bottom
+        let arText = s.ar || "";
+        slide.addText(arText, {
+            x: 1.0, y: 4.2, w: 11.3, h: 1.2,
+            fontSize: 16, color: '38BDF8',
+            align: 'center', fontFace: 'Arial',
+            rtl: true
+        });
+    });
+    
+    pptx.writeFile({ fileName: `WeCan3-Grade3-Unit4-Lesson-${currentLesson + 1}.pptx` });
+}
+
+// Initial render
+renderSlide();
+</script>
+</body>
+</html>

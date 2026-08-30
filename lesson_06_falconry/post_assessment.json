@@ -1,0 +1,44 @@
+[
+  {
+    "q": "Many people in Saudi Arabia like falconry. (True/False)",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "ans": "True"
+  },
+  {
+    "q": "Falcons slow down when they dive. (True/False)",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "ans": "False"
+  },
+  {
+    "q": "Falcons can see very far. (True/False)",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "ans": "True"
+  },
+  {
+    "q": "Falcons have soft talons. (True/False)",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "ans": "False"
+  },
+  {
+    "q": "Falcons use their sharp talons to ______ and catch prey.",
+    "choices": [
+      "attack",
+      "eat",
+      "fly",
+      "look"
+    ],
+    "ans": "attack"
+  }
+]

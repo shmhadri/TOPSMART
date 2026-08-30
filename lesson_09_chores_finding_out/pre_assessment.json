@@ -1,0 +1,52 @@
+[
+  {
+    "q": "I ______ the fish.",
+    "choices": [
+      "feed",
+      "feeds",
+      "feeding",
+      "to feed"
+    ],
+    "ans": "feed"
+  },
+  {
+    "q": "How do you say 'أطوي الغسيل'?",
+    "choices": [
+      "fold the laundry",
+      "clean my room",
+      "set the table",
+      "wash the dishes"
+    ],
+    "ans": "fold the laundry"
+  },
+  {
+    "q": "Complete the small talk: 'What chores ______ you do?'",
+    "choices": [
+      "do",
+      "does",
+      "are",
+      "doing"
+    ],
+    "ans": "do"
+  },
+  {
+    "q": "Translate 'wash the dishes':",
+    "choices": [
+      "أغسل الأطباق",
+      "أطعم السمك",
+      "أرتب غرفتي",
+      "أطوي الغسيل"
+    ],
+    "ans": "أغسل الأطباق"
+  },
+  {
+    "q": "Which is a chore?",
+    "choices": [
+      "tennis",
+      "clean up my room",
+      "football",
+      "pottery"
+    ],
+    "ans": "clean up my room"
+  }
+]

@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - الوحدة 2: Sea Animals | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* TOPBAR */
+.topbar {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+[data-theme=dark] .topbar {
+    background: var(--bg-card);
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+
+/* TABS NAVIGATION */
+.tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+.tab-btn {
+    padding: 10px 18px;
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.tab-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* MAIN WRAPPER (A4 LIMIT) */
+.main-wrap {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sheet-container {
+    display: none;
+}
+.sheet-container.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* A4 PRINTING STRUCTURE */
+.a4-sheet {
+    background: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    color: #0f172a; /* Strict high contrast dark text for student visibility */
+}
+.sheet-header {
+    border-bottom: 3px double var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+.header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-school {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: bold;
+    color: var(--text-muted);
+}
+.header-title-box {
+    text-align: center;
+}
+.header-title-box h1 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-title-box h2 {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.header-logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.header-student-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    background: #f8fafc;
+    border: 1px dashed var(--primary);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+}
+.student-field {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+/* BLOOM TAXONOMY SECTIONS */
+.bloom-section {
+    background: #fafafb;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    padding: 18px;
+}
+.bloom-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.bloom-label {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.08);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+.bloom-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+.q-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #1e293b;
+}
+
+/* INPUT LAYOUTS */
+.handwriting-line {
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    width: 120px;
+    text-align: center;
+    background: transparent;
+    color: var(--primary);
+    outline: none;
+}
+.trace-dots {
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    color: #cbd5e1;
+    text-decoration: underline dotted #64748b;
+    letter-spacing: 2px;
+    line-height: 2;
+    display: block;
+    user-select: none;
+}
+.drawing-arena {
+    border: 2px dashed #cbd5e1;
+    border-radius: var(--radius-sm);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-weight: bold;
+    background: #ffffff;
+}
+
+/* MATCHER STYLE */
+.match-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.match-table td {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+}
+
+.sheet-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.fb-indicator {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-weight: bold;
+    margin-top: 15px;
+    display: none;
+}
+.fb-correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #047857;
+}
+.fb-wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+}
+
+/* BTN CLASSIC */
+.btn-c {
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-light); }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: #059669; }
+
+@media print {
+    body { background: #fff; padding-bottom: 0; }
+    .topbar, .tabs-nav, .sheet-actions, .fb-indicator { display: none !important; }
+    .a4-sheet { border: none !important; box-shadow: none !important; padding: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="grade3-unit2-english.html" class="back-btn-top">↩️ العودة للدرس التفاعلي</a>
+  <div class="tlogo">أوراق العمل التفاعلية | Smart<span>.</span>Learning</div>
+</nav>
+
+<!-- NAVIGATION TABS -->
+<div class="tabs-nav">
+  <button class="tab-btn active" onclick="sw(0)">ورقة عمل 1: أسماء الحيوانات</button>
+  <button class="tab-btn" onclick="sw(1)">ورقة عمل 2: صفات الحيوانات</button>
+  <button class="tab-btn" onclick="sw(2)">ورقة عمل 3: مقارنة الصفات</button>
+  <button class="tab-btn" onclick="sw(3)">ورقة عمل 4: تفضيل الصفات</button>
+  <button class="tab-btn" onclick="sw(4)">ورقة عمل 5: أنشودة التشبيه (Match)</button>
+  <button class="tab-btn" onclick="sw(5)">ورقة عمل 6: رسم تشبيهات البحر</button>
+  <button class="tab-btn" onclick="sw(6)">ورقة عمل 7: الأصوات والتهجئة (Phonics)</button>
+  <button class="tab-btn" onclick="sw(7)">ورقة عمل 8: وقت التحدي ومراجعة الوحدة</button>
+</div>
+
+<div class="main-wrap">
+
+  <!-- ==================== WORKSHEET 1 ==================== -->
+  <div class="sheet-container active" id="sheet1">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 1: أسماء حيوانات البحر 🐳</h1>
+            <h2>Unit 2: Sea Animals (Lesson 1)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغات بالحرف المناسب لتهجئة الكلمة بشكل صحيح</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Fill in the missing letters for the sea animals:</div>
+          <div style="font-size:18px; line-height:3;">
+            🐋 a) wh<input type="text" class="handwriting-line" style="width:50px" id="p1-q1" maxlength="1">le (حوت) <br>
+            🐬 b) dolph<input type="text" class="handwriting-line" style="width:50px" id="p1-q2" maxlength="1">n (دولفين) <br>
+            🦈 c) sh<input type="text" class="handwriting-line" style="width:50px" id="p1-q3" maxlength="1">rk (قرش)
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">طابق الكائن البحري بالترجمة العربية المناسبة له</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Match the English animal names to the Arabic translations:</div>
+          <table class="match-table">
+            <tr>
+              <td>1. seahorse (حصان البحر)</td>
+              <td>[ <input type="text" class="handwriting-line" style="width:40px" id="p1-m1" placeholder=""> ] A. فقمة البحر</td>
+            </tr>
+            <tr>
+              <td>2. seal (فقمة)</td>
+              <td>[ <input type="text" class="handwriting-line" style="width:40px" id="p1-m2" placeholder=""> ] B. حصان البحر</td>
+            </tr>
+            <tr>
+              <td>3. walrus (فيل البحر)</td>
+              <td>[ <input type="text" class="handwriting-line" style="width:40px" id="p1-m3" placeholder=""> ] C. فيل البحر</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة التالية وكرر كتابتها بخط يدك الجميل</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy the sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">It is a seahorse.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم كائناً بحرياً من اختيارك في هذا الصندوق</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw your favorite sea animal:</div>
+          <div class="drawing-arena">✏️ ارسم كائنك البحري المفضل هنا ولونه باليد!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb1"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet1', 'Worksheet1_Grade3_SeaAnimals.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet1', 'Worksheet1_Grade3_SeaAnimals.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet1()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 2 ==================== -->
+  <div class="sheet-container" id="sheet2">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 2: صفات الحيوانات البحرية 🐎</h1>
+            <h2>Unit 2: Sea Animal Descriptors (Lesson 1)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغات بالصفة المناسبة لكل كائن بحري</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the correct descriptor (scary / slow / fat):</div>
+          <div style="font-size:18px; line-height:3;">
+            🦈 a) Sharks are <input type="text" class="handwriting-line" style="width:140px" id="p2-q1"> (مخيفة). <br>
+            🐎 b) Seahorses are <input type="text" class="handwriting-line" style="width:140px" id="p2-q2"> (بطيئة). <br>
+            🦭 c) A walrus is <input type="text" class="handwriting-line" style="width:140px" id="p2-q3"> (سمين).
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الكلمة الصحيحة لإتمام الجمل من محادثة كتاب الطالب</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct option:</div>
+          <div style="font-size:18px; line-height:3;">
+            🐋 a) What's that? -> It's a <label><input type="radio" name="choice1" id="p2-ch1-t"> whale</label> | <label><input type="radio" name="choice1" id="p2-ch1-f"> seahorse</label>. <br>
+            🐬 b) Dolphins are <label><input type="radio" name="choice2" id="p2-ch2-t"> fast</label> | <label><input type="radio" name="choice2" id="p2-ch2-f"> slow</label>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة التالية وكرر كتابتها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">Sharks are scary.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم سمكة قرش مخيفة في الصندوق التالي</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw a scary shark:</div>
+          <div class="drawing-arena">✏️ ارسم القرش المخيف هنا ولونه!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb2"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet2', 'Worksheet2_Grade3_Descriptors.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet2', 'Worksheet2_Grade3_Descriptors.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet2()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 3 ==================== -->
+  <div class="sheet-container" id="sheet3">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 3: مقارنة الصفات (Comparative) 📊</h1>
+            <h2>Unit 2: Adjective Comparative (Lesson 2)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">اكتب صيغة المقارنة الصحيحة للصفات المعطاة بإضافة er than</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the comparative form (e.g. cuter than):</div>
+          <div style="font-size:18px; line-height:3;">
+            🐬 a) cute (لطيف) ➔ <input type="text" class="handwriting-line" style="width:180px" id="p3-q1"> <br>
+            🦈 b) fast (سريع) ➔ <input type="text" class="handwriting-line" style="width:180px" id="p3-q2"> <br>
+            🐳 c) scary (مخيف) ➔ <input type="text" class="handwriting-line" style="width:180px" id="p3-q3">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الكلمة المقارنة الصحيحة لإتمام جمل مقارنة الحيوانات</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct comparative form:</div>
+          <div style="font-size:18px; line-height:3;">
+            🐳 a) Sharks are <label><input type="radio" name="p3-choice1" id="p3-ch1-t"> faster than</label> | <label><input type="radio" name="p3-choice1" id="p3-ch1-f"> fast</label> whales. <br>
+            🐎 b) A seahorse is <label><input type="radio" name="p3-choice2" id="p3-ch2-t"> cuter than</label> | <label><input type="radio" name="p3-choice2" id="p3-ch2-f"> cutest</label> a dolphin.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة المقارنة التالية وكرر كتابتها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy the comparative sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">A shark is faster than a whale.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم دولفيناً أسرع من حوت باليد</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw a dolphin racing a whale:</div>
+          <div class="drawing-arena">✏️ ارسم سباق الدلفين والحوت هنا!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb3"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet3', 'Worksheet3_Grade3_Comparative.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet3', 'Worksheet3_Grade3_Comparative.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet3()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 4 ==================== -->
+  <div class="sheet-container" id="sheet4">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 4: تفضيل الصفات (Superlative) 🏆</h1>
+            <h2>Unit 2: Adjective Superlative (Lesson 2)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغات بصيغة التفضيل القصوى للصفة (إضافة the + est)</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the superlative form (e.g. the cutest):</div>
+          <div style="font-size:18px; line-height:3;">
+            🦭 a) cute (لطيف) ➔ <input type="text" class="handwriting-line" style="width:180px" id="p4-q1"> <br>
+            🐬 b) fast (سريع) ➔ <input type="text" class="handwriting-line" style="width:180px" id="p4-q2"> <br>
+            🦈 c) scary (مخيف) ➔ <input type="text" class="handwriting-line" style="width:180px" id="p4-q3">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الصيغة الصحيحة للتفضيل بين حيوانات البحر المعطاة بالدرس</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct superlative option:</div>
+          <div style="font-size:18px; line-height:3;">
+            🦭 a) A baby seal is <label><input type="radio" name="p4-choice1" id="p4-ch1-t"> the cutest</label> | <label><input type="radio" name="p4-choice1" id="p4-ch1-f"> cuter than</label>. <br>
+            🐬 b) Dolphins are <label><input type="radio" name="p4-choice2" id="p4-ch2-t"> the fastest</label> | <label><input type="radio" name="p4-choice2" id="p4-ch2-f"> faster than</label> of all.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة التالية وانسخها بخط يدوي سليم</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace and copy the superlative sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">A baby seal is the cutest.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم فقمة صغيرة لطيفة تلعب بالكرة الملونة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw a baby seal playing with a ball:</div>
+          <div class="drawing-arena">✏️ ارسم الفقمة الصغيرة اللطيفة هنا!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb4"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet4', 'Worksheet4_Grade3_Superlative.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet4', 'Worksheet4_Grade3_Superlative.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet4()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 5 ==================== -->
+  <div class="sheet-container" id="sheet5">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 5: أنشودة التشبيه (Just Like Something) 🐍</h1>
+            <h2>Unit 2: Similes Match & Write (Lesson 3 - Page 14)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الحروف الناقصة للكلمات الجديدة بالأنشودة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the missing letters (e / u):</div>
+          <div style="font-size:18px; line-height:3;">
+            🐍 a) e<input type="text" class="handwriting-line" style="width:40px" id="p5-q1" maxlength="1">l (ثعبان البحر) <br>
+            🐦 b) seag<input type="text" class="handwriting-line" style="width:40px" id="p5-q2" maxlength="1">ll (طائر النورس)
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">طابق الحيوانات بالصفة المناسبة لها بالنشيد</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Match the similes:</div>
+          <table class="match-table">
+            <tr>
+              <td>1. as slippery as (منزلق كـ)</td>
+              <td>[ <input type="text" class="handwriting-line" style="width:40px" id="p5-m1" placeholder=""> ] A. a walrus</td>
+            </tr>
+            <tr>
+              <td>2. as fat as (سمين كـ)</td>
+              <td>[ <input type="text" class="handwriting-line" style="width:40px" id="p5-m2" placeholder=""> ] B. an eel</td>
+            </tr>
+            <tr>
+              <td>3. as noisy as (صاخب كـ)</td>
+              <td>[ <input type="text" class="handwriting-line" style="width:40px" id="p5-m3" placeholder=""> ] C. a seagull</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة التالية وكرر كتابتها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace the simile sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">As slippery as an eel.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم طائر النورس محلقاً فوق البحر</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw a seagull flying over the sea:</div>
+          <div class="drawing-arena">✏️ ارسم طائر النورس هنا ولونه!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb5"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet5', 'Worksheet5_Grade3_Similes.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet5', 'Worksheet5_Grade3_Similes.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet5()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 6 ==================== -->
+  <div class="sheet-container" id="sheet6">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 6: كتابة ورسم تشبيهات البحر 🎨</h1>
+            <h2>Unit 2: Writing & Drawing Similes (Lesson 3 - Page 14)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغ بالصفة المناسبة من النشيد</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Complete the blank with the correct adjective:</div>
+          <div style="font-size:18px; line-height:3;">
+            🦭 a) As <input type="text" class="handwriting-line" style="width:120px" id="p6-q1"> as a walrus. (سمين كـ...) <br>
+            🐋 b) As <input type="text" class="handwriting-line" style="width:120px" id="p6-q2"> as a whale. (كبير كـ...)
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الكائن البحري الصحيح المتمم للتشبيه</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the correct matching animal:</div>
+          <div style="font-size:18px; line-height:3;">
+            🐎 a) As slow as a <label><input type="radio" name="p6-choice1" id="p6-ch1-t"> seahorse</label> | <label><input type="radio" name="p6-choice1" id="p6-ch1-f"> dolphin</label>. <br>
+            🦭 b) As cute as a <label><input type="radio" name="p6-choice2" id="p6-ch2-t"> baby seal</label> | <label><input type="radio" name="p6-choice2" id="p6-ch2-f"> shark</label>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة التالية واكتبها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace the simile sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">As slow as a seahorse.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم فقمة رضيعة لطيفة تلعب بالكرة باليد</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw a cute baby seal:</div>
+          <div class="drawing-arena">✏️ ارسم فقمة الرضيع الصغيرة اللطيفة هنا ولونها!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb6"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet6', 'Worksheet6_Grade3_Creative_Similes.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet6', 'Worksheet6_Grade3_Creative_Similes.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet6()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 7: PHONICS ==================== -->
+  <div class="sheet-container" id="sheet7">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 7: الأصوات والتهجئة (Phonics) 🗣️</h1>
+            <h2>Unit 2: Phonics oa, ow, ou (Page 16)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغات بالحروف المزدوجة المناسبة (oa / ow)</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write 'oa' or 'ow' to complete the words:</div>
+          <div style="font-size:18px; line-height:3;">
+            🐐 a) g<input type="text" class="handwriting-line" style="width:55px" id="p7-q1" maxlength="2" placeholder="">t (ماعز) <br>
+            ❄️ b) sn<input type="text" class="handwriting-line" style="width:55px" id="p7-q2" maxlength="2" placeholder=""> (ثلج) <br>
+            ⛵ c) b<input type="text" class="handwriting-line" style="width:55px" id="p7-q3" maxlength="2" placeholder="">t (قارب) <br>
+            🪟 d) wind<input type="text" class="handwriting-line" style="width:55px" id="p7-q4" maxlength="2" placeholder=""> (نافذة)
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">طابق الكلمات المتناغمة (القافية الصوتية)</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Choose the word that rhymes with each target word:</div>
+          <div style="font-size:18px; line-height:3;">
+            🏠 a) house rhymes with: <label><input type="radio" name="p7-choice1" id="p7-ch1-t"> mouse</label> | <label><input type="radio" name="p7-choice1" id="p7-ch1-f"> brown</label>. <br>
+            🐄 b) cow rhymes with: <label><input type="radio" name="p7-choice2" id="p7-ch2-t"> brown</label> | <label><input type="radio" name="p7-choice2" id="p7-ch2-f"> goat</label>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع الجملة الصوتية التالية وكرر كتابتها</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace the phonics sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">A goat is on the boat.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم قارب شراعياً صغيراً باليد</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw a small boat on the water:</div>
+          <div class="drawing-arena">✏️ ارسم قاربك الشراعي هنا!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb7"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet7', 'Worksheet7_Grade3_Phonics.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet7', 'Worksheet7_Grade3_Phonics.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet7()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== WORKSHEET 8: CHALLENGE TIME ==================== -->
+  <div class="sheet-container" id="sheet8">
+    <div class="a4-sheet">
+      <div class="sheet-header">
+        <div class="header-row-1">
+          <div class="header-school">المادة: لغة إنجليزية<br>الصف: الثالث الابتدائي</div>
+          <div class="header-title-box">
+            <h1>ورقة عمل 8: وقت التحدي ونشيد منزل جاك 🏠</h1>
+            <h2>Unit 2: Challenge Time (We Can 3 - Page 17)</h2>
+          </div>
+          <div class="header-logo">SmartLearning</div>
+        </div>
+        <div class="header-student-info">
+          <div class="student-field">اسم الطالب/ـة: <span>.......................................................</span></div>
+          <div class="student-field">التاريخ: <span>.... / .... / 2026 م</span></div>
+        </div>
+      </div>
+
+      <!-- Q1: Remember -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 1: التذكر (Remembering)</span>
+          <span class="bloom-desc">أكمل الفراغات بالكلمات المناسبة لنشيد Jack's House</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">1. Write the correct word in the blank (mouse / cow / cat):</div>
+          <div style="font-size:18px; line-height:3;">
+            🧀 a) This is the <input type="text" class="handwriting-line" style="width:120px" id="p8-q1"> that eats the cheese in Jack's house. <br>
+            🐱 b) This is the <input type="text" class="handwriting-line" style="width:120px" id="p8-q2"> that chases the mouse. <br>
+            🐄 c) This is the <input type="text" class="handwriting-line" style="width:120px" id="p8-q3"> with the pointed horns.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: Understand -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 2: الفهم (Understanding)</span>
+          <span class="bloom-desc">اختر الجواب الصحيح لنصيحة الدرس</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">2. Advice Time: Complete: "The patient fisherman catches the..."</div>
+          <div style="font-size:18px; line-height:3;">
+            🐟 Choose: <label><input type="radio" name="p8-choice" id="p8-ch-t"> best fish</label> | <label><input type="radio" name="p8-choice" id="p8-ch-f"> biggest shark</label>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: Apply -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 3: التطبيق والنسخ (Applying)</span>
+          <span class="bloom-desc">تتبع جملة التحدي التراكمي للقصة</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">3. Trace the rhyme sentence:</div>
+          <div style="line-height:3;">
+            <span class="trace-dots">This is Jack's house.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: Creating -->
+      <div class="bloom-section">
+        <div class="bloom-header">
+          <span class="bloom-label">المستوى 6: الابتكار (Creating)</span>
+          <span class="bloom-desc">ارسم منزل جاك باليد في المربع المخصص</span>
+        </div>
+        <div class="bloom-body">
+          <div class="q-title">4. Draw Jack's house:</div>
+          <div class="drawing-arena">✏️ ارسم منزلاً جميلاً هنا!</div>
+        </div>
+      </div>
+
+      <div class="sheet-actions">
+        <div class="fb-indicator" id="fb8"></div>
+        <button class="btn-c btn-primary" onclick="downloadWord('sheet8', 'Worksheet8_Grade3_JackHouse.doc')">📥 تحميل Word</button>
+        <button class="btn-c btn-accent" onclick="downloadPDF('sheet8', 'Worksheet8_Grade3_JackHouse.pdf')">📥 تحميل PDF</button>
+        <button class="btn-c btn-accent" style="background:#059669" onclick="checkSheet8()">تحقق تفاعلياً ✔️</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+/* Switch Tabs */
+function sw(idx) {
+    const sheets = document.querySelectorAll('.sheet-container');
+    const btns = document.querySelectorAll('.tab-btn');
+    
+    sheets.forEach(s => s.classList.remove('active'));
+    btns.forEach(b => b.classList.remove('active'));
+
+    sheets[idx].classList.add('active');
+    btns[idx].classList.add('active');
+}
+
+/* Check answers for Sheet 1 */
+function checkSheet1() {
+    const q1 = document.getElementById('p1-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p1-q2').value.trim().toLowerCase();
+    const q3 = document.getElementById('p1-q3').value.trim().toLowerCase();
+    const m1 = document.getElementById('p1-m1').value.trim().toUpperCase();
+    const m2 = document.getElementById('p1-m2').value.trim().toUpperCase();
+    const m3 = document.getElementById('p1-m3').value.trim().toUpperCase();
+    const fb = document.getElementById('fb1');
+    fb.style.display = 'block';
+    
+    if(q1 === 'a' && q2 === 'i' && q3 === 'a' && m1 === 'B' && m2 === 'A' && m3 === 'C') {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! جميع إجابات أسماء حيوانات البحر صحيحة تماماً!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ إجابة خاطئة! الحروف الناقصة هي a, i, a. والتوصيل هو: (1 ➔ B) و (2 ➔ A) و (3 ➔ C).';
+    }
+}
+
+/* Check answers for Sheet 2 */
+function checkSheet2() {
+    const q1 = document.getElementById('p2-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p2-q2').value.trim().toLowerCase();
+    const q3 = document.getElementById('p2-q3').value.trim().toLowerCase();
+    const ch1 = document.getElementById('p2-ch1-t').checked;
+    const ch2 = document.getElementById('p2-ch2-t').checked;
+    const fb = document.getElementById('fb2');
+    fb.style.display = 'block';
+    
+    if(q1 === 'scary' && q2 === 'slow' && q3 === 'fat' && ch1 && ch2) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! صفات الحيوانات البحرية صحيحة بنسبة 100%!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ إجابة خاطئة! الصفات بالترتيب: scary, slow, fat. وخيارات المراجعة هي: whale و fast.';
+    }
+}
+
+/* Check answers for Sheet 3 */
+function checkSheet3() {
+    const q1 = document.getElementById('p3-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p3-q2').value.trim().toLowerCase();
+    const q3 = document.getElementById('p3-q3').value.trim().toLowerCase();
+    const ch1 = document.getElementById('p3-ch1-t').checked;
+    const ch2 = document.getElementById('p3-ch2-t').checked;
+    const fb = document.getElementById('fb3');
+    fb.style.display = 'block';
+    
+    if(q1 === 'cuter than' && q2 === 'faster than' && q3 === 'scarier than' && ch1 && ch2) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! مقارنة الصفات صحيحة ومتقنة تماماً!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ هناك أخطاء. تذكر إضافة er than للصفة لتصبح: cuter than, faster than, scarier than. وخيارات الاختيار: faster than و cuter than.';
+    }
+}
+
+/* Check answers for Sheet 4 */
+function checkSheet4() {
+    const q1 = document.getElementById('p4-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p4-q2').value.trim().toLowerCase();
+    const q3 = document.getElementById('p4-q3').value.trim().toLowerCase();
+    const ch1 = document.getElementById('p4-ch1-t').checked;
+    const ch2 = document.getElementById('p4-ch2-t').checked;
+    const fb = document.getElementById('fb4');
+    fb.style.display = 'block';
+    
+    if(q1 === 'the cutest' && q2 === 'the fastest' && q3 === 'the scariest' && ch1 && ch2) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! جميع إجابات صيغ التفضيل العليا صحيحة!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ هناك أخطاء. تأكد من كتابة the cutest و the fastest وتحديد الخيارات الأكبر والأخوف.';
+    }
+}
+
+/* Check answers for Sheet 5 */
+function checkSheet5() {
+    const q1 = document.getElementById('p5-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p5-q2').value.trim().toLowerCase();
+    const m1 = document.getElementById('p5-m1').value.trim().toUpperCase();
+    const m2 = document.getElementById('p5-m2').value.trim().toUpperCase();
+    const m3 = document.getElementById('p5-m3').value.trim().toUpperCase();
+    const fb = document.getElementById('fb5');
+    fb.style.display = 'block';
+    
+    if(q1 === 'e' && q2 === 'u' && m1 === 'B' && m2 === 'A' && m3 === 'C') {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! جميع إجابات أنشودة التشبيه صحيحة ومطابقة بنسبة 100%!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ هناك بعض الأخطاء. الحروف الناقصة: e و u. التوصيل الصحيح: 1➔B، 2➔A، 3➔C.';
+    }
+}
+
+/* Check answers for Sheet 6 */
+function checkSheet6() {
+    const q1 = document.getElementById('p6-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p6-q2').value.trim().toLowerCase();
+    const ch1 = document.getElementById('p6-ch1-t').checked;
+    const ch2 = document.getElementById('p6-ch2-t').checked;
+    const fb = document.getElementById('fb6');
+    fb.style.display = 'block';
+    
+    if((q1 === 'fat' || q1 === 'as fat') && (q2 === 'big' || q2 === 'as big') && ch1 && ch2) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! إجابات كتابة وتحديد التشبيهات صحيحة ومتقنة تماماً!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ إجابة غير صحيحة. تذكر: As fat as a walrus و As big as a whale. وتحديد الخيارات: seahorse و baby seal.';
+    }
+}
+
+/* Check answers for Sheet 7 */
+function checkSheet7() {
+    const q1 = document.getElementById('p7-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p7-q2').value.trim().toLowerCase();
+    const q3 = document.getElementById('p7-q3').value.trim().toLowerCase();
+    const q4 = document.getElementById('p7-q4').value.trim().toLowerCase();
+    const ch1 = document.getElementById('p7-ch1-t').checked;
+    const ch2 = document.getElementById('p7-ch2-t').checked;
+    const fb = document.getElementById('fb7');
+    fb.style.display = 'block';
+    
+    if(q1 === 'oa' && q2 === 'ow' && q3 === 'oa' && q4 === 'ow' && ch1 && ch2) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! إجابات الحروف والتهجئة الصوتية صحيحة 100%!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ هناك أخطاء. الكلمات: goat, snow, boat, window. التناغم الصوتي: house ➔ mouse، و cow ➔ brown.';
+    }
+}
+
+/* Check answers for Sheet 8 */
+function checkSheet8() {
+    const q1 = document.getElementById('p8-q1').value.trim().toLowerCase();
+    const q2 = document.getElementById('p8-q2').value.trim().toLowerCase();
+    const q3 = document.getElementById('p8-q3').value.trim().toLowerCase();
+    const ch = document.getElementById('p8-ch-t').checked;
+    const fb = document.getElementById('fb8');
+    fb.style.display = 'block';
+    
+    if(q1 === 'mouse' && q2 === 'cat' && q3 === 'cow' && ch) {
+        fb.className = 'fb-indicator fb-correct';
+        fb.textContent = '✅ ممتاز! جميع إجابات نشيد منزل جاك والنصيحة صحيحة تماماً!';
+    } else {
+        fb.className = 'fb-indicator fb-wrong';
+        fb.textContent = '❌ هناك أخطاء. الترتيب: mouse, cat, cow. النصيحة: best fish.';
+    }
+}
+
+/* PDF Download */
+function downloadPDF(sheetId, filename) {
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const style = document.createElement('style');
+    style.id = 'pdf-override-style';
+    style.innerHTML = `
+        html, body, .main-wrap, .sheet-container {
+            overflow: visible !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+        #${sheetId} .a4-sheet {
+            width: 780px !important;
+            max-width: 780px !important;
+            padding: 30px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+        #${sheetId} .sheet-actions, #${sheetId} .fb-indicator {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const opt = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById('pdf-override-style');
+        if(s) s.remove();
+    });
+}
+
+/* Word Export (Preserving Layouts with Strict Embedded Styles) */
+function downloadWord(sheetId, filename) {
+    const header = "<" + "html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+          "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+          "xmlns='http://www.w3.org/TR/REC-html40'>"+
+          "<head><meta charset='utf-8'><title>Export HTML to Word</title><style>"+
+          "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; }"+
+          ".a4-sheet { padding: 20px; }"+
+          ".sheet-header { border-bottom: 3px double #4f46e5; padding-bottom: 20px; margin-bottom: 24px; }"+
+          ".header-row-1 { display: flex; justify-content: space-between; align-items: center; }"+
+          ".header-title-box { text-align: center; }"+
+          ".header-title-box h1 { font-size: 22px; font-weight: bold; color: #4f46e5; }"+
+          ".header-student-info { display: table; width: 100%; background: #f8fafc; padding: 12px; border: 1px dashed #4f46e5; margin-top: 15px; }"+
+          ".bloom-section { border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 20px; padding: 15px; background: #fafafb; }"+
+          ".bloom-header { border-bottom: 1px solid #cbd5e1; padding-bottom: 8px; margin-bottom: 12px; }"+
+          ".bloom-label { font-weight: bold; color: #4f46e5; background: #eef2ff; padding: 3px 8px; }"+
+          ".bloom-desc { font-size: 11px; color: #475569; }"+
+          ".q-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; }"+
+          ".match-table { width: 100%; border-collapse: collapse; margin-top: 15px; }"+
+          ".match-table td { padding: 10px; border: 1px solid #cbd5e1; }"+
+          ".handwriting-line { border: none; border-bottom: 2px dashed #4f46e5; width: 150px; display: inline-block; text-align: center; }"+
+          ".trace-dots { text-decoration: underline dotted #64748b; font-size: 24px; color: #cbd5e1; }"+
+          ".drawing-arena { border: 2px dashed #cbd5e1; height: 120px; text-align: center; line-height: 120px; color: #94a3b8; }"+
+          ".sheet-actions, .fb-indicator { display: none !important; }"+
+          "</" + "style></" + "head><body>";
+    const footer = "</" + "body></" + "html>";
+    const element = document.querySelector('#' + sheetId + ' .a4-sheet');
+    const html = header + element.innerHTML + footer;
+    
+    const blob = new Blob(['\ufeff' + html], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

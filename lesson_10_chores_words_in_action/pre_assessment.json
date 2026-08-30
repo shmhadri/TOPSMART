@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Always gives ______ points in the survey.",
+    "choices": [
+      "2",
+      "1",
+      "0",
+      "3"
+    ],
+    "ans": "2"
+  },
+  {
+    "q": "Sometimes gives ______ point in the survey.",
+    "choices": [
+      "1",
+      "2",
+      "0",
+      "3"
+    ],
+    "ans": "1"
+  },
+  {
+    "q": "Never gives ______ points in the survey.",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "ans": "0"
+  },
+  {
+    "q": "If your score is 13 or more, you are a ______ helper.",
+    "choices": [
+      "great",
+      "good",
+      "average",
+      "poor"
+    ],
+    "ans": "great"
+  },
+  {
+    "q": "Do you set the table? -> No, I ______.",
+    "choices": [
+      "never",
+      "sometimes",
+      "always",
+      "do"
+    ],
+    "ans": "never"
+  }
+]

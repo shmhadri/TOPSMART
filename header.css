@@ -1,0 +1,413 @@
+/* ==========================================================================
+   SmartLearning - Header, Sidebar & Slide-in Panel Navigation Styles
+   ========================================================================== */
+
+/* 1. الهيدر (Header) */
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+    height: 72px;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* زر العودة للخلف (Back Button) */
+.back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(10px);
+}
+
+.back-btn.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.back-btn:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
+}
+
+/* الشعار (Logo) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #ffffff;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* زر تبديل الوضع (Dark/Light Switcher) */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+/* زر القائمة الجانبية (Hamburger Menu) */
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+    transition: var(--transition);
+}
+
+.hamburger-menu:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* 2. القائمة الجانبية (Sidebar Drawer) */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    bottom: 0;
+    width: 340px;
+    background-color: var(--bg-sidebar);
+    z-index: 1001;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-left: 1px solid var(--border);
+    overflow: hidden; /* لمنع ظهور التمرير الخارجي للألواح */
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.close-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.close-sidebar:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+}
+
+
+/* 3. حاوية الألواح المنزلقة (Slide-in Panels Container) */
+.sidebar-panels-wrapper {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 100%;
+}
+
+.sidebar-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, visibility 0.4s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* حالات الألواح (RTL) */
+/* اللوح النشط (في المنتصف ومرئي) */
+.sidebar-panel.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+
+/* اللوح غير النشط مزاح لليمين (مستوى سابق) */
+.sidebar-panel.shifted-right {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+}
+
+/* اللوح غير النشط مزاح لليسار (مستوى أعمق) */
+.sidebar-panel.shifted-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+}
+
+/* 4. تصميم مكونات الألواح */
+.panel-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.panel-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.panel-menu-item:hover, .panel-menu-item.active {
+    background-color: rgba(var(--primary-rgb), 0.08);
+    color: var(--primary);
+    border-color: rgba(var(--primary-rgb), 0.15);
+}
+
+.panel-title {
+    margin: 16px 0 10px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.panel-back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    transition: var(--transition);
+    background-color: var(--bg-card);
+}
+
+.panel-back-btn:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.panel-header-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-left: 4px;
+    margin-bottom: 16px;
+}
+
+/* تخصيص شريط التمرير للألواح */
+.panel-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.panel-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.panel-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+/* بطاقة خيار اللوح (Panel List Item) */
+.panel-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background-color: var(--bg-body);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    user-select: none;
+}
+
+.panel-item:hover {
+    border-color: rgba(var(--primary-rgb), 0.3);
+    color: var(--primary);
+    background-color: rgba(var(--primary-rgb), 0.02);
+    transform: translateX(-3px);
+}
+
+.panel-item-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.panel-item-icon {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-item-chevron {
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.panel-item:hover .panel-item-chevron {
+    color: var(--primary);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.6;
+    flex-shrink: 0;
+}

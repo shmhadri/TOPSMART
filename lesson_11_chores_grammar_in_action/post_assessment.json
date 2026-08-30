@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Choose correct spelling of third-person of go:",
+    "choices": [
+      "goes",
+      "gos",
+      "goess",
+      "goose"
+    ],
+    "ans": "goes"
+  },
+  {
+    "q": "Choose correct spelling of third-person of wash:",
+    "choices": [
+      "washes",
+      "washs",
+      "washies",
+      "washing"
+    ],
+    "ans": "washes"
+  },
+  {
+    "q": "I set the table, my brother ______ the table.",
+    "choices": [
+      "sets",
+      "set",
+      "setting",
+      "to set"
+    ],
+    "ans": "sets"
+  },
+  {
+    "q": "They ______ shopping, she ______ shopping.",
+    "choices": [
+      "go / goes",
+      "goes / go",
+      "go / go",
+      "goes / goes"
+    ],
+    "ans": "go / goes"
+  },
+  {
+    "q": "Which sentence is grammatically correct?",
+    "choices": [
+      "She folds the laundry.",
+      "She fold the laundry.",
+      "She folding laundry.",
+      "She gone fold laundry."
+    ],
+    "ans": "She folds the laundry."
+  }
+]

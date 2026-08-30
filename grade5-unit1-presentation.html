@@ -1,0 +1,2370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - Unit 1: We have different interests - الصف الخامس | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- PptxGenJS Library for real PPTX Export -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --warning: #f59e0b;
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --radius: 24px;
+    --radius-sm: 12px;
+    --tr: .25s ease;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(30,41,59,.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+}
+
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+
+.top-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: var(--tr);
+}
+.top-action-btn.lesson { background: #4f46e5; }
+.top-action-btn.ws { background: #10b981; }
+.top-action-btn.pr { background: #3b82f6; }
+.top-action-btn.wheel { background: #ec4899; }
+.top-action-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+/* MAIN SLIDE VIEWER */
+.presentation-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.slide-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-card);
+    border: 3px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.3s ease;
+}
+.slide-box.active {
+    display: flex;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* SLIDE ELEMENTS */
+.slide-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 16px;
+}
+.slide-badge {
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    background: rgba(79, 70, 229, 0.2);
+    color: #818cf8;
+    border: 1px solid #6366f1;
+}
+.slide-title-main {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    font-family: 'Outfit', 'Tajawal', sans-serif;
+}
+.slide-title-ar {
+    font-size: 20px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.slide-content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* SLIDE 1 HERO */
+.hero-slide {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.hero-slide h1 {
+    font-size: 46px;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #818cf8, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-slide h2 {
+    font-size: 28px;
+    color: #cbd5e1;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+/* SLIDE 2 WARM UP GRID */
+.warmup-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.warmup-card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+    transition: var(--tr);
+    cursor: pointer;
+}
+.warmup-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    background: rgba(16, 185, 129, 0.1);
+}
+.warmup-icon { font-size: 40px; margin-bottom: 8px; }
+.warmup-name { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 800; color: #fff; }
+.warmup-ar { font-size: 14px; color: var(--text-muted); }
+
+/* SLIDE 3 VOCAB TILES */
+.vocab-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+.v-tile {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.v-tile:hover {
+    border-color: var(--primary-light);
+    background: rgba(79, 70, 229, 0.15);
+}
+.v-tile-eng { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 800; color: #818cf8; }
+.v-tile-ar { font-size: 13px; color: #cbd5e1; }
+
+/* SLIDE 4 QUIZ BOX */
+.slide-quiz-box {
+    background: rgba(255,255,255,0.03);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+}
+.slide-choices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+}
+.slide-choice-btn {
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+    transition: var(--tr);
+    cursor: pointer;
+}
+.slide-choice-btn:hover {
+    border-color: var(--primary-light);
+    background: rgba(79, 70, 229, 0.2);
+}
+.slide-choice-btn.correct {
+    border-color: var(--accent) !important;
+    background: rgba(16, 185, 129, 0.25) !important;
+    color: #34d399 !important;
+}
+.slide-choice-btn.wrong {
+    border-color: var(--danger) !important;
+    background: rgba(244, 63, 94, 0.25) !important;
+    color: #fb7185 !important;
+}
+
+/* SLIDE FOOTER NAV */
+.slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--border);
+    padding-top: 14px;
+}
+.slide-counter {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+/* BOTTOM CONTROLS */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 24px;
+    gap: 16px;
+}
+.ctrl-btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+}
+.ctrl-btn.prev { background: #334155; }
+.ctrl-btn.next { background: var(--primary); }
+.ctrl-btn.pptx { background: #ea580c; }
+.ctrl-btn.audio { background: #10b981; }
+.ctrl-btn.fullscreen { background: #6366f1; }
+.ctrl-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+    <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="grade5-unit1-english.html" class="back-btn-top">
+            <span>←</span> الدرس
+        </a>
+        <div class="tlogo">Smart<span>Presentation</span></div>
+    </div>
+    
+    <div style="display: flex; gap: 10px;">
+        <a href="grade5-unit1-english.html" class="top-action-btn lesson">📖 الدرس</a>
+        <a href="grade5-unit1-worksheets.html" class="top-action-btn ws">📝 أوراق العمل</a>
+        <a href="grade5-unit1-printables.html" class="top-action-btn pr">🖨️ المطبوعات</a>
+        <a href="wheel.html" class="top-action-btn wheel">🎯 العجلة</a>
+    </div>
+</header>
+
+<main class="presentation-container">
+
+    <!-- ==================== SLIDE 1: TITLE & WELCOME ==================== -->
+    <div class="slide-box active" id="slide1">
+        <div class="slide-hdr">
+            <div class="slide-badge">Slide 1 / 5: Welcome & Title</div>
+            <div style="font-size: 24px;">🌟</div>
+        </div>
+
+        <div class="slide-content-area">
+            <div class="hero-slide">
+                <h1>Unit 1: We have different interests</h1>
+                <h2>الصف الخامس الابتدائي - الفصل الدراسي الأول (Term 1)</h2>
+                <div style="display:flex; gap:16px; justify-content:center; margin-top:10px;">
+                    <span style="background:rgba(255,255,255,0.08); padding:8px 18px; border-radius:100px; font-weight:700;">📖 Lesson 1: Adjectives & Youth Center (Pages 10-11)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">SmartLearning Grade 5 Interactive Slides</span>
+            <button onclick="speakSlide(1)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع لنطق الشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 2: WARM-UP & BRAINSTORMING ==================== -->
+    <div class="slide-box" id="slide2">
+        <div class="slide-hdr">
+            <div>
+                <div class="slide-badge">Slide 2 / 5: Warm-up & Brainstorming</div>
+                <div class="slide-title-main">How are your interests different?</div>
+                <div class="slide-title-ar">كيف تختلف اهتماماتك عن اهتمامات أصدقائك؟</div>
+            </div>
+            <div style="font-size: 32px;">💭</div>
+        </div>
+
+        <div class="slide-content-area">
+            <div class="warmup-grid">
+                <div class="warmup-card" onclick="speakText('Playing guitar and making amazing music')">
+                    <div class="warmup-icon">🎸</div>
+                    <div class="warmup-name">Music & Guitar</div>
+                    <div class="warmup-ar">الموسيقى والجيتار</div>
+                </div>
+                <div class="warmup-card" onclick="speakText('Watching frightening horror movies')">
+                    <div class="warmup-icon">🍿</div>
+                    <div class="warmup-name">Horror Movies</div>
+                    <div class="warmup-ar">أفلام الرعب والسينما</div>
+                </div>
+                <div class="warmup-card" onclick="speakText('Playing sports and basketball with friendly friends')">
+                    <div class="warmup-icon">🏀</div>
+                    <div class="warmup-name">Sports & Games</div>
+                    <div class="warmup-ar">الرياضة والألعاب</div>
+                </div>
+                <div class="warmup-card" onclick="speakText('Joining the book club to read interesting books')">
+                    <div class="warmup-icon">📚</div>
+                    <div class="warmup-name">Book Club</div>
+                    <div class="warmup-ar">نادي القراءة والكتب</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Discussion Prompt: Ask 3 students about their favorite interests!</span>
+            <button onclick="speakSlide(2)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للتمهيد</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 3: TARGET VOCABULARY ==================== -->
+    <div class="slide-box" id="slide3">
+        <div class="slide-hdr">
+            <div>
+                <div class="slide-badge">Slide 3 / 5: Core Content</div>
+                <div class="slide-title-main">14 Key Descriptive Adjectives</div>
+                <div class="slide-title-ar">الصفات الوصفية الـ 14 من كتاب الطالب</div>
+            </div>
+            <div style="font-size: 32px;">🔤</div>
+        </div>
+
+        <div class="slide-content-area">
+            <div class="vocab-showcase-grid">
+                <div class="v-tile" onclick="speakText('popular')"><div class="v-tile-eng">popular 🌟</div><div class="v-tile-ar">محبوب / شائع</div></div>
+                <div class="v-tile" onclick="speakText('frightening')"><div class="v-tile-eng">frightening 🕷️</div><div class="v-tile-ar">مخيف / مرعب</div></div>
+                <div class="v-tile" onclick="speakText('lucky')"><div class="v-tile-eng">lucky 🍀</div><div class="v-tile-ar">محظوظ</div></div>
+                <div class="v-tile" onclick="speakText('special')"><div class="v-tile-eng">special ✨</div><div class="v-tile-ar">خاص / مميز</div></div>
+                <div class="v-tile" onclick="speakText('wonderful')"><div class="v-tile-eng">wonderful 😍</div><div class="v-tile-ar">رائع / بديع</div></div>
+                <div class="v-tile" onclick="speakText('amazing')"><div class="v-tile-eng">amazing 🤩</div><div class="v-tile-ar">مذهل / رائع</div></div>
+                <div class="v-tile" onclick="speakText('friendly')"><div class="v-tile-eng">friendly 😄</div><div class="v-tile-ar">ودود / لطيف</div></div>
+                <div class="v-tile" onclick="speakText('excellent')"><div class="v-tile-eng">excellent 👍</div><div class="v-tile-ar">ممتاز / فائق</div></div>
+                <div class="v-tile" onclick="speakText('important')"><div class="v-tile-eng">important ⚠️</div><div class="v-tile-ar">مهم / ضروري</div></div>
+                <div class="v-tile" onclick="speakText('lovely')"><div class="v-tile-eng">lovely 🥰</div><div class="v-tile-ar">جميل / لطيف</div></div>
+                <div class="v-tile" onclick="speakText('enormous')"><div class="v-tile-eng">enormous ↔️</div><div class="v-tile-ar">ضخم جداً</div></div>
+                <div class="v-tile" onclick="speakText('tidy')"><div class="v-tile-eng">tidy 🧼</div><div class="v-tile-ar">مرتب / نظيف</div></div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Click any word tile to hear native pronunciation</span>
+            <button onclick="speakSlide(3)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشرح</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 4: CONCEPT CHECK QUESTIONS ==================== -->
+    <div class="slide-box" id="slide4">
+        <div class="slide-hdr">
+            <div>
+                <div class="slide-badge">Slide 4 / 5: Concept Check</div>
+                <div class="slide-title-main">Quick Classroom Challenge</div>
+                <div class="slide-title-ar">سؤال التحقق السريع من الفهم</div>
+            </div>
+            <div style="font-size: 32px;">⚡</div>
+        </div>
+
+        <div class="slide-content-area">
+            <div class="slide-quiz-box">
+                <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Q: Which adjective best describes a huge building with lots of space?</h3>
+                <div class="slide-choices-grid">
+                    <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">A) Enormous ↔️</button>
+                    <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">B) Noisy 🫨</button>
+                    <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">C) Frightening 🕷️</button>
+                    <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">D) Tidy 🧼</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Smart Interactive Quiz Engine</span>
+            <button onclick="speakSlide(4)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 5: CLASSROOM GAME & WRAP-UP ==================== -->
+    <div class="slide-box" id="slide5">
+        <div class="slide-hdr">
+            <div>
+                <div class="slide-badge">Slide 5 / 5: Game & Wrap-up</div>
+                <div class="slide-title-main">Classroom Game: Spin & Make a Sentence!</div>
+                <div class="slide-title-ar">لعبة صفية: عجلة الأسماء وتكوين الجمل</div>
+            </div>
+            <div style="font-size: 32px;">🎯</div>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed var(--primary); border-radius:var(--radius-sm); padding:30px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: اختر طالباً باستخدام عجلة الأسماء!</h3>
+                <p style="font-size:18px; color:#cbd5e1; margin-bottom:20px;">على الطالب المختار استخدام إحدى الصفات الـ 14 في جملة تصف هوايته المفضلة مثل: <br><i>"My favorite interest is playing basketball because you meet friendly people!"</i></p>
+                
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#ec4899; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 - Lesson 1 Complete! Next: Lesson 3</span>
+            <button onclick="speakSlide(5)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للختام</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 6: LESSON 3 TITLE (PAGE 12) ==================== -->
+    <div class="slide-card" id="slide6">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(16,185,129,0.2); color:#34d399; border-color:#10b981;">Unit 1 - Lesson 3 | Page 12</span>
+            <span class="slide-number-pill">الشريحة 6 / 10</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">⏰ ➔ 📅</span>
+            <h1 style="background: linear-gradient(135deg, #10b981, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Simple Present vs. Simple Past
+            </h1>
+            <h2>قواعد المضارع البسيط والماضي البسيط ومحادثة المركز الشبابي</h2>
+            <p style="font-size: 18px; color: #94a3b8; max-width: 700px;">
+                تعلم التمييز بين العادات والروتين المنتظم (Regular Routines) والأحداث المنتهية في الماضي (Moments or Events before now)
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 3: Grammar & Youth Center Dialogue</span>
+            <button onclick="speakSlide(6)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 7: LESSON 3 WARM-UP ==================== -->
+    <div class="slide-card" id="slide7">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Warm-up: Routines vs. Past Events</div>
+                <div class="slide-title-ar">التهيئة: متى نستخدم المضارع ومتى نستخدم الماضي؟</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 7 / 10</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: rgba(79,70,229,0.1); border: 2px solid var(--primary); border-radius: var(--radius-sm); padding: 24px;">
+                    <div style="font-size: 36px; margin-bottom: 8px;">⏰</div>
+                    <h3 style="color: #818cf8; font-size: 20px; font-weight: 800; margin-bottom: 8px;">Simple Present (المضارع)</h3>
+                    <p style="color: #cbd5e1; font-size: 16px; margin-bottom: 12px;">Regular Routines & Facts/Feelings</p>
+                    <ul style="color: #fff; font-size: 15px; margin-right: 18px; line-height: 1.8;">
+                        <li>"I go nearly every day."</li>
+                        <li>"I love playing hockey."</li>
+                        <li>"She paints wonderful pictures."</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(16,185,129,0.1); border: 2px solid var(--accent); border-radius: var(--radius-sm); padding: 24px;">
+                    <div style="font-size: 36px; margin-bottom: 8px;">📅</div>
+                    <h3 style="color: #34d399; font-size: 20px; font-weight: 800; margin-bottom: 8px;">Simple Past (الماضي)</h3>
+                    <p style="color: #cbd5e1; font-size: 16px; margin-bottom: 12px;">Single Moments or Events before now</p>
+                    <ul style="color: #fff; font-size: 15px; margin-right: 18px; line-height: 1.8;">
+                        <li>"I went last Thursday."</li>
+                        <li>"My team won last Saturday."</li>
+                        <li>"I didn't watch the movie."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Routines (Present) vs Moments (Past)</span>
+            <button onclick="speakSlide(7)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 8: GRAMMAR CHART & DIALOGUE ==================== -->
+    <div class="slide-card" id="slide8">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Page 12 Grammar & Dialogue Showcase</div>
+                <div class="slide-title-ar">جدول تصريف الأفعال ومحادثة كارتر وأورورا</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 8 / 10</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px;">
+                <!-- Grammar Summary Table -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px;">
+                    <h4 style="color: var(--accent); font-size: 16px; font-weight: 800; margin-bottom: 10px;">📋 Grammar Chart (Page 12)</h4>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <tr style="border-bottom: 1px solid var(--border); color: #818cf8; font-weight: 800;">
+                            <th style="padding: 6px; text-align: right;">Verb</th>
+                            <th style="padding: 6px; text-align: right;">Present</th>
+                            <th style="padding: 6px; text-align: right;">Past</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 6px; font-weight: 800;">love</td>
+                            <td style="padding: 6px;">I love...</td>
+                            <td style="padding: 6px; color: #34d399;">I loved...</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 6px; font-weight: 800;">win</td>
+                            <td style="padding: 6px;">I win...</td>
+                            <td style="padding: 6px; color: #34d399;">My team won...</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 6px; font-weight: 800;">not watch</td>
+                            <td style="padding: 6px;">I don't watch...</td>
+                            <td style="padding: 6px; color: #f43f5e;">I didn't watch...</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px; font-weight: 800;">go</td>
+                            <td style="padding: 6px;">Do you go?</td>
+                            <td style="padding: 6px; color: #34d399;">What day did you go?</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Dialogue Highlights -->
+                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+                    <h4 style="color: #ec4899; font-size: 16px; font-weight: 800;">💬 Carter & Aurora Dialogue</h4>
+                    <div style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;">
+                        <b style="color: #ec4899;">Aurora:</b> "When do you go to the youth center?"
+                    </div>
+                    <div style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;">
+                        <b style="color: #3b82f6;">Carter:</b> "I go nearly every day..."
+                    </div>
+                    <div style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;">
+                        <b style="color: #ec4899;">Aurora:</b> "I went last Thursday... but didn't see you."
+                    </div>
+                    <div style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;">
+                        <b style="color: #3b82f6;">Carter:</b> "I was ill, so I didn't go."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Core Chart & Roleplay</span>
+            <button onclick="speakSlide(8)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 9: CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide9">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Lesson 3 Quiz</div>
+                <div class="slide-title-ar">سؤال التحقق من الفهم النحوي للسبورة التفاعلية</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 9 / 10</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:26px; color:#fff; font-family:'Outfit',sans-serif;">
+                    "We use action words in the past to talk about single ________ before now."
+                </h3>
+                <p style="font-size:18px; color:var(--accent);">نستخدم أفعال الماضي للتحدث عن أحداث أو لحظات مفردة حدثت قبل الآن:</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) moments or events (أحداث أو لحظات)
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) regular routines (عادات منتظمة)
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) facts or feelings (حقائق دائمة)
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) future plans (خطط مستقبلية)
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Interactive Board Question</span>
+            <button onclick="speakSlide(9)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 10: CLASSROOM GAME (PAGE 12) ==================== -->
+    <div class="slide-card" id="slide10">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Classroom Activity: Tense Battle!</div>
+                <div class="slide-title-ar">لعبة الفصل: تحدي الأزمنة وعجلة الأسماء</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 10 / 10</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed var(--accent); border-radius:var(--radius-sm); padding:30px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: اختر طالباً بالقرعة لتحويل الفعل!</h3>
+                <p style="font-size:18px; color:#cbd5e1; margin-bottom:20px;">
+                    يقوم المعلم بإعطاء فعل في صيغة المضارع مثل <b>"win"</b> أو <b>"go"</b>، وعلى الطالب المختار صياغة جملة بالماضي مثل: <br>
+                    <i style="color:#34d399;">"My team won the match last Saturday!"</i> أو <i style="color:#f43f5e;">"I didn't watch TV yesterday!"</i>
+                </p>
+                
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#ec4899; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 - Lesson 3 Complete! Next: Lesson 4</span>
+            <button onclick="speakSlide(10)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للختام</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 11: LESSON 4 TITLE (PAGE 13) ==================== -->
+    <div class="slide-card" id="slide11">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">Unit 1 - Lesson 4 | Page 13</span>
+            <span class="slide-number-pill">الشريحة 11 / 20</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">🎤 ✍️</span>
+            <h1 style="background: linear-gradient(135deg, #f59e0b, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Grammar Chant & Sentence Building
+            </h1>
+            <h2>أنشودة القواعد وتكوين الجمل من الصور ومركز الأحلام</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                تطبيق قواعد المضارع والماضي من خلال النشيد الأسبوعي وتكوين جمل معبرة عن الأنشطة اليومية والتجارب السابقة
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 4: Grammar Chant & Look and Write</span>
+            <button onclick="speakSlide(11)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 12: LESSON 4 WARM-UP ==================== -->
+    <div class="slide-card" id="slide12">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Warm-up: Weekly Youth Center Activities</div>
+                <div class="slide-title-ar">التهيئة: جدول الأنشطة الأسبوعي للمركز الشبابي</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 12 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+                <div style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; text-align: center;">
+                    <div style="font-size: 32px;">⚽</div>
+                    <b style="color: #818cf8;">Mondays:</b> Football
+                    <div style="font-size: 13px; color: var(--text-muted);">"We play football / My team won!"</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; text-align: center;">
+                    <div style="font-size: 32px;">💃</div>
+                    <b style="color: #34d399;">Tuesdays:</b> Music & Dance
+                    <div style="font-size: 13px; color: var(--text-muted);">"We dance to music / We had fun!"</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; text-align: center;">
+                    <div style="font-size: 32px;">🍳</div>
+                    <b style="color: #fbbf24;">Thursdays:</b> Cooking
+                    <div style="font-size: 13px; color: var(--text-muted);">"They teach us how to cook!"</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Routines & Activities</span>
+            <button onclick="speakSlide(12)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 13: LESSON 4 CORE CONTENT ==================== -->
+    <div class="slide-card" id="slide13">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Look and Write: Sentence Formation</div>
+                <div class="slide-title-ar">تكوين الجمل من الصور (Page 13)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 13 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 15px;">
+                <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border-right: 3px solid #818cf8;">
+                    <b>🎡 1. Last week / go / adventure park:</b><br>
+                    <span style="color: #34d399;">➔ "Last week I went to an adventure park."</span>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border-right: 3px solid #818cf8;">
+                    <b>⚽ 2. do / exercise / every morning?:</b><br>
+                    <span style="color: #34d399;">➔ "Do you exercise every morning?"</span>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border-right: 3px solid #818cf8;">
+                    <b>🚫 3. On Saturdays / not play / football:</b><br>
+                    <span style="color: #34d399;">➔ "On Saturdays, I don't play football."</span>
+                </div>
+                <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border-right: 3px solid #818cf8;">
+                    <b>🥞 4. This morning ...:</b><br>
+                    <span style="color: #34d399;">➔ "This morning, I ate breakfast."</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Sentence Rules & Clues</span>
+            <button onclick="speakSlide(13)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 14: LESSON 4 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide14">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Grammar Chant Quiz</div>
+                <div class="slide-title-ar">سؤال التحقق لأنشودة القواعد</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 14 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:26px; color:#fff; font-family:'Outfit',sans-serif;">
+                    "Last week I ________ my favorite dishes!"
+                </h3>
+                <p style="font-size:18px; color:var(--accent);">الأسبوع الماضي قمت بطهي أطباقي المفضلة (حدث ماضي):</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) cooked 🍳 (Simple Past)
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) cook
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) cooking
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) cooks
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Chant Tense Check</span>
+            <button onclick="speakSlide(14)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 15: LESSON 4 GAME ==================== -->
+    <div class="slide-card" id="slide15">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Classroom Activity: Dream Youth Center!</div>
+                <div class="slide-title-ar">نشاط الفصل: تصميم مركز الشباب الذي تحلم به</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 15 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #f59e0b; border-radius:var(--radius-sm); padding:30px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: اختر طالباً ليصف مركز أحلامه!</h3>
+                <p style="font-size:18px; color:#cbd5e1; margin-bottom:20px;">
+                    <i>"My dream youth center has a big sports hall, a swimming pool, and a game room for fun!"</i>
+                </p>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#ec4899; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 - Lesson 4 Complete! Next: Lesson 5</span>
+            <button onclick="speakSlide(15)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للختام</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 16: LESSON 5 TITLE (PAGE 14) ==================== -->
+    <div class="slide-card" id="slide16">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(236,72,153,0.2); color:#f472b6; border-color:#ec4899;">Unit 1 - Lesson 5 | Page 14</span>
+            <span class="slide-number-pill">الشريحة 16 / 20</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">💖 🎮</span>
+            <h1 style="background: linear-gradient(135deg, #ec4899, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Making New Friends
+            </h1>
+            <h2>قصة تكوين صداقات جديدة والتعلم الاجتماعي والعاطفي</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                استكشف قصة كلوي، ليا، وآفا، وتعرّف على مهارات التغلب على الخجل وبناء صداقات متينة وشاملة
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 5: Story & Social-Emotional Learning</span>
+            <button onclick="speakSlide(16)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 17: LESSON 5 WARM-UP ==================== -->
+    <div class="slide-card" id="slide17">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Warm-up: Meeting New People</div>
+                <div class="slide-title-ar">التهيئة: كيف تشعر عندما تقابل صديقاً جديداً؟</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 17 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: rgba(236,72,153,0.1); border: 2px solid #ec4899; border-radius: var(--radius-sm); padding: 20px;">
+                    <h3 style="color: #f472b6; font-size: 20px; font-weight: 800; margin-bottom: 8px;">Lia's Feelings (مشاعر ليا)</h3>
+                    <p style="color: #cbd5e1; font-size: 16px;">
+                        • Felt upset and worried about losing her best friend.<br>
+                        • Found meeting new people frightening and was shy.
+                    </p>
+                </div>
+                <div style="background: rgba(16,185,129,0.1); border: 2px solid var(--accent); border-radius: var(--radius-sm); padding: 20px;">
+                    <h3 style="color: #34d399; font-size: 20px; font-weight: 800; margin-bottom: 8px;">Ava's Confidence (ثقة آفا)</h3>
+                    <p style="color: #cbd5e1; font-size: 16px;">
+                        • Smiled and shook hands warmly.<br>
+                        • Brought Lia's favorite racing game to play together!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Story Characters & Feelings</span>
+            <button onclick="speakSlide(17)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 18: LESSON 5 STORY SUMMARY ==================== -->
+    <div class="slide-card" id="slide18">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Story Breakdown: Key Insights</div>
+                <div class="slide-title-ar">المحاور الرئيسية لقصة الصداقة</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 18 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; line-height: 1.8;">
+                <p><b>1. Friendship:</b> Chloe and Lia have a special friendship and play video games every Wednesday.</p>
+                <p><b>2. The Guest:</b> Chloe invited Ava, and made her house tidy for the new guest.</p>
+                <p><b>3. Resolution:</b> Chloe explained: <i>"You will always be a special friend, but we can be friends with Ava, too!"</i></p>
+                <p style="color: #34d399; font-weight: 800; margin-top: 6px;">✨ Happy Ending: Lia smiled and enjoyed the racing game with Ava!</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Story Summary</span>
+            <button onclick="speakSlide(18)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 19: LESSON 5 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide19">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Story Comprehension</div>
+                <div class="slide-title-ar">سؤال التحقق لاستيعاب القصة</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 19 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:26px; color:#fff; font-family:'Outfit',sans-serif;">
+                    "What do Lia and Ava both like doing together?"
+                </h3>
+                <p style="font-size:18px; color:var(--accent);">ما الهواية التي تشاركها كل من ليا وآفا في نهاية القصة؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) Playing video games (Racing game) 🏎️
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) Cooking alone
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) Watching horror movies
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) Cleaning the bedroom
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Story Details Check</span>
+            <button onclick="speakSlide(19)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 20: LESSON 5 SEL ROLEPLAY ==================== -->
+    <div class="slide-card" id="slide20">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Social & Emotional Roleplay Challenge!</div>
+                <div class="slide-title-ar">تحدي التعلم الاجتماعي: مهارة الترحيب بالصديق الجديد</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 20 / 20</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #ec4899; border-radius:var(--radius-sm); padding:30px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: ثنائيات تمثيل الترحيب بالضيف الجديد!</h3>
+                <p style="font-size:18px; color:#cbd5e1; margin-bottom:20px;">
+                    الطالب 1: <i>"Hi! I'm [Name]. Welcome to our class!"</i> (مع ابتسامة ومصافحة)<br>
+                    الطالب 2: <i>"Nice to meet you! Would you like to join our game?"</i>
+                </p>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#ec4899; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 - Lesson 5 Complete! Next: Lesson 6</span>
+            <button onclick="speakSlide(20)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 21: LESSON 6 TITLE (PAGE 15) ==================== -->
+    <div class="slide-card" id="slide21">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(6,182,212,0.2); color:#22d3ee; border-color:#06b6d4;">Unit 1 - Lesson 6 | Page 15</span>
+            <span class="slide-number-pill">الشريحة 21 / 25</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">🎙️ 📚</span>
+            <h1 style="background: linear-gradient(135deg, #06b6d4, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Listening & Speaking: Autumn Smith
+            </h1>
+            <h2>محادثة مع الكاتبة أوتمن سميث وتمثيل المقابلة الصحفية</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                الاستماع لمقابلة الكاتبة الشهيرة أوتمن سميث، التحقق من المعلومات، وتطبيق المقابلة الصحفية بين الزملاء
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 6: Listening & Speaking</span>
+            <button onclick="speakSlide(21)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 22: LESSON 6 WARM-UP ==================== -->
+    <div class="slide-card" id="slide22">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Warm-up: The World of Authors & Books</div>
+                <div class="slide-title-ar">التهيئة: ماذا يفعل الكاتب والمؤلف؟</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 22 / 25</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: rgba(6,182,212,0.1); border: 2px solid #06b6d4; border-radius: var(--radius-sm); padding: 20px;">
+                    <h3 style="color: #22d3ee; font-size: 20px; font-weight: 800; margin-bottom: 8px;">Q1: Autumn Smith's Profession</h3>
+                    <p style="color: #cbd5e1; font-size: 16px;">
+                        • She is a <b>writer / author</b>. ✍️<br>
+                        • She writes imaginative stories for young people.
+                    </p>
+                </div>
+                <div style="background: rgba(16,185,129,0.1); border: 2px solid var(--accent); border-radius: var(--radius-sm); padding: 20px;">
+                    <h3 style="color: #34d399; font-size: 20px; font-weight: 800; margin-bottom: 8px;">Q2: The Interview's Topic</h3>
+                    <p style="color: #cbd5e1; font-size: 16px;">
+                        • The interview is about <b>Autumn Smith's work</b>.<br>
+                        • How she started writing and her other interests (music & dance).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Picture Discussion</span>
+            <button onclick="speakSlide(22)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 23: LESSON 6 LISTENING FACTS ==================== -->
+    <div class="slide-card" id="slide23">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Autumn Smith: True Facts Check</div>
+                <div class="slide-title-ar">حقائق الاستماع من مقابلة أوتمن سميث (Page 15)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 23 / 25</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; font-size: 15px; line-height: 1.8;">
+                <p>✔ <b>1.</b> Autumn Smith is a <b>writer</b> (not a musician).</p>
+                <p>✔ <b>2.</b> She started writing in <b>school</b>.</p>
+                <p>✔ <b>3.</b> She loved <b>making up stories in her head</b>.</p>
+                <p>✔ <b>4.</b> Her <b>teacher</b> told her to write ideas down.</p>
+                <p>✔ <b>5.</b> She listens to all kinds of music and <b>dances</b>.</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Listening Facts</span>
+            <button onclick="speakSlide(23)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 24: LESSON 6 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide24">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Interview Quiz</div>
+                <div class="slide-title-ar">سؤال التحقق للمقابلة الصحفية</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 24 / 25</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:26px; color:#fff; font-family:'Outfit',sans-serif;">
+                    "Who told Autumn Smith to write her story ideas down in a notebook?"
+                </h3>
+                <p style="font-size:18px; color:var(--accent);">من الذي نصح أوتمن سميث بتدوين أفكارها في دفتر ملاحظات؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) Her teacher 👩‍🏫
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) Her parents
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) Her friends
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) Her sister
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Interview Check</span>
+            <button onclick="speakSlide(24)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 25: LESSON 6 ROLEPLAY GAME ==================== -->
+    <div class="slide-card" id="slide25">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Grand Finale: Interview Roleplay with the Wheel!</div>
+                <div class="slide-title-ar">النشاط الختامي: تمثيل المقابلة الصحفية مع عجلة الأسماء</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 25 / 25</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #06b6d4; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: اختر ثنائياً لإجراء مقابلة صحفية!</h3>
+                <p style="font-size:17px; color:#cbd5e1; margin-bottom:20px;">
+                    المحاور: <i>"Hi! Welcome! What do you do?"</i><br>
+                    الضيف المشهور: <i>"I'm a writer! I write stories and I love music!"</i>
+                </p>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#06b6d4; text-decoration:none; color:#000; font-weight:900;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 - Lesson 6 Complete! Next: Lesson 7</span>
+            <button onclick="speakSlide(25)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 26: LESSON 7 TITLE (PAGE 16) ==================== -->
+    <div class="slide-card" id="slide26">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(139,92,246,0.2); color:#a78bfa; border-color:#8b5cf6;">Unit 1 - Lesson 7 | Page 16</span>
+            <span class="slide-number-pill">الشريحة 26 / 45</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">🎡 🎢 🎪</span>
+            <h1 style="background: linear-gradient(135deg, #a78bfa, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Amusement Park Vocabulary
+            </h1>
+            <h2>مفردات مدينة الملاهي ولعبة اكتشاف الفروق</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                استكشاف 10 مفردات حيوية للمشاعر والألعاب ومقارنة الفروق الثمانية بين الصورتين
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 7: Theme Park</span>
+            <button onclick="speakSlide(26)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 27: LESSON 7 10 WORDS ==================== -->
+    <div class="slide-card" id="slide27">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Core Vocabulary: 10 Park Words</div>
+                <div class="slide-title-ar">المفردات العشر لمدينة الملاهي (Page 16)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 27 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 15px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">1. <b>ride</b> (ركوب اللعبة)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">2. <b>horrible</b> (فظيع / مرعب)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">3. <b>enjoying it</b> (مستمتع)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">4. <b>unusual</b> (غير عادي)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">5. <b>unfriendly</b> (غير ودود)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">6. <b>messy</b> (ملخبط / فوضوي)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">7. <b>unlucky</b> (غير محظوظ)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">8. <b>unkind</b> (غير لطيف / قاسٍ)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">9. <b>untidy</b> (غير مرتب)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">10. <b>excited</b> (متحمس)</div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Vocabulary Overview</span>
+            <button onclick="speakSlide(27)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 28: LESSON 7 DIFFERENCES ==================== -->
+    <div class="slide-card" id="slide28">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Look & Discuss: Spot 8 Differences</div>
+                <div class="slide-title-ar">مقارنة الصور واكتشاف الفروق الثمانية</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 28 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; line-height: 1.8; font-size: 15px;">
+                <p>1. Blue Ferris wheel carriage vs. Red carriage.</p>
+                <p>2. Girl looking at the ride vs. Boy looking at the ride.</p>
+                <p>3. Colors of the family clothes & holding hands.</p>
+                <p>4. Food snack in hand vs. Drink.</p>
+                <p>5. Person in the ticket booth & background birds.</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Spot Differences</span>
+            <button onclick="speakSlide(28)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 29: LESSON 7 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide29">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Theme Park Words</div>
+                <div class="slide-title-ar">سؤال التحقق للمفردات</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 29 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "Which word describes someone who is extremely eager and happy about going on a ride?"
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">أي كلمة تعني شخصاً متحمساً جداً لركوب اللعبة؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) Excited 🤩
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) Unfriendly
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) Untidy
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) Horrible
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Theme Park Quiz</span>
+            <button onclick="speakSlide(29)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 30: LESSON 7 WHEEL GAME ==================== -->
+    <div class="slide-card" id="slide30">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Classroom Game: Spin the Wheel & Say a Sentence!</div>
+                <div class="slide-title-ar">لعبة العجلة: اختر طالباً لتكوين جملة بكلمة من الملاهي</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 30 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #8b5cf6; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: أدر العجلة واختر كلمة لوصف مدينة الملاهي!</h3>
+                <p style="font-size:17px; color:#cbd5e1; margin-bottom:20px;">
+                    <i>"I am excited to ride the roller coaster!"</i>
+                </p>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#8b5cf6; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 7 Complete</span>
+            <button onclick="speakSlide(30)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 31: LESSON 8 TITLE (PAGE 17) ==================== -->
+    <div class="slide-card" id="slide31">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(16,185,129,0.2); color:#34d399; border-color:#10b981;">Unit 1 - Lesson 8 | Page 17</span>
+            <span class="slide-number-pill">الشريحة 31 / 45</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">⚡ 💭 🏃</span>
+            <h1 style="background: linear-gradient(135deg, #10b981, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                State Verbs vs. Action Verbs
+            </h1>
+            <h2>أفعال الحالة والمشاعر مقابل أفعال الحركة والنشاط</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                التمييز بين أفعال الحالة (love, want, know) وأفعال الحركة (play, send, write, walk)
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 8: Grammar</span>
+            <button onclick="speakSlide(31)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 32: LESSON 8 JENNY & ETHAN ==================== -->
+    <div class="slide-card" id="slide32">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Jenny vs. Ethan: Feelings vs. Actions</div>
+                <div class="slide-title-ar">جيني وإيثان: المشاعر مقابل الحركة</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 32 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="background: rgba(16,185,129,0.1); border: 2px solid var(--accent); border-radius: var(--radius-sm); padding: 20px;">
+                    <h3 style="color: #34d399; font-size: 20px; font-weight: 800; margin-bottom: 8px;">👧 Jenny (State Verbs)</h3>
+                    <p style="color: #cbd5e1; font-size: 16px;">
+                        "I <b>love</b> fairs. I <b>want</b> to go again!"<br>
+                        ➔ Talking about <b>feelings or states</b>.
+                    </p>
+                </div>
+                <div style="background: rgba(79,70,229,0.1); border: 2px solid var(--primary); border-radius: var(--radius-sm); padding: 20px;">
+                    <h3 style="color: #818cf8; font-size: 20px; font-weight: 800; margin-bottom: 8px;">👦 Ethan (Action Verbs)</h3>
+                    <p style="color: #cbd5e1; font-size: 16px;">
+                        "My cousin is <b>playing</b> there. She is <b>sending</b> photos."<br>
+                        ➔ Talking about <b>actions</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Grammar Comparison</span>
+            <button onclick="speakSlide(32)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 33: LESSON 8 VERB CLOUD ==================== -->
+    <div class="slide-card" id="slide33">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Verb Classification Rules</div>
+                <div class="slide-title-ar">قواعد تصنيف أفعال الحالة والحركة</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 33 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; line-height: 1.8; font-size: 15px;">
+                <p>💚 <b>State Verbs (أفعال الحالة):</b> like, love, want, need, know, believe, understand, be, prefer, have (possession).</p>
+                <p>💙 <b>Action Verbs (أفعال الحركة):</b> write, walk, buy, talk, go, do, cook, dance, eat, play, send.</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Verb Rules</span>
+            <button onclick="speakSlide(33)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 34: LESSON 8 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide34">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: State vs. Action</div>
+                <div class="slide-title-ar">سؤال التحقق لأفعال الحالة والحركة</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 34 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "Which of the following is a STATE verb?"
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">أي من الأفعال التالية يعتبر فعل حالة ومشاعر؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) believe 💭
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) walk
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) dance
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) cook
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Grammar Check</span>
+            <button onclick="speakSlide(34)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 35: LESSON 8 WHEEL GAME ==================== -->
+    <div class="slide-card" id="slide35">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Classroom Game: State or Action Challenge!</div>
+                <div class="slide-title-ar">تحدي العجلة: صنف الفعل في ثانيتين!</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 35 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #10b981; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: أدر العجلة وقل للطالب: "Love" (State!) أو "Walk" (Action!)</h3>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#10b981; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 8 Complete</span>
+            <button onclick="speakSlide(35)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 36: LESSON 9 TITLE (PAGE 18) ==================== -->
+    <div class="slide-card" id="slide36">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border-color:#f59e0b;">Unit 1 - Lesson 9 | Page 18</span>
+            <span class="slide-number-pill">الشريحة 36 / 45</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">📧 🦢 📄</span>
+            <h1 style="background: linear-gradient(135deg, #f59e0b, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Rose's Special Interest: Origami
+            </h1>
+            <h2>قراءة رسالة روز الإلكترونية عن فن طي الورق</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                التعرف على فن الأوريغامي، فوائده في التنظيم والتركيز، وترتيب مواضيع الرسالة الخمسة
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 9: Reading</span>
+            <button onclick="speakSlide(36)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 37: LESSON 9 WHAT IS ORIGAMI ==================== -->
+    <div class="slide-card" id="slide37">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">What is Origami?</div>
+                <div class="slide-title-ar">ما هو فن الأوريغامي؟</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 37 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(245,158,11,0.1); border: 2px solid #f59e0b; border-radius: var(--radius-sm); padding: 20px; font-size: 17px; line-height: 1.8;">
+                <p>• <b>Origami</b> is an amazing art form in which you make models just with <b>paper</b>! 📄🦢</p>
+                <p>• It helps people to <b>relax</b> and be <b>tidy & organized</b>.</p>
+                <p>• Rose goes to an origami club every <b>Thursday</b>.</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Origami Basics</span>
+            <button onclick="speakSlide(37)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 38: LESSON 9 5 TOPICS ==================== -->
+    <div class="slide-card" id="slide38">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">5 Topics in Rose's E-mail</div>
+                <div class="slide-title-ar">ترتيب مواضيع رسالة روز الإلكترونية (1 to 5)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 38 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; font-size: 15px; line-height: 1.8;">
+                <p><b>[ 1 ]</b> Introducing the interest (origami art form)</p>
+                <p><b>[ 2 ]</b> When the interest started (3 years ago on the sidewalk)</p>
+                <p><b>[ 3 ]</b> An unusual result (helped her keep room tidy)</p>
+                <p><b>[ 4 ]</b> A place to practice with others (origami club on Thursdays)</p>
+                <p><b>[ 5 ]</b> A recommendation (everyone should have a special interest)</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Topic Order</span>
+            <button onclick="speakSlide(38)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 39: LESSON 9 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide39">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Origami Benefits</div>
+                <div class="slide-title-ar">سؤال التحقق لرسالة روز</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 39 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "What was an unusual result of Rose practicing origami?"
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">ما النتيجة غير العادية التي حصلت لروز بعد ممارسة الأوريغامي؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) It helped her room become tidy ✨
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) She bought a car
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) She stopped reading
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) Her house was noisy
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Origami Quiz</span>
+            <button onclick="speakSlide(39)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 40: LESSON 9 WHEEL GAME ==================== -->
+    <div class="slide-card" id="slide40">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Classroom Game: What's Your Special Interest?</div>
+                <div class="slide-title-ar">لعبة العجلة: شارك اهتمامك الخاص مع الفصل</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 40 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #f59e0b; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎲 دور المعلم: أدر العجلة واسأل: "What special interest do you have?"</h3>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#f59e0b; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 9 Complete</span>
+            <button onclick="speakSlide(40)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 41: LESSON 10 TITLE (PAGE 19) ==================== -->
+    <div class="slide-card" id="slide41">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(244,63,94,0.2); color:#fda4af; border-color:#f43f5e;">Unit 1 - Lesson 10 | Page 19</span>
+            <span class="slide-number-pill">الشريحة 41 / 45</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">🔤 ✍️ 🏆</span>
+            <h1 style="background: linear-gradient(135deg, #f43f5e, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Prefix un- & Writing an E-mail
+            </h1>
+            <h2>بادئة النفي (un-) وكتابة رسالة البريد الإلكتروني</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                قاعدة بادئة النفي un-، استخدام المنظم البياني، وكتابة إيميل متكامل عن الاهتمامات
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 10: Writing</span>
+            <button onclick="speakSlide(41)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 42: LESSON 10 PREFIX UN- ==================== -->
+    <div class="slide-card" id="slide42">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Prefix un- (Means: NOT)</div>
+                <div class="slide-title-ar">بادئة النفي (un-) تعني (ليس / غير)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 42 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 15px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">kind ➔ <b>unkind</b> (not kind)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">friendly ➔ <b>unfriendly</b> (not friendly)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">tidy ➔ <b>untidy</b> (not tidy)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">usual ➔ <b>unusual</b> (not usual)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">lucky ➔ <b>unlucky</b> (not lucky)</div>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px;">happy ➔ <b>unhappy</b> (not happy)</div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Prefix un-</span>
+            <button onclick="speakSlide(42)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 43: LESSON 10 GRAPHIC ORGANIZER ==================== -->
+    <div class="slide-card" id="slide43">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Graphic Organizer for E-mail Writing</div>
+                <div class="slide-title-ar">منظم الأفكار لكتابة الإيميل</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 43 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; font-size: 15px; line-height: 1.8;">
+                <p>🎨 <b>Interest:</b> Drawing pictures.</p>
+                <p>🏠 <b>How started:</b> At home with paper & crayons when I was 9.</p>
+                <p>⏰ <b>When & Where:</b> In the afternoon at home or school.</p>
+                <p>💡 <b>Why I like it:</b> Because it's fun and lets me be creative!</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Graphic Organizer</span>
+            <button onclick="speakSlide(43)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 44: LESSON 10 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide44">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: Prefix un-</div>
+                <div class="slide-title-ar">سؤال التحقق لبادئة النفي</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 44 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "What is the negative of the word 'lucky'?"
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">ما هو نفي كلمة (lucky - محظوظ)؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) unlucky 🌧️
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) nonlucky
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) inlucky
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) dislucky
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Prefix Quiz</span>
+            <button onclick="speakSlide(44)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 45: UNIT 1 GRAND FINALE ==================== -->
+    <div class="slide-card" id="slide45">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Grand Finale: Unit 1 Course Completed!</div>
+                <div class="slide-title-ar">الختام الكبير: إتمام عرض الوحدة الأولى (45 شريحة)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 45 / 45</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #f43f5e; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <h3 style="font-size:26px; color:#facc15; margin-bottom:10px;">🌟 تهانينا لجميع أبطال الصف الخامس! 🌟</h3>
+                <p style="font-size:17px; color:#cbd5e1; margin-bottom:20px;">
+                    تم بحمد الله إتقان الوحدة الأولى كاملة (Pages 10 to 19): الصفات، القواعد، الأزمنة، أفعال الحالة والحركة، القصص، المقابلات، ورسائل البريد!
+                </p>
+                <button class="ctrl-btn pptx" onclick="exportToPPTX()" style="font-size: 16px; padding: 12px 24px;">
+                    📊 تصدير وتحميل العرض كملف PowerPoint (.pptx)
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 - Lesson 10 Complete! Next: Lesson 11</span>
+            <button onclick="speakSlide(45)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 46: LESSON 11 TITLE (PAGE 20) ==================== -->
+    <div class="slide-card" id="slide46">
+        <div class="slide-header">
+            <span class="slide-badge" style="background:rgba(14,165,233,0.2); color:#38bdf8; border-color:#0ea5e9;">Unit 1 - Lesson 11 | Page 20</span>
+            <span class="slide-number-pill">الشريحة 46 / 55</span>
+        </div>
+
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 60px; margin-bottom: 10px;">🌍 🧶 🧸 🧼</span>
+            <h1 style="background: linear-gradient(135deg, #0ea5e9, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Unusual Interests Around the World
+            </h1>
+            <h2>دراسات اجتماعية: اهتمامات غير عادية حول العالم</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                استكشاف هوايات فريدة: قصف الصوف في تكساس، سياحة الألعاب في فرنسا، نحت الصابون في تايلاند، والظهور خلف المراسلين!
+            </p>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Lesson 11: Social Studies</span>
+            <button onclick="speakSlide(46)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 47: LESSON 11 4 HOBBIES ==================== -->
+    <div class="slide-card" id="slide47">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">4 Unusual Hobbies Around the World</div>
+                <div class="slide-title-ar">4 اهتمامات فريدة من مختلف بلدان العالم</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 47 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 15px;">
+                <div style="background: rgba(59,130,246,0.1); border: 2px solid #3b82f6; border-radius: 8px; padding: 14px;">
+                    <b style="color: #60a5fa;">📍 USA (Texas): Yarn Bombing 🧶</b>
+                    <p style="color: #cbd5e1; margin-top: 4px;">Crocheting yarn around trees and making streets look beautiful!</p>
+                </div>
+                <div style="background: rgba(239,68,68,0.1); border: 2px solid #ef4444; border-radius: 8px; padding: 14px;">
+                    <b style="color: #f87171;">📍 France: Toy Voyaging 🧸</b>
+                    <p style="color: #cbd5e1; margin-top: 4px;">Taking photos of toys in famous landmarks around the world!</p>
+                </div>
+                <div style="background: rgba(245,158,11,0.1); border: 2px solid #f59e0b; border-radius: 8px; padding: 14px;">
+                    <b style="color: #fbbf24;">📍 Thailand: Soap Carving 🧼</b>
+                    <p style="color: #cbd5e1; margin-top: 4px;">Making intricate and amazing floral art with soap!</p>
+                </div>
+                <div style="background: rgba(16,185,129,0.1); border: 2px solid #10b981; border-radius: 8px; padding: 14px;">
+                    <b style="color: #34d399;">📍 Global: News Bombing 🎥</b>
+                    <p style="color: #cbd5e1; margin-top: 4px;">Standing behind live street reporters and making funny faces!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">World Cultures</span>
+            <button onclick="speakSlide(47)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 48: LESSON 11 CONCEPT CHECK ==================== -->
+    <div class="slide-card" id="slide48">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Concept Check: World Hobbies Quiz</div>
+                <div class="slide-title-ar">سؤال التحقق لدرس الدراسات الاجتماعية</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 48 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "Where did yarn bombing (crocheting yarn around trees) start?"
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">أين بدأت هواية تزيين الأشجار بخيوط الصوف الملونة؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) Texas, USA 🇺🇸
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) Paris, France
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) Bangkok, Thailand
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) London, UK
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Social Studies Quiz</span>
+            <button onclick="speakSlide(48)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 49: MEGA REVISION 1 ==================== -->
+    <div class="slide-card" id="slide49">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Unit 1 Mega Revision: Adjectives & Grammar</div>
+                <div class="slide-title-ar">المراجعة الكبرى 1: الصفات والأزمنة</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 49 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; font-size: 15px; line-height: 1.8;">
+                <p>⭐ <b>14 Adjectives:</b> popular, frightening, lucky, special, wonderful, amazing, friendly, excellent, important, lovely, enormous, tidy, messy, horrible.</p>
+                <p>⭐ <b>Simple Present:</b> Routines & facts (I exercise every day / She likes art).</p>
+                <p>⭐ <b>Simple Past:</b> Finished actions before now (I went / My team won / She cooked).</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Mega Review 1</span>
+            <button onclick="speakSlide(49)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 50: MEGA REVISION 2 ==================== -->
+    <div class="slide-card" id="slide50">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Unit 1 Mega Revision: Verbs & Prefix un-</div>
+                <div class="slide-title-ar">المراجعة الكبرى 2: أفعال الحالة وبادئة النفي</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 50 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 18px; font-size: 15px; line-height: 1.8;">
+                <p>💚 <b>State Verbs:</b> love, like, want, need, know, believe, understand (Feelings & states).</p>
+                <p>💙 <b>Action Verbs:</b> write, walk, play, cook, dance, eat (Physical activities).</p>
+                <p>🔤 <b>Prefix un- (= not):</b> unkind, unfriendly, untidy, unusual, unlucky, unclean, unhappy.</p>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Mega Review 2</span>
+            <button onclick="speakSlide(50)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 51: INTERACTIVE GAMES ARCADE ==================== -->
+    <div class="slide-card" id="slide51">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Games Arcade: Time Machine & Verb Sorter</div>
+                <div class="slide-title-ar">مركز ألعاب الوحدة التفاعلية</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 51 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #ec4899; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <h3 style="font-size:24px; color:#fff; margin-bottom:10px;">🎮 العب وتحدّ زملاءك مع عجلة الأسماء التفاعلية!</h3>
+                <p style="font-size:17px; color:#cbd5e1; margin-bottom:20px;">
+                    أدر العجلة واختر طالباً لتحويل الفعل: <b>go ➔ went! win ➔ won! paint ➔ painted!</b>
+                </p>
+                <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="background:#ec4899; text-decoration:none;">
+                    🎯 فتح عجلة الأسماء التفاعلية (Wheel of Names)
+                </a>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Games Arcade</span>
+            <button onclick="speakSlide(51)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 52: UNIT 1 FINAL EXAM CHALLENGE 1 ==================== -->
+    <div class="slide-card" id="slide52">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Final Exam Challenge: Question 1</div>
+                <div class="slide-title-ar">تحدي الاختبار النهائي 1</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 52 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "Yesterday, I ______ an exciting adventure story."
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">اختر الفعل الصحيح في الماضي:</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) read / wrote ✍️
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) writes
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) writing
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) writed
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Final Exam Q1</span>
+            <button onclick="speakSlide(52)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 53: UNIT 1 FINAL EXAM CHALLENGE 2 ==================== -->
+    <div class="slide-card" id="slide53">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Final Exam Challenge: Question 2</div>
+                <div class="slide-title-ar">تحدي الاختبار النهائي 2</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 53 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "What is the negative of the word 'friendly'?"
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">ما هو نفي كلمة (friendly - ودود)؟</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) unfriendly 😠
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) disfriendly
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) infriendly
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) nonfriendly
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Final Exam Q2</span>
+            <button onclick="speakSlide(53)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 54: UNIT 1 FINAL EXAM CHALLENGE 3 ==================== -->
+    <div class="slide-card" id="slide54">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Final Exam Challenge: Question 3</div>
+                <div class="slide-title-ar">تحدي الاختبار النهائي 3</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 54 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <h3 style="font-size:24px; color:#fff;">
+                    "Origami is an art form in which you make models with ______."
+                </h3>
+                <p style="font-size:17px; color:var(--accent);">فن الأوريغامي هو صنع نماذج باستخدام:</p>
+            </div>
+
+            <div class="slide-choices-grid">
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, true)">
+                    A) paper 📄
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    B) soap
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    C) yarn
+                </button>
+                <button class="slide-choice-btn" onclick="checkSlideChoice(this, false)">
+                    D) wood
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Final Exam Q3</span>
+            <button onclick="speakSlide(54)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للسؤال</button>
+        </div>
+    </div>
+
+    <!-- ==================== SLIDE 55: GRAND FINALE PODIUM ==================== -->
+    <div class="slide-card" id="slide55">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Grand Champions Podium: Full Unit 1 Complete!</div>
+                <div class="slide-title-ar">منصة تتويج الأبطال: إتمام الوحدة الأولى كاملة (55 شريحة)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 55 / 55</span>
+        </div>
+
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:2px dashed #facc15; border-radius:var(--radius-sm); padding:28px; text-align:center;">
+                <div style="font-size: 50px; margin-bottom: 8px;">👑 🏆 🥇 🎓</div>
+                <h3 style="font-size:26px; color:#facc15; margin-bottom:10px;">ألف مبروك لجميع أبطال الصف الخامس الابتدائي!</h3>
+                <p style="font-size:17px; color:#cbd5e1; margin-bottom:20px;">
+                    تم إتقان الوحدة الأولى كاملة (Pages 10 to 20): الصفات، القواعد، الأزمنة، أفعال الحالة والحركة، القصص، المقابلات، الإيميل، والدراسات الاجتماعية!
+                </p>
+                <button class="ctrl-btn pptx" onclick="exportToPPTX()" style="font-size: 16px; padding: 12px 24px; background:#facc15; color:#000; font-weight:900;">
+                    📊 تحميل العرض المتكامل كملف PowerPoint (.pptx)
+                </button>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="slide-counter">Unit 1 Complete 55-Slide Presentation!</span>
+            <button onclick="speakSlide(55)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer;">🔊 استمع للختام</button>
+        </div>
+    </div>
+
+    <!-- BOTTOM CONTROLS -->
+    <div class="controls-bar">
+        <button class="ctrl-btn prev" onclick="prevSlide()">
+            <span>←</span> السابق
+        </button>
+
+        <div style="display: flex; gap: 10px;">
+            <button class="ctrl-btn pptx" onclick="exportToPPTX()">
+                <span>📊</span> تحميل كملف PowerPoint (.pptx)
+            </button>
+            <button class="ctrl-btn fullscreen" onclick="toggleFullscreen()">
+                <span>⛶</span> ملء الشاشة
+            </button>
+        </div>
+
+        <button class="ctrl-btn next" onclick="nextSlide()">
+            التالي <span>→</span>
+        </button>
+    </div>
+
+</main>
+
+<script>
+/* --------------------------------------------------------------------------
+   SLIDE NAVIGATION LOGIC
+-------------------------------------------------------------------------- */
+let currentSlide = 1;
+const totalSlides = 55;
+
+function showSlide(num) {
+    if (num < 1 || num > totalSlides) return;
+    currentSlide = num;
+
+    for (let i = 1; i <= totalSlides; i++) {
+        const s = document.getElementById('slide' + i);
+        if (s) s.classList.toggle('active', i === num);
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 1) showSlide(currentSlide - 1);
+}
+
+function nextSlide() {
+    if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+    }
+});
+
+/* --------------------------------------------------------------------------
+   FULLSCREEN TOGGLE
+-------------------------------------------------------------------------- */
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+/* --------------------------------------------------------------------------
+   SPEECH AUDIO
+-------------------------------------------------------------------------- */
+function speakText(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+}
+
+function speakSlide(num) {
+    if (num === 1) speakText("Unit 1: We have different interests. Grade 5, Term 1.");
+    else if (num === 2) speakText("How are your interests different from your friends' interests? Music, horror movies, sports, and book clubs.");
+    else if (num === 3) speakText("Key adjectives: popular, frightening, lucky, special, wonderful, amazing, friendly, excellent, important, lovely, enormous, tidy.");
+    else if (num === 4) speakText("Which adjective best describes a huge building with lots of space? The answer is enormous.");
+    else if (num === 5) speakText("Classroom game: Spin the wheel and make a sentence about your favorite interest!");
+    else if (num === 6) speakText("Lesson 3: Simple Present vs Simple Past and Youth Center Dialogue, Page 12.");
+    else if (num === 7) speakText("Simple Present is used for regular routines. Simple Past is used for single moments or events before now.");
+    else if (num === 8) speakText("Grammar comparison: love to loved, win to won, paint to painted, not watch to didn't watch, go to went.");
+    else if (num === 9) speakText("Concept check: We use action words in the past to talk about single moments or events before now.");
+    else if (num === 10) speakText("Classroom activity: Spin the wheel and transform the verb from present to past!");
+    else if (num === 11) speakText("Lesson 4: Grammar Chant and Sentence Building, Page 13.");
+    else if (num === 12) speakText("Weekly youth center activities: Mondays football, Tuesdays music, Thursdays cooking.");
+    else if (num === 13) speakText("Sentence formation: Last week I went to an adventure park. Do you exercise every morning?");
+    else if (num === 14) speakText("Last week I cooked my favorite dishes. The answer is cooked.");
+    else if (num === 15) speakText("Classroom activity: Spin the wheel and describe your dream youth center!");
+    else if (num === 16) speakText("Lesson 5: Story Making New Friends and Social-Emotional Learning, Page 14.");
+    else if (num === 17) speakText("Lia was upset about a new friend, but Ava was friendly and brought her favorite racing game.");
+    else if (num === 18) speakText("You will always be a special friend, but we can be friends with Ava too!");
+    else if (num === 19) speakText("What do Lia and Ava both like doing? Playing racing video games.");
+    else if (num === 20) speakText("Be kind, smile, and make new friends!");
+    else if (num === 21) speakText("Lesson 6: Listening and Speaking, A Conversation with Autumn Smith, Page 15.");
+    else if (num === 22) speakText("What does Autumn Smith do? She is a writer. The interview is about her work.");
+    else if (num === 23) speakText("Autumn Smith started writing in school, loved making up stories, and her teacher encouraged her.");
+    else if (num === 24) speakText("Who told Autumn Smith to write her story ideas down? Her teacher.");
+    else if (num === 25) speakText("Congratulations! Unit 1 complete! Spin the wheel for interview roleplay!");
+    else if (num === 26) speakText("Lesson 7: Amusement park vocabulary and spot eight differences, Page 16.");
+    else if (num === 27) speakText("Vocabulary: ride, horrible, enjoying it, unusual, unfriendly, messy, unlucky, unkind, untidy, excited.");
+    else if (num === 28) speakText("Look and discuss the eight differences between the two amusement park scenes.");
+    else if (num === 29) speakText("Which word describes someone who is extremely eager and happy? Excited.");
+    else if (num === 30) speakText("Spin the wheel and make a sentence about an amusement park ride!");
+    else if (num === 31) speakText("Lesson 8: State Verbs versus Action Verbs, Page 17.");
+    else if (num === 32) speakText("Jenny says I love fairs, which is a state verb. Ethan says my cousin is playing, which is an action verb.");
+    else if (num === 33) speakText("State verbs describe feelings, while action verbs describe physical actions.");
+    else if (num === 34) speakText("Believe is a state verb.");
+    else if (num === 35) speakText("Spin the wheel and classify verbs into state or action!");
+    else if (num === 36) speakText("Lesson 9: Reading Rose's special interest origami, Page 18.");
+    else if (num === 37) speakText("Origami is an amazing art form where you make models with paper.");
+    else if (num === 38) speakText("The five topics include introduction, how it started, results, origami club, and recommendations.");
+    else if (num === 39) speakText("Origami helped Rose keep her room tidy!");
+    else if (num === 40) speakText("Spin the wheel and share your special interest!");
+    else if (num === 41) speakText("Lesson 10: Prefix un and writing an email, Page 19.");
+    else if (num === 42) speakText("The prefix un means not. Kind becomes unkind, friendly becomes unfriendly, tidy becomes untidy.");
+    else if (num === 43) speakText("Use a graphic organizer with what, how, when, where, and why to write your email.");
+    else if (num === 44) speakText("The negative of lucky is unlucky.");
+    else if (num === 45) speakText("Unit 1 lesson 10 complete!");
+    else if (num === 46) speakText("Lesson 11: Social Studies, Unusual interests around the world, Page 20.");
+    else if (num === 47) speakText("Yarn bombing in Texas, toy voyaging in France, soap carving in Thailand, and news bombing.");
+    else if (num === 48) speakText("Where did yarn bombing start? In Texas, USA.");
+    else if (num === 49) speakText("Unit 1 Mega Revision: Adjectives and past tense.");
+    else if (num === 50) speakText("Unit 1 Mega Revision: State verbs, action verbs, and prefix un.");
+    else if (num === 51) speakText("Games arcade: Play and challenge your classmates!");
+    else if (num === 52) speakText("Final exam challenge: Read and choose the correct past tense verb.");
+    else if (num === 53) speakText("The negative of friendly is unfriendly.");
+    else if (num === 54) speakText("Origami is making models with paper.");
+    else if (num === 55) speakText("Congratulations! Full 55-slide Grade 5 Unit 1 presentation completed successfully!");
+}
+
+/* --------------------------------------------------------------------------
+   QUIZ CHECKER
+-------------------------------------------------------------------------- */
+function checkSlideChoice(btn, isCorrect) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.slide-choice-btn').forEach(b => {
+        b.disabled = true;
+        b.classList.remove('correct', 'wrong');
+    });
+
+    if (isCorrect) {
+        btn.classList.add('correct');
+        speakText('Correct answer!');
+    } else {
+        btn.classList.add('wrong');
+        speakText('Try again!');
+    }
+}
+
+/* --------------------------------------------------------------------------
+   REAL POWERPOINT (.PPTX) EXPORT VIA PptxGenJS
+-------------------------------------------------------------------------- */
+function exportToPPTX() {
+    if (typeof PptxGenJS === 'undefined') {
+        alert('مكتبة تصدير الباوربوينت جاري تحميلها، يرجى المحاولة بعد ثوانٍ.');
+        return;
+    }
+
+    const pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+
+    // SLIDE 1: Title
+    let s1 = pptx.addSlide();
+    s1.background = { color: '0F172A' };
+    s1.addText('Unit 1: We Have Different Interests', {
+        x: 0.5, y: 1.8, w: '90%', h: 1.5,
+        fontSize: 36, fontFace: 'Arial', color: '818CF8', bold: true, align: 'center'
+    });
+    s1.addText('Grade 5 - Term 1 | Complete 55-Slide Course (Pages 10-20 & Reviews)', {
+        x: 0.5, y: 3.5, w: '90%', h: 0.8,
+        fontSize: 20, fontFace: 'Arial', color: '34D399', align: 'center'
+    });
+
+    // SLIDE 2: Adjectives
+    let s2 = pptx.addSlide();
+    s2.background = { color: '0F172A' };
+    s2.addText('Core Vocabulary: 14 Key Adjectives', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 28, fontFace: 'Arial', color: '818CF8', bold: true
+    });
+    s2.addText('1. Popular\n2. Frightening\n3. Lucky\n4. Special\n5. Wonderful\n6. Amazing\n7. Friendly\n8. Excellent\n9. Important\n10. Lovely\n11. Enormous\n12. Tidy\n13. Noisy\n14. Interesting', {
+        x: 1.0, y: 1.6, w: '80%', h: 4.5,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 22
+    });
+
+    // SLIDE 3: Lesson 3 Grammar
+    let s3 = pptx.addSlide();
+    s3.background = { color: '0F172A' };
+    s3.addText('Lesson 3: Simple Present vs. Simple Past', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 26, fontFace: 'Arial', color: '34D399', bold: true
+    });
+    s3.addText('• Simple Present: Regular routines & facts (I go nearly every day / She paints pictures)\n• Simple Past: Single moments before now (I went last Thursday / My team won)\n• Negatives: I don\'t watch (Present) vs. I didn\'t watch (Past)', {
+        x: 0.8, y: 1.8, w: '85%', h: 4.0,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    // SLIDE 4: Lesson 7 Amusement Park
+    let s4 = pptx.addSlide();
+    s4.background = { color: '0F172A' };
+    s4.addText('Lesson 7: Amusement Park (Page 16)', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 26, fontFace: 'Arial', color: 'A78BFA', bold: true
+    });
+    s4.addText('• ride, horrible, enjoying it, unusual, unfriendly, messy, unlucky, unkind, untidy, excited.\n• Spot 8 differences in the amusement park visual comparison.', {
+        x: 0.8, y: 1.8, w: '85%', h: 4.0,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    // SLIDE 5: Lesson 8 State vs Action Verbs
+    let s5 = pptx.addSlide();
+    s5.background = { color: '0F172A' };
+    s5.addText('Lesson 8: State vs. Action Verbs (Page 17)', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 26, fontFace: 'Arial', color: '34D399', bold: true
+    });
+    s5.addText('• State Verbs: love, want, know, like, need, believe (Feelings & states).\n• Action Verbs: play, send, walk, write, cook, dance (Physical actions).', {
+        x: 0.8, y: 1.8, w: '85%', h: 4.0,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    // SLIDE 6: Lesson 9 Rose Origami Reading
+    let s6 = pptx.addSlide();
+    s6.background = { color: '0F172A' };
+    s6.addText('Lesson 9: Rose\'s Origami E-mail (Page 18)', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 26, fontFace: 'Arial', color: 'FBBF24', bold: true
+    });
+    s6.addText('• Origami is making paper models.\n• Helps to relax and be tidy.\n• 5 topics ordered sequentially.', {
+        x: 0.8, y: 1.8, w: '85%', h: 4.0,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    // SLIDE 7: Lesson 10 Prefix un- & Writing
+    let s7 = pptx.addSlide();
+    s7.background = { color: '0F172A' };
+    s7.addText('Lesson 10: Prefix un- & E-mail Writing (Page 19)', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 26, fontFace: 'Arial', color: 'FDA4AF', bold: true
+    });
+    s7.addText('• Prefix un- means not: unkind, unfriendly, untidy, unusual, unlucky, unhappy.\n• E-mail writing scaffold with graphic organizer.', {
+        x: 0.8, y: 1.8, w: '85%', h: 4.0,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    // SLIDE 8: Lesson 11 Social Studies
+    let s8 = pptx.addSlide();
+    s8.background = { color: '0F172A' };
+    s8.addText('Lesson 11: Social Studies (Page 20)', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 26, fontFace: 'Arial', color: '38BDF8', bold: true
+    });
+    s8.addText('• USA (Texas): Yarn bombing\n• France: Toy voyaging\n• Thailand: Soap carving\n• Global: News bombing', {
+        x: 0.8, y: 1.8, w: '85%', h: 4.0,
+        fontSize: 16, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    pptx.writeFile({ fileName: 'Grade5_Unit1_FullCourse_55Slides_Final.pptx' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Falcons are very ______ birds.",
+    "choices": [
+      "weak",
+      "strong",
+      "soft",
+      "slow"
+    ],
+    "ans": "strong"
+  },
+  {
+    "q": "They can fly fast and ______ even faster.",
+    "choices": [
+      "dive",
+      "walk",
+      "sleep",
+      "sing"
+    ],
+    "ans": "dive"
+  },
+  {
+    "q": "Falcons can spot animals ______ away.",
+    "choices": [
+      "kilometers",
+      "meters",
+      "centimeters",
+      "inches"
+    ],
+    "ans": "kilometers"
+  }
+]

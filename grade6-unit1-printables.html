@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وسائل ومطبوعات المعلم - الوحدة 1: Living Things | الصف السادس الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 / #6366f1 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 4px 20px rgba(79, 70, 229, 0.06);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* TOPBAR */
+.topbar {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent)
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: #047857;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 20px;
+}
+
+.tool-section {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+.tool-hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.tool-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.tool-title h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #047857;
+}
+
+.btn-export {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: var(--tr);
+}
+.btn-export.word { background: #047857; color: #fff; }
+.btn-export.pdf { background: var(--accent); color: #fff; }
+
+/* FLASHCARDS GRID */
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+.flashcard-fold {
+    border: 2px dashed var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    text-align: center;
+    background: #fff;
+}
+.card-front {
+    padding-bottom: 12px;
+}
+.card-back {
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+}
+.fc-word {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.fc-ar {
+    font-size: 17px;
+    font-weight: 800;
+    color: #047857;
+}
+
+/* DOMINO TILES */
+.domino-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.domino-tile {
+    display: flex;
+    border: 2px solid #1e293b;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+.domino-half {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.domino-half.left {
+    background: rgba(79, 70, 229, 0.08);
+    border-left: 2px dashed #1e293b;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+    color: var(--primary);
+}
+.domino-half.right {
+    background: rgba(16, 185, 129, 0.08);
+    font-weight: 800;
+    color: #047857;
+}
+
+/* STRATEGY CARDS */
+.strat-card {
+    background: var(--bg);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+@media print {
+    body { background: #fff; color: #000; padding: 0; }
+    .topbar, .btn-export { display: none !important; }
+    .tool-section { border: 1px solid #000; box-shadow: none; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <a href="index.html" class="back-btn-top" style="background:#047857; color:#fff; border-color:#047857;">🏠 الرئيسية</a>
+        <a href="grade6-unit1-english.html" class="back-btn-top">↩️ العودة للحصة</a>
+        <div class="tlogo">SmartLearning <span>Printables (Living Things)</span></div>
+    </div>
+    <div style="display:flex; gap:10px;">
+        <a href="wheel.html" target="_blank" class="back-btn-top" style="background:#f59e0b; color:#fff; border-color:#f59e0b;">🎡 عجلة الأسماء</a>
+        <button class="btn-export pdf" onclick="window.print()">🖨️ طباعة المطبوعات (PDF)</button>
+    </div>
+</header>
+
+<main class="main-container">
+
+    <!-- TOOL 1: LIVING THINGS FLASHCARDS -->
+    <section class="tool-section" id="secTool1">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🎴</span>
+                <div>
+                    <h2>بطاقات الفلاش كارد: كائنات الصفحة 10 (Living Things Flashcards)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات مزدوجة الوجه قابلة للطي والقص للأنشطة الصفية</p>
+                </div>
+            </div>
+            <button class="btn-export word" onclick="exportPrintableToWord('secTool1', 'Grade6_LivingThings_Flashcards')">📄 تنزيل Word</button>
+        </div>
+
+        <div class="flashcards-grid">
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🦋</div><div class="fc-word">butterfly</div></div>
+                <div class="card-back"><div class="fc-ar">فراشة ملونة (insect with wings)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🪲</div><div class="fc-word">beetle</div></div>
+                <div class="card-back"><div class="fc-ar">خنفساء صلبة (hard shell)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🦕</div><div class="fc-word">dinosaurs</div></div>
+                <div class="card-back"><div class="fc-ar">ديناصورات (extinct ancient reptiles)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🦴</div><div class="fc-word">extinct</div></div>
+                <div class="card-back"><div class="fc-ar">منقرض للأبد (no longer living)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🐢</div><div class="fc-word">tortoise</div></div>
+                <div class="card-back"><div class="fc-ar">سلحفاة برية (dome shell land reptile)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🐯</div><div class="fc-word">furry</div></div>
+                <div class="card-back"><div class="fc-ar">مكسو بالفرو (covered with thick fur)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">⚖️</div><div class="fc-word">heavy</div></div>
+                <div class="card-back"><div class="fc-ar">ثقيل الوزن (great weight on scale)</div></div>
+            </div>
+            <div class="flashcard-fold">
+                <div class="card-front"><div style="font-size:32px;">🤫</div><div class="fc-word">QUIET</div></div>
+                <div class="card-back"><div class="fc-ar">هادئ وصامت (making little noise)</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOL 2: DOMINO MATCHING GAME -->
+    <section class="tool-section" id="secTool2">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">🀄</span>
+                <div>
+                    <h2>لعبة دومينو الكائنات الحية والخصائص (Domino Game)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">أحجار دومينو لمطابقة الكائن مع خاصيته الأساسية في مجموعات ثنائية</p>
+                </div>
+            </div>
+            <button class="btn-export word" onclick="exportPrintableToWord('secTool2', 'Grade6_LivingThings_Domino')">📄 تنزيل Word</button>
+        </div>
+
+        <div class="domino-grid">
+            <div class="domino-tile">
+                <div class="domino-half left">🦋 butterfly</div>
+                <div class="domino-half right">colorful wings (أجنحة ملونة)</div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left">🪲 beetle</div>
+                <div class="domino-half right">hard heavy shell (درع صلب)</div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left">🦕 dinosaurs</div>
+                <div class="domino-half right">extinct fossils (حفريات منقرضة)</div>
+            </div>
+            <div class="domino-tile">
+                <div class="domino-half left">🐯 tiger</div>
+                <div class="domino-half right">furry predator (مفترس فروي)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOOL 3: CLASSROOM STRATEGY EVIDENCE SHEETS -->
+    <section class="tool-section" id="secTool3">
+        <div class="tool-hdr">
+            <div class="tool-title">
+                <span style="font-size:28px;">📋</span>
+                <div>
+                    <h2>إثباتات استراتيجيات التدريس النشط وتذاكر الخروج (Strategy Cards & Exit Tickets)</h2>
+                    <p style="font-size:14px; color:var(--text-muted);">بطاقات استراتيجية فكر - زاوج - شارك وتذاكر الخروج الصفي الجاهزة للطباعة والتوزيع</p>
+                </div>
+            </div>
+            <button class="btn-export word" onclick="exportPrintableToWord('secTool3', 'Grade6_Strategy_Evidence')">📄 تنزيل Word</button>
+        </div>
+
+        <div class="strat-card">
+            <h4 style="color:#047857; font-size:17px; margin-bottom:8px;">🎟️ تذكرة الخروج (Exit Ticket - Living Things):</h4>
+            <table style="width:100%; border-collapse:collapse; margin-top:8px;">
+                <tr><td style="padding:6px; border:1px solid var(--border);"><b>Student Name:</b> ___________________________</td><td style="padding:6px; border:1px solid var(--border);"><b>Score:</b> ___ / 2</td></tr>
+                <tr><td colspan="2" style="padding:8px; border:1px solid var(--border);">1. Name one insect with wings: _____________________<br>2. Dinosaurs are ( living / extinct ) today.</td></tr>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<script>
+function exportPrintableToWord(elementId, filename) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    const htmlContent = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+            <meta charset='utf-8'>
+            <title>${filename}</title>
+            <style>
+                body { font-family: 'Arial', sans-serif; direction: rtl; text-align: right; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+                td, th { border: 1px solid #047857; padding: 10px; }
+                .header-box { border: 2px solid #047857; padding: 12px; margin-bottom: 20px; text-align: center; }
+            </style>
+        </head>
+        <body>
+            <div class="header-box">
+                <h2>المملكة العربية السعودية - وزارة التعليم</h2>
+                <h3>SmartLearning - Grade 6 (Top Goal 3) Unit 1: Living Things Printables</h3>
+            </div>
+            ${el.innerHTML}
+        </body>
+        </html>
+    `;
+
+    const blob = new Blob(['\ufeff', htmlContent], {
+        type: 'application/msword'
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${filename}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

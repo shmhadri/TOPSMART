@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية شاملة ومطورة - الوحدة 1: Living Things | الصف السادس الابتدائي (Top Goal 3) | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #cbd5e1;
+    --shadow: 0 4px 20px rgba(79, 70, 229, 0.08);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease;
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+/* TOPBAR */
+.topbar {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: #047857;
+}
+
+/* SECTION GROUPS IN TABS */
+.tabs-nav-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.group-title {
+    font-size: 15px;
+    font-weight: 900;
+    color: #047857;
+    margin: 14px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tab-btn {
+    padding: 9px 15px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.tab-btn.active {
+    background: #047857;
+    color: #fff;
+    border-color: #047857;
+}
+.tab-btn.strat {
+    border-color: #f59e0b;
+    color: #b45309;
+}
+.tab-btn.strat.active {
+    background: #f59e0b;
+    color: #fff;
+}
+
+/* CONTAINER */
+.sheet-container {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+    box-shadow: var(--shadow);
+}
+
+/* WORKSHEET STYLING */
+.ws-header {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.ws-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #047857;
+}
+.ws-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.student-info-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    background: rgba(248,250,252,0.6);
+}
+.student-info-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.question-block {
+    margin-bottom: 24px;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+}
+.q-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #047857;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 6px;
+}
+.input-text {
+    border: none;
+    border-bottom: 2px dashed var(--accent);
+    outline: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: #047857;
+    background: rgba(16,185,129,0.05);
+    padding: 3px 8px;
+    text-align: center;
+    border-radius: 4px;
+    font-family: 'Outfit', sans-serif;
+}
+.input-text:focus {
+    background: rgba(16,185,129,0.15);
+    border-bottom-color: #047857;
+}
+
+.ws-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 8px;
+}
+.ws-table th {
+    background: #f1f5f9;
+    padding: 10px;
+    border: 1px solid var(--border);
+    font-weight: 800;
+    color: var(--text);
+}
+.ws-table td {
+    padding: 10px;
+    border: 1px solid var(--border);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    position: sticky;
+    bottom: 20px;
+    z-index: 100;
+}
+.btn {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+.btn-primary { background: #047857; color: #fff; }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-outline { background: #fff; border: 2px solid var(--border); color: var(--text); }
+
+/* STRATEGY FORM STYLES */
+.rep-header {
+    background: linear-gradient(135deg, #00796b, #004d40);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.form-field-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+.form-field-box label {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+.form-field-box input, .form-field-box select {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text);
+    outline: none;
+}
+
+@media print {
+    body { background: #fff; color: #000; padding: 0; }
+    .topbar, .tabs-nav-container, .action-buttons { display: none !important; }
+    .sheet-container { border: none; box-shadow: none; padding: 0; margin: 0; width: 100%; }
+    .page-break { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right" style="display:flex; gap:10px; align-items:center;">
+    <a href="index.html" class="back-btn-top" style="background:#047857; color:#fff; border-color:#047857;">🏠 الرئيسية</a>
+    <a href="grade6-unit1-english.html" class="back-btn-top">↩️ العودة للحصة (Grade 6)</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left">
+    <a href="report.html" target="_blank" class="back-btn-top" style="background:#f59e0b; color:#fff; border-color:#f59e0b;">📋 منشئ التقارير الرسمي</a>
+    <button class="btn btn-outline" onclick="window.print()">🖨️ طباعة الورقة (PDF)</button>
+    <button class="btn btn-primary" onclick="exportToWord()">📥 تنزيل ملف Word (.doc)</button>
+  </div>
+</nav>
+
+<!-- TABS NAVIGATION GROUPED -->
+<div class="tabs-nav-container">
+  
+  <div class="group-title">🌱 أولاً: أوراق التقييم القبلي والتهيئة (Diagnostic & Pre-assessment):</div>
+  <div class="tabs-nav">
+    <button class="tab-btn active" id="tab0" onclick="swTab(0)">ورقة 1: التقييم القبلي لكائنات العالم</button>
+  </div>
+
+  <div class="group-title">⚡ ثانياً: أوراق التدريب أثناء الحصة (Formative In-Lesson Worksheets):</div>
+  <div class="tabs-nav">
+    <button class="tab-btn" id="tab1" onclick="swTab(1)">ورقة 2: مطابقة الحشرات (Tiny Insects)</button>
+    <button class="tab-btn" id="tab2" onclick="swTab(2)">ورقة 3: الحروف الناقصة والإملاء (Spelling)</button>
+    <button class="tab-btn" id="tab3" onclick="swTab(3)">ورقة 4: الديناصورات والانقراض (Dinosaurs)</button>
+    <button class="tab-btn" id="tab4" onclick="swTab(4)">ورقة 5: المبني للمجهول (Passive Voice)</button>
+    <button class="tab-btn" id="tab5" onclick="swTab(5)">ورقة 6: محاكي الاستماع والمقابلة (Listening)</button>
+    <button class="tab-btn" id="tab6" onclick="swTab(6)">ورقة 7: بيئات الكائنات وجمل Where</button>
+  </div>
+
+  <div class="group-title">🏆 ثالثاً: أوراق التقييم البعدي وتوثيق الاستراتيجيات (Post-assessment & Strategy Evidence):</div>
+  <div class="tabs-nav">
+    <button class="tab-btn" id="tab7" onclick="swTab(7)">ورقة 8: التقييم البعدي وتذكرة الخروج (Exit Ticket)</button>
+    <button class="tab-btn" id="tab8" onclick="swTab(8)">ورقة 9: الاختبار الشامل النهائي 🏆</button>
+    <button class="tab-btn strat" id="tab9" onclick="swTab(9)">📋 ورقة 10: نموذج تنفيذ استراتيجية مختصرة (المعتمد)</button>
+  </div>
+
+</div>
+
+<!-- SHEET CONTAINER -->
+<div class="sheet-container" id="printable-area">
+  
+  <!-- Student info header -->
+  <table class="student-info-table">
+    <tr>
+      <td><b>اسم الطالب (Student Name):</b> ___________________________</td>
+      <td><b>الصف (Class):</b> سادس / _____</td>
+      <td><b>المادة:</b> إنجليزي (Top Goal 3)</td>
+      <td><b>التاريخ:</b> ____ / ____ / 2026</td>
+    </tr>
+  </table>
+
+  <!-- TAB 0: PRE-ASSESSMENT (التقييم القبلي) -->
+  <div class="tab-content" id="ws-content-0">
+    <div class="ws-header">
+      <div class="ws-title">Pre-Assessment Worksheet: Living Things Knowledge</div>
+      <div class="ws-subtitle">ورقة التقييم والتشخيص القبلي - الوحدة 1 (Living Things)</div>
+    </div>
+    
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Look and classify: (Write <b>I</b> for Insect, <b>D</b> for Dinosaur, <b>W</b> for Wild Animal)</div>
+      <table class="ws-table">
+        <tr>
+          <th>Creature</th>
+          <th>Code (I / D / W)</th>
+          <th>Creature</th>
+          <th>Code (I / D / W)</th>
+        </tr>
+        <tr><td>1. Butterfly 🦋</td><td><input type="text" class="input-text" style="width:50px;" data-ans="I" id="pre_1"></td><td>5. Camel 🐪</td><td><input type="text" class="input-text" style="width:50px;" data-ans="W" id="pre_5"></td></tr>
+        <tr><td>2. T-Rex 🦖</td><td><input type="text" class="input-text" style="width:50px;" data-ans="D" id="pre_2"></td><td>6. Octopus 🐙</td><td><input type="text" class="input-text" style="width:50px;" data-ans="W" id="pre_6"></td></tr>
+        <tr><td>3. Bengal Tiger 🐅</td><td><input type="text" class="input-text" style="width:50px;" data-ans="W" id="pre_3"></td><td>7. Swan 🦢</td><td><input type="text" class="input-text" style="width:50px;" data-ans="W" id="pre_7"></td></tr>
+        <tr><td>4. Beetle 🪲</td><td><input type="text" class="input-text" style="width:50px;" data-ans="I" id="pre_4"></td><td>8. Eagle 🦅</td><td><input type="text" class="input-text" style="width:50px;" data-ans="W" id="pre_8"></td></tr>
+      </table>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Diagnostic Match: Connect the feature to the correct creature:</div>
+      <table class="ws-table">
+        <tr><th>Feature / Clue</th><th>Match Code</th><th>Creature</th></tr>
+        <tr><td style="text-align:right;">1. An insect with colorful, bright wings</td><td><input type="text" class="input-text" style="width:40px;" data-ans="B" id="pre_m_1"></td><td>A- Dinosaur 🦖</td></tr>
+        <tr><td style="text-align:right;">2. A giant reptile that lived in prehistoric times</td><td><input type="text" class="input-text" style="width:40px;" data-ans="A" id="pre_m_2"></td><td>B- Butterfly 🦋</td></tr>
+        <tr><td style="text-align:right;">3. A desert creature with a hump storing fat</td><td><input type="text" class="input-text" style="width:40px;" data-ans="D" id="pre_m_3"></td><td>C- Octopus 🐙</td></tr>
+        <tr><td style="text-align:right;">4. A marine animal with eight flexible arms</td><td><input type="text" class="input-text" style="width:40px;" data-ans="C" id="pre_m_4"></td><td>D- Camel 🐪</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 1: WS 2 Tiny Insects -->
+  <div class="tab-content" id="ws-content-1" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 2: Tiny Insects (Page 10)</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Vocabulary & Comprehension)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Match each vocabulary with its definition:</div>
+      <table class="ws-table">
+        <tr>
+          <th>Word</th>
+          <th>Code</th>
+          <th>Meaning / Definition</th>
+        </tr>
+        <tr><td>1. butterfly 🦋</td><td><input type="text" class="input-text" style="width:40px;" data-ans="C" id="w2_1"></td><td style="text-align:right;">A- Small six-legged creature</td></tr>
+        <tr><td>2. beetle 🪲</td><td><input type="text" class="input-text" style="width:40px;" data-ans="D" id="w2_2"></td><td style="text-align:right;">B- Body part used for flying</td></tr>
+        <tr><td>3. wing 🪽</td><td><input type="text" class="input-text" style="width:40px;" data-ans="B" id="w2_3"></td><td style="text-align:right;">C- An insect with large, colorful wings</td></tr>
+        <tr><td>4. heavy ⚖️</td><td><input type="text" class="input-text" style="width:40px;" data-ans="E" id="w2_4"></td><td style="text-align:right;">D- Insect with a hard protective shell</td></tr>
+        <tr><td>5. insects 🐜</td><td><input type="text" class="input-text" style="width:40px;" data-ans="A" id="w2_5"></td><td style="text-align:right;">E- Having great weight on scale</td></tr>
+        <tr><td>6. DON'T TOUCH 🚫</td><td><input type="text" class="input-text" style="width:40px;" data-ans="F" id="w2_6"></td><td style="text-align:right;">F- Warning sign against stinging insects</td></tr>
+      </table>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Fill in the blanks from the word bank: [ wings - heavy - beetles - butterfly ]</div>
+      <div style="line-height:2.4; font-size:16px;">
+        1. A <input type="text" class="input-text" style="width:110px;" data-ans="butterfly" id="w2_fb_1"> flies gently over flowers.<br>
+        2. Some <input type="text" class="input-text" style="width:110px;" data-ans="beetles" id="w2_fb_2"> are eaten by larger animals.<br>
+        3. Insects use their <input type="text" class="input-text" style="width:110px;" data-ans="wings" id="w2_fb_3"> to fly in the air.<br>
+        4. Beetles have <input type="text" class="input-text" style="width:110px;" data-ans="heavy" id="w2_fb_4"> and strong bodies.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: WS 3 Missing Letters -->
+  <div class="tab-content" id="ws-content-2" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 3: Missing Letters & Spelling Mastery</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Spelling & Orthography)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Complete the missing letters for the unit words:</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; font-family:'Outfit',sans-serif; font-size:18px; line-height:2.4;">
+        <div>1. b <input type="text" class="input-text" style="width:30px;" data-ans="u" id="sp_1"> tt <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_2"> rfl <input type="text" class="input-text" style="width:30px;" data-ans="y" id="sp_3"> 🦋</div>
+        <div>2. b <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_4"> <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_5"> tl <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_6"> 🪲</div>
+        <div>3. <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_7"> xt <input type="text" class="input-text" style="width:30px;" data-ans="i" id="sp_8"> nct 🦴</div>
+        <div>4. t <input type="text" class="input-text" style="width:30px;" data-ans="o" id="sp_9"> rt <input type="text" class="input-text" style="width:30px;" data-ans="o" id="sp_10"> <input type="text" class="input-text" style="width:30px;" data-ans="i" id="sp_11"> se 🐢</div>
+        <div>5. <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_12"> ag <input type="text" class="input-text" style="width:30px;" data-ans="l" id="sp_13"> e 🦅</div>
+        <div>6. oc <input type="text" class="input-text" style="width:30px;" data-ans="t" id="sp_14"> op <input type="text" class="input-text" style="width:30px;" data-ans="u" id="sp_15"> s 🐙</div>
+        <div>7. c <input type="text" class="input-text" style="width:30px;" data-ans="a" id="sp_16"> m <input type="text" class="input-text" style="width:30px;" data-ans="e" id="sp_17"> l 🐪</div>
+        <div>8. f <input type="text" class="input-text" style="width:30px;" data-ans="u" id="sp_18"> rr <input type="text" class="input-text" style="width:30px;" data-ans="y" id="sp_19"> 🦊</div>
+      </div>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Unscramble the letters to make words:</div>
+      <div style="line-height:2.4; font-size:16px; font-family:'Outfit',sans-serif;">
+        1. [ N - E - S - T ] ➔ <input type="text" class="input-text" style="width:120px;" data-ans="nest" id="un_1"> 🪺<br>
+        2. [ P - O - N - D ] ➔ <input type="text" class="input-text" style="width:120px;" data-ans="pond" id="un_2"> 💧<br>
+        3. [ W - I - N - G ] ➔ <input type="text" class="input-text" style="width:120px;" data-ans="wing" id="un_3"> 🪽<br>
+        4. [ S - W - A - N ] ➔ <input type="text" class="input-text" style="width:120px;" data-ans="swan" id="un_4"> 🦢
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: WS 4 Dinosaurs -->
+  <div class="tab-content" id="ws-content-3" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 4: When Dinosaurs Lived (Pages 10-11)</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Prehistoric Life & Extinction)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Choose the correct option to complete the facts:</div>
+      <div style="line-height:2.4; font-size:16px;">
+        1. Dinosaurs are [ <input type="text" class="input-text" style="width:90px;" data-ans="extinct" id="dino_1"> ] (extinct / alive) today.<br>
+        2. A tortoise has a hard shell and [ <input type="text" class="input-text" style="width:110px;" data-ans="doesn't have" id="dino_2"> ] (has / doesn't have) wings.<br>
+        3. Dinosaur skeletons are discovered deep in the [ <input type="text" class="input-text" style="width:90px;" data-ans="ground" id="dino_3"> ] (sky / ground).<br>
+        4. In the story, Oli thought the tortoise was a [ <input type="text" class="input-text" style="width:90px;" data-ans="dinosaur" id="dino_4"> ] (dinosaur / tiger).
+      </div>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Match description to the creature:</div>
+      <table class="ws-table">
+        <tr><th>Description</th><th>Code</th><th>Creature</th></tr>
+        <tr><td style="text-align:right;">1. Prehistoric giant creature, no longer seen</td><td><input type="text" class="input-text" style="width:40px;" data-ans="C" id="d_m_1"></td><td>A- Tortoise 🐢</td></tr>
+        <tr><td style="text-align:right;">2. Slow-moving animal with a round dome shell</td><td><input type="text" class="input-text" style="width:40px;" data-ans="A" id="d_m_2"></td><td>B- Tiger 🐅</td></tr>
+        <tr><td style="text-align:right;">3. Big wild cat that hunts in the jungle</td><td><input type="text" class="input-text" style="width:40px;" data-ans="B" id="d_m_3"></td><td>C- Dinosaur 🦖</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 4: WS 5 Passive Voice -->
+  <div class="tab-content" id="ws-content-4" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 5: Simple Present Passive (Pages 12-13 & 19)</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Grammar Transformations)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Transform from Active to Passive Voice (is / are + V3):</div>
+      <div style="line-height:2.6; font-size:16px;">
+        1. <b>Beetles eat insects.</b><br>
+        ➔ <input type="text" class="input-text" style="width:95%; text-align:right;" data-ans="Insects are eaten by beetles." id="pass_1" placeholder="Insects are eaten by beetles."><br>
+        2. <b>People protect the Arabian leopard.</b><br>
+        ➔ <input type="text" class="input-text" style="width:95%; text-align:right;" data-ans="The Arabian leopard is protected by people." id="pass_2" placeholder="The Arabian leopard is protected by people."><br>
+        3. <b>Camels store fat in their bodies.</b><br>
+        ➔ <input type="text" class="input-text" style="width:95%; text-align:right;" data-ans="Fat is stored in camels' bodies." id="pass_3" placeholder="Fat is stored in camels' bodies."><br>
+        4. <b>Scientists study dinosaur bones.</b><br>
+        ➔ <input type="text" class="input-text" style="width:95%; text-align:right;" data-ans="Dinosaur bones are studied by scientists." id="pass_4" placeholder="Dinosaur bones are studied by scientists.">
+      </div>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Fill in the blank with <b>is</b> or <b>are</b>:</div>
+      <div style="line-height:2.4; font-size:16px;">
+        1. Many fish <input type="text" class="input-text" style="width:60px;" data-ans="are" id="pv_is_1"> eaten by sharks.<br>
+        2. The tiger <input type="text" class="input-text" style="width:60px;" data-ans="is" id="pv_is_2"> found in the jungle.<br>
+        3. Animal bones <input type="text" class="input-text" style="width:60px;" data-ans="are" id="pv_is_3"> discovered deep in the ground.<br>
+        4. An animal shelter <input type="text" class="input-text" style="width:60px;" data-ans="is" id="pv_is_4"> built to protect wildlife.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5: WS 6 Listening Check -->
+  <div class="tab-content" id="ws-content-5" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 6: Listening Check & Interview (Pages 14-15)</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Story & Zoologist Interview)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Fun in the Park Story - Write (Seen) or (Not Seen):</div>
+      <table class="ws-table">
+        <tr><th>Creature</th><th>Status in the Park</th><th>Creature</th><th>Status in the Park</th></tr>
+        <tr><td>1. beetle 🪲</td><td><input type="text" class="input-text" style="width:90px;" data-ans="seen" id="st_c_1"></td><td>4. dinosaur 🦖</td><td><input type="text" class="input-text" style="width:90px;" data-ans="not seen" id="st_c_4"></td></tr>
+        <tr><td>2. tortoise 🐢</td><td><input type="text" class="input-text" style="width:90px;" data-ans="seen" id="st_c_2"></td><td>5. tiger 🐅</td><td><input type="text" class="input-text" style="width:90px;" data-ans="not seen" id="st_c_5"></td></tr>
+        <tr><td>3. cat 🐱</td><td><input type="text" class="input-text" style="width:90px;" data-ans="seen" id="st_c_3"></td><td>6. butterfly 🦋</td><td><input type="text" class="input-text" style="width:90px;" data-ans="not seen" id="st_c_6"></td></tr>
+      </table>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Zoologist Interview - Put (✓) or (✗):</div>
+      <div style="line-height:2.4; font-size:16px;">
+        1. Maria is a zoologist who looks after animals. [ <input type="text" class="input-text" style="width:40px;" data-ans="V" id="zoo_1"> ]<br>
+        2. All zoologists only work in offices. [ <input type="text" class="input-text" style="width:40px;" data-ans="X" id="zoo_2"> ]<br>
+        3. Maria plays with monkeys to control her anger. [ <input type="text" class="input-text" style="width:40px;" data-ans="V" id="zoo_3"> ]
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 6: WS 7 Environments & Where Clauses -->
+  <div class="tab-content" id="ws-content-6" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 7: Where Clauses & Conservation Center (Pages 16-17)</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Syntax & Environment Vocabulary)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">Q1: Match the Place to what happens there:</div>
+      <table class="ws-table">
+        <tr><th>Place</th><th>Code</th><th>Action / Event</th></tr>
+        <tr><td style="text-align:right;">1. The desert 🏜️ is where...</td><td><input type="text" class="input-text" style="width:40px;" data-ans="C" id="wh_m_1"></td><td>A- birds lay their eggs.</td></tr>
+        <tr><td style="text-align:right;">2. The jungle 🌴 is where...</td><td><input type="text" class="input-text" style="width:40px;" data-ans="D" id="wh_m_2"></td><td>B- dolphins and sharks swim.</td></tr>
+        <tr><td style="text-align:right;">3. The tree nest 🪺 is where...</td><td><input type="text" class="input-text" style="width:40px;" data-ans="A" id="wh_m_3"></td><td>C- camels have long journeys.</td></tr>
+        <tr><td style="text-align:right;">4. The ocean 🌊 is where...</td><td><input type="text" class="input-text" style="width:40px;" data-ans="B" id="wh_m_4"></td><td>D- tigers hunt for food.</td></tr>
+      </table>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Order the words to make Where sentences:</div>
+      <div style="line-height:2.6; font-size:16px;">
+        1. where / monkeys / the trees / play / are<br>
+        ➔ <input type="text" class="input-text" style="width:95%; text-align:right;" data-ans="The trees are where monkeys play." id="where_1"><br>
+        2. the forest / live / bears / is / where<br>
+        ➔ <input type="text" class="input-text" style="width:95%; text-align:right;" data-ans="The forest is where bears live." id="where_2">
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 7: POST-ASSESSMENT & EXIT TICKET -->
+  <div class="tab-content" id="ws-content-7" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 8: Post-Assessment & Exit Ticket (التقييم البعدي)</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Assessment & Animal Traits)</div>
+    </div>
+
+    <!-- Part A -->
+    <div class="question-block">
+      <div class="q-title">🎟️ تذكرة الخروج الصفي (Exit Ticket):</div>
+      <div style="background:#f8fafc; border:2px dashed #047857; padding:18px; border-radius:10px; line-height:2.4; font-size:16px;">
+        1. Name two creatures with wings: <input type="text" class="input-text" style="width:180px;" data-ans="butterfly" id="exit_1" placeholder="e.g. butterfly, eagle"><br>
+        2. Are dinosaurs living or extinct? ➔ <input type="text" class="input-text" style="width:110px;" data-ans="extinct" id="exit_2"><br>
+        3. Complete: The ocean is where <input type="text" class="input-text" style="width:140px;" data-ans="sharks" id="exit_3" placeholder="e.g. sharks / fish"> swim.
+      </div>
+    </div>
+
+    <!-- Part B -->
+    <div class="question-block">
+      <div class="q-title">Q2: Animal Traits - Match trait to creature:</div>
+      <table class="ws-table">
+        <tr><th>Animal</th><th>Code</th><th>Trait Category</th></tr>
+        <tr><td>1. Camel's furry hump 🐪</td><td><input type="text" class="input-text" style="width:40px;" data-ans="A" id="tr_m_1"></td><td>A- Body Part (stores fat)</td></tr>
+        <tr><td>2. Polar bear's white fur 🐻‍❄️</td><td><input type="text" class="input-text" style="width:40px;" data-ans="B" id="tr_m_2"></td><td>B- Body Covering (warmth & snow disguise)</td></tr>
+        <tr><td>3. Octopus using tools 🐙</td><td><input type="text" class="input-text" style="width:40px;" data-ans="C" id="tr_m_3"></td><td>C- Behavior (intelligent tool use)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 8: FINAL MASTERY QUIZ -->
+  <div class="tab-content" id="ws-content-8" style="display:none;">
+    <div class="ws-header">
+      <div class="ws-title">Worksheet 9: Comprehensive Mastery Exam 🏆</div>
+      <div class="ws-subtitle">Top Goal 3 - Unit 1 (Unit Mastery Final Assessment)</div>
+    </div>
+    
+    <div class="question-block">
+      <div class="q-title">Q1: Comprehensive Unit 1 Examination:</div>
+      <div style="line-height:2.6; font-size:16px;">
+        1. An insect with colorful wings is a [ <input type="text" class="input-text" style="width:90px;" data-ans="butterfly" id="mq_1"> ].<br>
+        2. Insects [ <input type="text" class="input-text" style="width:110px;" data-ans="are eaten" id="mq_2"> ] (are eaten / eat) by beetles.<br>
+        3. The Arabian leopard is [ <input type="text" class="input-text" style="width:90px;" data-ans="protected" id="mq_3"> ] (protected / hunted) by law.<br>
+        4. Complete the caution sign: [ <input type="text" class="input-text" style="width:80px;" data-ans="DON'T" id="mq_4"> ] TOUCH!<br>
+        5. The desert is [ <input type="text" class="input-text" style="width:80px;" data-ans="where" id="mq_5"> ] (where / who) camels live.<br>
+        6. A scientist who studies and looks after animals is a [ <input type="text" class="input-text" style="width:100px;" data-ans="zoologist" id="mq_6"> ].
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 9: STRATEGY EVIDENCE FORM (المعتمد) -->
+  <div class="tab-content" id="ws-content-9" style="display:none;">
+    
+    <div class="rep-header">
+      <div style="font-size:13px; font-weight:800; line-height:1.6;">
+        المملكة العربية السعودية<br>
+        وزارة التعليم<br>
+        الإدارة العامة للتعليم<br>
+        مكتب التعليم
+      </div>
+      <div style="background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.3); padding:8px 20px; border-radius:30px; text-align:center;">
+        <h2 style="font-size:18px; font-weight:900; margin:0;">نموذج تنفيذ استراتيجية مختصرة</h2>
+      </div>
+      <div style="font-size:13px; font-weight:800; text-align:left;">
+        المدرسة: مدرسة المستقبل الابتدائية<br>
+        الصف: السادس الابتدائي<br>
+        المادة: اللغة الإنجليزية (Top Goal 3)
+      </div>
+    </div>
+
+    <!-- Strategy Form Fields -->
+    <div class="grid-2x2">
+      <div class="form-field-box">
+        <label>الاستراتيجية المنفذة:</label>
+        <input type="text" value="فكر - زاوج - شارك (Think - Pair - Share) وعجلة الأسماء" readonly>
+      </div>
+      <div class="form-field-box">
+        <label>المادة والصف:</label>
+        <input type="text" value="اللغة الإنجليزية - الصف السادس الابتدائي" readonly>
+      </div>
+      <div class="form-field-box">
+        <label>عنوان الدرس:</label>
+        <input type="text" value="Unit 1: Living Things (Creatures, Passive & Environments)" readonly>
+      </div>
+      <div class="form-field-box">
+        <label>تاريخ التنفيذ وعدد المستفيدين:</label>
+        <input type="text" value="الفصل الدراسي الأول 1448هـ - جميع طلاب الصف (30 طالباً)" readonly>
+      </div>
+    </div>
+
+    <!-- Objectives -->
+    <div style="background:#fff; border:1px solid var(--border); padding:16px; border-radius:8px; margin-bottom:16px;">
+      <h4 style="color:#047857; font-size:16px; font-weight:900; margin-bottom:6px;">🎯 أهداف الدرس المنفذة عبر الاستراتيجية:</h4>
+      <ol style="margin-right:20px; font-size:14px; line-height:1.8; color:var(--text);">
+        <li>تهيئة أذهان الطلاب وجذب انتباههم عبر العصف الذهني واستكشاف كائنات وبيئات الوحدة الأولى.</li>
+        <li>تفعيل المشاركة العشوائية للطلاب عبر عجلة الأسماء التفاعلية دون تحيز وضمان تفاعل الجميع.</li>
+        <li>التقييم الفوري للفهم والنطق السليم للمفردات وقواعد المبني للمجهول (Passive Voice).</li>
+        <li>تطبيق مهارات التفكير العليا والمقارنة بين بيئات الكائنات الحية وتدوين الشواهد الصفية.</li>
+      </ol>
+    </div>
+
+    <!-- Evidence Box -->
+    <div style="border:2px dashed #047857; padding:20px; border-radius:8px; text-align:center; background:#ecfdf5;">
+      <span style="font-size:36px;">📸 📝</span>
+      <h4 style="color:#047857; margin:6px 0;">شاهد تنفيذ الاستراتيجية (Evidence of Implementation)</h4>
+      <p style="font-size:13px; color:var(--text-muted);">
+        تم توثيق تفاعل الطلاب في تصنيف كائنات البيئات الثلاث وممارسة تحويلات المبني للمجهول واستخدام عجلة الأسماء بنسبة إتقان 100%.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ACTION BUTTONS -->
+<div class="action-buttons">
+  <button class="btn btn-accent" onclick="checkAnswers()">✔️ تحقق تفاعلياً (Check Answers)</button>
+</div>
+
+<script>
+let currentTab = 0;
+
+function swTab(idx) {
+    currentTab = idx;
+    
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+    });
+    
+    document.querySelectorAll('.tab-content').forEach((content, i) => {
+        content.style.display = i === idx ? 'block' : 'none';
+    });
+}
+
+function checkAnswers() {
+    const activeContent = document.getElementById(`ws-content-${currentTab}`);
+    if (!activeContent) return;
+    const inputs = activeContent.querySelectorAll('input[data-ans]');
+    if (inputs.length === 0) return;
+    
+    let correctCount = 0;
+
+    inputs.forEach(input => {
+        const expected = input.getAttribute('data-ans').trim().toLowerCase();
+        const userVal = input.value.trim().toLowerCase();
+        if (userVal === expected || (expected === 'v' && (userVal === '✓' || userVal === 'true')) || (expected === 'x' && (userVal === '✗' || userVal === 'false')) || userVal.includes(expected)) {
+            input.style.borderBottomColor = '#10b981';
+            input.style.background = '#d1fae5';
+            input.style.color = '#047857';
+            correctCount++;
+        } else {
+            input.style.borderBottomColor = '#f43f5e';
+            input.style.background = '#ffe4e6';
+            input.style.color = '#be123c';
+        }
+    });
+
+    if (correctCount === inputs.length) {
+        alert(`🎉 ممتاز جداً! أحسنت، جميع إجابات الورقة صحيحة (${correctCount}/${inputs.length})!`);
+    } else {
+        alert(`👍 أحسنت المحاولة! لقد أجبت بشكل صحيح على ${correctCount} من أصل ${inputs.length}. راجع الحقول المحددة باللون الأحمر.`);
+    }
+}
+
+function exportToWord() {
+    const htmlContent = document.getElementById('printable-area').innerHTML;
+    const blob = new Blob(['\ufeff' + htmlContent], {
+        type: 'application/msword'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Grade6_TopGoal3_Unit1_Worksheet_${currentTab + 1}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

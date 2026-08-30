@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLearning - المنصة التعليمية الذكية</title>
+    
+    <!-- خط Tajawal من Google Fonts للمظهر الاحترافي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- ملفات التنسيق المنفصلة للهيدر والفوتر -->
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <style>
+        /* ==========================================================================
+           1. متغيرات الألوان والتصميم الأساسية (CSS Variables)
+           ========================================================================== */
+        :root {
+            /* الوضع الفاتح (Light Mode) */
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-header: rgba(255, 255, 255, 0.85);
+            --bg-sidebar: #ffffff;
+            --bg-footer: #0f172a;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-light: #64748b;
+            --text-footer: #94a3b8;
+            
+            --primary: #3b82f6;
+            --primary-rgb: 59, 130, 246;
+            --primary-hover: #2563eb;
+            --accent: #10b981;
+            --accent-rgb: 16, 185, 129;
+            --accent-hover: #059669;
+            
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            /* الوضع الداكن (Dark Mode) */
+            --bg-body: #090d16;
+            --bg-card: #131b2e;
+            --bg-header: rgba(19, 27, 46, 0.85);
+            --bg-sidebar: #131b2e;
+            --bg-footer: #05080f;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-light: #94a3b8;
+            --text-footer: #64748b;
+            
+            --primary: #60a5fa;
+            --primary-rgb: 96, 165, 250;
+            --primary-hover: #3b82f6;
+            --accent: #34d399;
+            --accent-rgb: 52, 211, 153;
+            --accent-hover: #10b981;
+            
+            --border: #1e293b;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ==========================================================================
+           2. التنسيق العام والتهيئة (Reset & General Styles)
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            transition: var(--transition);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            font-family: inherit;
+        }
+
+        /* حاوية المحتوى الرئيسي */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           5. القسم الترحيبي (Hero Section)
+           ========================================================================== */
+        main {
+            margin-top: 72px;
+            flex-grow: 1;
+            padding-bottom: 60px;
+        }
+
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* خلفية تجميلية خفيفة */
+        .hero-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(var(--primary-rgb), 0.06) 0%, rgba(var(--accent-rgb), 0.03) 70%, transparent 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 100px;
+            background-color: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid rgba(var(--primary-rgb), 0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* ==========================================================================
+           6. فلاتر المراحل الدراسية (Stage Filters)
+           ========================================================================== */
+        .filters-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 700;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
+        }
+
+        /* ==========================================================================
+           7. شبكة الصفوف الدراسية (Grades Grid)
+           ========================================================================== */
+        .grades-section {
+            transition: var(--transition);
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* بطاقة الصف (Grade Card) */
+        .grade-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* تأثير خط زخرفي علوي للبطاقة حسب المرحلة */
+        .grade-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.8;
+        }
+
+        .grade-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(var(--primary-rgb), 0.3);
+        }
+
+        .grade-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background-color: rgba(var(--primary-rgb), 0.08);
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .grade-card:hover .grade-icon-wrapper {
+            background-color: var(--primary);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .grade-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .grade-stage-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background-color: rgba(var(--accent-rgb), 0.08);
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .grade-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+        }
+
+        .grade-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ==========================================================================
+           8. شاشة تفاصيل الصف والفصول (Detail View)
+           ========================================================================== */
+        .detail-section {
+            display: none; /* مخفي افتراضيًا ويظهر عبر الـ JS */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .detail-section.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .detail-title-block {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .detail-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .detail-title-block h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .detail-title-block p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* تصميم الفصول (Terms Cards) */
+        .terms-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .terms-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .term-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .term-card:hover {
+            border-color: rgba(var(--primary-rgb), 0.25);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .term-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition);
+            padding: 4px 0;
+        }
+
+        .term-card-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .term-card-title span.badge {
+            background-color: rgba(var(--primary-rgb), 0.08);
+            color: var(--primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .term-card-title h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .units-count-badge {
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 100px;
+            background-color: rgba(var(--accent-rgb), 0.08);
+            color: var(--accent);
+        }
+
+        .term-chevron {
+            transition: var(--transition);
+            color: var(--text-light);
+        }
+
+        .term-card:hover .term-chevron,
+        .term-card.expanded .term-chevron {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        /* الوحدات الأربع (Units List) */
+        .units-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.3s ease;
+        }
+
+        .term-card:hover .units-list,
+        .term-card.expanded .units-list {
+            max-height: 400px;
+            opacity: 1;
+            visibility: visible;
+            margin-top: 20px;
+        }
+
+        .unit-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background-color: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .unit-item:hover {
+            transform: translateX(-4px);
+            background-color: rgba(var(--primary-rgb), 0.04);
+            border-color: rgba(var(--primary-rgb), 0.2);
+        }
+
+        .unit-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .unit-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 13px;
+            transition: var(--transition);
+        }
+
+        .unit-item:hover .unit-icon {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .unit-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .unit-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .unit-item:hover .unit-action-btn {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            transform: rotate(-180deg);
+        }
+
+
+
+        /* ==========================================================================
+           10. منبثق التواصل والتفاصيل (Modal Window)
+           ========================================================================== */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .close-modal {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background-color: #ef4444;
+            color: #ffffff;
+            border-color: #ef4444;
+        }
+
+        .modal-body {
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .modal-body p {
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: #ffffff;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- نقطة حقن الهيدر والسايدبار التفاعلي -->
+    <div id="header-placeholder"></div>
+
+    <!-- ==========================================================================
+       3. المحتوى الرئيسي (Main Container)
+       ========================================================================== -->
+    <main>
+        <!-- القسم الترحيبي (Hero Section) -->
+        <section class="hero container" id="heroSection">
+            <div class="hero-pattern"></div>
+            <div class="hero-badge">
+                <span>✨ تحديثات العام الدراسي الجديد 2026</span>
+            </div>
+            <h1>مرحبًا بك في منصة <span>SmartLearning</span></h1>
+            <p>منصة تعليمية منظمة تساعد الطلاب على الوصول للدروس والمناهج المقررة بسهولة تامة وبخطوات تفاعلية سريعة حسب الصف والفصل والوحدة.</p>
+            <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
+                <a href="wheel.html" target="_blank" class="filter-btn" style="background:#f59e0b; color:#fff; text-decoration:none; padding:12px 28px; display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:16px; border-radius:50px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); border:none; transition: var(--transition);">
+                    🎯 فتح عجلة الأسماء التفاعلية
+                </a>
+                <a href="report.html" target="_blank" class="filter-btn" style="background:#00796b; color:#fff; text-decoration:none; padding:12px 28px; display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:16px; border-radius:50px; box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3); border:none; transition: var(--transition);">
+                    📋 منشئ تقارير الاستراتيجيات الرسمي
+                </a>
+            </div>
+        </section>
+
+        <!-- قسم فلاتر المراحل الدراسية (Stage Filters) -->
+        <div class="container" id="filtersSection">
+            <div class="filters-container">
+                <button class="filter-btn active" onclick="filterGrades('all', this)">الكل</button>
+                <button class="filter-btn" onclick="filterGrades('primary', this)">الابتدائي</button>
+                <button class="filter-btn" onclick="filterGrades('middle', this)">المتوسط</button>
+                <button class="filter-btn" onclick="filterGrades('secondary', this)">الثانوي</button>
+            </div>
+        </div>
+
+        <!-- شبكة عرض الصفوف الدراسية (Grades Grid Section) -->
+        <section class="grades-section container" id="gradesSection">
+            <div class="grades-grid" id="gradesGrid">
+                <!-- سيتم إنشاء كروت الصفوف ديناميكيًا بواسطة JS -->
+            </div>
+        </section>
+
+        <!-- تفاصيل الصف المحدد (Detail Section) -->
+        <section class="detail-section container" id="detailSection">
+            <div class="detail-header">
+                <div class="detail-title-block">
+                    <div class="detail-icon" id="detailIcon">🎓</div>
+                    <div>
+                        <h2 id="detailGradeName">اسم الصف الدراسي</h2>
+                        <p id="detailGradeStage">المرحلة الدراسية</p>
+                    </div>
+                </div>
+                <button class="filter-btn" onclick="goBack()" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    العودة للصفوف
+                </button>
+            </div>
+
+            <!-- حاوية الفصول والوحدات -->
+            <div class="terms-container" id="termsContainer">
+                <!-- سيتم إنشاء الفصول والوحدات ديناميكيًا بواسطة JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- نقطة حقن الفوتر التفاعلي -->
+    <div id="footer-placeholder"></div>
+
+    <!-- ==========================================================================
+       5. نافذة تواصل معنا (Contact Modal)
+       ========================================================================== -->
+    <div class="modal" id="contactModal">
+        <div class="modal-overlay" onclick="closeContactModal()"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>تواصل معنا</h3>
+                <button class="close-modal" onclick="closeContactModal()" aria-label="إغلاق">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="contactName">الاسم الكامل</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="أدخل اسمك الكريم" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">البريد الإلكتروني</label>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="username@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMsg">نص الرسالة</label>
+                        <textarea id="contactMsg" class="form-control" rows="4" placeholder="اكتب استفسارك أو اقتراحك هنا..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       6. الأكواد والبرمجة التفاعلية (JavaScript)
+       ========================================================================== -->
+    <script>
+        /* --------------------------------------------------------------------------
+           أ. مصفوفة بيانات الصفوف، الفصول، والوحدات (Grades Data Array)
+           -------------------------------------------------------------------------- */
+        const gradesData = [
+            {
+                id: "primary-2",
+                name: "الصف الثاني الابتدائي",
+                stage: "primary",
+                stageName: "الابتدائي",
+                icon: "📚",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "primary-3",
+                name: "الصف الثالث الابتدائي",
+                stage: "primary",
+                stageName: "الابتدائي",
+                icon: "✏️",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "primary-4",
+                name: "الصف الرابع الابتدائي",
+                stage: "primary",
+                stageName: "الابتدائي",
+                icon: "🎨",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["مقدمة", "الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "primary-5",
+                name: "الصف الخامس الابتدائي",
+                stage: "primary",
+                stageName: "الابتدائي",
+                icon: "🔍",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["مقدمة وترحيب", "الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "primary-6",
+                name: "الصف السادس الابتدائي",
+                stage: "primary",
+                stageName: "الابتدائي",
+                icon: "📐",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "middle-1",
+                name: "الصف الأول المتوسط",
+                stage: "middle",
+                stageName: "المتوسط",
+                icon: "🧪",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "middle-2",
+                name: "الصف الثاني المتوسط",
+                stage: "middle",
+                stageName: "المتوسط",
+                icon: "🌍",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "middle-3",
+                name: "الصف الثالث المتوسط",
+                stage: "middle",
+                stageName: "المتوسط",
+                icon: "💻",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "secondary-1",
+                name: "الصف الأول الثانوي",
+                stage: "secondary",
+                stageName: "الثانوي",
+                icon: "🔬",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "secondary-2",
+                name: "الصف الثاني الثانوي",
+                stage: "secondary",
+                stageName: "الثانوي",
+                icon: "📐",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
+                id: "secondary-3",
+                name: "الصف الثالث الثانوي",
+                stage: "secondary",
+                stageName: "الثانوي",
+                icon: "🎓",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            }
+        ];
+
+        // إتاحة مصفوفة البيانات للمكونات المنفصلة (مثل الهيدر والسايدبار)
+        window.gradesData = gradesData;
+
+
+
+        /* --------------------------------------------------------------------------
+           د. إدارة منبثق الاتصال (Contact Modal Management)
+           -------------------------------------------------------------------------- */
+        const contactModal = document.getElementById('contactModal');
+
+        function openContactModal(event) {
+            if (event) event.preventDefault();
+            toggleSidebar(false); // إغلاق السايدبار إذا كان مفتوحًا
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('contactForm').reset();
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contactName').value;
+            alert(`شكرًا لك يا ${name}! تم استلام رسالتك بنجاح وسنتواصل معك قريبًا.`);
+            closeContactModal();
+        }
+
+        /* --------------------------------------------------------------------------
+           هـ. منطق تصفح الموقع والصفوف (Navigation & Render Logic)
+           -------------------------------------------------------------------------- */
+        let currentStageFilter = 'all';
+        window.selectedGradeId = null;
+
+        // التهيئة عند تحميل الصفحة
+        function initApp() {
+            renderGrades();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+
+        // إنشاء كروت الصفوف في الصفحة الرئيسية
+        function renderGrades() {
+            const gradesGrid = document.getElementById('gradesGrid');
+            gradesGrid.innerHTML = '';
+
+            const filteredData = currentStageFilter === 'all' 
+                ? gradesData 
+                : gradesData.filter(g => g.stage === currentStageFilter);
+
+            filteredData.forEach(grade => {
+                const card = document.createElement('div');
+                card.className = 'grade-card';
+                card.setAttribute('onclick', `selectGrade('${grade.id}')`);
+                card.innerHTML = `
+                    <div class="grade-stage-badge">${grade.stageName}</div>
+                    <div class="grade-icon-wrapper">${grade.icon}</div>
+                    <div class="grade-info">
+                        <h3>${grade.name}</h3>
+                    </div>
+                    <div class="grade-meta">
+                        <div class="grade-meta-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            <span>فصلين دراسيين</span>
+                        </div>
+                        <div class="grade-meta-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            <span>8 وحدات تعليمية</span>
+                        </div>
+                    </div>
+                `;
+                gradesGrid.appendChild(card);
+            });
+        }
+
+        // تصفية وعرض الصفوف بناءً على المرحلة المحددة
+        function filterGrades(stage, buttonEl) {
+            currentStageFilter = stage;
+            
+            // تغيير فئة النشاط (Active Class) للأزرار
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonEl.classList.add('active');
+
+            renderGrades();
+        }
+
+        // عند اختيار صف دراسي لعرض تفاصيله
+        function selectGrade(gradeId) {
+            window.selectedGradeId = gradeId;
+            const grade = gradesData.find(g => g.id === gradeId);
+
+            if (!grade) return;
+
+            // إخفاء الأقسام الرئيسية
+            document.getElementById('heroSection').style.display = 'none';
+            document.getElementById('filtersSection').style.display = 'none';
+            document.getElementById('gradesSection').style.display = 'none';
+
+            // ملء بيانات تفاصيل الصف
+            document.getElementById('detailGradeName').innerText = grade.name;
+            document.getElementById('detailGradeStage').innerText = `المرحلة الدراسية: ${grade.stageName}`;
+            document.getElementById('detailIcon').innerText = grade.icon;
+
+            // إنشاء كروت الفصول والوحدات
+            const termsContainer = document.getElementById('termsContainer');
+            termsContainer.innerHTML = '';
+
+            // إذا كان الصف الثاني الابتدائي، أضف شريط الشروحات المرئية يوتيوب وحل كتاب النشاط المعتمد
+            if (gradeId === "primary-2") {
+                const g2HubBanner = document.createElement('div');
+                g2HubBanner.style.cssText = 'grid-column: 1 / -1; display:flex; flex-direction:column; gap:14px; margin-bottom: 12px;';
+                g2HubBanner.innerHTML = `
+                    <!-- شريط شروحات يوتيوب المباشرة لكل درس -->
+                    <div style="background:linear-gradient(135deg, rgba(255,0,0,0.08), rgba(79,70,229,0.06)); border:2px solid rgba(255,0,0,0.3); border-radius:16px; padding:18px 24px; box-shadow:var(--shadow-md);">
+                        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="width:42px; height:42px; border-radius:10px; background:#ff0000; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 10px rgba(255,0,0,0.3);">🎬</div>
+                                <div>
+                                    <h4 style="font-size:17px; font-weight:800; margin:0; color:var(--text-primary);">شروحات الفيديو المعتمدة لدروس الصف الثاني (YouTube)</h4>
+                                    <span style="font-size:12px; color:var(--text-light); font-weight:600;">اختر الدرس لمشاهدة الشرح النموذجي مباشرة:</span>
+                                </div>
+                            </div>
+                            <span style="background:rgba(255,0,0,0.12); color:#dc2626; font-size:12px; font-weight:800; padding:4px 10px; border-radius:20px;">4 شروحات فيديو 📺</span>
+                        </div>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
+                            <a href="https://youtu.be/nyEadoOe6Rk?si=lCq36-2h-hJTOZe3" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">1</span>
+                                <span>الدرس 1: Feelings! ↗</span>
+                            </a>
+                            <a href="https://youtu.be/dL5selzbXzg?si=2p0Ro0Vq_YyKinf-" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">2</span>
+                                <span>الدرس 2: Things We Wear! ↗</span>
+                            </a>
+                            <a href="https://youtu.be/-N-QAYKqn24?si=h00XqBNjlK1QlM3H" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">3</span>
+                                <span>الدرس 3: Things We Do! ↗</span>
+                            </a>
+                            <a href="https://youtu.be/5fxhEF8NazE?si=xezixbTwwB_6V_eI" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">4</span>
+                                <span>الدرس 4: Beautiful Nature! ↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- بانرات حلول كتاب الطالب وكتاب النشاط المعتمدة -->
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+                        <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%AB%D8%A7%D9%86%D9%8A-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg, rgba(79,70,229,0.1), rgba(99,102,241,0.04)); border:2px solid rgba(79,70,229,0.35); border-radius:16px; padding:16px 20px; text-decoration:none; color:var(--text-primary); transition:all 0.3s ease; box-shadow:var(--shadow-md);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                            <div style="display:flex; align-items:center; gap:14px;">
+                                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, var(--primary), var(--primary-light)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 12px rgba(79,70,229,0.3); flex-shrink:0;">📘</div>
+                                <div>
+                                    <span style="display:inline-block; font-size:11px; font-weight:800; color:var(--primary); background:rgba(79,70,229,0.12); padding:2px 8px; border-radius:6px; margin-bottom:3px;">حل معتمد 💯 • واجباتي</span>
+                                    <h4 style="font-size:15px; font-weight:800; margin:0; color:var(--text-primary);">حل كتاب الطالب <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:var(--primary);">(Student's Book)</bdi></h4>
+                                </div>
+                            </div>
+                            <div style="display:inline-flex; align-items:center; gap:4px; background:var(--primary); color:#fff; font-size:13px; font-weight:800; padding:8px 14px; border-radius:20px; box-shadow:0 3px 10px rgba(79,70,229,0.25); white-space:nowrap; flex-shrink:0;">
+                                <span>فتح الحلول ↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.wajibati.net/35824-2/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.04)); border:2px solid rgba(16,185,129,0.35); border-radius:16px; padding:16px 20px; text-decoration:none; color:var(--text-primary); transition:all 0.3s ease; box-shadow:var(--shadow-md);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                            <div style="display:flex; align-items:center; gap:14px;">
+                                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, #10b981, #059669); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 12px rgba(16,185,129,0.3); flex-shrink:0;">📗</div>
+                                <div>
+                                    <span style="display:inline-block; font-size:11px; font-weight:800; color:#059669; background:rgba(16,185,129,0.12); padding:2px 8px; border-radius:6px; margin-bottom:3px;">حل معتمد 💯 • واجباتي</span>
+                                    <h4 style="font-size:15px; font-weight:800; margin:0; color:var(--text-primary);">حل كتاب النشاط <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:#059669;">(Workbook)</bdi></h4>
+                                </div>
+                            </div>
+                            <div style="display:inline-flex; align-items:center; gap:4px; background:#10b981; color:#fff; font-size:13px; font-weight:800; padding:8px 14px; border-radius:20px; box-shadow:0 3px 10px rgba(16,185,129,0.25); white-space:nowrap; flex-shrink:0;">
+                                <span>فتح الحلول ↗</span>
+                            </div>
+                        </a>
+                    </div>
+                `;
+                termsContainer.appendChild(g2HubBanner);
+            }
+
+            grade.terms.forEach((term, index) => {
+                const termCard = document.createElement('div');
+                termCard.className = 'term-card';
+                
+                // توليد كود وحدات الفصل
+                let unitsHtml = '';
+                term.units.forEach((unit, uIndex) => {
+                    let iconContent = uIndex + 1;
+                    if (unit === "مقدمة" || unit === "مقدمة وترحيب") {
+                        iconContent = "👋";
+                    } else if (unit.includes("الوحدة الأولى")) {
+                        iconContent = "1";
+                    } else if (unit.includes("الوحدة الثانية")) {
+                        iconContent = "2";
+                    } else if (unit.includes("الوحدة الثالثة")) {
+                        iconContent = "3";
+                    } else if (unit.includes("الوحدة الرابعة")) {
+                        iconContent = "4";
+                    }
+                    unitsHtml += `
+                        <div class="unit-item" onclick="showUnitDetail('${grade.name}', '${term.name}', '${unit}', event)">
+                            <div class="unit-content">
+                                <div class="unit-icon">${iconContent}</div>
+                                <span class="unit-name">${unit}</span>
+                            </div>
+                            <button class="unit-action-btn" aria-label="عرض المحتوى">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                termCard.innerHTML = `
+                    <div class="term-card-header" onclick="toggleTerm(this)">
+                        <div class="term-card-title">
+                            <span class="badge">${index + 1}</span>
+                            <h3>${term.name}</h3>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span class="units-count-badge">${term.units.length} وحدات</span>
+                            <svg class="term-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="units-list">
+                        ${unitsHtml}
+                    </div>
+                `;
+                termsContainer.appendChild(termCard);
+            });
+
+            // إظهار قسم التفاصيل مع الأنيميشن
+            const detailSection = document.getElementById('detailSection');
+            detailSection.style.display = 'block';
+            // الانتظار لجعل الانتقال البصري سلسًا
+            setTimeout(() => {
+                detailSection.classList.add('show');
+            }, 50);
+
+            // إظهار زر الرجوع بالهيدر
+            document.getElementById('backBtn').classList.add('show');
+
+            // التمرير لأعلى الصفحة
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // زر العودة للخلف (Back Home)
+        function goBack() {
+            if (!window.selectedGradeId) return;
+
+            window.selectedGradeId = null;
+
+            // إخفاء قسم التفاصيل
+            const detailSection = document.getElementById('detailSection');
+            detailSection.classList.remove('show');
+            
+            setTimeout(() => {
+                detailSection.style.display = 'none';
+
+                // إظهار الأقسام الرئيسية
+                document.getElementById('heroSection').style.display = 'flex';
+                document.getElementById('filtersSection').style.display = 'block';
+                document.getElementById('gradesSection').style.display = 'block';
+            }, 300);
+
+            // إخفاء زر الرجوع بالهيدر
+            document.getElementById('backBtn').classList.remove('show');
+
+            // التمرير لأعلى الصفحة
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // الانتقال للرئيسية مباشرة (عند الضغط على اللوغو أو عنصر القائمة الجانبية)
+        function navigateToHome(event) {
+            if (event) event.preventDefault();
+            toggleSidebar(false);
+            goBack();
+        }
+
+        // تفاعل تفصيلي للضغط على وحدة دراسية
+        function showUnitDetail(gradeName, termName, unitName, event) {
+            if (event) event.stopPropagation();
+            if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+                window.location.href = "unit1-english.html";
+            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثانية") {
+                window.location.href = "unit2-english.html";
+            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثالثة") {
+                window.location.href = "unit3-english.html";
+            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الرابعة") {
+                window.location.href = "unit4-english.html";
+            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+                window.location.href = "grade3-unit1-english.html";
+            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثانية") {
+                window.location.href = "grade3-unit2-english.html";
+            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثالثة") {
+                window.location.href = "grade3-unit3-english.html";
+            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الرابعة") {
+                window.location.href = "grade3-unit4-english.html";
+            } else if (gradeName === "الصف الرابع الابتدائي" && termName === "الفصل الدراسي الأول" && (unitName === "مقدمة" || unitName.includes("مقدمة"))) {
+                window.location.href = "grade4-welcome-english.html";
+            } else if (gradeName === "الصف الرابع الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+                window.location.href = "grade4-unit1-lessons.html";
+            } else if (gradeName === "الصف الخامس الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+                window.location.href = "grade5-unit1-english.html";
+            } else if (gradeName === "الصف السادس الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+                window.location.href = "grade6-unit1-english.html";
+            } else {
+                alert(`مرحبًا بك في الدرس التفاعلي لـ (${unitName}) - (${termName}) - (${gradeName}).\nهنا سيتم توفير محتوى الدروس والاختبارات التفاعلية قريباً!`);
+            }
+        }
+
+        // توسيع وطي قائمة الوحدات للفصل الدراسي
+        function toggleTerm(headerEl) {
+            const termCard = headerEl.parentElement;
+            termCard.classList.toggle('expanded');
+        }
+
+        // التمرير السلس إلى الأقسام
+        function scrollToSection(event, sectionId) {
+            if (event) event.preventDefault();
+            toggleSidebar(false);
+            
+            // إذا كنا بداخل صفحة التفاصيل، نعود للرئيسية أولاً
+            if (window.selectedGradeId) {
+                goBack();
+                // ننتظر انتهاء تأثير العودة للخلف قبل التمرير
+                setTimeout(() => {
+                    const element = document.getElementById(sectionId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 350);
+            } else {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
+    
+    <!-- ربط ملفات الجافا سكربت للمكونات المنفصلة للهيدر والفوتر -->
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
+</body>
+</html>

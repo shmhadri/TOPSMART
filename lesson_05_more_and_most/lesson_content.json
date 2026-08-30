@@ -1,0 +1,36 @@
+{
+  "title": "Rhythms and Reading - More and Most",
+  "desc": "Grammar rules for comparative (more ... than) and superlative (the most).",
+  "vocab": [
+    {
+      "word": "exciting",
+      "ar": "مثير"
+    },
+    {
+      "word": "boring",
+      "ar": "ممل"
+    },
+    {
+      "word": "dangerous",
+      "ar": "خطير"
+    },
+    {
+      "word": "difficult",
+      "ar": "صعب"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "Horse riding is more exciting than cycling.",
+      "ar": "ركوب الخيل أكثر إثارة من ركوب الدراجة."
+    },
+    {
+      "en": "Rock climbing is more dangerous than jogging.",
+      "ar": "تسلق الصخور أكثر خطورة من الجري."
+    },
+    {
+      "en": "Hang gliding is the most dangerous.",
+      "ar": "الطيران الشراعي هو الأكثر خطورة."
+    }
+  ]
+}

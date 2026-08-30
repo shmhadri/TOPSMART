@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Which word rhymes with dark?",
+    "choices": [
+      "park",
+      "fork",
+      "teacher",
+      "short"
+    ],
+    "ans": "park"
+  },
+  {
+    "q": "Which word rhymes with short?",
+    "choices": [
+      "sport",
+      "dark",
+      "winter",
+      "car"
+    ],
+    "ans": "sport"
+  },
+  {
+    "q": "Which word has the 'er' sound?",
+    "choices": [
+      "winter",
+      "dark",
+      "fork",
+      "car"
+    ],
+    "ans": "winter"
+  }
+]

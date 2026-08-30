@@ -1,0 +1,13 @@
+# Large files that exceed GitHub 100MB limit
+*.pdf
+
+# VS Code / IDE settings
+.vscode/
+
+# Temporary and extraction files
+grade6_official_pages/
+grade6_pages/
+pdf_pages/
+pdf_pages_g5/
+scratch_pdf_text.txt
+g5_ocr_results.txt

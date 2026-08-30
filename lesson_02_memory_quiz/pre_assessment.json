@@ -1,0 +1,52 @@
+[
+  {
+    "q": "He ______ tennis.",
+    "choices": [
+      "like",
+      "likes",
+      "liking",
+      "to like"
+    ],
+    "ans": "likes"
+  },
+  {
+    "q": "She ______ painting.",
+    "choices": [
+      "like",
+      "likes",
+      "wants",
+      "want"
+    ],
+    "ans": "likes"
+  },
+  {
+    "q": "What ______ he like?",
+    "choices": [
+      "do",
+      "does",
+      "doing",
+      "is"
+    ],
+    "ans": "does"
+  },
+  {
+    "q": "Choose the correct pronoun for a boy:",
+    "choices": [
+      "He",
+      "She",
+      "It",
+      "They"
+    ],
+    "ans": "He"
+  },
+  {
+    "q": "Rearrange: does / What / she / like",
+    "choices": [
+      "What does she like?",
+      "What she does like?",
+      "She does like what?",
+      "Does she like what?"
+    ],
+    "ans": "What does she like?"
+  }
+]

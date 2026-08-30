@@ -1,0 +1,31 @@
+{
+  "title": "Phonics Challenge",
+  "desc": "Play spelling racer and matching games for ar, or, er sounds.",
+  "vocab": [
+    {
+      "word": "dark",
+      "type": "phonics",
+      "ar": "مظلم"
+    },
+    {
+      "word": "short",
+      "type": "phonics",
+      "ar": "قصير"
+    },
+    {
+      "word": "winter",
+      "type": "phonics",
+      "ar": "الشتاء"
+    }
+  ],
+  "sentences": [
+    {
+      "en": "It is dark in winter.",
+      "ar": "الجو مظلم في الشتاء."
+    },
+    {
+      "en": "He is short.",
+      "ar": "هو قصير."
+    }
+  ]
+}

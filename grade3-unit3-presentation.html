@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - الوحدة 3: Sports and Activities | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr)
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+.main-wrap {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px
+}
+
+/* PRESENTATION PLAYER */
+.ppt-player {
+    background: #000;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9;
+    box-shadow: var(--shadow-lg);
+    border: 4px solid var(--border);
+}
+.slide-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1b4b, #311042);
+}
+.slide-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #f59e0b;
+    margin-bottom: 20px;
+}
+.slide-body {
+    font-size: 22px;
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+/* CONTROLS */
+.controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 20px;
+}
+.btn-ppt {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+}
+.btn-ppt:hover {
+    background: var(--primary-light);
+}
+
+.lesson-selector {
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    font-size: 15px;
+    font-weight: 700;
+    background: var(--bg-card);
+    color: var(--text);
+    outline: none;
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="grade3-unit3-english.html" class="back-btn-top">↩️ العودة لصفحة الحصة</a>
+    <div style="font-size: 18px; font-weight: 900; color: var(--primary);">PowerPoint Presentation Player 💻</div>
+  </div>
+  <div class="topbar-left">
+    <button class="back-btn-top" onclick="exportPPTX()" style="border-color:var(--accent); color:var(--accent);">📥 تصدير كملف PPTX حقيقي</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+  
+  <div style="margin-bottom: 20px; display: flex; gap: 10px; align-items: center;">
+    <label style="font-weight:bold; font-size:16px;">اختر الدرس:</label>
+    <select class="lesson-selector" id="l-select" onchange="changeLesson()">
+      <option value="0">Lesson 1: Talk Time - Sports</option>
+      <option value="1">Lesson 2: Memory Quiz (p.19)</option>
+      <option value="2">Lesson 3: Verb Helpers (Do/Does)</option>
+      <option value="3">Lesson 4: Q&A Speed Race</option>
+      <option value="4">Lesson 5: Comparisons (More/Most)</option>
+      <option value="5">Lesson 6: Traditional Falconry</option>
+      <option value="6">Lesson 7: Phonics oi, oy</option>
+      <option value="7">Lesson 8: Desire & Obstacle</option>
+    </select>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="ppt-player">
+    <div class="slide-frame" id="slide-container">
+      <div class="slide-title" id="s-title">Title Slide</div>
+      <div class="slide-body" id="s-body">Slide content loading...</div>
+    </div>
+  </div>
+
+  <!-- CONTROLS BAR -->
+  <div class="controls-bar">
+    <button class="btn-ppt" onclick="navigateSlide(-1)">⬅️ الشريحة السابقة</button>
+    <div style="font-weight:bold; font-size:16px;" id="slide-num">الشريحة 1 من 5</div>
+    <button class="btn-ppt" onclick="navigateSlide(1)">الشريحة التالية ➡️</button>
+  </div>
+
+</div>
+
+<!-- PPTXGENJS LIBRARY -->
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+
+<script>
+const slidesData = {
+    0: [
+        { t: "Lesson 1: Having Fun Time - Sports", b: "Welcome! Let's learn common vs dangerous sports today." },
+        { t: "Warm-up / التهيئة", b: "Look at the ball! Which sports use a ball?" },
+        { t: "Content / الشرح", b: "Common: tennis, football, basketball. Dangerous: sky diving." },
+        { t: "Concept Check / تحقق الفهم", b: "Is sky diving a common sport? No, it is dangerous." },
+        { t: "Classroom Game / لعبة صفيّة", b: "Sport Hunter: Match the sport with its emoji." }
+    ],
+    1: [
+        { t: "Lesson 2: Sports and Activities Memory Quiz", b: "Asking friends and remembering their favorite sports using He/She." },
+        { t: "Warm-up / التهيئة", b: "Do you remember what sports your friend Faisal likes?" },
+        { t: "Content / الشرح", b: "Faisal likes basketball. He wants to try rock climbing." },
+        { t: "Concept Check / تحقق الفهم", b: "What does Faisal want to try? He wants to try rock climbing." },
+        { t: "Classroom Game / لعبة صفيّة", b: "Memory Cards: Look at cards for 10 seconds and recall." }
+    ],
+    2: [
+        { t: "Lesson 3: Grammar - Verb Helpers (Do/Does)", b: "Mastering Do/Does questions and short answers." },
+        { t: "Warm-up / التهيئة", b: "Do you play tennis? Does he play golf?" },
+        { t: "Content / الشرح", b: "Do + I/you/we/they. Does + he/she. Verb is without 's' after Do/Does." },
+        { t: "Concept Check / تحقق الفهم", b: "Correct: Does he plays tennis? -> Does he play tennis?" },
+        { t: "Classroom Game / لعبة صفيّة", b: "Verb Helper Machine: Generate questions from words." }
+    ],
+    3: [
+        { t: "Lesson 4: Question and Answer Race", b: "Ask and answer 6 questions under 60 seconds." },
+        { t: "Warm-up / التهيئة", b: "Let's count down: 60 seconds, 6 questions. Ready?" },
+        { t: "Content / الشرح", b: "Practice asking and answering with yes/no and correct helpers." },
+        { t: "Concept Check / تحقق الفهم", b: "Does your father play golf? Yes, he does." },
+        { t: "Classroom Game / لعبة صفيّة", b: "Q&A Speed Race: Ask your neighbor quickly." }
+    ],
+    4: [
+        { t: "Lesson 5: Comparisons (More/Most)", b: "Learn comparative (more exciting than) and superlative (the most dangerous)." },
+        { t: "Warm-up / التهيئة", b: "Which is more exciting: horse riding or cycling?" },
+        { t: "Content / الشرح", b: "more + adjective + than | the most + adjective" },
+        { t: "Concept Check / تحقق الفهم", b: "Hang gliding is the ______ dangerous sport. -> most" },
+        { t: "Classroom Game / لعبة صفيّة", b: "Comparison Scale Game: Arrange sports from boring to exciting." }
+    ],
+    5: [
+        { t: "Lesson 6: The Traditional Sport of Falconry", b: "Read about Saudi heritage and falconry facts." },
+        { t: "Warm-up / التهيئة", b: "What do you know about Saudi falcons?" },
+        { t: "Content / الشرح", b: "Falcons are strong, fly fast, dive even faster, and have sharp talons." },
+        { t: "Concept Check / تحقق الفهم", b: "Do falcons slow down when they dive? No, they dive faster." },
+        { t: "Classroom Game / لعبة صفيّة", b: "True or False Fact Checker: Verify 4 textbook questions." }
+    ],
+    6: [
+        { t: "Lesson 7: Phonics sounds", b: "Spelling and pronouncing (oi, oy, ere, ear, air) patterns." },
+        { t: "Warm-up / التهيئة", b: "Let's list words: coin, toy, bear, hair." },
+        { t: "Content / الشرح", b: "oi is in the middle (coin). oy is at the end (toy)." },
+        { t: "Concept Check / تحقق الفهم", b: "Spell the word: ch______ -> chair" },
+        { t: "Classroom Game / لعبة صفيّة", b: "Sound Sorter: Drag words to their sound buckets." }
+    ],
+    7: [
+        { t: "Lesson 8: Desire & Obstacle (I'd Like To ... But)", b: "State what you would like to do and the obstacle." },
+        { t: "Warm-up / التهيئة", b: "I'd like to play tennis. What's the problem? I have no racket." },
+        { t: "Content / الشرح", b: "I'd like to + verb, but + obstacle/barrier." },
+        { t: "Concept Check / تحقق الفهم", b: "I'd like to try scuba diving, but there is no ______ (sea)." },
+        { t: "Classroom Game / لعبة صفيّة", b: "Desire & Barrier Match: Draw lines between sports and obstacles." }
+    ]
+};
+
+let currentLesson = 0;
+let currentSlide = 0;
+
+function renderSlide() {
+    const slide = slidesData[currentLesson][currentSlide];
+    document.getElementById('s-title').textContent = slide.t;
+    document.getElementById('s-body').textContent = slide.b;
+    document.getElementById('slide-num').textContent = `الشريحة ${currentSlide + 1} من 5`;
+}
+
+function navigateSlide(dir) {
+    let nextSlide = currentSlide + dir;
+    if (nextSlide >= 0 && nextSlide < 5) {
+        currentSlide = nextSlide;
+        renderSlide();
+    }
+}
+
+function changeLesson() {
+    currentLesson = parseInt(document.getElementById('l-select').value);
+    currentSlide = 0;
+    renderSlide();
+}
+
+function exportPPTX() {
+    let pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+    
+    const slides = slidesData[currentLesson];
+    slides.forEach(s => {
+        let slide = pptx.addSlide();
+        
+        // Background color
+        slide.background = { fill: '1E1B4B' };
+        
+        // Title text
+        slide.addText(s.t, {
+            x: 0.5, y: 1.0, w: 9.0, h: 1.5,
+            fontSize: 32, bold: true, color: 'F59E0B',
+            align: 'center', fontFace: 'Arial'
+        });
+        
+        // Body text
+        slide.addText(s.b, {
+            x: 1.0, y: 2.5, w: 8.0, h: 3.0,
+            fontSize: 20, color: 'FFFFFF',
+            align: 'center', fontFace: 'Arial'
+        });
+    });
+    
+    pptx.writeFile({ fileName: `WeCan3-Unit3-Lesson-${currentLesson + 1}-Presentation.pptx` });
+}
+
+// Initial render
+renderSlide();
+</script>
+</body>
+</html>

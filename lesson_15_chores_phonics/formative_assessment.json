@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Which word has the 'ar' sound?",
+    "choices": [
+      "car",
+      "fork",
+      "teacher",
+      "doctor"
+    ],
+    "ans": "car"
+  },
+  {
+    "q": "Which word has the 'or' sound?",
+    "choices": [
+      "fork",
+      "car",
+      "sister",
+      "brother"
+    ],
+    "ans": "fork"
+  },
+  {
+    "q": "Which word ends with 'er'?",
+    "choices": [
+      "teacher",
+      "doctor",
+      "car",
+      "fork"
+    ],
+    "ans": "teacher"
+  }
+]

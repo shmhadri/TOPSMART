@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض تفاعلي (PowerPoint) - الوحدة 1: Living Things | الصف السادس الابتدائي (Top Goal 3) | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- PptxGenJS CDN for PowerPoint export -->
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 / #6366f1 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #0b0f19;
+    --bg-card: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --radius: 20px;
+    --radius-sm: 12px;
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --tr: .25s ease
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* TOPBAR */
+.slide-topbar {
+    height: 70px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.slide-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand-pill {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 900;
+}
+.brand-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+}
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-top {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--tr);
+}
+.btn-top:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* SLIDE CONTAINER */
+.presentation-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.slide-card {
+    display: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #064e3b, #0f172a);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: slideFadeIn .3s ease;
+}
+.slide-card.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@keyframes slideFadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 16px;
+}
+.slide-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 800;
+}
+.slide-number-pill {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+.slide-content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+}
+.slide-content-area.hero-slide {
+    text-align: center;
+    align-items: center;
+}
+.slide-content-area.hero-slide h1 {
+    font-size: 38px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #fff;
+}
+.slide-content-area.hero-slide h2 {
+    font-size: 24px;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.slide-title-main {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 6px;
+    font-family: 'Outfit', sans-serif;
+}
+.slide-title-ar {
+    font-size: 18px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 14px;
+}
+
+/* CONTROLS BAR */
+.controls-bar {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.ctrl-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+}
+.ctrl-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+.ctrl-btn.pptx {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.ctrl-btn.pptx:hover {
+    background: var(--primary-light);
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="slide-topbar">
+    <div class="slide-brand">
+        <div class="brand-pill">Grade 6 • Top Goal 3</div>
+        <div class="brand-title">عرض الباوربوينت التفاعلي - الوحدة 1 (Living Things - Page 10)</div>
+    </div>
+    <div class="top-actions">
+        <a href="index.html" class="btn-top" style="background:#047857; color:#fff; border-color:#047857;">🏠 الرئيسية</a>
+        <a href="wheel.html" target="_blank" class="btn-top">🎡 عجلة الأسماء</a>
+        <a href="grade6-unit1-english.html" class="btn-top">📖 الحصة التفاعلية</a>
+        <a href="grade6-unit1-worksheets.html" class="btn-top">📝 أوراق العمل</a>
+    </div>
+</header>
+
+<main class="presentation-container">
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide-card active" id="slide1">
+        <div class="slide-header">
+            <span class="slide-badge">Unit 1: Living Things • Page 10</span>
+            <span class="slide-number-pill">الشريحة 1 / 9</span>
+        </div>
+        <div class="slide-content-area hero-slide">
+            <span style="font-size: 56px; margin-bottom: 8px;">🦋 🦖 🐅 🐢</span>
+            <h1>Unit 1: Living Things (Creatures around the world)</h1>
+            <h2>الوحدة الأولى: الكائنات الحية حول العالم</h2>
+            <p style="font-size: 18px; color: #cbd5e1; max-width: 700px;">
+                الصف السادس الابتدائي - الفصل الدراسي الأول • منهج Top Goal 3 (Page 10)
+            </p>
+        </div>
+        <div class="slide-footer">
+            <span>SmartLearning Presentation</span>
+            <button onclick="speakSlide(1)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Tiny Insects -->
+    <div class="slide-card" id="slide2">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Category 1: Tiny Insects (Page 10)</div>
+                <div class="slide-title-ar">المجموعة الأولى: الحشرات الصغيرة وخصائصها</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 2 / 9</span>
+        </div>
+        <div class="slide-content-area">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; font-size:16px;">
+                <div style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px;">🦋 <b>butterfly:</b> colorful wings</div>
+                <div style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px;">🪲 <b>beetle:</b> hard protective shell</div>
+                <div style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px;">🪽 <b>wing:</b> body part for flying</div>
+                <div style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px;">⚖️ <b>heavy:</b> large weight on scale</div>
+                <div style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px;">🐜 <b>insects:</b> six-legged creatures</div>
+                <div style="background:rgba(244,63,94,0.15); border:1px solid #f43f5e; padding:12px; border-radius:8px;">🚫 <b>DON'T TOUCH!</b> caution sign</div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Tiny Insects</span>
+            <button onclick="speakSlide(2)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: When Dinosaurs Lived -->
+    <div class="slide-card" id="slide3">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Category 2: When Dinosaurs Lived</div>
+                <div class="slide-title-ar">المجموعة الثانية: عصر الديناصورات والانقراض</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 3 / 9</span>
+        </div>
+        <div class="slide-content-area">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:16px;">
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#34d399; font-size:18px;">🦕 dinosaurs & fossils:</b>
+                    <p style="margin-top:6px;">Giant prehistoric reptiles that lived millions of years ago.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#f87171; font-size:18px;">🦴 extinct:</b>
+                    <p style="margin-top:6px;">No longer living on Earth today.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#60a5fa; font-size:18px;">👀 look like:</b>
+                    <p style="margin-top:6px;">Modern lizards and tortoises look like small dinosaurs.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#fbbf24; font-size:18px;">🐢 tortoise:</b>
+                    <p style="margin-top:6px;">Slow land reptile with a hard protective dome shell.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Prehistoric Creatures</span>
+            <button onclick="speakSlide(3)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Wild Animals -->
+    <div class="slide-card" id="slide4">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Category 3: Wild Animals</div>
+                <div class="slide-title-ar">المجموعة الثالثة: الحيوانات البرية في الغابات</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 4 / 9</span>
+        </div>
+        <div class="slide-content-area">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:16px;">
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#34d399;">🐾 creatures:</b>
+                    <p style="margin-top:4px;">Living animals and beings found around our world.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#fbbf24;">🐯 furry:</b>
+                    <p style="margin-top:4px;">Covered with thick soft fur (e.g. Bengal tiger).</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#60a5fa;">🤫 QUIET:</b>
+                    <p style="margin-top:4px;">Silent observation of wildlife in rainforests.</p>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:16px; border-radius:8px;">
+                    <b style="color:#34d399;">🐊 crocodile:</b>
+                    <p style="margin-top:4px;">Predatory aquatic reptile in rivers.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Wild Animals</span>
+            <button onclick="speakSlide(4)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Active Strategy (Think-Pair-Share) -->
+    <div class="slide-card" id="slide5">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Active Learning: Think - Pair - Share</div>
+                <div class="slide-title-ar">استراتيجية التعلم النشط: فكر - زاوج - شارك</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 5 / 9</span>
+        </div>
+        <div class="slide-content-area">
+            <div style="background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:20px; border-radius:8px; font-size:16px; line-height:1.9;">
+                <p>1️⃣ <b>Think (فردي):</b> Look at the tortoise and the dinosaur. How do they look alike?</p>
+                <p>2️⃣ <b>Pair (ثنائي):</b> Discuss your observations with your shoulder partner.</p>
+                <p>3️⃣ <b>Share (صفي):</b> Share your findings with the whole classroom!</p>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Strategy Evidence</span>
+            <button onclick="speakSlide(5)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Missing Letters Spelling -->
+    <div class="slide-card" id="slide6">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Spelling Challenge: Missing Letters</div>
+                <div class="slide-title-ar">تحدي الحروف الناقصة لكائنات الصفحة 10</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 6 / 9</span>
+        </div>
+        <div class="slide-content-area">
+            <div style="font-family:'Outfit',sans-serif; font-size:22px; line-height:2.2; text-align:center;">
+                • b <b>[ u ]</b> tt <b>[ e ]</b> rfl <b>[ y ]</b> ➔ <b>butterfly</b> 🦋<br>
+                • b <b>[ e ]</b> <b>[ e ]</b> tl <b>[ e ]</b> ➔ <b>beetle</b> 🪲<br>
+                • <b>[ e ]</b> xt <b>[ i ]</b> nct ➔ <b>extinct</b> 🦴<br>
+                • f <b>[ u ]</b> rr <b>[ y ]</b> ➔ <b>furry</b> 🐯
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Spelling Lab</span>
+            <button onclick="speakSlide(6)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Big Question -->
+    <div class="slide-card" id="slide7">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Community Question (Page 10)</div>
+                <div class="slide-title-ar">سؤال التفكير: الكائنات في مجتمعك المحلي</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 7 / 9</span>
+        </div>
+        <div class="slide-content-area hero-slide">
+            <h3 style="font-size:26px; color:#34d399; margin-bottom:12px;">"What kinds of living things do you find in your community?"</h3>
+            <p style="font-size:18px; color:#cbd5e1; margin-bottom:16px;">
+                <i>"In my community, I find butterflies in parks and camels in the desert!"</i>
+            </p>
+        </div>
+        <div class="slide-footer">
+            <span>Critical Thinking</span>
+            <button onclick="speakSlide(7)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Wheel Game -->
+    <div class="slide-card" id="slide8">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Classroom Game: Spin the Wheel!</div>
+                <div class="slide-title-ar">لعبة العجلة: اختر طالباً ليصف كائناً حياً</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 8 / 9</span>
+        </div>
+        <div class="slide-content-area hero-slide">
+            <h3 style="font-size:24px; color:#fff; margin-bottom:12px;">🎲 أدر عجلة الأسماء لاختيار طالب للمشاركة:</h3>
+            <a href="wheel.html" target="_blank" class="ctrl-btn pptx" style="text-decoration:none;">
+                🎯 فتح عجلة الأسماء التفاعلية
+            </a>
+        </div>
+        <div class="slide-footer">
+            <span>Classroom Game</span>
+            <button onclick="speakSlide(8)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للشريحة</button>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Finale -->
+    <div class="slide-card" id="slide9">
+        <div class="slide-header">
+            <div>
+                <div class="slide-title-main">Unit 1 Lesson 1 Presentation Complete!</div>
+                <div class="slide-title-ar">الختام: إتمام عرض درس الكائنات الحية (Page 10)</div>
+            </div>
+            <span class="slide-number-pill">الشريحة 9 / 9</span>
+        </div>
+        <div class="slide-content-area hero-slide">
+            <div style="font-size: 54px; margin-bottom: 10px;">👑 🏆 🌿</div>
+            <h3 style="font-size:26px; color:#facc15; margin-bottom:10px;">تهانينا لجميع أبطال الصف السادس الابتدائي!</h3>
+            <p style="font-size:17px; color:#cbd5e1; margin-bottom:20px;">
+                تم بحمد الله إتقان الدرس الأول (Living Things) من كتاب الطالب الصفحة 10!
+            </p>
+            <button class="ctrl-btn pptx" onclick="exportToPPTX()" style="font-size: 16px; padding: 12px 28px;">
+                📊 تصدير العرض كملف PowerPoint (.pptx)
+            </button>
+        </div>
+        <div class="slide-footer">
+            <span>Lesson Complete</span>
+            <button onclick="speakSlide(9)" style="color:var(--accent); font-weight:800; background:none; cursor:pointer; border:none;">🔊 استمع للختام</button>
+        </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls-bar">
+        <button class="ctrl-btn prev" onclick="prevSlide()">
+            <span>←</span> السابق
+        </button>
+
+        <div style="display: flex; gap: 10px;">
+            <button class="ctrl-btn pptx" onclick="exportToPPTX()">
+                <span>📊</span> تصدير PowerPoint (.pptx)
+            </button>
+            <button class="ctrl-btn" onclick="toggleFullscreen()">
+                <span>⛶</span> ملء الشاشة
+            </button>
+        </div>
+
+        <button class="ctrl-btn next" onclick="nextSlide()">
+            التالي <span>→</span>
+        </button>
+    </div>
+
+</main>
+
+<script>
+let currentSlide = 1;
+const totalSlides = 9;
+
+function showSlide(num) {
+    if (num < 1 || num > totalSlides) return;
+    currentSlide = num;
+
+    for (let i = 1; i <= totalSlides; i++) {
+        const s = document.getElementById('slide' + i);
+        if (s) s.classList.toggle('active', i === num);
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 1) showSlide(currentSlide - 1);
+}
+
+function nextSlide() {
+    if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+}
+
+// Key shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    else if (e.key === 'ArrowLeft') prevSlide();
+});
+
+function toggleFullscreen() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else if (document.exitFullscreen) document.exitFullscreen();
+}
+
+function speakText(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+}
+
+function speakSlide(num) {
+    if (num === 1) speakText("Unit 1: Living Things. Creatures around the world. Grade 6, Term 1, Top Goal 3.");
+    else if (num === 2) speakText("Tiny insects: butterfly, beetle, wing, heavy, insects, and don't touch!");
+    else if (num === 3) speakText("When dinosaurs lived: dinosaurs, extinct, look like, and tortoise.");
+    else if (num === 4) speakText("Wild animals: creatures, furry, quiet, and crocodile.");
+    else if (num === 5) speakText("Active learning strategy: Think, Pair, and Share.");
+    else if (num === 6) speakText("Spelling challenge: butterfly, beetle, extinct, and furry.");
+    else if (num === 7) speakText("What kinds of living things do you find in your community?");
+    else if (num === 8) speakText("Classroom game: spin the wheel of names and describe a creature!");
+    else if (num === 9) speakText("Congratulations! Unit 1 Living Things presentation completed successfully!");
+}
+
+function exportToPPTX() {
+    if (typeof PptxGenJS === 'undefined') {
+        alert('جاري تحميل مكتبة الباوربوينت...');
+        return;
+    }
+
+    const pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+
+    // Slide 1
+    let s1 = pptx.addSlide();
+    s1.background = { color: '064E3B' };
+    s1.addText('Unit 1: Living Things', {
+        x: 0.5, y: 2.0, w: '90%', h: 1.5,
+        fontSize: 38, fontFace: 'Arial', color: '34D399', bold: true, align: 'center'
+    });
+    s1.addText('Creatures around the world | Grade 6 (Page 10)', {
+        x: 0.5, y: 3.6, w: '90%', h: 0.8,
+        fontSize: 20, fontFace: 'Arial', color: 'FFFFFF', align: 'center'
+    });
+
+    // Slide 2
+    let s2 = pptx.addSlide();
+    s2.background = { color: '0F172A' };
+    s2.addText('Tiny Insects & Wild Animals', {
+        x: 0.8, y: 0.6, w: '80%', h: 0.8,
+        fontSize: 28, fontFace: 'Arial', color: '34D399', bold: true
+    });
+    s2.addText('• Butterfly (colorful wings)\n• Beetle (heavy shell)\n• Dinosaurs (extinct prehistoric creatures)\n• Tortoise (dome shell)\n• Furry Tiger & Quiet Crocodile', {
+        x: 1.0, y: 1.6, w: '80%', h: 4.5,
+        fontSize: 18, fontFace: 'Arial', color: 'FFFFFF', lineSpacing: 24
+    });
+
+    pptx.writeFile({ fileName: 'Grade6_LivingThings_Presentation.pptx' });
+}
+</script>
+</body>
+</html>

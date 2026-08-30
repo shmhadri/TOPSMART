@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Do you ______ computer games?",
+    "choices": [
+      "play",
+      "plays",
+      "playing",
+      "played"
+    ],
+    "ans": "play"
+  },
+  {
+    "q": "Does he ______ pottery?",
+    "choices": [
+      "do",
+      "does",
+      "doing",
+      "done"
+    ],
+    "ans": "do"
+  },
+  {
+    "q": "Do we ______ jogging?",
+    "choices": [
+      "go",
+      "goes",
+      "going",
+      "went"
+    ],
+    "ans": "go"
+  }
+]

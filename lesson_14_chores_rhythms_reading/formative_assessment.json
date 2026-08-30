@@ -1,0 +1,32 @@
+[
+  {
+    "q": "I ______ shopping on Fridays.",
+    "choices": [
+      "go",
+      "goes",
+      "going",
+      "gone"
+    ],
+    "ans": "go"
+  },
+  {
+    "q": "The robot ______ the laundry.",
+    "choices": [
+      "folds",
+      "fold",
+      "folding",
+      "folded"
+    ],
+    "ans": "folds"
+  },
+  {
+    "q": "Do you clean up your room? -> Yes, I ______.",
+    "choices": [
+      "do",
+      "does",
+      "don't",
+      "doing"
+    ],
+    "ans": "do"
+  }
+]

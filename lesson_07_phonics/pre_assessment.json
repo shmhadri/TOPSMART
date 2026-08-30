@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Where does 'oi' usually appear in a word?",
+    "choices": [
+      "In the middle",
+      "At the end",
+      "At the beginning",
+      "Never"
+    ],
+    "ans": "In the middle"
+  },
+  {
+    "q": "Where does 'oy' usually appear?",
+    "choices": [
+      "In the middle",
+      "At the end",
+      "At the beginning",
+      "Never"
+    ],
+    "ans": "At the end"
+  },
+  {
+    "q": "Spell the word: t______ (لعبة)",
+    "choices": [
+      "oy",
+      "oi",
+      "ay",
+      "ey"
+    ],
+    "ans": "oy"
+  },
+  {
+    "q": "Spell the word: c______n (عملة معدنية)",
+    "choices": [
+      "oi",
+      "oy",
+      "ay",
+      "ey"
+    ],
+    "ans": "oi"
+  },
+  {
+    "q": "Which word contains 'ear'?",
+    "choices": [
+      "bear",
+      "chair",
+      "hair",
+      "where"
+    ],
+    "ans": "bear"
+  }
+]

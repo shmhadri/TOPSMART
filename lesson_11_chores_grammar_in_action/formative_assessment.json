@@ -1,0 +1,32 @@
+[
+  {
+    "q": "She ______ the floor.",
+    "choices": [
+      "vacuums",
+      "vacuum",
+      "vacuuming",
+      "vacuumed"
+    ],
+    "ans": "vacuums"
+  },
+  {
+    "q": "We ______ the dishes.",
+    "choices": [
+      "wash",
+      "washes",
+      "washing",
+      "washed"
+    ],
+    "ans": "wash"
+  },
+  {
+    "q": "He ______ out the trash.",
+    "choices": [
+      "takes",
+      "take",
+      "taking",
+      "taken"
+    ],
+    "ans": "takes"
+  }
+]

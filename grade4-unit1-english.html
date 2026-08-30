@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مقدمة المنهج: Welcome & Family Events - إنجليزي - الصف الرابع الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 / #6366f1 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 4px 20px rgba(79, 70, 229, 0.06);
+    --shadow-lg: 0 10px 30px rgba(79, 70, 229, 0.12);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: 0 4px 20px rgba(0,0,0,.3);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,.4)
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+html {
+    scroll-behavior: smooth
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    font-size: 18px;
+    transition: background var(--tr), color var(--tr)
+}
+a {
+    color: inherit;
+    text-decoration: none
+}
+button, select {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    outline: none
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    transition: background var(--tr)
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.topbar-right, .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary)
+}
+.tlogo span {
+    color: var(--accent)
+}
+.prog-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-muted)
+}
+.prog-pill b {
+    color: var(--primary)
+}
+.theme-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr)
+}
+.theme-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary)
+}
+
+/* MAIN LAYOUT */
+.main-wrap {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 70px
+}
+
+/* SIDEBAR TOC */
+.ls {
+    width: 290px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border-left: 2px solid var(--border);
+    padding: 24px 16px;
+    transition: background var(--tr)
+}
+@media(max-width:960px) {
+    .ls {
+        display: none
+    }
+}
+.ls-hd {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    letter-spacing: 1px;
+}
+.toc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+    margin-bottom: 4px
+}
+.toc:hover, .toc.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary)
+}
+.toc-n {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    flex-shrink: 0;
+    transition: var(--tr)
+}
+.toc.active .toc-n, .toc.done .toc-n {
+    background: var(--primary);
+    color: #fff
+}
+
+/* CONTENT COLUMN */
+.lc {
+    flex: 1;
+    max-width: 960px;
+    padding: 40px 32px;
+    width: 100%
+}
+@media(max-width:600px) {
+    .lc {
+        padding: 20px 16px
+    }
+}
+
+.mobile-nav-container {
+    display: none;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    align-items: center;
+    gap: 12px
+}
+@media(max-width:960px) {
+    .mobile-nav-container {
+        display: flex
+    }
+}
+.mobile-nav-label {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary);
+    white-space: nowrap
+}
+.mobile-nav-select {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    transition: var(--tr)
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 24px;
+    padding: 40px 32px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: var(--shadow-lg)
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px
+}
+.hero h1 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    font-family: 'Outfit', 'Tajawal', sans-serif
+}
+.hero p {
+    font-size: 18px;
+    opacity: .9;
+    font-weight: 500
+}
+
+/* LESSON SECTION CONTAINER */
+.sec {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    display: none;
+    animation: fadeIn .3s ease
+}
+.sec.active {
+    display: block
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px) }
+    to { opacity: 1; transform: translateY(0) }
+}
+.sec-hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 24px
+}
+.sec-title {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+.sec-icon {
+    font-size: 28px
+}
+.sec-title h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary)
+}
+
+/* BOOK EXPLANATION BOX */
+.book-explanation-box {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border: 2.5px solid #3b82f6;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+.book-explanation-box h3 {
+    color: #1e3a8a;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* TEST PANEL STYLES */
+.test-panel {
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    transition: var(--tr);
+    background: #fff;
+    border: 2.5px solid var(--border);
+}
+.test-panel.pre {
+    border-color: var(--warning);
+    background: rgba(245, 158, 11, 0.03);
+}
+.test-panel.during {
+    border-color: var(--accent);
+    background: rgba(16, 185, 129, 0.03);
+}
+.test-panel.post {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.03);
+}
+.test-hdr {
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.test-hdr-pre { color: var(--warning); }
+.test-hdr-during { color: var(--accent); }
+.test-hdr-post { color: var(--primary); }
+
+.test-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+.test-btn {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    transition: var(--tr);
+    text-align: right;
+}
+.test-btn:hover {
+    border-color: var(--primary);
+}
+.test-btn.correct {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-color: var(--accent) !important;
+    color: #047857 !important;
+}
+.test-btn.wrong {
+    background: rgba(244, 63, 94, 0.1) !important;
+    border-color: var(--danger) !important;
+    color: #be123c !important;
+}
+
+/* VOCABULARY CARD WITH IMAGE AND AUDIO */
+.vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.vocab-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+    box-shadow: var(--shadow);
+}
+.vocab-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.vocab-img {
+    font-size: 50px;
+    margin-bottom: 12px;
+}
+.vocab-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+.vocab-translation {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* AUDIO PLAY BUTTON */
+.audio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px dashed var(--primary);
+    transition: var(--tr);
+}
+.audio-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* CHAT CONTROLLER */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 24px
+}
+.chat-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start
+}
+.chat-row.user-b {
+    flex-direction: row-reverse
+}
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: var(--shadow);
+    flex-shrink: 0
+}
+.bubble {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 18px;
+    position: relative;
+    max-width: 70%;
+    cursor: pointer;
+    transition: var(--tr);
+    box-shadow: var(--shadow)
+}
+.bubble-eng {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+.bubble-ar {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+.fb {
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    margin-top: 12px;
+    display: none;
+}
+.fb.correct {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    color: #047857;
+}
+.fb.wrong {
+    display: block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #be123c;
+}
+
+/* INTERACTIVE MATCHING */
+.matching-row-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+.matching-card-item {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    cursor: pointer;
+    transition: var(--tr);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.matching-card-item:hover, .matching-card-item.selected {
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.04);
+}
+.matching-card-item.correct {
+    border-color: var(--accent) !important;
+    background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* MEMORY GAME STYLES */
+.mem-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+@media(max-width:500px) {
+    .mem-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.mem-card {
+    height: 100px;
+    border-radius: 14px;
+    cursor: pointer;
+    perspective: 600px;
+    position: relative;
+    user-select: none;
+}
+.mem-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.mem-card.flipped .mem-inner {
+    transform: rotateY(180deg);
+}
+.mem-front, .mem-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.mem-front {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    font-size: 32px;
+}
+.mem-back {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    transform: rotateY(180deg);
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px;
+    color: var(--text);
+}
+.mem-card.matched .mem-back {
+    border-color: var(--accent);
+    background: rgba(16,185,129,0.08);
+    color: var(--accent);
+}
+.mem-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+}
+.mem-stat-val {
+    color: var(--primary);
+}
+
+/* BALLOON GAME STYLES */
+.balloon-arena {
+    position: relative;
+    height: 380px;
+    background: linear-gradient(180deg, #dbeafe, #ede9fe);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid var(--border);
+    margin-bottom: 20px;
+}
+.balloon {
+    position: absolute;
+    bottom: -90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--tr);
+    animation: rise var(--dur,8s) linear forwards;
+}
+.balloon-body {
+    width: 100px;
+    height: 110px;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    background: var(--color, #f43f5e);
+    position: relative;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+.balloon-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-align: center;
+}
+.balloon-string {
+    width: 2px;
+    height: 35px;
+    background: rgba(0,0,0,0.25);
+}
+@keyframes rise {
+    0% { bottom: -100px; }
+    100% { bottom: 400px; }
+}
+
+.act-btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    justify-content: flex-end
+}
+.btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-weight: 800;
+    transition: var(--tr);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff
+}
+.btn-primary:hover {
+    background: var(--primary-light);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3)
+}
+.btn-outline {
+    border: 2px solid var(--border);
+    color: var(--text)
+}
+.btn-outline:hover {
+    background: var(--border)
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="topbar-right">
+        <a href="index.html" class="back-btn-top" onclick="window.location.href='index.html'; return false;">
+            ↩️ الرئيسية
+        </a>
+        <div class="tlogo">Smart<span>Learning</span></div>
+    </div>
+    
+    <div class="topbar-left" style="direction: ltr;">
+        <a href="grade4-unit1-presentation.html" target="_blank" class="back-btn-top" style="border-color:var(--primary-light); color:var(--primary-light); display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+          💻 PowerPoint
+        </a>
+        <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+          🎯 عجلة الأسماء
+        </a>
+        <a href="report.html" target="_blank" class="back-btn-top" style="border-color:#00796b; color:#00796b; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+          📋 تقرير الاستراتيجية
+        </a>
+        <a href="grade4-unit1-worksheets.html" target="_blank" class="back-btn-top" style="border-color:#ec4899; color:#ec4899; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+          📝 أوراق العمل
+        </a>
+        <a href="grade4-unit1-printables.html" target="_blank" class="back-btn-top" style="border-color:#3b82f6; color:#3b82f6; display:inline-flex; align-items:center; gap:5px; text-decoration:none;">
+          🧩 وسائل المعلم
+        </a>
+        <div class="prog-pill">التقدم: <b id="prog">0%</b></div>
+        <button class="theme-btn" onclick="tgl()" aria-label="تبديل المظهر">🌓</button>
+    </div>
+</div>
+
+<div class="main-wrap">
+    <!-- SIDEBAR NAVIGATION -->
+    <div class="ls">
+        <div class="ls-hd">دروس مقدمة المنهج</div>
+        <div class="toc active" id="t0" onclick="sw(0)"><span class="toc-n">١</span><span>Welcome Song 🎉</span></div>
+        <div class="toc" id="t1" onclick="sw(1)"><span class="toc-n">٢</span><span>Adjectives & Ordinals 🔢</span></div>
+        <div class="toc" id="t2" onclick="sw(2)"><span class="toc-n">٣</span><span>Classmate Comparatives 📏</span></div>
+        <div class="toc" id="t3" onclick="sw(3)"><span class="toc-n">٤</span><span>Adverbs of Frequency 🗓️</span></div>
+        <div class="toc" id="t4" onclick="sw(4)"><span class="toc-n">٥</span><span>Family Photos 👩‍👩‍👦</span></div>
+        <div class="toc" id="t5" onclick="sw(5)"><span class="toc-n">٦</span><span>Grammar: How Often ⏰</span></div>
+        <div class="toc" id="t6" onclick="sw(6)"><span class="toc-n">٧</span><span>الألعاب التفاعلية 🎮</span></div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="lc">
+        <!-- MOBILE NAVIGATION DROPDOWN -->
+        <div class="mobile-nav-container">
+            <span class="mobile-nav-label">الدرس الحالي:</span>
+            <select class="mobile-nav-select" onchange="sw(parseInt(this.value))">
+                <option value="0">الدرس ١: Welcome Song 🎉</option>
+                <option value="1">الدرس ٢: Adjectives & Ordinals 🔢</option>
+                <option value="2">الدرس ٣: Classmate Comparatives 📏</option>
+                <option value="3">الدرس ٤: Adverbs of Frequency 🗓️</option>
+                <option value="4">الدرس ٥: Family Photos 👩‍👩‍👦</option>
+                <option value="5">الدرس ٦: Grammar: How Often ⏰</option>
+                <option value="6">الدرس ٧: الألعاب التفاعلية 🎮</option>
+            </select>
+        </div>
+
+        <!-- HERO HEADER -->
+        <div class="hero">
+            <div class="hero-badge">مقدمة المنهج: Welcome & Family Events - الصف الرابع</div>
+            <h1>مرحباً بكم في مقرر الصف الرابع الابتدائي</h1>
+            <p>مرحباً يا بطل! ستتعلم في هذه الوحدة الممتعة كيفية الترحيب والصفات والأعداد الترتيبية ومقارنة الأشياء بمهارة.</p>
+        </div>
+
+        <!-- ==========================================
+             LESSON 1: Welcome Song 🎉
+             ========================================== -->
+        <div class="sec active" id="s0">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">🎉</span>
+                    <h2>الدرس الأول: Welcome! Back to School Celebration</h2>
+                </div>
+            </div>
+            
+            <div class="book-explanation-box">
+                <h3>📖 من كتاب الطالب (We Can 1 - Page 4-5)</h3>
+                <p>استمع إلى أنشودة العودة إلى المدرسة وتعرف على الكلمات والترحيب بالأصدقاء.</p>
+            </div>
+
+            <!-- Pre-test / Warm-up -->
+            <div class="test-panel pre">
+                <div class="test-hdr test-hdr-pre">
+                    <span>🧠 تهيئة وتحدي سريع (Warm-up Questions)</span>
+                </div>
+                <p>ماذا نقول لزملائنا عند العودة للمدرسة بعد الإجازة؟ (Choose the correct response)</p>
+                <div class="test-choices">
+                    <button class="test-btn" onclick="chkTest(this, false)">Good night!</button>
+                    <button class="test-btn" onclick="chkTest(this, true)">Welcome back!</button>
+                </div>
+            </div>
+
+            <!-- Dialogue bubbles -->
+            <div class="chat-container">
+                <div class="chat-row user-a">
+                    <div class="avatar">👦</div>
+                    <div class="bubble" onclick="speak('Hello! We are the All Sorts! We will be with you throughout the school year!')">
+                        <div class="bubble-eng">Hello! We are the All Sorts! We will be with you throughout the school year! 🔊</div>
+                        <div class="bubble-ar">مرحباً! نحن فرقة أول سورتس! سنكون معكم طوال العام الدراسي!</div>
+                    </div>
+                </div>
+                <div class="chat-row user-b">
+                    <div class="avatar">👧</div>
+                    <div class="bubble" onclick="speak('We have new notebooks, pens, and backpacks, too!')">
+                        <div class="bubble-eng">We have new notebooks, pens, and backpacks, too! 🔊</div>
+                        <div class="bubble-ar">لدينا دفاتر، وأقلام، وحقائب ظهر جديدة أيضاً!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice finding items -->
+            <h3 style="margin-bottom:12px;">🔍 ابحث وجد الكلمات في الفصل (Look and Find)</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card" onclick="speak('backpack')">
+                    <div class="vocab-img">🎒</div>
+                    <div class="vocab-title">backpack</div>
+                    <div class="vocab-translation">حقيبة ظهر</div>
+                </div>
+                <div class="vocab-card" onclick="speak('notebook')">
+                    <div class="vocab-img">📓</div>
+                    <div class="vocab-title">notebook</div>
+                    <div class="vocab-translation">دفتر</div>
+                </div>
+                <div class="vocab-card" onclick="speak('guitar')">
+                    <div class="vocab-img">🎸</div>
+                    <div class="vocab-title">guitar</div>
+                    <div class="vocab-translation">جيتار</div>
+                </div>
+                <div class="vocab-card" onclick="speak('playground')">
+                    <div class="vocab-img">🛝</div>
+                    <div class="vocab-title">playground</div>
+                    <div class="vocab-translation">ملعب المدرسة</div>
+                </div>
+                <div class="vocab-card" onclick="speak('balloons')">
+                    <div class="vocab-img">🎈</div>
+                    <div class="vocab-title">balloons</div>
+                    <div class="vocab-translation">بالونات</div>
+                </div>
+                <div class="vocab-card" onclick="speak('bus')">
+                    <div class="vocab-img">🚌</div>
+                    <div class="vocab-title">bus</div>
+                    <div class="vocab-translation">حافلة</div>
+                </div>
+                <div class="vocab-card" onclick="speak('camera')">
+                    <div class="vocab-img">📷</div>
+                    <div class="vocab-title">camera</div>
+                    <div class="vocab-translation">كاميرا</div>
+                </div>
+                <div class="vocab-card" onclick="speak('drums')">
+                    <div class="vocab-img">🥁</div>
+                    <div class="vocab-title">drums</div>
+                    <div class="vocab-translation">طبول</div>
+                </div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(0)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-primary" onclick="sw(1)">الدرس التالي ➔</button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LESSON 2: Adjectives & Ordinals 🔢
+             ========================================== -->
+        <div class="sec" id="s1">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">🔢</span>
+                    <h2>الدرس الثاني: Adjectives & Ordinal Numbers 1st-20th</h2>
+                </div>
+            </div>
+
+            <div class="book-explanation-box">
+                <h3>📖 من كتاب الطالب (We Can 1 - Page 6-7)</h3>
+                <p>سنتدرب على الصفات الأساسية والأعداد الترتيبية من الأول حتى العشرين.</p>
+            </div>
+
+            <!-- Pre-test -->
+            <div class="test-panel pre">
+                <div class="test-hdr test-hdr-pre">
+                    <span>🧠 اختبار قبلي (Pre-Test)</span>
+                </div>
+                <p>ما معنى كلمة "afraid"؟</p>
+                <div class="test-choices">
+                    <button class="test-btn" onclick="chkTest(this, false)">رائع</button>
+                    <button class="test-btn" onclick="chkTest(this, true)">خائف</button>
+                </div>
+            </div>
+
+            <!-- Vocab Cards -->
+            <h3 style="margin-bottom:12px;">🌟 صفات هامة (Vocabulary Adjectives)</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card" onclick="speak('afraid')">
+                    <div class="vocab-img">😨</div>
+                    <div class="vocab-title">afraid</div>
+                    <div class="vocab-translation">خائف</div>
+                </div>
+                <div class="vocab-card" onclick="speak('brilliant')">
+                    <div class="vocab-img">🌟</div>
+                    <div class="vocab-title">brilliant</div>
+                    <div class="vocab-translation">رائع / عبقري</div>
+                </div>
+                <div class="vocab-card" onclick="speak('dangerous')">
+                    <div class="vocab-img">⚠️</div>
+                    <div class="vocab-title">dangerous</div>
+                    <div class="vocab-translation">خطير</div>
+                </div>
+                <div class="vocab-card" onclick="speak('naughty')">
+                    <div class="vocab-img">😈</div>
+                    <div class="vocab-title">naughty</div>
+                    <div class="vocab-translation">مشاغب</div>
+                </div>
+                <div class="vocab-card" onclick="speak('surprised')">
+                    <div class="vocab-img">😲</div>
+                    <div class="vocab-title">surprised</div>
+                    <div class="vocab-translation">متفاجئ</div>
+                </div>
+                <div class="vocab-card" onclick="speak('terrible')">
+                    <div class="vocab-img">🤮</div>
+                    <div class="vocab-title">terrible</div>
+                    <div class="vocab-translation">فظيع / سيء جداً</div>
+                </div>
+            </div>
+
+            <!-- Ordinal Numbers Matching Game -->
+            <h3 style="margin-bottom:12px; margin-top:24px;">🔢 لعبة مطابقة الأعداد الترتيبية (Ordinal Numbers Game)</h3>
+            <p style="font-size:15px; color:var(--text-muted); margin-bottom:12px;">اختر العدد الترتيبي من اليمين وما يطابقه من اليسار:</p>
+            
+            <div class="matching-row-layout" id="ordinals-matching">
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <div class="matching-card-item" id="m-1st" onclick="selectMatchOrdinal('1st')">1st</div>
+                    <div class="matching-card-item" id="m-2nd" onclick="selectMatchOrdinal('2nd')">2nd</div>
+                    <div class="matching-card-item" id="m-3rd" onclick="selectMatchOrdinal('3rd')">3rd</div>
+                    <div class="matching-card-item" id="m-20th" onclick="selectMatchOrdinal('20th')">20th</div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <div class="matching-card-item" id="m-first" onclick="selectMatchOrdinal('first')">First (الأول)</div>
+                    <div class="matching-card-item" id="m-second" onclick="selectMatchOrdinal('second')">Second (الثاني)</div>
+                    <div class="matching-card-item" id="m-third" onclick="selectMatchOrdinal('third')">Third (الثالث)</div>
+                    <div class="matching-card-item" id="m-twentieth" onclick="selectMatchOrdinal('twentieth')">Twentieth (العشرون)</div>
+                </div>
+            </div>
+            <div class="fb" id="matching-feedback"></div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(1)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-outline" onclick="sw(0)">➔ السابق</button>
+                <button class="btn btn-primary" onclick="sw(2)">التالي ➔</button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LESSON 3: Classmate Comparatives 📏
+             ========================================== -->
+        <div class="sec" id="s2">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">📏</span>
+                    <h2>الدرس الثالث: Do you remember? Classmate Comparatives & Superlatives</h2>
+                </div>
+            </div>
+
+            <div class="book-explanation-box">
+                <h3>📖 من كتاب الطالب (We Can 3 - Page 8)</h3>
+                <p>مقارنة الصفات بين زملاء الصف (best, better, biggest, longer, more difficult, nicest, smaller, taller, tallest, worst).</p>
+            </div>
+
+            <!-- PRE-TEST (3 Questions) -->
+            <div class="test-panel pre">
+                <div class="test-hdr test-hdr-pre">
+                    <span>🧠 اختبار قبلي (Pre-Test) - ٣ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. ما هي التهجئة (Spelling) الصحيحة لصفة المقارنة من big؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">biger</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">bigger</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. ما هو الرمز الذي يعبر عن "أطول من" (longer)؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">📏 (longer line)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">📐 (triangle)</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:5px;">
+                    <p><b>٣. استمع للكلمة وحدد معناها: "worst" 🔊 <span class="audio-btn" onclick="speak('worst')">استمع</span></b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">الأفضل</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">الأسوأ</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paragraph Reading and Blanks -->
+            <h3 style="margin-bottom:12px;">📖 اقرأ واملاً الفراغات بالصفة المناسبة (Look, read and answer)</h3>
+            <p style="font-size:15px; color:var(--text-muted); margin-bottom:12px;">اختر الكلمة المناسبة من الصندوق لملء الفراغات، واضغط على الجملة للاستماع لنطقها:</p>
+            
+            <div style="background:#eef2f6; padding:15px; border-radius:10px; font-weight:800; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; justify-content:center;">
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">best</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">better</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">biggest</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">longer</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">more difficult</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">nicest</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">smaller</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">taller</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">tallest</span>
+                <span style="background:#fff; padding:4px 8px; border-radius:5px; border:1px solid var(--border)">worst</span>
+            </div>
+
+            <div style="background:#fff; border:2px solid var(--border); padding:20px; border-radius:var(--radius-sm); font-size:17px; line-height:2.2; margin-bottom:20px;" id="reading-paragraph-box">
+                <p onclick="speak('In the first photo, you can see my best friend at school. Her name is Asma. She has longer hair than me, and she is taller, too.')" style="cursor:pointer; margin-bottom:10px;">
+                    In the first photo, you can see my 
+                    (1) <input type="text" class="input-underlined" id="p-blank-1" data-correct="best" style="width:70px;" placeholder="?"> friend at school. Her name is Asma. She has 
+                    (2) <input type="text" class="input-underlined" id="p-blank-2" data-correct="longer" style="width:80px;" placeholder="?"> hair than me, and she is 
+                    (3) <input type="text" class="input-underlined" id="p-blank-3" data-correct="taller" style="width:70px;" placeholder="?">, too. 
+                    I think she is the (4) <input type="text" class="input-underlined" id="p-blank-4" data-correct="tallest" style="width:75px;" placeholder="?"> girl in our class.
+                </p>
+                <p onclick="speak('We always sit next to each other. She is brilliant! She is the nicest person I know. Asma helps her friends and smiles a lot.')" style="cursor:pointer; margin-bottom:10px;">
+                    We always sit next to each other. She is brilliant! She is the 
+                    (5) <input type="text" class="input-underlined" id="p-blank-5" data-correct="nicest" style="width:75px;" placeholder="?"> person I know. Asma helps her friends and smiles a lot.
+                </p>
+                <p onclick="speak('The second photo is of our class with the teacher. Our class is the biggest in our school. There are 30 students!')" style="cursor:pointer; margin-bottom:10px;">
+                    The second photo is of our class with the teacher. Our class is the 
+                    (6) <input type="text" class="input-underlined" id="p-blank-6" data-correct="biggest" style="width:80px;" placeholder="?"> in our school. There are 30 students!
+                </p>
+                <p onclick="speak('The other classes are smaller with about 20 students in each one. In this photo, we are in our math class. I like the school subjects we study, but math is more difficult than geography or history.')" style="cursor:pointer; margin-bottom:10px;">
+                    The other classes are 
+                    (7) <input type="text" class="input-underlined" id="p-blank-7" data-correct="smaller" style="width:85px;" placeholder="?"> with about 20 students in each one. In this photo, we are in our math class. I like the school subjects we study, but math is 
+                    (8) <input type="text" class="input-underlined" id="p-blank-8" data-correct="more difficult" style="width:130px;" placeholder="?"> than geography or history.
+                </p>
+                <p onclick="speak('Sometimes I don\'t understand math, and I think I am the worst student in class! But Asma always helps me because she is better at math than me.')" style="cursor:pointer;">
+                    Sometimes I don't understand math, and I think I am the 
+                    (9) <input type="text" class="input-underlined" id="p-blank-9" data-correct="worst" style="width:75px;" placeholder="?"> student in class! But Asma always helps me because she is 
+                    (10) <input type="text" class="input-underlined" id="p-blank-10" data-correct="better" style="width:75px;" placeholder="?"> at math than me.
+                </p>
+                
+                <button class="audio-btn" style="margin-top:15px; border-style:solid;" onclick="checkParagraphBlanks(event)">تحقق من إجابات الفراغات ✔️</button>
+                <span class="fb" id="paragraph-feedback"></span>
+            </div>
+
+            <!-- DURING-LESSON TEST (2 Questions) -->
+            <div class="test-panel during">
+                <div class="test-hdr test-hdr-during">
+                    <span>💡 أسئلة أثناء الشرح (During-Lesson Questions) - سؤالين</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. أكمل الجملة: "Math is ______ than History."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">more difficult (أكثر صعوبة)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">most difficult (الأكثر صعوبة)</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٢. "Ali is the ______ boy in class."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">taller</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">tallest</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Survey -->
+            <h3 style="margin-bottom:12px; margin-top:24px;">📊 جدول مقارنة الزملاء (Read and Think. Then ask and answer)</h3>
+            <table style="width:100%; border-collapse:collapse; margin-bottom:20px; border:2px solid var(--border); background:#fff;">
+                <thead>
+                    <tr style="background:#f1f5f9;">
+                        <th style="padding:10px; border:1px solid var(--border); text-align:right;">السؤال (Question)</th>
+                        <th style="padding:10px; border:1px solid var(--border); text-align:center;">عني (Me)</th>
+                        <th style="padding:10px; border:1px solid var(--border); text-align:center;">زميلي (Classmate)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:10px; border:1px solid var(--border);">1. Who is the tallest student in your class?</td>
+                        <td style="padding:10px; border:1px solid var(--border); text-align:center;"><input type="text" style="width:100px; padding:4px;" placeholder="Name"></td>
+                        <td style="padding:10px; border:1px solid var(--border); text-align:center;"><input type="text" style="width:100px; padding:4px;" placeholder="Name"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px; border:1px solid var(--border);">2. What is the nicest thing about your best friend?</td>
+                        <td style="padding:10px; border:1px solid var(--border); text-align:center;"><input type="text" style="width:100px; padding:4px;" placeholder="Kindness/Help"></td>
+                        <td style="padding:10px; border:1px solid var(--border); text-align:center;"><input type="text" style="width:100px; padding:4px;" placeholder="Kindness/Help"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px; border:1px solid var(--border);">3. Who has the biggest backpack in your class?</td>
+                        <td style="padding:10px; border:1px solid var(--border); text-align:center;"><input type="text" style="width:100px; padding:4px;" placeholder="Name"></td>
+                        <td style="padding:10px; border:1px solid var(--border); text-align:center;"><input type="text" style="width:100px; padding:4px;" placeholder="Name"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- POST-TEST (4 Questions) -->
+            <div class="test-panel post">
+                <div class="test-hdr test-hdr-post">
+                    <span>🎓 اختبار بعدي (Post-Test) - ٤ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. "My hair is ______ than yours."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">longer</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">longest</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. ما هي صفة المفاضلة العليا (Superlative) للكلمة "good"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">best</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">better</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٣. "The other classes are ______ (about 20 students)."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">smaller</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">smallest</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٤. ما هو الرمز الذي يعبر عن "أفضل صديق" (best friend)؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">❤️ (Best/Love)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">🤮 (Worst)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(2)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-outline" onclick="sw(1)">➔ السابق</button>
+                <button class="btn btn-primary" onclick="sw(3)">التالي ➔</button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LESSON 4: Adverbs of Frequency 🗓️
+             ========================================== -->
+        <div class="sec" id="s3">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">🗓️</span>
+                    <h2>الدرس الرابع: Adverbs of Frequency & Was/Were</h2>
+                </div>
+            </div>
+
+            <div class="book-explanation-box">
+                <h3>📖 من كتاب الطالب (We Can 3 - Page 9)</h3>
+                <p>الحديث عن تكرار الأنشطة اليومية باستخدام (always, usually, often, sometimes, never) واستخدام زمن الماضي البسيط (was/were / wasn't/weren't).</p>
+            </div>
+
+            <!-- PRE-TEST (3 Questions) -->
+            <div class="test-panel pre">
+                <div class="test-hdr test-hdr-pre">
+                    <span>🧠 اختبار قبلي (Pre-Test) - ٣ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. ما هي النسبة المئوية التقريبية التي تدل عليها عادةً كلمة "usually"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">10%</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">75%</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. ما هو الفعل الماضي المناسب لـ "We"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">was</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">were</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:5px;">
+                    <p><b>٣. استمع للكلمة وحدد معناها: "always" 🔊 <span class="audio-btn" onclick="speak('always')">استمع</span></b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">دائماً</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">أبداً</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 3: Match Adverbs with Checks/Crosses -->
+            <h3 style="margin-bottom:12px;">🗓️ ٣. طابق ظروف التكرار مع الرموز (Match adverbs with checks/crosses)</h3>
+            <p style="font-size:15px; color:var(--text-muted); margin-bottom:12px;">اختر الرمز الصحيح المطابق لكل ظرف تكرار:</p>
+            
+            <div style="background:#fff; border:2px solid var(--border); padding:20px; border-radius:var(--radius-sm); margin-bottom:24px;">
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:15px;">
+                    <div>
+                        <label>1. always (100%)</label>
+                        <select class="mobile-nav-select" id="adv-match-1" data-correct="c" style="margin-top:6px; width:100%;">
+                            <option value="">اختر...</option>
+                            <option value="a">✓✓ (often)</option>
+                            <option value="b">✗ (never)</option>
+                            <option value="c">✓✓✓✓ (always)</option>
+                            <option value="d">✓ (sometimes)</option>
+                            <option value="e">✓✓✓ (usually)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>2. usually (75%)</label>
+                        <select class="mobile-nav-select" id="adv-match-2" data-correct="e" style="margin-top:6px; width:100%;">
+                            <option value="">اختر...</option>
+                            <option value="a">✓✓</option>
+                            <option value="b">✗</option>
+                            <option value="c">✓✓✓✓</option>
+                            <option value="d">✓</option>
+                            <option value="e">✓✓✓</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>3. often (50%)</label>
+                        <select class="mobile-nav-select" id="adv-match-3" data-correct="a" style="margin-top:6px; width:100%;">
+                            <option value="">اختر...</option>
+                            <option value="a">✓✓</option>
+                            <option value="b">✗</option>
+                            <option value="c">✓✓✓✓</option>
+                            <option value="d">✓</option>
+                            <option value="e">✓✓✓</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>4. sometimes (10%)</label>
+                        <select class="mobile-nav-select" id="adv-match-4" data-correct="d" style="margin-top:6px; width:100%;">
+                            <option value="">اختر...</option>
+                            <option value="a">✓✓</option>
+                            <option value="b">✗</option>
+                            <option value="c">✓✓✓✓</option>
+                            <option value="d">✓</option>
+                            <option value="e">✓✓✓</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>5. never (0%)</label>
+                        <select class="mobile-nav-select" id="adv-match-5" data-correct="b" style="margin-top:6px; width:100%;">
+                            <option value="">اختر...</option>
+                            <option value="a">✓✓</option>
+                            <option value="b">✗</option>
+                            <option value="c">✓✓✓✓</option>
+                            <option value="d">✓</option>
+                            <option value="e">✓✓✓</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="audio-btn" style="margin-top:20px; border-style:solid;" onclick="checkAdverbsMatching()">تحقق من المطابقة ✔️</button>
+                <span class="fb" id="adv-matching-feedback"></span>
+            </div>
+
+            <!-- Exercise 4: Order words to make sentences -->
+            <h3 style="margin-bottom:12px;">✍️ ٤. رتب الكلمات لتكوين جمل صحيحة (Order the words)</h3>
+            <p style="font-size:15px; color:var(--text-muted); margin-bottom:12px;">اكتب الجملة المرتبة بشكل صحيح (أول حرف كابيتال ونقطة بالنهاية):</p>
+            
+            <div style="background:#fff; border:2px solid var(--border); padding:20px; border-radius:var(--radius-sm); margin-bottom:24px; line-height:2.2;">
+                <div style="margin-bottom:15px;">
+                    <p style="font-weight:700;">1. makes / My dad / dinner / often / .</p>
+                    <input type="text" class="input-underlined" id="ord-sentence-1" data-correct="My dad often makes dinner." style="width:100%; text-align:left; max-width:450px;" placeholder="اكتب الجملة هنا">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p style="font-weight:700;">2. at / school / We / sometimes / celebrations / have / .</p>
+                    <input type="text" class="input-underlined" id="ord-sentence-2" data-correct="We sometimes have celebrations at school." style="width:100%; text-align:left; max-width:450px;" placeholder="اكتب الجملة هنا">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p style="font-weight:700;">3. does / his / in / the / Adel / park / homework / never / .</p>
+                    <input type="text" class="input-underlined" id="ord-sentence-3" data-correct="Adel never does his homework in the park." style="width:100%; text-align:left; max-width:450px;" placeholder="اكتب الجملة هنا">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p style="font-weight:700;">4. I / mornings / always / have / on / Tuesday / class / art / .</p>
+                    <input type="text" class="input-underlined" id="ord-sentence-4" data-correct="I always have art class on Tuesday mornings." style="width:100%; text-align:left; max-width:450px;" placeholder="اكتب الجملة هنا">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p style="font-weight:700;">5. My / goes / to / the / best friend / on / Thursdays / often / school / club / .</p>
+                    <input type="text" class="input-underlined" id="ord-sentence-5" data-correct="My best friend often goes to the school club on Thursdays." style="width:100%; text-align:left; max-width:450px;" placeholder="اكتب الجملة هنا">
+                </div>
+                <button class="audio-btn" style="margin-top:10px; border-style:solid;" onclick="checkSentenceOrdering()">تحقق من ترتيب الجمل ✔️</button>
+                <span class="fb" id="sentence-ordering-feedback"></span>
+            </div>
+
+            <!-- Exercise 5: Was/Were completion -->
+            <h3 style="margin-bottom:12px;">📝 ٥. أكمل الفراغات بـ was/wasn't أو were/weren't</h3>
+            <div style="background:#fff; border:2px solid var(--border); padding:20px; border-radius:var(--radius-sm); font-size:17px; line-height:2.2; margin-bottom:24px;">
+                <p>
+                    Sunday (1) <input type="text" class="input-underlined" id="was-were-blank-1" data-correct="was" style="width:65px;" placeholder="?"> the back to school celebration day!
+                    We (2) <input type="text" class="input-underlined" id="was-were-blank-2" data-correct="were" style="width:65px;" placeholder="?"> happy at the celebration because it 
+                    (3) <input type="text" class="input-underlined" id="was-were-blank-3" data-correct="was" style="width:65px;" placeholder="?"> fun.
+                    The celebration (4) <input type="text" class="input-underlined" id="was-were-blank-4" data-correct="wasn't" style="width:75px;" placeholder="?"> in the classroom, it 
+                    (5) <input type="text" class="input-underlined" id="was-were-blank-5" data-correct="was" style="width:65px;" placeholder="?"> on the school playground.
+                    There (6) <input type="text" class="input-underlined" id="was-were-blank-6" data-correct="were" style="width:65px;" placeholder="?"> three young musicians, and the food 
+                    (7) <input type="text" class="input-underlined" id="was-were-blank-7" data-correct="was" style="width:65px;" placeholder="?"> delicious. 
+                    And there (8) <input type="text" class="input-underlined" id="was-were-blank-8" data-correct="were" style="width:65px;" placeholder="?"> sandwiches and cake.
+                </p>
+                <button class="audio-btn" style="margin-top:15px; border-style:solid;" onclick="checkWasWereParagraph()">تحقق من الإجابات ✔️</button>
+                <span class="fb" id="was-were-feedback"></span>
+            </div>
+
+            <!-- DURING-LESSON TEST (2 Questions) -->
+            <div class="test-panel during">
+                <div class="test-hdr test-hdr-during">
+                    <span>💡 أسئلة أثناء الشرح (During-Lesson Questions) - سؤالين</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. أين يقع ظرف التكرار في الجملة؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">بعد الفاعل وقبل الفعل الأساسي (e.g. I always go)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">في نهاية الجملة دائماً (e.g. I go always)</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٢. "We ______ at school yesterday."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">was</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">were</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST-TEST (4 Questions) -->
+            <div class="test-panel post">
+                <div class="test-hdr test-hdr-post">
+                    <span>🎓 اختبار بعدي (Post-Test) - ٤ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. "My dad ______ makes dinner." (often / makes / dinner / My dad / often / .)</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">often</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">never</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. ما هو النفي الصحيح لـ "it was"?</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">it wasn't</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">it weren't</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٣. "Adel ______ does his homework in the park." (0% frequency)</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">never</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">always</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٤. ما هو الرمز الذي يعبر عن "أبداً" (never / 0%)؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">❌ (cross/0%)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">✓✓✓✓ (100%)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(3)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-outline" onclick="sw(2)">➔ السابق</button>
+                <button class="btn btn-primary" onclick="sw(4)">التالي ➔</button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LESSON 5: Family Photos 👩‍👩‍👦
+             ========================================== -->
+        <div class="sec" id="s4">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">👩‍👩‍👦</span>
+                    <h2>الدرس الخامس: Family Events - Family Photos</h2>
+                </div>
+            </div>
+
+            <div class="book-explanation-box">
+                <h3>📖 من كتاب الطالب (We Can 3 - Page 10-11)</h3>
+                <p>مفردات عائلية للحديث عن الأقارب والعائلة الكبيرة (aunt, uncle, cousin, grandson, granddaughter, grown-ups).</p>
+            </div>
+
+            <!-- PRE-TEST (3 Questions) -->
+            <div class="test-panel pre">
+                <div class="test-hdr test-hdr-pre">
+                    <span>🧠 اختبار قبلي (Pre-Test) - ٣ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. ما هي الكلمة التي تعني "عم أو خال"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">aunt</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">uncle</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. ما معنى كلمة "granddaughter"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">حفيد</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">حفيدة</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:5px;">
+                    <p><b>٣. استمع للكلمة وحدد معناها: "grown-ups" 🔊 <span class="audio-btn" onclick="speak('grown ups')">استمع</span></b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">البالغون / الكبار</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">الأطفال</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vocabulary Cards -->
+            <h3 style="margin-bottom:12px;">🌟 شجرة العائلة الكبيرة (Family Events Vocabulary)</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card" onclick="speak('aunt')">
+                    <div class="vocab-img">👩‍🌾</div>
+                    <div class="vocab-title">aunt</div>
+                    <div class="vocab-translation">عمة / خالة</div>
+                </div>
+                <div class="vocab-card" onclick="speak('uncle')">
+                    <div class="vocab-img">👨‍💼</div>
+                    <div class="vocab-title">uncle</div>
+                    <div class="vocab-translation">عم / خال</div>
+                </div>
+                <div class="vocab-card" onclick="speak('cousin')">
+                    <div class="vocab-img">👦</div>
+                    <div class="vocab-title">cousin</div>
+                    <div class="vocab-translation">ابن العم أو الخال</div>
+                </div>
+                <div class="vocab-card" onclick="speak('grandson')">
+                    <div class="vocab-img">👶</div>
+                    <div class="vocab-title">grandson</div>
+                    <div class="vocab-translation">حفيد (ذكر)</div>
+                </div>
+                <div class="vocab-card" onclick="speak('granddaughter')">
+                    <div class="vocab-img">👧</div>
+                    <div class="vocab-title">granddaughter</div>
+                    <div class="vocab-translation">حفيدة (أنثى)</div>
+                </div>
+                <div class="vocab-card" onclick="speak('grown-ups')">
+                    <div class="vocab-img">🧑‍🤝‍🧑</div>
+                    <div class="vocab-title">grown-ups</div>
+                    <div class="vocab-translation">البالغون / الكبار</div>
+                </div>
+            </div>
+
+            <!-- DURING-LESSON TEST (2 Questions) -->
+            <div class="test-panel during">
+                <div class="test-hdr test-hdr-during">
+                    <span>💡 أسئلة أثناء الشرح (During-Lesson Questions) - سؤالين</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. "Your mother's sister is your ______."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">aunt</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">uncle</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٢. "Your father's brother is your ______."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">cousin</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">uncle</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST-TEST (4 Questions) -->
+            <div class="test-panel post">
+                <div class="test-hdr test-hdr-post">
+                    <span>🎓 اختبار بعدي (Post-Test) - ٤ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. "My uncle's son is my ______."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">cousin</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">grandson</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. "My grandparents have a baby boy from my dad. He is their ______."</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">grandson</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">granddaughter</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٣. ما هي التهجئة (Spelling) الصحيحة للكلمة "عمة / خالة"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">aunt</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">ant</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٤. ما هو الرمز الذي يعبر عن "البالغين" (grown-ups)؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">🧑‍🤝‍🧑 (grown-ups)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">👶 (baby)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(4)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-outline" onclick="sw(3)">➔ السابق</button>
+                <button class="btn btn-primary" onclick="sw(5)">التالي ➔</button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LESSON 6: Grammar: How Often ⏰
+             ========================================== -->
+        <div class="sec" id="s5">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">⏰</span>
+                    <h2>الدرس السادس: Grammar - How often...?</h2>
+                </div>
+            </div>
+
+            <div class="book-explanation-box">
+                <h3>📖 من كتاب الطالب (We Can 3 - Page 12-13)</h3>
+                <p>السؤال بـ "How often" للحديث عن تكرار الأفعال والأنشطة مع أفراد العائلة (How often do you / does she...?).</p>
+            </div>
+
+            <!-- PRE-TEST (3 Questions) -->
+            <div class="test-panel pre">
+                <div class="test-hdr test-hdr-pre">
+                    <span>🧠 اختبار قبلي (Pre-Test) - ٣ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. أكمل السؤال: "How often ______ your aunt visit?"</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">do</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">does</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. "How often do you play football?"</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">I play once a week.</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">I play in the park.</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:5px;">
+                    <p><b>٣. استمع للكلمة وحدد معناها: "visit" 🔊 <span class="audio-btn" onclick="speak('visit')">استمع</span></b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">يزور</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">يلعب</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dialog bubbles for Lesson 6 -->
+            <div class="chat-container">
+                <div class="chat-row user-a">
+                    <div class="avatar">👦</div>
+                    <div class="bubble" onclick="speak('How often do you see your cousins?')">
+                        <div class="bubble-eng">How often do you see your cousins? 🔊</div>
+                        <div class="bubble-ar">كم مرة ترى فيها أبناء عمك؟</div>
+                    </div>
+                </div>
+                <div class="chat-row user-b">
+                    <div class="avatar">👧</div>
+                    <div class="bubble" onclick="speak('I always see them on Fridays at my grandparents\' house!')">
+                        <div class="bubble-eng">I always see them on Fridays at my grandparents' house! 🔊</div>
+                        <div class="bubble-ar">أراهم دائماً في أيام الجمعة في منزل جدي وجدتي!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DURING-LESSON TEST (2 Questions) -->
+            <div class="test-panel during">
+                <div class="test-hdr test-hdr-during">
+                    <span>💡 أسئلة أثناء الشرح (During-Lesson Questions) - سؤالين</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. "How often ______ they help their mother?"</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">do</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">does</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٢. "She ______ washes the dishes." (100% frequency)</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, false)">never</button>
+                        <button class="test-btn" onclick="chkTest(this, true)">always</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST-TEST (4 Questions) -->
+            <div class="test-panel post">
+                <div class="test-hdr test-hdr-post">
+                    <span>🎓 اختبار بعدي (Post-Test) - ٤ أسئلة</span>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>١. "How often ______ your father play tennis?"</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">does</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">do</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٢. ما هي التهجئة (Spelling) الصحيحة للكلمة "مرة واحدة"؟</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">once</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">one time</button>
+                    </div>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <p><b>٣. "I ______ eat fast food because it is unhealthy." (0% frequency)</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">never</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">usually</button>
+                    </div>
+                </div>
+                <div>
+                    <p><b>٤. ما هو الرمز الذي يعبر عن "كم مرة" (How often / clock)?</b></p>
+                    <div class="test-choices">
+                        <button class="test-btn" onclick="chkTest(this, true)">⏰ (How often / time)</button>
+                        <button class="test-btn" onclick="chkTest(this, false)">🎒 (backpack)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(5)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-outline" onclick="sw(4)">➔ السابق</button>
+                <button class="btn btn-primary" onclick="sw(6)">التالي ➔</button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LESSON 7: Interactive Games 🎮
+             ========================================== -->
+        <div class="sec" id="s6">
+            <div class="sec-hd">
+                <div class="sec-title">
+                    <span class="sec-icon">🎮</span>
+                    <h2>الدرس السابع: الألعاب التفاعلية الممتعة</h2>
+                </div>
+            </div>
+
+            <!-- Memory Game -->
+            <h3 style="margin-bottom:12px;">🧠 لعبة الذاكرة للكلمات (Memory Matching Game)</h3>
+            <div class="mem-stats">
+                <div>الحركات: <span id="mem-flips" class="mem-stat-val">0</span></div>
+                <div>المطابقات: <span id="mem-matches" class="mem-stat-val">0</span>/6</div>
+                <button class="audio-btn" onclick="buildMemory()">إعادة اللعب 🔄</button>
+            </div>
+            <div class="mem-grid" id="mem-grid"></div>
+
+            <!-- Balloon Popping Game -->
+            <h3 style="margin-bottom:12px; margin-top:30px;">🎈 لعبة فرقعة البالونات (Balloon Popping Game)</h3>
+            <p style="font-size:15px; color:var(--text-muted); margin-bottom:12px;">فرقع البالونات التي تحتوي على الإجابة الصحيحة للأسئلة بالأسفل:</p>
+            
+            <div style="background:#fff; border:2px solid var(--border); padding:16px; border-radius:var(--radius-sm); margin-bottom:16px;">
+                <div style="font-weight:900; font-size:18px;" id="balloon-q-text">اضغط ابدأ اللعب للبدء 🎈</div>
+                <div style="color:var(--text-muted); font-size:15px; margin-top:4px;" id="balloon-q-ar">الأسئلة تشمل الوحدة الأولى كاملة</div>
+            </div>
+            
+            <div class="balloon-arena" id="balloon-arena"></div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <button class="btn btn-primary" onclick="startBalloon()">ابدأ اللعب 🎈</button>
+                <div style="font-weight:800;">النقاط: <span id="balloon-score" style="color:var(--primary);">0</span>/8</div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn btn-outline" onclick="mark(6)">إنهاء الدرس ✔️</button>
+                <button class="btn btn-outline" onclick="sw(5)">➔ السابق</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// THEME SWITCHER
+function tgl() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+}
+
+// NAVIGATION SWITCHER
+const sections = document.querySelectorAll('.sec');
+const tocItems = document.querySelectorAll('.toc');
+const mobSelect = document.querySelector('.mobile-nav-select');
+
+function sw(idx) {
+    sections.forEach((sec, i) => {
+        if (i === idx) {
+            sec.classList.add('active');
+            tocItems[i].classList.add('active');
+        } else {
+            sec.classList.remove('active');
+            tocItems[i].classList.remove('active');
+        }
+    });
+    if(mobSelect) mobSelect.value = idx;
+    if(idx === 6) {
+        buildMemory();
+    }
+}
+
+// WEB SPEECH API
+function speak(txt) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'en-US';
+        u.rate = 0.85;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+// QUIZ MULTIPLE CHOICE CHECKS
+function chkTest(btn, isCorrect) {
+    const siblings = btn.parentElement.querySelectorAll('.test-btn');
+    siblings.forEach(s => s.classList.remove('correct', 'wrong'));
+    if (isCorrect) {
+        btn.classList.add('correct');
+        speak('Excellent! Correct answer.');
+        conf();
+    } else {
+        btn.classList.add('wrong');
+        speak('Try again.');
+    }
+}
+
+// VALIDATE ADVERBS MATCHING IN LESSON 4
+function checkAdverbsMatching() {
+    let score = 0;
+    for (let i = 1; i <= 5; i++) {
+        const select = document.getElementById('adv-match-' + i);
+        if (select) {
+            select.classList.remove('correct', 'wrong');
+            if (select.value === select.getAttribute('data-correct')) {
+                select.classList.add('correct');
+                score++;
+            } else {
+                select.classList.add('wrong');
+            }
+        }
+    }
+    const fb = document.getElementById('adv-matching-feedback');
+    fb.style.display = 'inline-block';
+    fb.textContent = `النتيجة: ${score} / 5`;
+    if (score === 5) {
+        fb.className = 'fb correct';
+        speak('Well done! All matching is correct.');
+        conf();
+    } else {
+        fb.className = 'fb wrong';
+        speak('Incorrect matches. Try again.');
+    }
+}
+
+// VALIDATE SENTENCE ORDERING IN LESSON 4
+function checkSentenceOrdering() {
+    let score = 0;
+    for (let i = 1; i <= 5; i++) {
+        const input = document.getElementById('ord-sentence-' + i);
+        if (input) {
+            input.classList.remove('correct', 'wrong');
+            const val = input.value.trim().replace(/\s+/g, ' ');
+            const correct = input.getAttribute('data-correct');
+            if (val.toLowerCase() === correct.toLowerCase()) {
+                input.classList.add('correct');
+                score++;
+            } else {
+                input.classList.add('wrong');
+            }
+        }
+    }
+    const fb = document.getElementById('sentence-ordering-feedback');
+    fb.style.display = 'inline-block';
+    fb.textContent = `النتيجة: ${score} / 5`;
+    if (score === 5) {
+        fb.className = 'fb correct';
+        speak('Perfect ordering!');
+        conf();
+    } else {
+        fb.className = 'fb wrong';
+        speak('Some sentences are wrong. Check spelling and dots.');
+    }
+}
+
+// VALIDATE WAS/WERE PARAGRAPH IN LESSON 4
+function checkWasWereParagraph() {
+    let score = 0;
+    for (let i = 1; i <= 8; i++) {
+        const input = document.getElementById('was-were-blank-' + i);
+        if (input) {
+            input.classList.remove('correct', 'wrong');
+            const val = input.value.trim().toLowerCase();
+            const correct = input.getAttribute('data-correct');
+            if (val === correct) {
+                input.classList.add('correct');
+                score++;
+            } else {
+                input.classList.add('wrong');
+            }
+        }
+    }
+    const fb = document.getElementById('was-were-feedback');
+    fb.style.display = 'inline-block';
+    fb.textContent = `النتيجة: ${score} / 8`;
+    if (score === 8) {
+        fb.className = 'fb correct';
+        speak('Amazing! Correct was and were usage.');
+        conf();
+    } else {
+        fb.className = 'fb wrong';
+        speak('Check your was or were fields and try again.');
+    }
+}
+
+// VALIDATE PARAGRAPH BLANKS IN LESSON 3
+function checkParagraphBlanks(event) {
+    if (event) event.stopPropagation();
+    let score = 0;
+    for (let i = 1; i <= 10; i++) {
+        const input = document.getElementById('p-blank-' + i);
+        if (input) {
+            input.classList.remove('correct', 'wrong');
+            const val = input.value.trim().toLowerCase();
+            const correct = input.getAttribute('data-correct');
+            if (val === correct) {
+                input.classList.add('correct');
+                score++;
+            } else {
+                input.classList.add('wrong');
+            }
+        }
+    }
+    const fb = document.getElementById('paragraph-feedback');
+    fb.style.display = 'inline-block';
+    fb.textContent = `النتيجة: ${score} / 10`;
+    if (score === 10) {
+        fb.className = 'fb correct';
+        speak('Excellent! All blanks are correct.');
+        conf();
+    } else {
+        fb.className = 'fb wrong';
+        speak('Some answers are incorrect. Try again.');
+    }
+}
+
+// PROGRESS
+const progress = new Array(7).fill(false);
+function mark(idx) {
+    progress[idx] = true;
+    const completed = progress.filter(p => p).length;
+    const pct = Math.round((completed / progress.length) * 100);
+    document.getElementById('prog').textContent = pct + '%';
+    
+    const tocItem = document.getElementById('t' + idx);
+    if(tocItem) tocItem.classList.add('done');
+    
+    if(pct === 100) {
+        conf();
+        alert("🎉 مبارك! لقد أتممت جميع دروس الوحدة الأولى بنسبة 100%!");
+    }
+}
+
+function conf() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+}
+
+// MATCHING GAME FOR ORDINALS
+let ordLeft = null;
+let ordRight = null;
+function selectMatchOrdinal(id) {
+    const isLeft = ['1st', '2nd', '3rd', '20th'].includes(id);
+    const element = document.getElementById('m-' + id);
+    if (isLeft) {
+        if (ordLeft) document.getElementById('m-' + ordLeft).classList.remove('selected');
+        ordLeft = id;
+    } else {
+        if (ordRight) document.getElementById('m-' + ordRight).classList.remove('selected');
+        ordRight = id;
+    }
+    element.classList.add('selected');
+    
+    if (ordLeft && ordRight) {
+        const matches = {
+            '1st': 'first',
+            '2nd': 'second',
+            '3rd': 'third',
+            '20th': 'twentieth'
+        };
+        const feedback = document.getElementById('matching-feedback');
+        if (matches[ordLeft] === ordRight) {
+            feedback.textContent = 'أحسنت! مطابقة صحيحة 🎉';
+            feedback.className = 'fb correct';
+            document.getElementById('m-' + ordLeft).classList.add('correct');
+            document.getElementById('m-' + ordRight).classList.add('correct');
+            speak(ordRight);
+            conf();
+        } else {
+            feedback.textContent = 'حاول مرة أخرى ❌';
+            feedback.className = 'fb wrong';
+            const l = ordLeft;
+            const r = ordRight;
+            setTimeout(() => {
+                document.getElementById('m-' + l).classList.remove('selected');
+                document.getElementById('m-' + r).classList.remove('selected');
+            }, 800);
+        }
+        ordLeft = null;
+        ordRight = null;
+    }
+}
+
+// MEMORY GAME
+const memWords = [
+    { text: 'afraid', pair: '😨' },
+    { text: 'brilliant', pair: '🌟' },
+    { text: 'dangerous', pair: '⚠️' },
+    { text: 'naughty', pair: '😈' },
+    { text: 'surprised', pair: '😲' },
+    { text: 'terrible', pair: '🤮' }
+];
+let memCardsList = [];
+let memFlipped = [];
+let flipsCount = 0;
+let matchesCount = 0;
+
+function buildMemory() {
+    const grid = document.getElementById('mem-grid');
+    grid.innerHTML = '';
+    memCardsList = [];
+    memFlipped = [];
+    flipsCount = 0;
+    matchesCount = 0;
+    
+    document.getElementById('mem-flips').textContent = flipsCount;
+    document.getElementById('mem-matches').textContent = matchesCount;
+    
+    let deck = [];
+    memWords.forEach(w => {
+        deck.push({ val: w.text, label: w.text, type: 'word' });
+        deck.push({ val: w.text, label: w.pair, type: 'pair' });
+    });
+    
+    deck.sort(() => Math.random() - 0.5);
+    
+    deck.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'mem-card';
+        card.innerHTML = `
+            <div class="mem-inner">
+                <div class="mem-front">❓</div>
+                <div class="mem-back">${item.label}</div>
+            </div>
+        `;
+        card.onclick = () => flipMem(card, item);
+        grid.appendChild(card);
+        memCardsList.push(card);
+    });
+}
+
+function flipMem(card, item) {
+    if (card.classList.contains('flipped') || card.classList.contains('matched') || memFlipped.length >= 2) return;
+    
+    card.classList.add('flipped');
+    memFlipped.push({ card, item });
+    
+    if (memFlipped.length === 2) {
+        flipsCount++;
+        document.getElementById('mem-flips').textContent = flipsCount;
+        
+        const first = memFlipped[0];
+        const second = memFlipped[1];
+        
+        if (first.item.val === second.item.val) {
+            first.card.classList.add('matched');
+            second.card.classList.add('matched');
+            matchesCount++;
+            document.getElementById('mem-matches').textContent = matchesCount;
+            memFlipped = [];
+            speak(first.item.val);
+            if(matchesCount === 6) conf();
+        } else {
+            setTimeout(() => {
+                first.card.classList.remove('flipped');
+                second.card.classList.remove('flipped');
+                memFlipped = [];
+            }, 1000);
+        }
+    }
+}
+
+// BALLOON GAME
+const balloonQs = [
+    { q: "What's the opposite of dangerous?", ans: "safe", opts: ["safe", "afraid", "naughty", "terrible"] },
+    { q: "How do we write 1st in word form?", ans: "first", opts: ["first", "second", "third", "twenty"] },
+    { q: "Which item is school supply?", ans: "backpack", opts: ["backpack", "guitar", "playground", "aunt"] },
+    { q: "I always help my friends. I am...", ans: "nice", opts: ["nice", "naughty", "afraid", "terrible"] },
+    { q: "Whose car is this? It's my...", ans: "uncle's", opts: ["uncle's", "backpack", "brilliant", "second"] },
+    { q: "Ordinal number for 3:", ans: "3rd", opts: ["3rd", "1st", "2nd", "20th"] },
+    { q: "Frequency adverb for 100%:", ans: "always", opts: ["always", "usually", "sometimes", "never"] },
+    { q: "Past tense of is:", ans: "was", opts: ["was", "were", "are", "been"] }
+];
+const colorsList = ["#4f46e5", "#10b981", "#f43f5e", "#f59e0b"];
+let bScore = 0;
+let bRound = 0;
+let bInterval = null;
+
+function startBalloon() {
+    bScore = 0;
+    bRound = 0;
+    document.getElementById('balloon-score').textContent = bScore;
+    nextBalloonRound();
+}
+
+function nextBalloonRound() {
+    const arena = document.getElementById('balloon-arena');
+    arena.innerHTML = '';
+    if (bInterval) clearInterval(bInterval);
+    
+    if (bRound >= balloonQs.length) {
+        document.getElementById('balloon-q-text').textContent = '🏆 انتهت اللعبة!';
+        document.getElementById('balloon-q-ar').textContent = `نقاطك: ${bScore} من 8`;
+        if (bScore >= 6) conf();
+        return;
+    }
+    
+    const q = balloonQs[bRound];
+    document.getElementById('balloon-q-text').textContent = q.q;
+    document.getElementById('balloon-q-ar').textContent = 'اختر البالونة الصحيحة بالضغط عليها:';
+    
+    const shuffledOpts = [...q.opts].sort(() => Math.random() - 0.5);
+    
+    shuffledOpts.forEach((opt, i) => {
+        const b = document.createElement('div');
+        b.className = 'balloon';
+        b.style.left = `${10 + i * 22}%`;
+        b.style.setProperty('--color', colorsList[i % colorsList.length]);
+        b.style.setProperty('--dur', '7s');
+        
+        b.innerHTML = `
+            <div class="balloon-body">
+                <div class="balloon-text">${opt}</div>
+            </div>
+            <div class="balloon-string"></div>
+        `;
+        
+        b.onclick = () => {
+            if (opt === q.ans) {
+                bScore++;
+                speak('Correct!');
+            } else {
+                speak('Oops!');
+            }
+            document.getElementById('balloon-score').textContent = bScore;
+            bRound++;
+            nextBalloonRound();
+        };
+        arena.appendChild(b);
+    });
+}
+</script>
+</body>
+</html>

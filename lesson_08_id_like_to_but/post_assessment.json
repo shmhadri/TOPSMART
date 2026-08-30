@@ -1,0 +1,52 @@
+[
+  {
+    "q": "I'd like to try painting, but I don't know ______.",
+    "choices": [
+      "how",
+      "what",
+      "where",
+      "who"
+    ],
+    "ans": "how"
+  },
+  {
+    "q": "I'd like to play tennis, but I have no ______.",
+    "choices": [
+      "racket",
+      "ball",
+      "court",
+      "partner"
+    ],
+    "ans": "racket"
+  },
+  {
+    "q": "I'd like to try falconing, but I have no ______.",
+    "choices": [
+      "falcon",
+      "eagle",
+      "hawk",
+      "bird"
+    ],
+    "ans": "falcon"
+  },
+  {
+    "q": "Which is correct?",
+    "choices": [
+      "I'd like to play tennis, but I have no racket.",
+      "I'd like to play tennis, and I have no racket.",
+      "I'd like to play tennis, so I have no racket.",
+      "I'd like to play tennis but."
+    ],
+    "ans": "I'd like to play tennis, but I have no racket."
+  },
+  {
+    "q": "Complete: I'd like to try photography, but I have no ______.",
+    "choices": [
+      "camera",
+      "phone",
+      "film",
+      "lens"
+    ],
+    "ans": "camera"
+  }
+]

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منشئ تقرير الاستراتيجيات الرسمي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --success: #10b981;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --tr: .25s ease
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 80px;
+    font-size: 17px;
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.tlogo {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+}
+.tlogo span {
+    color: var(--accent);
+}
+.btn-c {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--tr);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
+}
+.btn-accent:hover {
+    background: #059669;
+}
+
+/* PAGE WRAPPER */
+.main-wrap {
+    max-width: 1200px;
+    margin: 95px auto 40px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 30px;
+}
+
+@media (max-width: 900px) {
+    .main-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* LEFT SIDE: THE REPORT PAPER */
+.report-paper-container {
+    background: #78909c; /* Soft board look behind sheet */
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: var(--radius);
+    overflow-x: auto;
+}
+.report-sheet {
+    background: #fff;
+    width: 800px;
+    min-height: 1120px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+    color: #0f172a;
+}
+
+/* REPORT HEADER */
+.rep-header {
+    background: linear-gradient(135deg, #00796b, #004d40);
+    color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.rep-header-right {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 800;
+}
+.rep-header-center {
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 24px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+.rep-header-center h1 {
+    font-size: 20px;
+    font-weight: 900;
+}
+.rep-header-left {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* INPUT BOXES */
+.rep-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+.rep-field {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    position: relative;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.rep-field label {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #00796b;
+}
+.rep-input {
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: #374151;
+    margin-top: 4px;
+}
+.rep-input:focus {
+    outline: none;
+}
+
+.rep-field-full {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.rep-field-full label {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #00796b;
+}
+
+/* CONTENT BLOCKS GRID */
+.rep-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.rep-block {
+    border: 2px solid #b2dfdb;
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+.rep-block label {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #fff;
+    padding: 0 6px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #00796b;
+}
+
+/* CHECKBOXES LIST */
+.tools-checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.check-item input {
+    width: 16px;
+    height: 16px;
+    accent-color: #00796b;
+}
+
+/* WITNESSES BOX */
+.witness-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.witness-card {
+    border: 2px dashed #b2dfdb;
+    border-radius: 8px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+.witness-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.witness-upload-btn {
+    font-size: 13px;
+    font-weight: 800;
+    color: #00796b;
+    text-align: center;
+}
+
+/* SIGNATURES */
+.rep-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 20px;
+}
+.sig-block {
+    text-align: center;
+    width: 200px;
+}
+.sig-title {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+.sig-name {
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 6px;
+}
+
+/* RIGHT SIDE: CONTROL PANEL & AUTOFILL templates */
+.control-panel {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.panel-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+.select-input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    font-weight: 700;
+    color: var(--text);
+}
+
+@media print {
+    body {
+        background: #fff;
+    }
+    .topbar, .control-panel, .btn-c, .rep-block button {
+        display: none !important;
+    }
+    .main-wrap {
+        grid-template-columns: 1fr;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .report-paper-container {
+        padding: 0 !important;
+        background: none !important;
+    }
+    .report-sheet {
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div>
+    <a href="index.html" class="btn-c btn-primary">↩️ العودة للرئيسية</a>
+  </div>
+</nav>
+
+<div class="main-wrap">
+  <!-- LEFT: REPORT PAPER -->
+  <div class="report-paper-container">
+    <div class="report-sheet" id="report-sheet-element">
+      
+      <!-- Ministry header -->
+      <div class="rep-header">
+        <div class="rep-header-right">
+          <div contenteditable="true">وزارة التعليم</div>
+          <div contenteditable="true">الإدارة العامة للتعليم بالمنطقة الشمالية</div>
+          <div contenteditable="true">مكتب التعليم</div>
+        </div>
+        <div class="rep-header-center">
+          <h1 contenteditable="true">نموذج تنفيذ استراتيجية مختصرة</h1>
+        </div>
+        <div class="rep-header-left">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span contenteditable="true">المدرسة:</span>
+            <input type="text" class="rep-input" value="مدرسة أسامة بن زيد" style="background:transparent; color:#fff; width:150px">
+          </div>
+        </div>
+      </div>
+
+      <!-- Field Grid 1 -->
+      <div class="rep-grid-3">
+        <div class="rep-field">
+          <label contenteditable="true">الاستراتيجية</label>
+          <input type="text" class="rep-input" id="rep-strategy" value="عجلة الأسماء والتعلم التفاعلي" style="margin-bottom: 2px;">
+          <select onchange="document.getElementById('rep-strategy').value = this.value" style="border:none; background:transparent; font-size:11px; color:#00796b; font-weight:bold; cursor:pointer; outline:none;">
+            <option value="عجلة الأسماء والتعلم التفاعلي">-- اختر استراتيجية --</option>
+            <option value="عجلة الأسماء والتعلم التفاعلي">عجلة الأسماء والتعلم التفاعلي</option>
+            <option value="استراتيجية الطالب السري">استراتيجية الطالب السري</option>
+            <option value="التعلم المبني على حل المشكلات">التعلم المبني على حل المشكلات</option>
+            <option value="العصف الذهني">العصف الذهني</option>
+            <option value="التعلم باللعب">التعلم باللعب</option>
+            <option value="الكرسي الساخن">الكرسي الساخن</option>
+            <option value="الرؤوس المرقمة">الرؤوس المرقمة</option>
+            <option value="أوراق العمل التفاعلية">أوراق العمل التفاعلية</option>
+          </select>
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">المادة</label>
+          <input type="text" class="rep-input" id="rep-subject" value="اللغة الإنجليزية">
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">تاريخ التنفيذ</label>
+          <input type="text" class="rep-input" id="rep-date" value="">
+        </div>
+      </div>
+
+      <div class="rep-grid-3">
+        <div class="rep-field">
+          <label contenteditable="true">المرحلة الدراسية</label>
+          <input type="text" class="rep-input" id="rep-stage" value="الصف الثاني الابتدائي">
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">الفصل</label>
+          <input type="text" class="rep-input" id="rep-class" value="جميع الفصول">
+        </div>
+        <div class="rep-field">
+          <label contenteditable="true">عدد المستفيدين</label>
+          <input type="text" class="rep-input" id="rep-count" value="30 طالب">
+        </div>
+      </div>
+
+      <!-- Lesson -->
+      <div class="rep-field-full">
+        <label contenteditable="true">اسم الدرس</label>
+        <input type="text" class="rep-input" id="rep-lesson" value="Feelings - Lesson 1: Greetings">
+      </div>
+
+      <!-- Objectives & Tools -->
+      <div class="rep-content-grid">
+        <div class="rep-block">
+          <label contenteditable="true">أهداف الدرس</label>
+          <textarea class="rep-input" style="flex:1; resize:none;" id="rep-objectives">1. تهيئة أذهان الطلاب وجذب انتباههم عبر العصف الذهني.
+2. تفعيل المشاركة العشوائية للطلاب دون تحيز.
+3. التقييم الفوري للفهم والنطق السليم للكلمات.
+4. ممارسة المحادثة بشكل تفاعلي ومميز في الحصة.</textarea>
+        </div>
+        
+        <div class="rep-block">
+          <label contenteditable="true">الوسائل والأدوات المستخدمة</label>
+          <div class="tools-checklist" id="tools-checklist">
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">سبورة ذكية</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">بطاقات تعليمية</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">أوراق عمل</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">عرض تقديمي</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">جهاز عرض</span></label>
+            <label class="check-item"><input type="checkbox" checked> <span contenteditable="true">جهاز حاسب</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">صور توضيحية</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">أدوات رياضية</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">كتاب مدرسي</span></label>
+            <label class="check-item"><input type="checkbox"> <span contenteditable="true">سبورة تقليدية</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Participants list & Witnesses -->
+      <div class="rep-content-grid">
+        <div class="rep-block">
+          <label contenteditable="true">الطلاب المشاركون في الاستراتيجية</label>
+          <textarea class="rep-input" style="flex:1; resize:none; min-height:150px;" id="rep-participants" placeholder="اكتب أسماء الطلاب المشاركين يدوياً هنا..."></textarea>
+        </div>
+        
+        <div class="rep-block" style="min-height:auto">
+          <label contenteditable="true">صور الشواهد والأدلة</label>
+          <div class="witness-row">
+            <label class="witness-card">
+              <input type="file" accept="image/*" style="display:none" onchange="previewWitness(this, 'witness-img-1')">
+              <img id="witness-img-1" style="display:none">
+              <div class="witness-upload-btn" id="witness-txt-1">📸 الشاهد الأول<br><span style="font-size:11px; opacity:0.7">اضغط للرفع</span></div>
+            </label>
+            <label class="witness-card">
+              <input type="file" accept="image/*" style="display:none" onchange="previewWitness(this, 'witness-img-2')">
+              <img id="witness-img-2" style="display:none">
+              <div class="witness-upload-btn" id="witness-txt-2">📸 الشاهد الثاني<br><span style="font-size:11px; opacity:0.7">اضغط للرفع</span></div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signatures -->
+      <div class="rep-footer" style="flex-wrap: wrap; gap: 15px;">
+        <div class="sig-block">
+          <div class="sig-title" contenteditable="true">اسم المعلم المنفذ</div>
+          <input type="text" class="rep-input" value="تركي فهد خالد" style="text-align:center;">
+        </div>
+        <div class="sig-block">
+          <div class="sig-title" contenteditable="true">قائد / مدير المدرسة</div>
+          <input type="text" class="rep-input" value="سلطان الفيصل" style="text-align:center;">
+        </div>
+        <div class="sig-block">
+          <div class="sig-title" contenteditable="true">اسم آخر (دور آخر)</div>
+          <input type="text" class="rep-input" value="المشرف التربوي" style="text-align:center;">
+        </div>
+        
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 15px; border-top: 1px dashed #e2e8f0; padding-top: 10px;">
+          <div style="font-size:14px; font-weight:700; color:var(--text-muted); display:flex; align-items:center; gap:8px;">
+            <span contenteditable="true">🐦 حساب تويتر:</span>
+            <input type="text" class="rep-input" value="" placeholder="اكتب حساب تويتر هنا..." style="width:220px; text-align:right;">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT: CONTROLS & AUTOFILL -->
+  <div class="control-panel">
+    <div class="panel-title">⚙️ إدارة وتحميل التقرير</div>
+    
+    <!-- Autofill templates -->
+    <div class="form-group">
+      <label>📖 تعبئة تلقائية لبيانات درس محدد:</label>
+      <select class="select-input" onchange="autofillLesson(this.value)">
+        <option value="">-- اختر درس لتعبئة الأهداف تلقائياً --</option>
+        
+        <!-- Grade 6 - Unit 1 (Living Things) -->
+        <optgroup label="الصف السادس - الوحدة 1: الكائنات الحية (Living Things)">
+          <option value="g6u1l1">الدرس 1: كائنات العالم والحشرات (Tiny Insects & Dinosaurs - Page 10)</option>
+          <option value="g6u1l2">الدرس 2: أنشودة الكائنات (Creatures Chant - Page 11)</option>
+          <option value="g6u1l3">الدرس 3: المبني للمجهول (Passive Voice - Pages 12-13)</option>
+          <option value="g6u1l4">الدرس 4: قصة حديقة المرح (Fun Park Story - Page 14)</option>
+          <option value="g6u1l5">الدرس 5: مركز حماية البيئة وجمل Where (Pages 16-17)</option>
+        </optgroup>
+
+        <!-- Grade 3 - Unit 1 -->
+        <optgroup label="الصف الثالث - الوحدة 1: التعارف (It's Nice to Meet You!)">
+          <option value="g3u1l1">الدرس 1: وقت التحدث (Talk Time - Greetings & Intro)</option>
+        </optgroup>
+
+        <!-- Unit 1 -->
+        <optgroup label="الصف الثاني - الوحدة 1: المشاعر (Feelings)">
+          <option value="u1l1">الدرس 1: التحيات والترحيب (Greetings)</option>
+          <option value="u1l2">الدرس 2: الأعداد الترتيبية (Ordinal Numbers)</option>
+          <option value="u1l3">الدرس 3: مفردات المشاعر (Feelings Vocab)</option>
+          <option value="u1l4">الدرس 4: الحروف الهجائية والأصوات (Phonics)</option>
+        </optgroup>
+
+        <!-- Unit 2 -->
+        <optgroup label="الوحدة 2: ملابسنا (Things We Wear)">
+          <option value="u2l1">الدرس 1: الملابس والملكية (Whose is this?)</option>
+          <option value="u2l2">الدرس 2: الأعداد الترتيبية والأشهر (Ordinal & Months)</option>
+          <option value="u2l3">الدرس 3: مفردات الملابس (Clothes Vocab)</option>
+          <option value="u2l4">الدرس 4: صوتيات sh و sk (Phonics)</option>
+        </optgroup>
+
+        <!-- Unit 3 -->
+        <optgroup label="الوحدة 3: أفعالنا (Things We Do)">
+          <option value="u3l1">الدرس 1: السؤال عن الأفعال الحالية (What are you doing?)</option>
+          <option value="u3l2">الدرس 2: الأعداد الترتيبية وأفعال الحركة (Action Line)</option>
+          <option value="u3l3">الدرس 3: مفردات الأفعال (Actions Vocab)</option>
+          <option value="u3l4">الدرس 4: صوتيات اللاحقة ng (Phonics)</option>
+        </optgroup>
+
+        <!-- Unit 4 -->
+        <optgroup label="الوحدة 4: الطبيعة الجميلة (Beautiful Nature)">
+          <option value="u4l1">الدرس 1: التحدث عن الطبيعة (Beautiful Nature)</option>
+          <option value="u4l2">الدرس 2: الأعداد الترتيبية وعناصر الطبيعة (Nature Line)</option>
+          <option value="u4l3">الدرس 3: مفردات الطبيعة (Nature Vocab)</option>
+          <option value="u4l4">الدرس 4: صوتيات tr و fl (Phonics)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <!-- Export buttons -->
+    <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+      <button class="btn-c btn-primary" onclick="exportReportPDF()" style="justify-content:center;">📥 تصدير التقرير PDF</button>
+      <button class="btn-c btn-accent" onclick="exportReportPNG()" style="justify-content:center;">🖼️ تصدير التقرير كصورة PNG</button>
+      <button class="btn-c" onclick="window.print()" style="justify-content:center; border:2px solid var(--border); background:#fff;">🖨️ طباعة التقرير مباشرة</button>
+    </div>
+  </div>
+</div>
+
+<!-- LIBRARIES -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+// Objectives and Lessons Database
+const lessonDatabase = {
+    g6u1l1: {
+        stage: "الصف السادس الابتدائي",
+        lesson: "Unit 1: Living Things - Lesson 1: Tiny Insects & Dinosaurs (Page 10)",
+        objectives: "1. أن يتعرف الطالب على مفردات الحشرات والكائنات (butterfly, beetle, wing, heavy, extinct, tortoise).\n2. التمييز بين الكائنات الحية والمنقرضة وخصائصها الحيوية.\n3. تطبيق استراتيجية فكر-زاوج-شارك وممارسة نطق الكلمات وترتيب حروفها بدقة."
+    },
+    g6u1l2: {
+        stage: "الصف السادس الابتدائي",
+        lesson: "Unit 1: Living Things - Lesson 2: Creatures Chant (Page 11)",
+        objectives: "1. قراءة وترديد أنشودة الكائنات (Creatures Chant) بطلاقة وإيقاع سليم.\n2. التمييز بين بيئات الكائنات المختلفة (land, trees, sky, sea).\n3. ممارسة المحادثة والسؤال عن الكائن المفضل وسبب تفضيله."
+    },
+    g6u1l3: {
+        stage: "الصف السادس الابتدائي",
+        lesson: "Unit 1: Living Things - Lesson 3: Passive Voice (Pages 12-13)",
+        objectives: "1. استيعاب صياغة المبني للمجهول في زمن المضارع البسيط (is/are + V3).\n2. تحويل الجمل من معلوم إلى مجهول (Insects are eaten by beetles).\n3. التعرف على جهود حماية الحيوانات المهددة بالانقراض كالنمر العربي."
+    },
+    g6u1l4: {
+        stage: "الصف السادس الابتدائي",
+        lesson: "Unit 1: Living Things - Lesson 4: Fun Park Story (Page 14)",
+        objectives: "1. قراءة واستيعاب أحداث قصة حديقة المرح (In the Fun Park).\n2. التمييز بين الحيوانات الأليفة والبرية واستخدام النفي المناسب.\n3. تمثيل الحوار الصفي بين أولي وآمبر بثقة وطلاقة."
+    },
+    g6u1l5: {
+        stage: "الصف السادس الابتدائي",
+        lesson: "Unit 1: Living Things - Lesson 5: Conservation Center & Where Clauses (Pages 16-17)",
+        objectives: "1. التعرف على دور مراكز حماية الحياة الفطرية ومفرداتها (camel, eagle, nest, octopus, swan).\n2. تكوين الجمل المكانية باستخدام Where (The jungle is where tigers hunt).\n3. المشاركة في الألعاب اللغوية التفاعلية بالصف."
+    },
+    g3u1l1: {
+        lesson: "الصف الثالث - Unit 1 - Lesson 1: Talk Time (Greetings & Intro)",
+        objectives: "1. يتدرب الطالب على تقديم نفسه بالإنجليزية نطقاً وكتابة.\n2. التعرف على السؤال عن العمر ومكان السكن (How old are you? Where do you live?).\n3. ممارسة الحوار والتعارف بشكل تفاعلي وممتع وصحيح."
+    },
+    u1l1: {
+        lesson: "Unit 1 - Lesson 1: Talk Time (Greetings)",
+        objectives: "1. يتدرب الطالب على تقديم نفسه وإلقاء التحية بالإنجليزية.\n2. التعرف على السؤال عن الاسم (What's your name?).\n3. ممارسة التحية الصباحية بشكل سليم ونطق صحيح."
+    },
+    u1l2: {
+        lesson: "Unit 1 - Lesson 2: Rhythms & Listening (Ordinal Numbers)",
+        objectives: "1. أن يعد الطالب الأرقام الترتيبية من 1st إلى 10th.\n2. أن يتعرف على استخدام الأعداد في الطابور الدراسي.\n3. التدرب على الاستماع وتحديد الترتيب الصحيح."
+    },
+    u1l3: {
+        lesson: "Unit 1 - Lesson 3: Words (Feelings Vocabulary)",
+        objectives: "1. التعرف على كلمات المشاعر (happy, sad, scared, hungry, thirsty, sleepy).\n2. استخدام السؤال والجواب (How are you? I'm happy).\n3. ممارسة المحادثة للتعبير عن حالة الطالب."
+    },
+    u1l4: {
+        lesson: "Unit 1 - Lesson 4: Phonics (Letter Sounds)",
+        objectives: "1. تمييز أصوات الحروف الهجائية الإنجليزية.\n2. قراءة الكلمات البسيطة المعتمدة على صوتيات الوحدة الأولى.\n3. نطق وتهجئة الكلمات بشكل صحيح."
+    },
+    u2l1: {
+        lesson: "Unit 2 - Lesson 1: Talk Time (Whose is this?)",
+        objectives: "1. السؤال عن ملكية الأشياء باستخدام (Whose is this?).\n2. استخدام صفات الملكية البسيطة (It's mine / It's yours).\n3. تمييز السؤال والاستجابة له في الفصل."
+    },
+    u2l2: {
+        lesson: "Unit 2 - Lesson 2: Rhythms & Listening (Ordinal & Months)",
+        objectives: "1. الربط بين الأعداد الترتيبية وأشهر السنة الـ 12.\n2. نطق وترتيب أشهر السنة بالتفصيل.\n3. الاستماع ومطابقة الشهر بالرقم الترتيبي."
+    },
+    u2l3: {
+        lesson: "Unit 2 - Lesson 3: Words (Clothes Vocabulary)",
+        objectives: "1. التعرف على أسماء الملابس (cap, jacket, T-shirt, skirt, shoes).\n2. ممارسة التعبير عن الملابس المرتداة حالياً.\n3. حفظ تهجئة الكلمات الجديدة ونطقها بشكل جيد."
+    },
+    u2l4: {
+        lesson: "Unit 2 - Lesson 4: Phonics (sh vs sk)",
+        objectives: "1. التمييز بين صوت المقطع sh وصوت المقطع sk في النطق.\n2. إعطاء أمثلة لكلمات تبدأ بـ sh و sk (مثل: shoe, sky).\n3. تهجئة الكلمات وقراءتها بطريقة سليمة."
+    },
+    u3l1: {
+        lesson: "Unit 3 - Lesson 1: Talk Time (What are you doing?)",
+        objectives: "1. استخدام صيغة المضارع المستمر للسؤال عن الأفعال الحالية.\n2. الإجابة بنشاط محدد (I'm playing / I'm reading).\n3. التفاعل مع الزملاء وممارسة الأفعال في الصف."
+    },
+    u3l2: {
+        lesson: "Unit 3 - Lesson 2: Rhythms & Listening (Action Line)",
+        objectives: "1. تتبع خطوات الأفعال الحركية في الفصل الدراسي.\n2. مطابقة الأعداد الترتيبية مع تسلسل الأفعال.\n3. التدرب على الاستماع وتنفيذ التعليمات الحركية."
+    },
+    u3l3: {
+        lesson: "Unit 3 - Lesson 3: Words (Actions Vocabulary)",
+        objectives: "1. حفظ مفردات الأفعال الشائعة (cooking, eating, drinking, sleeping).\n2. التعبير عن الأنشطة اليومية باستخدام الجمل البسيطة.\n3. التقييم السريع للنطق والربط بالرموز."
+    },
+    u3l4: {
+        lesson: "Unit 3 - Lesson 4: Phonics (Ending ng)",
+        objectives: "1. نطق صوت المقطع النهائي ng (مثل: ring, sing).\n2. قراءة وتهجئة الكلمات المنتهية بـ ng.\n3. تمييز الحروف الصوتية المصاحبة لها."
+    },
+    u4l1: {
+        lesson: "Unit 4 - Lesson 1: Talk Time (Beautiful Nature)",
+        objectives: "1. التحدث عن عناصر البيئة الطبيعية المحيطة بجمال.\n2. التعبير عن الإعجاب بالطبيعة (Look at the flower).\n3. المشاركة الإيجابية في وصف عناصر البيئة."
+    },
+    u4l2: {
+        lesson: "Unit 4 - Lesson 2: Rhythms & Listening (Nature Line)",
+        objectives: "1. تحديد أسماء الكائنات في مسار الطبيعة.\n2. ترتيب عناصر الطبيعة باستخدام الأعداد الترتيبية.\n3. الاستماع ومطابقة الصوت بالصورة المناسبة للطبيعة."
+    },
+    u4l3: {
+        lesson: "Unit 4 - Lesson 3: Words (Nature Vocabulary)",
+        objectives: "1. التعرف على كلمات الطبيعة (tree, flower, cloud, sun).\n2. التعبير عن حالة الطقس وعناصر الطبيعة ببساطة.\n3. حفظ تهجئة ونطق كلمات الوحدة بشكل سليم."
+    },
+    u4l4: {
+        lesson: "Unit 4 - Lesson 4: Phonics (tr vs fl)",
+        objectives: "1. التمييز في النطق والاستماع بين بادئة tr وبادئة fl.\n2. قراءة الكلمات مثل (tree, flower, frog, truck) بطلاقة.\n3. ربط الأصوات بالحروف وتطبيق التهجئة الصحيحة."
+    }
+};
+
+// INITIALIZE DATE
+setReportDate();
+
+function setReportDate() {
+    const today = new Date();
+    const days = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
+    const dayName = days[today.getDay()];
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const dateStr = today.toLocaleDateString('ar-SA', options) + "هـ" + ` - (${dayName})`;
+    document.getElementById("rep-date").value = dateStr;
+}
+
+// AUTOFILL FUNCTION
+function autofillLesson(lessonKey) {
+    if (!lessonKey || !lessonDatabase[lessonKey]) return;
+    
+    const db = lessonDatabase[lessonKey];
+    document.getElementById("rep-lesson").value = db.lesson;
+    document.getElementById("rep-objectives").value = db.objectives;
+}
+
+// PREVIEW WITNESS IMAGE
+function previewWitness(input, imgId) {
+    const file = input.files[0];
+    if(file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById(imgId);
+            img.src = e.target.result;
+            img.style.display = 'block';
+            
+            // Hide text
+            const card = img.parentElement;
+            const txt = card.querySelector(".witness-upload-btn");
+            if(txt) txt.style.display = 'none';
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+// EXPORT PDF
+function exportReportPDF() {
+    const element = document.getElementById("report-sheet-element");
+    
+    // Temporary styling overrides for print fit
+    const style = document.createElement("style");
+    style.id = "print-pdf-style";
+    style.innerHTML = `
+        #report-sheet-element {
+            width: 780px !important;
+            padding: 30px !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        .rep-input {
+            border-bottom: 1px solid #00796b !important;
+        }
+        .rep-block {
+            border: 2px solid #00796b !important;
+        }
+        select {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    const opt = {
+        margin:       [0.2, 0.2, 0.2, 0.2],
+        filename:     `Strategy_Report_${new Date().toISOString().slice(0,10)}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    html2pdf().set(opt).from(element).save().then(() => {
+        document.getElementById("print-pdf-style").remove();
+    }).catch(err => {
+        console.error(err);
+        const s = document.getElementById("print-pdf-style");
+        if(s) s.remove();
+    });
+}
+
+// EXPORT IMAGE (PNG)
+function exportReportPNG() {
+    const element = document.getElementById("report-sheet-element");
+    
+    // Hide dropdowns briefly
+    const selects = element.querySelectorAll("select");
+    selects.forEach(s => s.style.display = 'none');
+    
+    html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff"
+    }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = `Strategy_Report_${new Date().toISOString().slice(0,10)}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        
+        // Show selects again
+        selects.forEach(s => s.style.display = 'inline-block');
+    });
+}
+</script>
+</body>
+</html>

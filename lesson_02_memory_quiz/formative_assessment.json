@@ -1,0 +1,32 @@
+[
+  {
+    "q": "What sports ______ you like?",
+    "choices": [
+      "do",
+      "does",
+      "is",
+      "are"
+    ],
+    "ans": "do"
+  },
+  {
+    "q": "Sara likes ______.",
+    "choices": [
+      "paint",
+      "painting",
+      "paints",
+      "to paint"
+    ],
+    "ans": "painting"
+  },
+  {
+    "q": "He wants ______ try golf.",
+    "choices": [
+      "to",
+      "for",
+      "at",
+      "with"
+    ],
+    "ans": "to"
+  }
+]

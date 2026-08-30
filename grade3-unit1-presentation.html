@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - الوحدة 1 - إنجليزي الصف الثالث | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/الخطأ (Danger): الأحمر الوردي #f43f5e (Rose)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    transition: background var(--tr), color var(--tr);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOPBAR */
+.topbar {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100
+}
+[data-theme=dark] .topbar {
+    background: rgba(30,41,59,.9)
+}
+.back-btn-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr)
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary)
+}
+
+.main-wrap {
+    flex: 1;
+    max-width: 960px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+/* PLAY AREA */
+.presentation-container {
+    background: #1e293b;
+    border: 4px solid var(--primary);
+    border-radius: var(--radius);
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    transition: var(--tr)
+}
+.slide-watermark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent);
+}
+.slide-emoji {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-10px) }
+}
+.slide-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+    font-family: 'Outfit', sans-serif;
+}
+.slide-subtitle {
+    font-size: 18px;
+    color: #94a3b8;
+    margin-bottom: 24px;
+    max-width: 80%
+}
+.slide-eng-box {
+    background: #273549;
+    padding: 20px 30px;
+    border-radius: var(--radius-sm);
+    font-size: 26px;
+    font-weight: 800;
+    color: #f1f5f9;
+    border-left: 5px solid var(--accent);
+    margin-bottom: 20px;
+    font-family: 'Outfit', sans-serif;
+    direction: ltr
+}
+.slide-ar-text {
+    font-size: 20px;
+    color: #38bdf8;
+    font-weight: 700
+}
+
+/* PLAYER CONTROLS */
+.player-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 24px;
+    box-shadow: var(--shadow)
+}
+.slide-indicator {
+    font-weight: 800;
+    color: var(--text);
+    font-size: 16px
+}
+.btn-control {
+    padding: 10px 20px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    border: none;
+    transition: var(--tr)
+}
+.btn-control:hover {
+    background: var(--primary-light)
+}
+.btn-control:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed
+}
+
+.lesson-selector {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 800;
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div>
+    <a href="grade3-unit1-english.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div class="tlogo">Smart<span>.</span>Learning</div>
+  <div>
+    <button class="btn-control" onclick="triggerPPTXDownload()">📥 تصدير PowerPoint PPTX</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+    <h2 style="font-size:22px; font-weight:800; color:var(--primary);">📺 مشغل الشرائح التفاعلي للصف الثالث</h2>
+    <div>
+      <select class="lesson-selector" onchange="changeLesson(parseInt(this.value))">
+        <option value="1">الدرس 1: محادثة التعارف (Finding Out)</option>
+        <option value="2">الدرس 2: أين تعيش؟ (Where do you live?)</option>
+        <option value="3">الدرس 3: قواعد عائلتي (Grammar in Action)</option>
+        <option value="4">الدرس 4: لمن هذه الملابس؟ (Whose clothes?)</option>
+        <option value="5">الدرس 5: أنشودة التهجئة (Rhythms & Reading)</option>
+        <option value="6">الدرس 6: تحدي أنشودتي (Challenge spelling)</option>
+        <option value="7">الدرس 7: صوتيات الحروف (Phonics)</option>
+        <option value="8">الدرس 8: ألعاب ومراجعة (Games & Review)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- PRESENTATION SCREEN -->
+  <div class="presentation-container" id="slide-screen">
+    <!-- Rendered dynamically by Javascript -->
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="player-controls">
+    <button class="btn-control" id="prev-btn" onclick="prevSlide()">السابق ↩️</button>
+    <div class="slide-indicator" id="slide-ind">شريحة 1 / 5</div>
+    <button class="btn-control" id="next-btn" onclick="nextSlide()">التالي ↪️</button>
+  </div>
+
+</div>
+
+<!-- ==================== LIBRARIES ==================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js"></script>
+
+<script>
+/* PRESENTATION DATA FOR GRADE 3 UNIT 1 (8 LESSONS) */
+const lessonsData = {
+    1: {
+        title: "Finding Out Time - Lesson 1",
+        slides: [
+            {
+                type: "title",
+                emoji: "🤝",
+                title: "Finding Out Time",
+                subtitle: "Unit 1: Introductions & Greetings - Lesson 1 (Page 2)",
+                arabic: "الدرس الأول: وقت التحدث والترحيب والتعارف"
+            },
+            {
+                type: "content",
+                emoji: "🧠",
+                title: "Warm-up & Dialogue",
+                english: "What's your name? ➔ My name's Hashim.",
+                arabic: "ما اسمك؟ ➔ اسمي هاشم."
+            },
+            {
+                type: "content",
+                emoji: "🎂",
+                title: "How old are you?",
+                english: "How old are you? ➔ I'm eleven years old.",
+                arabic: "كم عمرك؟ ➔ عمري إحدى عشرة سنة."
+            },
+            {
+                type: "content",
+                emoji: "📍",
+                title: "Where do you live?",
+                english: "Where do you live? ➔ I live in Jeddah.",
+                arabic: "أين تعيش؟ ➔ أعيش في جدة."
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Classroom Dialogue Game",
+                english: "Ask and greet your classmate with these 3 questions!",
+                arabic: "لعبة صفية تفاعلية: اسأل زميلك وحيّه بالأسئلة الثلاثة!"
+            }
+        ]
+    },
+    2: {
+        title: "Challenge Time: Where do you live? - Lesson 2",
+        slides: [
+            {
+                type: "title",
+                emoji: "🗺️",
+                title: "Where do you live?",
+                subtitle: "Unit 1: Challenge Time - Lesson 2 (Page 3)",
+                arabic: "الدرس الثاني: تحدي مطابقة موقع وسكن الطلاب"
+            },
+            {
+                type: "content",
+                emoji: "👦",
+                title: "Faisal in Riyadh",
+                english: "Faisal lives in Riyadh and is 12 years old.",
+                arabic: "فيصل يعيش في الرياض وعمره 12 سنة."
+            },
+            {
+                type: "content",
+                emoji: "👧",
+                title: "Noura in Medina",
+                english: "Noura lives in Medina and is 9 years old.",
+                arabic: "نورة تعيش في المدينة المنورة وعمرها 9 سنوات."
+            },
+            {
+                type: "content",
+                emoji: "👬",
+                title: "Saeed & Badr in Dammam",
+                english: "Saeed & Badr live in Dammam and are 14.",
+                arabic: "سعيد وبدر يعيشان في الدمام وعمرهما 14 سنة."
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Map Pointing Game",
+                english: "Point to the city Jeddah on the Saudi map!",
+                arabic: "لعبة تحديد المواقع: أشر إلى مدينة جدة على خارطة المملكة!"
+            }
+        ]
+    },
+    3: {
+        title: "Grammar in Action - Lesson 3",
+        slides: [
+            {
+                type: "title",
+                emoji: "🔤",
+                title: "Grammar in Action",
+                subtitle: "Unit 1: Pronouns & Family - Lesson 3 (Page 4)",
+                arabic: "الدرس الثالث: قواعد العائلة وضمائر الملكية"
+            },
+            {
+                type: "content",
+                emoji: "👩",
+                title: "Kim's Family: Mother",
+                english: "This is my mother. Her name is Jasmine.",
+                arabic: "هذه أمي. اسمها ياسمين. (ضمير Her للأنثى)"
+            },
+            {
+                type: "content",
+                emoji: "👶",
+                title: "Kim's Family: Brother",
+                english: "This is our little brother. His name is Pete.",
+                arabic: "هذا أخينا الصغير. اسمه بيت. (ضمير His للذكر)"
+            },
+            {
+                type: "content",
+                emoji: "👭",
+                title: "Sisters: Judy & Rose",
+                english: "These are my sisters. Their names are Judy and Rose.",
+                arabic: "هؤلاء أخواتي. أسماؤهن جودي وروز. (ضمير Their للجمع)"
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Pronoun Quiz Game",
+                english: "Select the correct pronoun for a boy: (His / Her)",
+                arabic: "تحدي القواعد: اختر الضمير المناسب للولد: (His / Her)"
+            }
+        ]
+    },
+    4: {
+        title: "Whose clothes are these? - Lesson 4",
+        slides: [
+            {
+                type: "title",
+                emoji: "👕",
+                title: "Whose clothes are these?",
+                subtitle: "Unit 1: Challenge Time - Lesson 4 (Page 5)",
+                arabic: "الدرس الرابع: لمن هذه الملابس؟ وقواعد الملكية"
+            },
+            {
+                type: "content",
+                emoji: "👟",
+                title: "Steve's Shoes",
+                english: "Whose shoes are these? They're Steve's. They're his.",
+                arabic: "لمن هذا الحذاء؟ إنه لستيف. إنه له."
+            },
+            {
+                type: "content",
+                emoji: "👗",
+                title: "Noura's Dress",
+                english: "Whose dress is this? It's Noura's. It's hers.",
+                arabic: "لمن هذا الفستان؟ إنه لنورة. إنه لها."
+            },
+            {
+                type: "content",
+                emoji: "🧢",
+                title: "Pete's Cap",
+                english: "Whose cap is this? It's Pete's. It's his.",
+                arabic: "لمن هذه القبعة؟ إنها لبيت. إنها له."
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Match the Owner Game",
+                english: "Whose pants are these? They are Ken's. They're his.",
+                arabic: "لعبة مطابقة الملابس بالمالك: لمن البنطال؟ كين (Ken)."
+            }
+        ]
+    },
+    5: {
+        title: "Rhythms and Reading - Lesson 5",
+        slides: [
+            {
+                type: "title",
+                emoji: "🚲",
+                title: "Rhythms and Reading",
+                subtitle: "Unit 1: Spelling Chant - Lesson 5 (Page 6)",
+                arabic: "الدرس الخامس: أنشودة وتهجئة الكلمات بالإنجليزية"
+            },
+            {
+                type: "content",
+                emoji: "🚲",
+                title: "Bicycle Spelling",
+                english: "b-i-c-y-c-l-e ➔ Bicycle",
+                arabic: "تهجئة حروف كلمة دراجة: b-i-c-y-c-l-e"
+            },
+            {
+                type: "content",
+                emoji: "💻",
+                title: "Computer Spelling",
+                english: "c-o-m-p-u-t-e-r ➔ Computer",
+                arabic: "تهجئة حروف كلمة حاسوب: c-o-m-p-u-t-e-r"
+            },
+            {
+                type: "content",
+                emoji: "🎵",
+                title: "Listen and Chant",
+                english: "I have a b, You have an i, He has a c, She has a y...",
+                arabic: "استمع وأنشد: حروف كلمة دراجة في النشيد."
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Spelling Air-writing Game",
+                english: "Write 'Bicycle' in the air with your finger!",
+                arabic: "لعبة الكتابة في الهواء: اكتب كلمة Bicycle بأصبعك!"
+            }
+        ]
+    },
+    6: {
+        title: "Challenge Time: Spelling - Lesson 6",
+        slides: [
+            {
+                type: "title",
+                emoji: "✏️",
+                title: "Spelling Challenge",
+                subtitle: "Unit 1: Spelling - Lesson 6",
+                arabic: "الدرس السادس: تحدي تهجئة الكلمات من نشيد الحاسوب"
+            },
+            {
+                type: "content",
+                emoji: "💻",
+                title: "Complete the letters",
+                english: "If you have u-t-e-r, then you write: Computer.",
+                arabic: "أكمل الحروف: إذا كان لديك u-t-e-r، فستكتب: Computer."
+            },
+            {
+                type: "content",
+                emoji: "🚴",
+                title: "Bicycle check",
+                english: "If you have c-l-e, then you write: Bicycle.",
+                arabic: "أكمل الحروف للدراجة: c-l-e."
+            },
+            {
+                type: "content",
+                emoji: "📝",
+                title: "Spelling rules",
+                english: "We chant and spell step by step.",
+                arabic: "قواعد التهجئة: نتهجى الحروف خطوة بخطوة بالإنجليزية."
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Speed Spelling Match",
+                english: "Spell the word 'Computer' as fast as you can!",
+                arabic: "تحدي تهجئة الكلمات السريع: تهجى كلمة Computer بأسرع ما يمكن!"
+            }
+        ]
+    },
+    7: {
+        title: "Phonics - Lesson 7",
+        slides: [
+            {
+                type: "title",
+                emoji: "🗣️",
+                title: "Phonics Sounds",
+                subtitle: "Unit 1: Phonics - Lesson 7 (Page 8)",
+                arabic: "الدرس السابع: أصوات الحروف المتشابهة وحالات المد"
+            },
+            {
+                type: "content",
+                emoji: "🧀",
+                title: "ea vs ee Sounds",
+                english: "ea: meat, read | ee: meet, cheese",
+                arabic: "الأصوات الطويلة: اللحم والقراءة (ea) مقابل المقابلة والجبن (ee)."
+            },
+            {
+                type: "content",
+                emoji: "🍚",
+                title: "i_e vs ie Sounds",
+                english: "i_e: rice, pine | ie: pie, tie",
+                arabic: "حالات مد حرف الـ i: أرز وصنوبر (i_e) مقابل فطيرة وربطة عنق (ie)."
+            },
+            {
+                type: "content",
+                emoji: "🌧️",
+                title: "ai vs ay Sounds",
+                english: "ai: rain, train | ay: play, day",
+                arabic: "حالات مد حرف الـ a: مطر وقطار (ai) مقابل لعب ويوم (ay)."
+            },
+            {
+                type: "game",
+                emoji: "💡",
+                title: "Advice Time (وقت النصيحة)",
+                english: "\"Show me your friend and I'll tell you who you are.\"",
+                arabic: "نصيحة الوحدة الأولى: قل لي من صديقك، أقل لك من أنت."
+            }
+        ]
+    },
+    8: {
+        title: "Phonics Challenge - Lesson 8",
+        slides: [
+            {
+                type: "title",
+                emoji: "🏆",
+                title: "Phonics Challenge",
+                subtitle: "Unit 1: Games & Review - Lesson 8",
+                arabic: "الدرس الثامن: مراجعة شاملة وألعاب الصوتيات والتهجئة"
+            },
+            {
+                type: "content",
+                emoji: "🧠",
+                title: "Memory Card Match",
+                english: "Match questions like 'What's your name?' with answers.",
+                arabic: "مطابقة أسئلة التعارف والترحيب بالردود المناسبة."
+            },
+            {
+                type: "content",
+                emoji: "🎈",
+                title: "Balloon Popping challenge",
+                english: "Pop the balloon with the correct answer for points.",
+                arabic: "فرقعة بالون الإجابة الصحيحة لحصد نقاط التميز."
+            },
+            {
+                type: "content",
+                emoji: "📝",
+                title: "Final Quiz prep",
+                english: "Ready for the unit final quiz? Let's check!",
+                arabic: "التحضير للاختبار النهائي للوحدة الأولى."
+            },
+            {
+                type: "game",
+                emoji: "🎮",
+                title: "Congratulations!",
+                english: "You completed all 8 lessons of Unit 1! Excellent!",
+                arabic: "تهانينا! لقد أتممت مذاكرة جميع دروس الوحدة الأولى بنجاح!"
+            }
+        ]
+    }
+};
+
+let currentLesson = 1;
+let currentSlideIdx = 0;
+
+function renderSlide() {
+    const lesson = lessonsData[currentLesson];
+    const slideData = lesson.slides[currentSlideIdx];
+    const screen = document.getElementById('slide-screen');
+    const ind = document.getElementById('slide-ind');
+    
+    ind.textContent = `شريحة ${currentSlideIdx + 1} / ${lesson.slides.length}`;
+    
+    document.getElementById('prev-btn').disabled = currentSlideIdx === 0;
+    document.getElementById('next-btn').disabled = currentSlideIdx === lesson.slides.length - 1;
+
+    let inner = `<div class="slide-watermark">Smart.Learning Classroom</div>`;
+    inner += `<div class="slide-emoji">${slideData.emoji}</div>`;
+    inner += `<div class="slide-title">${slideData.title}</div>`;
+    
+    if (slideData.type === "title") {
+        inner += `<div class="slide-subtitle">${slideData.subtitle}</div>`;
+    } else {
+        if(slideData.english) {
+            inner += `<div class="slide-eng-box">${slideData.english}</div>`;
+        }
+    }
+    
+    inner += `<div class="slide-ar-text">${slideData.arabic}</div>`;
+    screen.innerHTML = inner;
+}
+
+function nextSlide() {
+    const lesson = lessonsData[currentLesson];
+    if (currentSlideIdx < lesson.slides.length - 1) {
+        currentSlideIdx++;
+        renderSlide();
+    }
+}
+
+function prevSlide() {
+    if (currentSlideIdx > 0) {
+        currentSlideIdx--;
+        renderSlide();
+    }
+}
+
+function changeLesson(val) {
+    currentLesson = val;
+    currentSlideIdx = 0;
+    renderSlide();
+}
+
+window.onload = () => {
+    renderSlide();
+};
+
+/* DOWNLOAD DYNAMIC POWERPOINT */
+function triggerPPTXDownload() {
+    let pptx = new PptxGenJS();
+    const lesson = lessonsData[currentLesson];
+    
+    pptx.layout = 'LAYOUT_16x9';
+    
+    lesson.slides.forEach((slideData) => {
+        let slide = pptx.addSlide();
+        slide.background = { fill: "1E293B" };
+        
+        slide.addText("Smart.Learning Classroom Slides", { x: 0.5, y: 0.3, w: 9, h: 0.5, fontSize: 14, color: "10B981", bold: true });
+        
+        if (slideData.type === "title") {
+            slide.addText(slideData.emoji, { x: 0.5, y: 1.8, w: 12.3, h: 1.2, fontSize: 72, align: "center" });
+            slide.addText(slideData.title, { x: 0.5, y: 3.2, w: 12.3, h: 1.0, fontSize: 44, color: "FFFFFF", bold: true, align: "center" });
+            slide.addText(slideData.subtitle, { x: 0.5, y: 4.4, w: 12.3, h: 0.6, fontSize: 20, color: "94A3B8", align: "center" });
+            slide.addText(slideData.arabic, { x: 0.5, y: 5.2, w: 12.3, h: 0.8, fontSize: 22, color: "38BDF8", align: "center", fontFace: "Arial" });
+        } else {
+            slide.addText(slideData.emoji, { x: 0.5, y: 1.2, w: 12.3, h: 1.0, fontSize: 64, align: "center" });
+            slide.addText(slideData.title, { x: 0.5, y: 2.4, w: 12.3, h: 0.6, fontSize: 24, color: "10B981", bold: true, align: "center" });
+            
+            if (slideData.english) {
+                slide.addText(slideData.english, { 
+                    x: 1.0, y: 3.2, w: 11.3, h: 1.2, 
+                    fontSize: 32, color: "F1F5F9", bold: true, align: "center",
+                    fill: { color: "273549" }
+                });
+            }
+            
+            if (slideData.arabic) {
+                slide.addText(slideData.arabic, { x: 0.5, y: 4.8, w: 12.3, h: 0.8, fontSize: 24, color: "38BDF8", align: "center", fontFace: "Arial" });
+            }
+        }
+    });
+    
+    const safeName = `Grade3_Unit1_Lesson${currentLesson}_Presentation.pptx`;
+    pptx.writeFile({ fileName: safeName });
+}
+</script>
+</body>
+</html>
