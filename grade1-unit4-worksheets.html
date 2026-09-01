@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - الوحدة 4: الطبيعة والحيوانات - إنجليزي الصف الأول | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease;
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Tajawal', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; padding-bottom: 60px; }
+.topbar {
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.back-btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    cursor: pointer;
+}
+.tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.main-wrap { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+.sheet-card {
+    background: #ffffff;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 40px;
+    display: none;
+}
+.sheet-card.active { display: block; }
+.sheet-header-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+}
+.sheet-header-table td { padding: 4px 8px; font-size: 14px; font-weight: 700; }
+.bloom-badge { display: inline-block; background: #ede9fe; color: #5b21b6; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; margin-bottom: 14px; }
+.q-box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-bottom: 20px; background: #faf5ff; }
+.match-row { display: flex; align-items: center; justify-content: space-between; background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; font-weight: 700; margin-bottom: 8px; }
+.sheet-actions { display: flex; gap: 12px; margin-top: 24px; padding-top: 16px; border-top: 1px dashed #cbd5e1; }
+.btn-act { padding: 10px 20px; border-radius: 8px; font-weight: 800; border: none; cursor: pointer; color: #fff; }
+.btn-check { background: var(--primary); }
+.btn-print { background: var(--accent); }
+.btn-word { background: #2563eb; }
+.feedback-box { margin-top: 16px; padding: 12px; border-radius: 8px; font-weight: 800; display: none; }
+.feedback-box.correct { display: block; background: #dcfce7; color: #166534; }
+.feedback-box.wrong { display: block; background: #ffe4e6; color: #9f1239; }
+
+@media print {
+    .topbar, .tabs-nav, .sheet-actions, .feedback-box { display: none !important; }
+    .sheet-card { display: block !important; border: none; padding: 0; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div>
+    <a href="grade1-unit4-english.html" class="back-btn-top">↩️ العودة للدروس التفاعلية</a>
+  </div>
+  <div style="font-weight:900; font-size:18px; color:var(--primary);">Smart<span>.</span>Learning | أوراق عمل الوحدة 4 (الصف الأول)</div>
+  <div>
+    <button class="back-btn-top" onclick="window.print()">🖨️ طباعة A4</button>
+  </div>
+</nav>
+
+<div class="tabs-nav">
+  <button class="tab-btn active" onclick="sw(0)">📝 ورقة 1: عناصر الطبيعة</button>
+  <button class="tab-btn" onclick="sw(1)">📝 ورقة 2: حيوانات المزرعة والطبيعة</button>
+  <button class="tab-btn" onclick="sw(2)">📝 ورقة 3: مقارنة الأحجام (Big / Small)</button>
+  <button class="tab-btn" onclick="sw(3)">📝 ورقة 4: أصوات الحروف N-T</button>
+  <button class="tab-btn" onclick="sw(4)">📝 ورقة 5: رسم وتلوين الطبيعة</button>
+</div>
+
+<div class="main-wrap">
+
+  <!-- SHEET 1 -->
+  <div class="sheet-card active" id="s0">
+    <table class="sheet-header-table">
+      <tr>
+        <td>المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td style="text-align:center;"><h2>ورقة عمل: عناصر الطبيعة (Nature Objects)</h2><span>الوحدة 4: Beautiful Nature | We Can 1</span></td>
+        <td style="text-align:left;">اسم الطالب: ......................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): التذكر والتحديد (Remembering)</div>
+    <div class="q-box">
+      <div style="font-weight:800; margin-bottom:12px;">السؤال: طابق رمز الطبيعة بالكلمة الإنجليزية الصحيحة:</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="match-row"><span>🌳 (شجرة)</span><select id="q1_1"><option value="">اختر</option><option value="tree">Tree</option><option value="sun">Sun</option></select></div>
+        <div class="match-row"><span>☀️ (شمس)</span><select id="q1_2"><option value="">اختر</option><option value="sun">Sun</option><option value="star">Star</option></select></div>
+        <div class="match-row"><span>🌸 (زهرة)</span><select id="q1_3"><option value="">اختر</option><option value="flower">Flower</option><option value="tree">Tree</option></select></div>
+        <div class="match-row"><span>⭐ (نجمة)</span><select id="q1_4"><option value="">اختر</option><option value="star">Star</option><option value="sun">Sun</option></select></div>
+      </div>
+    </div>
+    <div class="feedback-box" id="fb0"></div>
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk1()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="dlWord('ورقة 1: عناصر الطبيعة')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 2 -->
+  <div class="sheet-card" id="s1">
+    <table class="sheet-header-table">
+      <tr>
+        <td>المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td style="text-align:center;"><h2>ورقة عمل: حيوانات الطبيعة (Animals)</h2><span>الوحدة 4: Beautiful Nature | We Can 1</span></td>
+        <td style="text-align:left;">اسم الطالب: ......................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): الفهم والاستيعاب (Understanding)</div>
+    <div class="q-box">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="match-row"><span>🐱 (قطة)</span><select id="q2_1"><option value="">اختر</option><option value="cat">Cat</option><option value="dog">Dog</option></select></div>
+        <div class="match-row"><span>🐶 (كلب)</span><select id="q2_2"><option value="">اختر</option><option value="dog">Dog</option><option value="bird">Bird</option></select></div>
+        <div class="match-row"><span>🐦 (طائر)</span><select id="q2_3"><option value="">اختر</option><option value="bird">Bird</option><option value="duck">Duck</option></select></div>
+        <div class="match-row"><span>🦆 (بطة)</span><select id="q2_4"><option value="">اختر</option><option value="duck">Duck</option><option value="cat">Cat</option></select></div>
+      </div>
+    </div>
+    <div class="feedback-box" id="fb1"></div>
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk2()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="dlWord('ورقة 2: حيوانات الطبيعة')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 3 -->
+  <div class="sheet-card" id="s2">
+    <table class="sheet-header-table">
+      <tr>
+        <td>المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td style="text-align:center;"><h2>ورقة عمل: مقارنة الأحجام (Big vs Small)</h2><span>الوحدة 4: Beautiful Nature | We Can 1</span></td>
+        <td style="text-align:left;">اسم الطالب: ......................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): التطبيق (Applying)</div>
+    <div class="q-box">
+      <div class="match-row"><span>An elephant is ............ 🐘</span><select id="q3_1"><option value="">اختر</option><option value="big">big (كبير)</option><option value="small">small</option></select></div>
+      <div class="match-row"><span>A mouse is ............ 🐭</span><select id="q3_2"><option value="">اختر</option><option value="small">small (صغير)</option><option value="big">big</option></select></div>
+    </div>
+    <div class="feedback-box" id="fb2"></div>
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk3()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="dlWord('ورقة 3: مقارنة الأحجام')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 4 -->
+  <div class="sheet-card" id="s3">
+    <table class="sheet-header-table">
+      <tr>
+        <td>المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td style="text-align:center;"><h2>ورقة عمل: أصوات الحروف (Phonics N-T)</h2><span>الوحدة 4: Beautiful Nature | We Can 1</span></td>
+        <td style="text-align:left;">اسم الطالب: ......................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): التقويم والتمييز (Evaluating)</div>
+    <div class="q-box">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="match-row"><span>Nn</span><select id="q4_1"><option value="">اختر</option><option value="n">Nut 🥜</option><option value="o">Octopus 🐙</option></select></div>
+        <div class="match-row"><span>Oo</span><select id="q4_2"><option value="">اختر</option><option value="o">Octopus 🐙</option><option value="p">Pencil ✏️</option></select></div>
+        <div class="match-row"><span>Pp</span><select id="q4_3"><option value="">اختر</option><option value="p">Pencil ✏️</option><option value="r">Rabbit 🐰</option></select></div>
+        <div class="match-row"><span>Rr</span><select id="q4_4"><option value="">اختر</option><option value="r">Rabbit 🐰</option><option value="s">Sun ☀️</option></select></div>
+        <div class="match-row"><span>Ss</span><select id="q4_5"><option value="">اختر</option><option value="s">Sun ☀️</option><option value="t">Tree 🌳</option></select></div>
+        <div class="match-row"><span>Tt</span><select id="q4_6"><option value="">اختر</option><option value="t">Tree 🌳</option><option value="n">Nut 🥜</option></select></div>
+      </div>
+    </div>
+    <div class="feedback-box" id="fb3"></div>
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk4()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="dlWord('ورقة 4: أصوات الحروف N-T')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 5 -->
+  <div class="sheet-card" id="s4">
+    <table class="sheet-header-table">
+      <tr>
+        <td>المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td style="text-align:center;"><h2>ورقة عمل: حديقة الحيوانات والطبيعة (Creative Safari)</h2><span>الوحدة 4: Beautiful Nature | We Can 1</span></td>
+        <td style="text-align:left;">اسم الطالب: ......................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): الابتكار والإبداع (Creating)</div>
+    <div class="q-box" style="text-align:center;">
+      <div style="font-weight:800; margin-bottom:12px;">ارسم حيوانك المفضل وشجرة وزهرة ولونها بألوانك المبهجة:</div>
+      <div style="border:2px dashed #94a3b8; height:200px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#64748b; background:#fff;">
+        🎨 ارسم منظر الطبيعة الجميل هنا 🌳🌸🐱
+      </div>
+    </div>
+    <div class="sheet-actions">
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="dlWord('ورقة 5: حديقة الحيوانات والطبيعة')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function sw(idx) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+    document.querySelectorAll('.sheet-card').forEach((s, i) => s.classList.toggle('active', i === idx));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function chk1() {
+    const ok = document.getElementById('q1_1').value === 'tree' && document.getElementById('q1_2').value === 'sun' && document.getElementById('q1_3').value === 'flower' && document.getElementById('q1_4').value === 'star';
+    const fb = document.getElementById('fb0');
+    fb.className = ok ? 'feedback-box correct' : 'feedback-box wrong';
+    fb.innerHTML = ok ? '🎉 إجابات صحيحة 100%! تم التعرف على عناصر الطبيعة.' : '⚠️ راجع الإجابات.';
+}
+function chk2() {
+    const ok = document.getElementById('q2_1').value === 'cat' && document.getElementById('q2_2').value === 'dog' && document.getElementById('q2_3').value === 'bird' && document.getElementById('q2_4').value === 'duck';
+    const fb = document.getElementById('fb1');
+    fb.className = ok ? 'feedback-box correct' : 'feedback-box wrong';
+    fb.innerHTML = ok ? '🎉 رائع جداً! تم التعرف على حيوانات الطبيعة بدقة.' : '⚠️ راجع الإجابات.';
+}
+function chk3() {
+    const ok = document.getElementById('q3_1').value === 'big' && document.getElementById('q3_2').value === 'small';
+    const fb = document.getElementById('fb2');
+    fb.className = ok ? 'feedback-box correct' : 'feedback-box wrong';
+    fb.innerHTML = ok ? '🎉 ممتاز! الفيل كبير Big والفأر صغير Small.' : '⚠️ راجع الإجابات.';
+}
+function chk4() {
+    const ok = document.getElementById('q4_1').value === 'n' && document.getElementById('q4_2').value === 'o' && document.getElementById('q4_3').value === 'p' && document.getElementById('q4_4').value === 'r' && document.getElementById('q4_5').value === 's' && document.getElementById('q4_6').value === 't';
+    const fb = document.getElementById('fb3');
+    fb.className = ok ? 'feedback-box correct' : 'feedback-box wrong';
+    fb.innerHTML = ok ? '🎉 ممتاز جداً! تم إتقان الحروف N إلى T بنجاح كامل!' : '⚠️ راجع الحروف والكلمات.';
+}
+function dlWord(title) {
+    const header = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>${title}</title><style>body{font-family:Tahoma; direction:rtl; text-align:right;} table{width:100%; border-collapse:collapse;} td,th{border:1px solid #999; padding:8px;}</style></head><body>`;
+    const content = `<table><tr><td>المملكة العربية السعودية<br>وزارة التعليم</td><td style='text-align:center; font-weight:bold;'>${title}<br>الصف الأول الابتدائي</td><td>اسم الطالب: ..........</td></tr></table><h3>الوحدة 4: Beautiful Nature & Animals</h3>`;
+    const blob = new Blob(['\ufeff' + header + content + '</body></html>'], { type: 'application/msword' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${title} - الصف الأول.doc`; a.click();
+}
+</script>
+</body>
+</html>

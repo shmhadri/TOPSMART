@@ -572,6 +572,87 @@
             transform: rotate(-180deg);
         }
 
+        /* ── LOCKED & OPEN UNITS STYLES ── */
+        .unit-item.open-unit {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.04), #ffffff);
+        }
+        .unit-item.open-unit:hover {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(79, 70, 229, 0.04));
+        }
+        .unit-item.locked {
+            opacity: 0.65;
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            cursor: not-allowed;
+            filter: grayscale(0.2);
+        }
+        .unit-item.locked:hover {
+            transform: none;
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+        .unit-item.locked .unit-icon {
+            background: #e2e8f0;
+            color: #64748b;
+            border-color: #cbd5e1;
+            font-size: 16px;
+        }
+        .unit-item.locked:hover .unit-icon {
+            background: #cbd5e1;
+            color: #334155;
+            border-color: #94a3b8;
+        }
+        .unit-status-badge {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-right: 8px;
+        }
+        .badge-open {
+            background: rgba(16, 185, 129, 0.15);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .badge-locked {
+            background: rgba(100, 116, 139, 0.12);
+            color: #64748b;
+            border: 1px solid rgba(100, 116, 139, 0.25);
+        }
+        .grade-stage-badge.soon {
+            background: rgba(245, 158, 11, 0.15);
+            color: #d97706;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .locked-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1e293b;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            z-index: 99999;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            text-align: center;
+            direction: rtl;
+        }
+        .locked-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
 
 
         /* ==========================================================================
@@ -827,6 +908,23 @@
            -------------------------------------------------------------------------- */
         const gradesData = [
             {
+                id: "primary-1",
+                name: "الصف الأول الابتدائي",
+                stage: "primary",
+                stageName: "الابتدائي",
+                icon: "🎒",
+                terms: [
+                    {
+                        name: "الفصل الدراسي الأول",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    },
+                    {
+                        name: "الفصل الدراسي الثاني",
+                        units: ["الوحدة الأولى", "الوحدة الثانية", "الوحدة الثالثة", "الوحدة الرابعة"]
+                    }
+                ]
+            },
+            {
                 id: "primary-2",
                 name: "الصف الثاني الابتدائي",
                 stage: "primary",
@@ -1075,8 +1173,18 @@
                 const card = document.createElement('div');
                 card.className = 'grade-card';
                 card.setAttribute('onclick', `selectGrade('${grade.id}')`);
+
+                const isPrimary = grade.stage === 'primary';
+                const stageBadgeHtml = isPrimary 
+                    ? `<div class="grade-stage-badge">${grade.stageName} • متاح ف1 ✨</div>`
+                    : `<div class="grade-stage-badge soon">${grade.stageName} • 🔒 سيطور قريباً</div>`;
+
+                const metaUnitsHtml = isPrimary
+                    ? `<span>الوحدة 1 مفتوحة • 3 مقفلة 🔒</span>`
+                    : `<span>🔒 سيطور قريباً</span>`;
+
                 card.innerHTML = `
-                    <div class="grade-stage-badge">${grade.stageName}</div>
+                    ${stageBadgeHtml}
                     <div class="grade-icon-wrapper">${grade.icon}</div>
                     <div class="grade-info">
                         <h3>${grade.name}</h3>
@@ -1093,7 +1201,7 @@
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                             </svg>
-                            <span>8 وحدات تعليمية</span>
+                            ${metaUnitsHtml}
                         </div>
                     </div>
                 `;
@@ -1127,12 +1235,99 @@
 
             // ملء بيانات تفاصيل الصف
             document.getElementById('detailGradeName').innerText = grade.name;
-            document.getElementById('detailGradeStage').innerText = `المرحلة الدراسية: ${grade.stageName}`;
+            const isPrimary = grade.stage === 'primary';
+            document.getElementById('detailGradeStage').innerHTML = isPrimary 
+                ? `المرحلة الدراسية: ${grade.stageName} <span style="background:rgba(16,185,129,0.15); color:#059669; padding:2px 8px; border-radius:10px; font-size:12px; margin-right:6px; font-weight:800;">الوحدة الأولى متاحة بالكامل ✨</span>`
+                : `المرحلة الدراسية: ${grade.stageName} <span style="background:rgba(245,158,11,0.15); color:#d97706; padding:2px 8px; border-radius:10px; font-size:12px; margin-right:6px; font-weight:800;">🔒 سيطور قريباً</span>`;
             document.getElementById('detailIcon').innerText = grade.icon;
 
             // إنشاء كروت الفصول والوحدات
             const termsContainer = document.getElementById('termsContainer');
             termsContainer.innerHTML = '';
+
+            // إذا كان الصف الأول الابتدائي، أضف شريط الشروحات المرئية يوتيوب وحل كتاب النشاط المعتمد
+            if (gradeId === "primary-1") {
+                const g1HubBanner = document.createElement('div');
+                g1HubBanner.style.cssText = 'grid-column: 1 / -1; display:flex; flex-direction:column; gap:14px; margin-bottom: 12px;';
+                g1HubBanner.innerHTML = `
+                    <!-- شريط شروحات يوتيوب المباشرة لكل درس -->
+                    <div style="background:linear-gradient(135deg, rgba(255,0,0,0.08), rgba(79,70,229,0.06)); border:2px solid rgba(255,0,0,0.3); border-radius:16px; padding:18px 24px; box-shadow:var(--shadow-md);">
+                        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="width:42px; height:42px; border-radius:10px; background:#ff0000; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 10px rgba(255,0,0,0.3);">🎬</div>
+                                <div>
+                                    <h4 style="font-size:17px; font-weight:800; margin:0; color:var(--text-primary);">شروحات الفيديو المعتمدة لدروس الصف الأول (YouTube)</h4>
+                                    <span style="font-size:12px; color:var(--text-light); font-weight:600;">اختر الدرس لمشاهدة الشرح التفاعلي للوحدات:</span>
+                                </div>
+                            </div>
+                            <span style="background:rgba(255,0,0,0.12); color:#dc2626; font-size:12px; font-weight:800; padding:4px 10px; border-radius:20px;">الوحدة الأولى مفتوحة 📺</span>
+                        </div>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
+                            <a href="https://youtu.be/zcACcnRYNik?si=uWZNR7vGmk_34ysQ" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">1</span>
+                                <span>الدرس 1: Talk Time (My Friends) ↗</span>
+                            </a>
+                            <a href="https://youtu.be/LsV7JZBGQOM?si=hSx4YIUkuLtCROOA" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">2</span>
+                                <span>الدرس 2: Rhythms & Sounds ↗</span>
+                            </a>
+                            <a href="https://youtu.be/T6MJdhGGzVY?si=HiQ0o3cMESpEi7Zd" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">3</span>
+                                <span>الدرس 3: Words in Action (Colors) ↗</span>
+                            </a>
+                            <a href="https://youtu.be/Jz5Jx_krhlY?si=yYH-Y962KVJ17Gz7" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">4</span>
+                                <span>الدرس 4: Phonics (Alphabet Chant) ↗</span>
+                            </a>
+                        </div>
+                        <!-- شريط ألعاب Wordwall التفاعلية -->
+                        <div style="margin-top:14px; padding-top:12px; border-top:1px dashed rgba(2,132,199,0.3); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <span style="font-size:20px;">🎮</span>
+                                <span style="font-size:13px; font-weight:800; color:var(--text-primary);">أنشطة وألعاب Wordwall التفاعلية للصف الأول:</span>
+                            </div>
+                            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                                <a href="https://wordwall.net/ar/resource/26103918/we-can-1-u2-my-body/review-we-can-1" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0284c7, #0369a1); color:#fff; padding:6px 14px; border-radius:30px; font-size:12px; font-weight:800; text-decoration:none; box-shadow:0 2px 8px rgba(2,132,199,0.3);">
+                                    <span>🎮 لعبة مراجعة الدرس 1 ↗</span>
+                                </a>
+                                <a href="https://wordwall.net/ar/resource/23852647?wwmethod=link" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #eab308, #ca8a04); color:#fff; padding:6px 14px; border-radius:30px; font-size:12px; font-weight:800; text-decoration:none; box-shadow:0 2px 8px rgba(234,179,8,0.35);">
+                                    <span>🎨 لعبة درس الألوان (Colors) ↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بانرات حلول كتاب الطالب وكتاب النشاط المعتمدة للصف الأول -->
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+                        <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%A7%D9%88%D9%84-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7%D9%84/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg, rgba(79,70,229,0.1), rgba(99,102,241,0.04)); border:2px solid rgba(79,70,229,0.35); border-radius:16px; padding:16px 20px; text-decoration:none; color:var(--text-primary); transition:all 0.3s ease; box-shadow:var(--shadow-md);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                            <div style="display:flex; align-items:center; gap:14px;">
+                                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, var(--primary), var(--primary-light)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 12px rgba(79,70,229,0.3); flex-shrink:0;">📘</div>
+                                <div>
+                                    <span style="display:inline-block; font-size:11px; font-weight:800; color:var(--primary); background:rgba(79,70,229,0.12); padding:2px 8px; border-radius:6px; margin-bottom:3px;">حل معتمد 💯 • واجباتي</span>
+                                    <h4 style="font-size:15px; font-weight:800; margin:0; color:var(--text-primary);">حل كتاب الطالب <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:var(--primary);">(Student's Book)</bdi></h4>
+                                </div>
+                            </div>
+                            <div style="display:inline-flex; align-items:center; gap:4px; background:var(--primary); color:#fff; font-size:13px; font-weight:800; padding:8px 14px; border-radius:20px; box-shadow:0 3px 10px rgba(79,70,229,0.25); white-space:nowrap; flex-shrink:0;">
+                                <span>فتح الحلول ↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D9%86%D8%B4%D8%A7%D8%B7-%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%A7%D9%88%D9%84-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.04)); border:2px solid rgba(16,185,129,0.35); border-radius:16px; padding:16px 20px; text-decoration:none; color:var(--text-primary); transition:all 0.3s ease; box-shadow:var(--shadow-md);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                            <div style="display:flex; align-items:center; gap:14px;">
+                                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, #10b981, #059669); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 12px rgba(16,185,129,0.3); flex-shrink:0;">📗</div>
+                                <div>
+                                    <span style="display:inline-block; font-size:11px; font-weight:800; color:#059669; background:rgba(16,185,129,0.12); padding:2px 8px; border-radius:6px; margin-bottom:3px;">حل معتمد 💯 • واجباتي</span>
+                                    <h4 style="font-size:15px; font-weight:800; margin:0; color:var(--text-primary);">حل كتاب النشاط <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:#059669;">(Workbook)</bdi></h4>
+                                </div>
+                            </div>
+                            <div style="display:inline-flex; align-items:center; gap:4px; background:#10b981; color:#fff; font-size:13px; font-weight:800; padding:8px 14px; border-radius:20px; box-shadow:0 3px 10px rgba(16,185,129,0.25); white-space:nowrap; flex-shrink:0;">
+                                <span>فتح الحلول ↗</span>
+                            </div>
+                        </a>
+                    </div>
+                `;
+                termsContainer.appendChild(g1HubBanner);
+            }
 
             // إذا كان الصف الثاني الابتدائي، أضف شريط الشروحات المرئية يوتيوب وحل كتاب النشاط المعتمد
             if (gradeId === "primary-2") {
@@ -1149,7 +1344,7 @@
                                     <span style="font-size:12px; color:var(--text-light); font-weight:600;">اختر الدرس لمشاهدة الشرح النموذجي مباشرة:</span>
                                 </div>
                             </div>
-                            <span style="background:rgba(255,0,0,0.12); color:#dc2626; font-size:12px; font-weight:800; padding:4px 10px; border-radius:20px;">4 شروحات فيديو 📺</span>
+                            <span style="background:rgba(255,0,0,0.12); color:#dc2626; font-size:12px; font-weight:800; padding:4px 10px; border-radius:20px;">الوحدة الأولى مفتوحة 📺</span>
                         </div>
                         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
                             <a href="https://youtu.be/nyEadoOe6Rk?si=lCq36-2h-hJTOZe3" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
@@ -1210,28 +1405,43 @@
                 // توليد كود وحدات الفصل
                 let unitsHtml = '';
                 term.units.forEach((unit, uIndex) => {
-                    let iconContent = uIndex + 1;
-                    if (unit === "مقدمة" || unit === "مقدمة وترحيب") {
-                        iconContent = "👋";
-                    } else if (unit.includes("الوحدة الأولى")) {
-                        iconContent = "1";
-                    } else if (unit.includes("الوحدة الثانية")) {
-                        iconContent = "2";
-                    } else if (unit.includes("الوحدة الثالثة")) {
-                        iconContent = "3";
-                    } else if (unit.includes("الوحدة الرابعة")) {
-                        iconContent = "4";
+                    // تحديد هل الوحدة مفتوحة أم مقفلة
+                    const isTerm1 = index === 0;
+                    const isIntro = (unit === "مقدمة" || unit === "مقدمة وترحيب");
+                    const isUnit1 = unit.includes("الوحدة الأولى");
+                    
+                    // الشرط المعتمد: فقط الوحدة الأولى ومقدمة المنهج للصفوف الابتدائية في الفصل الأول مفتوحة
+                    const isUnitOpen = isPrimary && isTerm1 && (isIntro || isUnit1);
+
+                    let iconContent = isUnitOpen ? (isIntro ? "👋" : "1") : "🔒";
+                    let itemClass = isUnitOpen ? "unit-item open-unit" : "unit-item locked";
+                    let badgeHtml = '';
+
+                    if (isUnitOpen) {
+                        badgeHtml = `<span class="unit-status-badge badge-open">متاحة الآن ✨</span>`;
+                    } else if (!isPrimary) {
+                        badgeHtml = `<span class="unit-status-badge badge-locked">🔒 سيطور قريباً</span>`;
+                    } else if (!isTerm1) {
+                        badgeHtml = `<span class="unit-status-badge badge-locked">🔒 ف2 قريباً</span>`;
+                    } else {
+                        badgeHtml = `<span class="unit-status-badge badge-locked">🔒 مقفلة حالياً</span>`;
                     }
+
+                    const actionBtnIcon = isUnitOpen 
+                        ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`
+                        : `<span style="font-size:12px;">🔒</span>`;
+
                     unitsHtml += `
-                        <div class="unit-item" onclick="showUnitDetail('${grade.name}', '${term.name}', '${unit}', event)">
+                        <div class="${itemClass}" onclick="showUnitDetail('${grade.name}', '${term.name}', '${unit}', ${isUnitOpen}, event)">
                             <div class="unit-content">
                                 <div class="unit-icon">${iconContent}</div>
-                                <span class="unit-name">${unit}</span>
+                                <div>
+                                    <span class="unit-name">${unit}</span>
+                                    ${badgeHtml}
+                                </div>
                             </div>
-                            <button class="unit-action-btn" aria-label="عرض المحتوى">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
+                            <button class="unit-action-btn" aria-label="${isUnitOpen ? 'عرض المحتوى' : 'مقفلة'}">
+                                ${actionBtnIcon}
                             </button>
                         </div>
                     `;
@@ -1306,35 +1516,57 @@
         }
 
         // تفاعل تفصيلي للضغط على وحدة دراسية
-        function showUnitDetail(gradeName, termName, unitName, event) {
+        function showUnitDetail(gradeName, termName, unitName, isUnitOpen, event) {
             if (event) event.stopPropagation();
-            if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+
+            // فحص القفل: إذا كانت الوحدة مقفلة
+            if (!isUnitOpen) {
+                if (gradeName.includes("المتوسط") || gradeName.includes("الثانوي")) {
+                    showLockedToast(`🔒 مناهج المرحلة (${gradeName}) سيتم تطويرها وإتاحتها قريباً بإذن الله!`);
+                } else if (termName.includes("الثاني")) {
+                    showLockedToast(`🔒 وحدات الفصل الدراسي الثاني مقفلة حالياً وسيتم فتحها مع بداية الفصل الثاني.`);
+                } else {
+                    showLockedToast(`🔒 هذه الوحدة مقفلة حالياً. الوحدات المفتوحة والمتاحة الآن هي (الوحدة الأولى ومقدمة المنهج).`);
+                }
+                return;
+            }
+
+            // الوحدات المفتوحة المعتمدة:
+            if (gradeName === "الصف الأول الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
+                window.location.href = "grade1-unit1-english.html";
+            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
                 window.location.href = "unit1-english.html";
-            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثانية") {
-                window.location.href = "unit2-english.html";
-            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثالثة") {
-                window.location.href = "unit3-english.html";
-            } else if (gradeName === "الصف الثاني الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الرابعة") {
-                window.location.href = "unit4-english.html";
             } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
                 window.location.href = "grade3-unit1-english.html";
-            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثانية") {
-                window.location.href = "grade3-unit2-english.html";
-            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الثالثة") {
-                window.location.href = "grade3-unit3-english.html";
-            } else if (gradeName === "الصف الثالث الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الرابعة") {
-                window.location.href = "grade3-unit4-english.html";
             } else if (gradeName === "الصف الرابع الابتدائي" && termName === "الفصل الدراسي الأول" && (unitName === "مقدمة" || unitName.includes("مقدمة"))) {
                 window.location.href = "grade4-welcome-english.html";
             } else if (gradeName === "الصف الرابع الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
                 window.location.href = "grade4-unit1-lessons.html";
+            } else if (gradeName === "الصف الخامس الابتدائي" && termName === "الفصل الدراسي الأول" && (unitName === "مقدمة وترحيب" || unitName.includes("مقدمة"))) {
+                window.location.href = "grade5-unit1-english.html";
             } else if (gradeName === "الصف الخامس الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
                 window.location.href = "grade5-unit1-english.html";
             } else if (gradeName === "الصف السادس الابتدائي" && termName === "الفصل الدراسي الأول" && unitName === "الوحدة الأولى") {
                 window.location.href = "grade6-unit1-english.html";
             } else {
-                alert(`مرحبًا بك في الدرس التفاعلي لـ (${unitName}) - (${termName}) - (${gradeName}).\nهنا سيتم توفير محتوى الدروس والاختبارات التفاعلية قريباً!`);
+                showLockedToast(`🔒 هذه الوحدة مقفلة حالياً.`);
             }
+        }
+
+        // إشعار القفل التفاعلي (Locked Toast)
+        function showLockedToast(msg) {
+            let toast = document.getElementById('lockedToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'lockedToast';
+                toast.className = 'locked-toast';
+                document.body.appendChild(toast);
+            }
+            toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3200);
         }
 
         // توسيع وطي قائمة الوحدات للفصل الدراسي

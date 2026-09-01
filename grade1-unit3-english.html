@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الوحدة الثالثة: أفعالنا وأنشطة الصف (Things We Do & Actions) - إنجليزي الصف الأول | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 4px 20px rgba(79, 70, 229, 0.06);
+    --shadow-lg: 0 10px 30px rgba(79, 70, 229, 0.12);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease;
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    font-size: 18px;
+    transition: background var(--tr), color var(--tr);
+}
+a { color: inherit; text-decoration: none; }
+button, select { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    gap: 8px;
+}
+[data-theme=dark] .topbar { background: rgba(15,23,42,.96); }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-left { display: flex; align-items: center; gap: 10px; }
+
+.back-btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff !important;
+    border-color: var(--primary);
+}
+.tlogo { font-size: 20px; font-weight: 900; color: var(--primary); }
+.tlogo span { color: var(--accent); }
+
+.main-wrap {
+    display: flex;
+    max-width: 1300px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+    gap: 24px;
+}
+.ls {
+    width: 280px;
+    position: sticky;
+    top: 84px;
+    height: calc(100vh - 104px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.ls-hd {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+}
+.toc {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.toc:hover, .toc.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+}
+.toc.active { border-right: 4px solid var(--primary); }
+.toc-n {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+}
+.toc.active .toc-n { background: var(--primary); color: #fff; }
+
+.lc { flex: 1; min-width: 0; }
+
+.hero {
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(16,185,129,0.06));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+}
+.hero-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+.hero h1 { font-size: 30px; font-weight: 900; margin-bottom: 8px; font-family: 'Outfit', sans-serif; }
+
+.sec {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: none;
+}
+.sec.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.sec-title { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.sec-icon { font-size: 28px; }
+.sec-title h2 { font-size: 20px; font-weight: 800; }
+
+.book-explanation-box {
+    background: rgba(79, 70, 229, 0.04);
+    border-right: 4px solid var(--primary);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+}
+.book-explanation-box h3 { font-size: 16px; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.card-item {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.card-item:hover { border-color: var(--primary); transform: translateY(-4px); background: var(--bg-card); }
+.card-emoji { font-size: 48px; margin-bottom: 6px; }
+.card-en { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 800; color: var(--primary); }
+.card-ar { font-size: 15px; font-weight: 600; color: var(--text-muted); }
+
+.dialogue-box { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.dialogue-line {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.dialogue-line:hover { border-color: var(--primary); transform: translateX(-4px); }
+
+@media (max-width: 900px) {
+    .ls { display: none; }
+    .main-wrap { margin-top: 74px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="index.html" class="back-btn-top">↩️ قائمة الصفوف</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left" style="direction: ltr;">
+    <a href="grade1-unit3-presentation.html" target="_blank" class="back-btn-top" style="border-color:var(--primary-light); color:var(--primary-light);">
+      💻 عرض PowerPoint
+    </a>
+    <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b;">
+      🎯 عجلة الأسماء
+    </a>
+    <a href="grade1-unit3-worksheets.html" target="_blank" class="back-btn-top" style="border-color:#ec4899; color:#ec4899;">
+      📝 أوراق العمل
+    </a>
+    <a href="grade1-unit3-printables.html" target="_blank" class="back-btn-top" style="border-color:#3b82f6; color:#3b82f6;">
+      🧩 وسائل ومطبوعات المعلم
+    </a>
+    <button class="back-btn-top" onclick="toggleTheme()">🌙</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <aside class="ls">
+    <div class="ls-hd">دروس الوحدة 3 (Things We Do & Actions)</div>
+    <div class="toc active" onclick="sw(0)"><span class="toc-n">1</span>الدرس 1: Talk Time (تعليمات الصف)</div>
+    <div class="toc" onclick="sw(1)"><span class="toc-n">2</span>الدرس 2: Rhythms (أفعال الحركة والنشاط)</div>
+    <div class="toc" onclick="sw(2)"><span class="toc-n">3</span>الدرس 3: Words in Action (ما أستطيع فعله)</div>
+    <div class="toc" onclick="sw(3)"><span class="toc-n">4</span>الدرس 4: Phonics (الحروف I, J, K, L, M)</div>
+    <div class="toc" onclick="sw(4)"><span class="toc-n">5</span>🎯 الألعاب والاختبار التفاعلي</div>
+    <hr style="border:none; border-top:1px solid var(--border); margin:12px 0;">
+    <a href="grade1-unit3-worksheets.html" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:700; color:#ec4899; background:rgba(236,72,153,0.06); margin-bottom:8px;">
+      📝 أوراق العمل التفاعلية
+    </a>
+    <a href="grade1-unit3-printables.html" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:700; color:#3b82f6; background:rgba(59,130,246,0.06);">
+      🧩 وسائل ومطبوعات المعلم
+    </a>
+  </aside>
+
+  <main class="lc">
+
+    <div class="hero">
+      <span class="hero-badge">إنجليزي الصف الأول الابتدائي | We Can 1</span>
+      <h1>Unit 3: Things We Do & Classroom Actions</h1>
+      <p>تعلم تنفيذ الأوامر والتعليمات الصفية والتعبير عن الأفعال الحركية والقدرات اليومية!</p>
+    </div>
+
+    <!-- LESSON 1 -->
+    <section class="sec active" id="s0">
+      <div class="sec-title">
+        <span class="sec-icon">🏫</span>
+        <h2>الدرس 1: Talk Time - تعليمات المعلم في الصف (Classroom Commands)</h2>
+      </div>
+      <div class="book-explanation-box">
+        <h3>📖 هدف الدرس:</h3>
+        <p>الاستماع إلى تعليمات الصف وتنفيذها فوراً: <b>Stand up, Sit down, Open your book, Close your book</b>.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card-item" onclick="speak('Stand up')"><div class="card-emoji">🧍‍♂️</div><div class="card-en">Stand up</div><div class="card-ar">قف</div></div>
+        <div class="card-item" onclick="speak('Sit down')"><div class="card-emoji">🪑</div><div class="card-en">Sit down</div><div class="card-ar">اجلس</div></div>
+        <div class="card-item" onclick="speak('Open your book')"><div class="card-emoji">📖</div><div class="card-en">Open your book</div><div class="card-ar">افتح كتابك</div></div>
+        <div class="card-item" onclick="speak('Close your book')"><div class="card-emoji">📕</div><div class="card-en">Close your book</div><div class="card-ar">أغلق كتابك</div></div>
+      </div>
+    </section>
+
+    <!-- LESSON 2: Rhythms -->
+    <section class="sec" id="s1">
+      <div class="sec-title">
+        <span class="sec-icon">🏃</span>
+        <h2>الدرس 2: Rhythms & Actions - أنشودة وحركات الجسد</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card-item" onclick="speak('Clap your hands')"><div class="card-emoji">👏</div><div class="card-en">Clap</div><div class="card-ar">صفّق</div></div>
+        <div class="card-item" onclick="speak('Stamp your feet')"><div class="card-emoji">👣</div><div class="card-en">Stamp</div><div class="card-ar">اضرب بقدمك</div></div>
+        <div class="card-item" onclick="speak('Jump')"><div class="card-emoji">🦘</div><div class="card-en">Jump</div><div class="card-ar">اقفز</div></div>
+        <div class="card-item" onclick="speak('Wave hello')"><div class="card-emoji">👋</div><div class="card-en">Wave</div><div class="card-ar">لوّح بيدك</div></div>
+      </div>
+    </section>
+
+    <!-- LESSON 3: Words in Action -->
+    <section class="sec" id="s2">
+      <div class="sec-title">
+        <span class="sec-icon">💪</span>
+        <h2>الدرس 3: Words in Action - التعبير عن القدرة (I can...)</h2>
+      </div>
+      <div class="dialogue-box">
+        <div class="dialogue-line" onclick="speak('I can jump high!')">
+          <div style="font-size:32px;">🦘</div>
+          <div>
+            <div style="font-weight:800; font-family:'Outfit'; font-size:18px;">I can jump! 🔊</div>
+            <div style="font-size:14px; color:var(--text-muted);">أنا أستطيع القفز!</div>
+          </div>
+        </div>
+        <div class="dialogue-line" onclick="speak('I can clap my hands!')">
+          <div style="font-size:32px;">👏</div>
+          <div>
+            <div style="font-weight:800; font-family:'Outfit'; font-size:18px;">I can clap! 🔊</div>
+            <div style="font-size:14px; color:var(--text-muted);">أنا أستطيع التصفيق!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSON 4: Phonics I-M -->
+    <section class="sec" id="s3">
+      <div class="sec-title">
+        <span class="sec-icon">🔤</span>
+        <h2>الدرس 4: Phonics - أصوات الحروف (I, J, K, L, M)</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card-item" onclick="speak('I. Ink')"><div style="font-size:32px; font-weight:900; color:var(--primary);">Ii</div><div class="card-emoji">🖋️</div><div class="card-en">Ink</div><div class="card-ar">حبر</div></div>
+        <div class="card-item" onclick="speak('J. Jam')"><div style="font-size:32px; font-weight:900; color:var(--primary);">Jj</div><div class="card-emoji">🍯</div><div class="card-en">Jam</div><div class="card-ar">مربى</div></div>
+        <div class="card-item" onclick="speak('K. Kite')"><div style="font-size:32px; font-weight:900; color:var(--primary);">Kk</div><div class="card-emoji">🪁</div><div class="card-en">Kite</div><div class="card-ar">طائرة ورقية</div></div>
+        <div class="card-item" onclick="speak('L. Lion')"><div style="font-size:32px; font-weight:900; color:var(--primary);">Ll</div><div class="card-emoji">🦁</div><div class="card-en">Lion</div><div class="card-ar">أسد</div></div>
+        <div class="card-item" onclick="speak('M. Monkey')"><div style="font-size:32px; font-weight:900; color:var(--primary);">Mm</div><div class="card-emoji">🐵</div><div class="card-en">Monkey</div><div class="card-ar">قرد</div></div>
+      </div>
+    </section>
+
+    <!-- LESSON 5: Quiz -->
+    <section class="sec" id="s4">
+      <div class="sec-title">
+        <span class="sec-icon">🎯</span>
+        <h2>الدرس 5: الاختبار التفاعلي السريع</h2>
+      </div>
+      <div style="text-align:center; padding:20px; background:var(--bg); border-radius:12px; border:1px solid var(--border);">
+        <div style="font-size:20px; font-weight:800; margin-bottom:16px;">ماذا تعني عبارة Stand up؟ 🧍‍♂️</div>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button style="padding:10px 24px; border:2px solid var(--border); border-radius:8px; font-weight:700; background:var(--bg-card);" onclick="checkAns(this, true)">قف 🧍‍♂️</button>
+          <button style="padding:10px 24px; border:2px solid var(--border); border-radius:8px; font-weight:700; background:var(--bg-card);" onclick="checkAns(this, false)">اجلس 🪑</button>
+        </div>
+        <div id="qfb" style="margin-top:16px; font-weight:800;"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function speak(text) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = 0.85;
+        window.speechSynthesis.speak(u);
+    }
+}
+function sw(idx) {
+    document.querySelectorAll('.toc').forEach((el, i) => el.classList.toggle('active', i === idx));
+    document.querySelectorAll('.sec').forEach((el, i) => el.classList.toggle('active', i === idx));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function checkAns(btn, isCorrect) {
+    const fb = document.getElementById('qfb');
+    if (isCorrect) {
+        btn.style.background = 'var(--accent)';
+        btn.style.color = '#fff';
+        fb.style.color = 'var(--accent)';
+        fb.innerHTML = '🎉 إجابة صحيحة! Stand up تعني قف.';
+        speak('Correct! Stand up!');
+    } else {
+        btn.style.background = 'var(--danger)';
+        btn.style.color = '#fff';
+        fb.style.color = 'var(--danger)';
+        fb.innerHTML = 'حاول ثانية! Stand up تعني قف، بينما Sit down تعني اجلس.';
+    }
+}
+function toggleTheme() {
+    const c = document.documentElement.getAttribute('data-theme');
+    const n = c === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+}
+</script>
+</body>
+</html>

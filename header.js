@@ -330,25 +330,42 @@ function showTermUnits(grade, term) {
     const unitsList = document.getElementById('sidebar-units-list');
     unitsList.innerHTML = '';
 
+    const isPrimary = grade.stage === 'primary';
+    const isTerm1 = term.name === 'الفصل الدراسي الأول';
+
     term.units.forEach((unit, index) => {
+        const isIntro = (unit === "مقدمة" || unit === "مقدمة وترحيب");
+        const isUnit1 = unit.includes("الوحدة الأولى");
+        const isUnitOpen = isPrimary && isTerm1 && (isIntro || isUnit1);
+
         const item = document.createElement('div');
-        item.className = 'panel-item';
+        item.className = 'panel-item' + (isUnitOpen ? '' : ' locked-panel-item');
+        if (!isUnitOpen) {
+            item.style.opacity = '0.65';
+        }
         item.onclick = (e) => {
             // إغلاق السايدبار بعد الاختيار
             toggleSidebar(false);
-            // فتح التنبيه التفاعلي للدرس
+            // فتح التنبيه التفاعلي أو صفحة الدرس
             if (typeof window.showUnitDetail === 'function') {
-                window.showUnitDetail(grade.name, term.name, unit, e);
+                window.showUnitDetail(grade.name, term.name, unit, isUnitOpen, e);
             }
         };
+
+        const iconBadge = isUnitOpen 
+            ? `<span style="color: var(--accent); font-weight: 800; margin-left: 8px;">✨</span>`
+            : `<span style="color: #94a3b8; font-size: 13px; margin-left: 8px;">🔒</span>`;
+
+        const chevron = isUnitOpen 
+            ? `<svg class="panel-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`
+            : `<span style="font-size:11px; color:#94a3b8; font-weight:700;">مقفلة 🔒</span>`;
+
         item.innerHTML = `
             <div class="panel-item-left">
-                <span style="color: var(--primary); font-weight: 700; margin-left: 8px;">•</span>
+                ${iconBadge}
                 <span>${unit}</span>
             </div>
-            <svg class="panel-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
+            ${chevron}
         `;
         unitsList.appendChild(item);
     });

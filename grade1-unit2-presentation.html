@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عرض PowerPoint التفاعلي - الوحدة 2 - إنجليزي الصف الأول | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease;
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.topbar {
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.back-btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+.main-wrap {
+    max-width: 1000px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.slide-stage {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+.slide-badge {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.15);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+}
+.slide-content-center { text-align: center; margin: auto 0; }
+.slide-title-main { font-size: clamp(28px, 4vw, 42px); font-weight: 900; margin-bottom: 12px; font-family: 'Outfit', sans-serif; }
+.slide-sub { font-size: clamp(16px, 2vw, 22px); color: #cbd5e1; font-weight: 600; }
+.slide-emoji-hero { font-size: 64px; margin-bottom: 10px; }
+.slide-footer-bar { display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; }
+.controls-bar { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 20px; gap: 12px; }
+.btn-nav { padding: 12px 24px; background: var(--primary); color: #fff; border-radius: var(--radius-sm); font-size: 15px; font-weight: 800; border: none; cursor: pointer; }
+.btn-pptx { padding: 12px 24px; background: #ea580c; color: #fff; border-radius: var(--radius-sm); font-size: 15px; font-weight: 800; border: none; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div>
+    <a href="grade1-unit2-english.html" class="back-btn-top">↩️ العودة للدرس</a>
+  </div>
+  <div style="font-weight:900; font-size:18px; color:var(--primary);">Smart<span>.</span>Learning | PowerPoint الوحدة 2 (الصف الأول)</div>
+  <div>
+    <button class="btn-pptx" onclick="exportToPPTX()">📥 تنزيل كملف PowerPoint (.pptx)</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+  <div class="slide-stage">
+    <div class="slide-badge" id="s-badge">شريحة 1 من 5</div>
+    <div class="slide-content-center">
+      <div class="slide-emoji-hero" id="s-emoji">👕</div>
+      <h1 class="slide-title-main" id="s-title">Things We Wear & Colors</h1>
+      <p class="slide-sub" id="s-sub">مرحباً بكم يا أبطال الصف الأول في عالم الملابس والألوان الجميل!</p>
+    </div>
+    <div class="slide-footer-bar">
+      <span>SmartLearning Platform</span>
+      <span id="s-indicator">1 / 5</span>
+    </div>
+  </div>
+
+  <div class="controls-bar">
+    <button class="btn-nav" onclick="prevSlide()">◀ الشريحة السابقة</button>
+    <div style="font-weight:800; font-size:16px;" id="s-counter">الشريحة 1 من 5</div>
+    <button class="btn-nav" onclick="nextSlide()">الشريحة التالية ▶</button>
+  </div>
+</div>
+
+<script>
+const slides = [
+    {
+        badge: "شريحة 1 • الترحيب والعنوان",
+        emoji: "👕",
+        title: "Unit 2: Things We Wear & Colors",
+        sub: "سنتعلم اليوم أسماء الملابس الأساسية وتسمية الألوان الإنجليزية الزاهية!",
+        speech: "Welcome to Unit 2: Things We Wear and Colors!"
+    },
+    {
+        badge: "شريحة 2 • التهيئة والتمهيد (Warm-up)",
+        emoji: "🎨",
+        title: "What color do you like?",
+        sub: "ما هو لونك المفضل؟ هل تحب الأحمر (Red 🔴) أم الأزرق (Blue 🔵)؟",
+        speech: "What color do you like? Red or Blue?"
+    },
+    {
+        badge: "شريحة 3 • الشرح والمحادثة (Talk Time)",
+        emoji: "🧢",
+        title: "What's this? - It's a cap!",
+        sub: "What are these? - They're shoes! • I'm wearing a blue shirt.",
+        speech: "What is this? It is a cap! What are these? They are shoes!"
+    },
+    {
+        badge: "شريحة 4 • التحقق السريع من الفهم (Concept Check)",
+        emoji: "❓",
+        title: "What color is 🟢?",
+        sub: "A) Green  •  B) Red  •  C) Yellow  👉 (Correct: Green!)",
+        speech: "What color is this? Green!"
+    },
+    {
+        badge: "شريحة 5 • النشاط الصفي الختامي (Classroom Game)",
+        emoji: "🎮",
+        title: "Touch the Color Game!",
+        sub: "المعلم يذكر لوناً، ويتسابق الطلاب للمس شيء بالصف يحمل ذلك اللون بسرعة!",
+        speech: "Touch something Blue in the classroom!"
+    }
+];
+
+let cur = 0;
+function updateSlide() {
+    const s = slides[cur];
+    document.getElementById('s-badge').innerText = s.badge;
+    document.getElementById('s-emoji').innerText = s.emoji;
+    document.getElementById('s-title').innerText = s.title;
+    document.getElementById('s-sub').innerText = s.sub;
+    document.getElementById('s-indicator').innerText = `${cur + 1} / ${slides.length}`;
+    document.getElementById('s-counter').innerText = `الشريحة ${cur + 1} من ${slides.length}`;
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(s.speech);
+        u.lang = 'en-US';
+        u.rate = 0.85;
+        window.speechSynthesis.speak(u);
+    }
+}
+function nextSlide() { if (cur < slides.length - 1) { cur++; updateSlide(); } }
+function prevSlide() { if (cur > 0) { cur--; updateSlide(); } }
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+});
+
+function exportToPPTX() {
+    const pptx = new PptxGenJS();
+    pptx.layout = 'LAYOUT_16x9';
+    slides.forEach((s) => {
+        const slide = pptx.addSlide();
+        slide.background = { color: '1E1B4B' };
+        slide.addText(s.badge, { x: 0.8, y: 0.5, fontSize: 14, color: 'A5B4FC', bold: true });
+        slide.addText(s.title, { x: 0.8, y: 2.2, w: 8.4, fontSize: 32, color: 'FFFFFF', bold: true, align: 'center' });
+        slide.addText(s.sub, { x: 0.8, y: 3.6, w: 8.4, fontSize: 18, color: 'CBD5E1', align: 'center' });
+    });
+    pptx.writeFile({ fileName: "الوحدة 2 - إنجليزي الصف الأول الابتدائي.pptx" });
+}
+
+updateSlide();
+</script>
+</body>
+</html>

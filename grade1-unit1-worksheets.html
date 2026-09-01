@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أوراق عمل تفاعلية - الوحدة 1: أصدقائي (My Friends) - إنجليزي الصف الأول الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #f43f5e;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --tr: .25s ease;
+}
+[data-theme=dark] {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding-bottom: 60px;
+    transition: background var(--tr), color var(--tr);
+}
+.topbar {
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+[data-theme=dark] .topbar { background: rgba(30,41,59,.92); }
+
+.back-btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: var(--tr);
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.tab-btn {
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    border: 2px solid var(--border);
+    transition: var(--tr);
+    background: var(--bg-card);
+    cursor: pointer;
+}
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.main-wrap {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.sheet-card {
+    background: #ffffff;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    display: none;
+}
+.sheet-card.active { display: block; }
+
+.sheet-header-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+}
+.sheet-header-table td {
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.school-meta { text-align: right; line-height: 1.5; }
+.sheet-title-meta { text-align: center; }
+.sheet-title-meta h2 { font-size: 20px; font-weight: 900; color: #1e1b4b; }
+.sheet-title-meta span { font-size: 13px; color: #4338ca; font-weight: 800; }
+.student-meta { text-align: left; line-height: 1.5; }
+
+.bloom-badge {
+    display: inline-block;
+    background: #ede9fe;
+    color: #5b21b6;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    border: 1px solid #c4b5fd;
+}
+
+.q-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    background: #faf5ff;
+}
+.q-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1e1b4b;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.q-score {
+    margin-right: auto;
+    font-size: 12px;
+    background: #f1f5f9;
+    padding: 2px 8px;
+    border-radius: 6px;
+    color: #475569;
+}
+
+.match-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.match-row select {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1.5px solid #94a3b8;
+    font-family: inherit;
+    font-weight: 700;
+}
+
+.sheet-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed #cbd5e1;
+    flex-wrap: wrap;
+}
+.btn-act {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    transition: var(--tr);
+}
+.btn-check { background: var(--primary); color: #fff; }
+.btn-print { background: var(--accent); color: #fff; }
+.btn-word { background: #2563eb; color: #fff; }
+
+.feedback-box {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 800;
+    display: none;
+}
+.feedback-box.correct {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+.feedback-box.wrong {
+    display: block;
+    background: #ffe4e6;
+    color: #9f1239;
+    border: 1px solid #fecdd3;
+}
+
+/* Copy button helper */
+.copy-pill {
+    cursor: pointer;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #475569;
+}
+.copy-pill:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+@media print {
+    .topbar, .tabs-nav, .sheet-actions, .feedback-box { display: none !important; }
+    .sheet-card { display: block !important; border: none; box-shadow: none; padding: 0; margin: 0; page-break-after: always; }
+    body { background: #fff; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div>
+    <a href="grade1-unit1-english.html" class="back-btn-top">↩️ العودة لدروس الوحدة 1</a>
+  </div>
+  <div style="font-weight:900; font-size:18px; color:var(--primary);">Smart<span>.</span>Learning | أوراق عمل: My Friends (الصف الأول)</div>
+  <div>
+    <button class="back-btn-top" onclick="window.print()">🖨️ طباعة A4</button>
+  </div>
+</nav>
+
+<div class="tabs-nav">
+  <button class="tab-btn active" id="tab0" onclick="sw(0)">📝 ورقة 1: محادثة التعارف (Talk Time)</button>
+  <button class="tab-btn" id="tab1" onclick="sw(1)">📝 ورقة 2: شخصيات الكتاب (لبيبة ولبيب)</button>
+  <button class="tab-btn" id="tab2" onclick="sw(2)">📝 ورقة 3: تدريب السؤال والاسم</button>
+  <button class="tab-btn" id="tab3" onclick="sw(3)">📝 ورقة 4: أصوات الحروف الأولى Aa-Dd</button>
+  <button class="tab-btn" id="tab4" onclick="sw(4)">📝 ورقة 5: بطاقة الصديق الإبداعية</button>
+</div>
+
+<div class="main-wrap">
+
+  <!-- SHEET 1: Talk Time -->
+  <div class="sheet-card active" id="s0">
+    <table class="sheet-header-table">
+      <tr>
+        <td class="school-meta">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td class="sheet-title-meta">
+          <h2>ورقة عمل: محادثة التعارف والتحيات (Talk Time)</h2>
+          <span>الوحدة 1: My Friends (أصدقائي) | We Can 1</span>
+        </td>
+        <td class="student-meta">اسم الطالب: ............................<br>الصف: الأول / .....<br>التاريخ: ..... / ..... / 1447هـ</td>
+      </tr>
+    </table>
+
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): التذكر والتحديد (Remembering)</div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الأول: اختر الترجمة العربية الصحيحة لكل عبارة من عبارات الدرس:</span>
+        <span class="q-score">3 درجات</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <div class="match-row">
+          <span>Hello 👋 <span class="copy-pill" onclick="copy('Hello')">📋 نسخ</span></span>
+          <select id="q1_1"><option value="">اختر</option><option value="c">مرحباً</option><option value="w">أهلاً</option><option value="x">ما اسمك؟</option></select>
+        </div>
+        <div class="match-row">
+          <span>Hi ✨ <span class="copy-pill" onclick="copy('Hi')">📋 نسخ</span></span>
+          <select id="q1_2"><option value="">اختر</option><option value="c">أهلاً</option><option value="w">مع السلامة</option></select>
+        </div>
+        <div class="match-row">
+          <span>What's your name? ❓</span>
+          <select id="q1_3"><option value="">اختر</option><option value="c">ما اسمك؟</option><option value="w">كيف حالك؟</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الثاني: عندما تقول لبيبة: <b>My name's Labeeba.</b> ماذا تقصد؟</span>
+        <span class="q-score">درجتان</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <label><input type="radio" name="q1_2_rad" value="1"> اسمي لبيبة 🐱</label>
+        <label><input type="radio" name="q1_2_rad" value="0"> عمري سبع سنوات 🎂</label>
+      </div>
+    </div>
+
+    <div class="feedback-box" id="fb0"></div>
+
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk1()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="downloadWord('ورقة 1: محادثة التعارف Talk Time')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 2: Characters -->
+  <!-- SHEET 2: Chants & Characters -->
+  <div class="sheet-card" id="s1">
+    <table class="sheet-header-table">
+      <tr>
+        <td class="school-meta">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td class="sheet-title-meta">
+          <h2>ورقة عمل: أناشيد وإيقاعات الدرس 2 (Rhythms & Sounds)</h2>
+          <span>الوحدة 1: My Friends (صفحة 6) | We Can 1</span>
+        </td>
+        <td class="student-meta">اسم الطالب: ............................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): الفهم والتطبيق (Understanding & Applying)</div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الأول: عندما يسألك صديقك: <b>How are you?</b> ماذا تجيب؟</span>
+        <span class="q-score">درجتان</span>
+      </div>
+      <div class="match-row">
+        <span>How are you? (كيف حالك؟)</span>
+        <select id="q2_1">
+          <option value="">اختر الإجابة</option>
+          <option value="fine">I'm fine, thank you. (أنا بخير شكراً لك)</option>
+          <option value="wrong">Goodbye</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الثاني: طابق العبارة مع معناها باللغة العربية:</span>
+        <span class="q-score">3 درجات</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <div class="match-row">
+          <span>1. I'm 🔴</span>
+          <select id="q2_2"><option value="">اختر</option><option value="im">أنا</option><option value="fine">بخير</option></select>
+        </div>
+        <div class="match-row">
+          <span>2. fine 🟠</span>
+          <select id="q2_3"><option value="">اختر</option><option value="fine">بخير</option><option value="im">أنا</option></select>
+        </div>
+        <div class="match-row">
+          <span>3. thank you 🟡</span>
+          <select id="q2_4"><option value="">اختر</option><option value="ty">شكراً لك</option><option value="bye">وداعاً</option></select>
+        </div>
+        <div class="match-row">
+          <span>4. Good-bye 👋</span>
+          <select id="q2_5"><option value="">اختر</option><option value="bye">وداعاً</option><option value="ty">شكراً لك</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback-box" id="fb1"></div>
+
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk2()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="downloadWord('ورقة 2: أناشيد وإيقاعات الدرس 2 Rhythms and Sounds')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 3: Colors & Rainbow Chant -->
+  <div class="sheet-card" id="s2">
+    <table class="sheet-header-table">
+      <tr>
+        <td class="school-meta">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td class="sheet-title-meta">
+          <h2>ورقة عمل: الألوان العشرة وأنشودة قوس قزح (Colors & Rainbow)</h2>
+          <span>الوحدة 1: My Friends (صفحة 8) | We Can 1</span>
+        </td>
+        <td class="student-meta">اسم الطالب: ............................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): التطبيق والتمييز (Applying & Analyzing)</div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الأول: اختر اسم اللون الصحيح لكل حبة ملونة (What's this color?):</span>
+        <span class="q-score">4 درجات</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="match-row">
+          <span>🔴 أحمر</span>
+          <select id="q3_1"><option value="">اختر اللون</option><option value="red">Red</option><option value="blue">Blue</option></select>
+        </div>
+        <div class="match-row">
+          <span>🟡 أصفر</span>
+          <select id="q3_2"><option value="">اختر اللون</option><option value="yellow">Yellow</option><option value="green">Green</option></select>
+        </div>
+        <div class="match-row">
+          <span>🔵 أزرق</span>
+          <select id="q3_3"><option value="">اختر اللون</option><option value="blue">Blue</option><option value="pink">Pink</option></select>
+        </div>
+        <div class="match-row">
+          <span>🟢 أخضر</span>
+          <select id="q3_4"><option value="">اختر اللون</option><option value="green">Green</option><option value="orange">Orange</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الثاني: أكمل سطر أنشودة قوس قزح: <b>Red and yellow and pink and ......... 🌈</b></span>
+        <span class="q-score">درجتان</span>
+      </div>
+      <div class="match-row">
+        <span>اللون المكمل للسطر الأول:</span>
+        <select id="q3_5">
+          <option value="">اختر اللون</option>
+          <option value="blue">blue (أزرق)</option>
+          <option value="black">black</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="feedback-box" id="fb2"></div>
+
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk3()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="downloadWord('ورقة 3: الألوان العشرة وأنشودة قوس قزح')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 4: Alphabet Chant -->
+  <div class="sheet-card" id="s3">
+    <table class="sheet-header-table">
+      <tr>
+        <td class="school-meta">المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td class="sheet-title-meta">
+          <h2>ورقة عمل: أنشودة الحروف الأبجدية (Alphabet Chant)</h2>
+          <span>الوحدة 1: My Friends (صفحة 10) | We Can 1</span>
+        </td>
+        <td class="student-meta">اسم الطالب: ............................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): التقويم والترتيب (Evaluating & Ordering)</div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الأول: أكمل الحرف الناقص في كل مجموعة من مجموعات النشيد:</span>
+        <span class="q-score">4 درجات</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="match-row">
+          <span>A B C D E F [ ... ]</span>
+          <select id="q4_1"><option value="">الحرف الناقص</option><option value="G">G</option><option value="H">H</option></select>
+        </div>
+        <div class="match-row">
+          <span>H I J K L M [ ... ]</span>
+          <select id="q4_2"><option value="">الحرف الناقص</option><option value="N">N</option><option value="O">O</option></select>
+        </div>
+        <div class="match-row">
+          <span>O P [ ... ]</span>
+          <select id="q4_3"><option value="">الحرف الناقص</option><option value="Q">Q</option><option value="R">R</option></select>
+        </div>
+        <div class="match-row">
+          <span>R S [ ... ]</span>
+          <select id="q4_4"><option value="">الحرف الناقص</option><option value="T">T</option><option value="U">U</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-box">
+      <div class="q-title">
+        <span>السؤال الثاني: ما هو آخر حرف في الحروف الأبجدية الإنجليزية (Alphabet)؟</span>
+        <span class="q-score">درجتان</span>
+      </div>
+      <div class="match-row">
+        <span>The last letter is:</span>
+        <select id="q4_5">
+          <option value="">اختر الحرف الأخير</option>
+          <option value="Z">Z (زد)</option>
+          <option value="Y">Y</option>
+          <option value="X">X</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="feedback-box" id="fb3"></div>
+
+    <div class="sheet-actions">
+      <button class="btn-act btn-check" onclick="chk4()">✅ تحقق تفاعلياً</button>
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="downloadWord('ورقة 4: أنشودة الحروف الأبجدية Alphabet Chant')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+  <!-- SHEET 5: Creative Drawing -->
+  <div class="sheet-card" id="s4">
+    <table class="sheet-header-table">
+      <tr>
+        <td>المملكة العربية السعودية<br>وزارة التعليم<br>الصف الأول الابتدائي</td>
+        <td style="text-align:center;"><h2>ورقة عمل: بطاقة التعارف بالصديق (My Friend Card)</h2><span>الوحدة 1: My Friends | We Can 1</span></td>
+        <td style="text-align:left;">اسم الطالب: ......................<br>الصف: الأول / .....</td>
+      </tr>
+    </table>
+    <div class="bloom-badge">🎯 المستوى المعرفي (بلوم): الابتكار والإبداع (Creating)</div>
+    <div class="q-box" style="text-align:center;">
+      <div style="font-weight:800; margin-bottom:12px;">ارسم صورة لصديقك المفضل بالصف واكتب اسمه تحته:</div>
+      <div style="border:2px dashed #94a3b8; height:180px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#64748b; background:#fff; margin-bottom:12px;">
+        🎨 ارسم صديقك وصافحه مبتسماً 🤝👦👧
+      </div>
+      <div style="font-size:18px; font-weight:800; font-family:'Outfit';">My friend's name is: .......................................</div>
+    </div>
+    <div class="sheet-actions">
+      <button class="btn-act btn-print" onclick="window.print()">🖨️ طباعة A4</button>
+      <button class="btn-act btn-word" onclick="downloadWord('ورقة 5: بطاقة الصديق الإبداعية')">📥 تحميل Word (.doc)</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function sw(idx) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+    document.querySelectorAll('.sheet-card').forEach((s, i) => s.classList.toggle('active', i === idx));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function copy(text) {
+    navigator.clipboard.writeText(text);
+    alert('تم نسخ: ' + text);
+}
+
+function chk1() {
+    const q1 = document.getElementById('q1_1').value === 'c';
+    const q2 = document.getElementById('q1_2').value === 'c';
+    const q3 = document.getElementById('q1_3').value === 'c';
+    const radios = document.getElementsByName('q1_2_rad');
+    let q4 = false;
+    for(let r of radios) { if(r.checked && r.value === '1') q4 = true; }
+
+    const fb = document.getElementById('fb0');
+    if(q1 && q2 && q3 && q4) {
+        fb.className = 'feedback-box correct';
+        fb.innerHTML = '🎉 إجابات ممتازة 100%! أحسنت يا بطل الصف الأول (درجة كاملة)';
+    } else {
+        fb.className = 'feedback-box wrong';
+        fb.innerHTML = '⚠️ هناك بعض الإجابات غير مكتملة، راجع معاني الكلمات جيداً.';
+    }
+}
+
+function chk2() {
+    const q1 = document.getElementById('q2_1').value === 'fine';
+    const q2 = document.getElementById('q2_2').value === 'im';
+    const q3 = document.getElementById('q2_3').value === 'fine';
+    const q4 = document.getElementById('q2_4').value === 'ty';
+    const q5 = document.getElementById('q2_5').value === 'bye';
+    const fb = document.getElementById('fb1');
+    if(q1 && q2 && q3 && q4 && q5) {
+        fb.className = 'feedback-box correct';
+        fb.innerHTML = '🎉 إجابات صحيحة 100%! أحسنت في فهم أنشودتي Hello و Good-bye والكلمات الثلاث الملونة.';
+    } else {
+        fb.className = 'feedback-box wrong';
+        fb.innerHTML = '⚠️ راجع إجاباتك: عند السؤال بـ How are you? نجيب بـ I\'m fine, thank you.';
+    }
+}
+
+function chk3() {
+    const q1 = document.getElementById('q3_1').value === 'red';
+    const q2 = document.getElementById('q3_2').value === 'yellow';
+    const q3 = document.getElementById('q3_3').value === 'blue';
+    const q4 = document.getElementById('q3_4').value === 'green';
+    const q5 = document.getElementById('q3_5').value === 'blue';
+    const fb = document.getElementById('fb2');
+    if(q1 && q2 && q3 && q4 && q5) {
+        fb.className = 'feedback-box correct';
+        fb.innerHTML = '🎉 إجابات نموذجية 100%! أحسنت يا بطل في تحديد الألوان العشرة وأنشودة قوس قزح Rainbow.';
+    } else {
+        fb.className = 'feedback-box wrong';
+        fb.innerHTML = '⚠️ راجع الألوان: أحمر = Red، أصفر = Yellow، أزرق = Blue، أخضر = Green.';
+    }
+}
+
+function chk4() {
+    const q1 = document.getElementById('q4_1').value === 'G';
+    const q2 = document.getElementById('q4_2').value === 'N';
+    const q3 = document.getElementById('q4_3').value === 'Q';
+    const q4 = document.getElementById('q4_4').value === 'T';
+    const q5 = document.getElementById('q4_5').value === 'Z';
+    const fb = document.getElementById('fb3');
+    if(q1 && q2 && q3 && q4 && q5) {
+        fb.className = 'feedback-box correct';
+        fb.innerHTML = '🎉 ممتاز جداً 100%! إتقان تام لأنشودة الحروف الأبجدية وترتيب الحروف من A إلى Z.';
+    } else {
+        fb.className = 'feedback-box wrong';
+        fb.innerHTML = '⚠️ راجع ترتيب الحروف الأبجدية ومجموعات النشيد (A-G, H-N, O-Q, R-T, U-Z).';
+    }
+}
+
+function downloadWord(title) {
+    const header = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>${title}</title><style>body{font-family:Tahoma; direction:rtl; text-align:right;} table{width:100%; border-collapse:collapse;} td,th{border:1px solid #999; padding:8px;}</style></head><body>`;
+    const content = `<table><tr><td>المملكة العربية السعودية<br>وزارة التعليم</td><td style='text-align:center; font-weight:bold;'>${title}<br>الصف الأول الابتدائي</td><td>اسم الطالب: ..........</td></tr></table><h3>الوحدة 1: My Friends (أصدقائي)</h3><p>Hello • Hi • What's your name? • My name's Labeeba • My name's Labeeb</p>`;
+    const blob = new Blob(['\ufeff' + header + content + '</body></html>'], { type: 'application/msword' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `${title} - الصف الأول.doc`; a.click();
+}
+</script>
+</body>
+</html>

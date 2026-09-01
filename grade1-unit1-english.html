@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الوحدة الأولى: أصدقائي (Unit 1: My Friends) - إنجليزي الصف الأول الابتدائي | SmartLearning</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* 
+   ==========================================================================
+   لوحة الألوان الأربعة الموحدة (Strict 4-Color Palette)
+   1. اللون الأساسي (Primary): البنفسجي النيلي #4f46e5 / #6366f1 (Indigo)
+   2. لون النجاح/التمييز (Success/Accent): الأخضر الزمردي #10b981 (Emerald)
+   3. لون التنبيه/اليوتيوب (Danger): الأحمر #ef4444 / #dc2626 (Red)
+   4. الألوان المحايدة (Neutrals): Slate (#1e293b, #f8fafc) وخلفيات الأبيض والأسود
+   ==========================================================================
+*/
+:root {
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --accent: #10b981;
+    --danger: #ef4444;
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #e2e8f0;
+    --shadow: 0 4px 20px rgba(79, 70, 229, 0.08);
+    --shadow-lg: 0 12px 32px rgba(79, 70, 229, 0.15);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --tr: .25s ease;
+}
+[data-theme=dark] {
+    --bg: #0b0f19;
+    --bg-card: #151d30;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #222f49;
+    --shadow: 0 4px 20px rgba(0,0,0,.4);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,.6);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+    font-size: 18px;
+    transition: background var(--tr), color var(--tr);
+}
+a { color: inherit; text-decoration: none; }
+button, select { cursor: pointer; border: none; background: none; font-family: inherit; outline: none; }
+
+/* ── TOPBAR ── */
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    height: 68px;
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(10px, 2vw, 24px);
+    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 2px 16px rgba(79,70,229,0.06);
+    transition: background var(--tr);
+}
+[data-theme=dark] .topbar {
+    background: rgba(15,23,42,.96);
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 4px 0;
+}
+.topbar-left::-webkit-scrollbar { display: none; }
+
+.back-btn-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    white-space: nowrap;
+    transition: var(--tr);
+    flex-shrink: 0;
+}
+.back-btn-top:hover {
+    background: var(--primary);
+    color: #fff !important;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+.tlogo {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary);
+    white-space: nowrap;
+}
+.tlogo span { color: var(--accent); }
+
+/* ── LAYOUT ── */
+.main-wrap {
+    display: flex;
+    max-width: 1320px;
+    margin: 84px auto 40px;
+    padding: 0 20px;
+    gap: 24px;
+}
+.ls {
+    width: 290px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 88px;
+    height: calc(100vh - 108px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--shadow);
+}
+.ls-hd {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--primary);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.toc {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--tr);
+}
+.toc:hover, .toc.active {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+    transform: translateX(-4px);
+}
+.toc.active {
+    border-right: 4px solid var(--primary);
+}
+.toc-n {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--text);
+}
+.toc.active .toc-n {
+    background: var(--primary);
+    color: #fff;
+}
+
+.lc {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── HERO BANNER ── */
+.hero {
+    background: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(16,185,129,0.08));
+    border: 2px solid rgba(79,70,229,0.25);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+.hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+}
+.hero h1 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-family: 'Outfit', 'Tajawal', sans-serif;
+}
+.hero p {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* ── YOUTUBE VIDEO BUTTON BANNER ── */
+.youtube-action-card {
+    background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(220,38,38,0.04));
+    border: 2px solid rgba(239,68,68,0.35);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
+}
+.yt-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.yt-icon-box {
+    width: 44px;
+    height: 44px;
+    background: #ff0000;
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 12px rgba(255,0,0,0.35);
+    flex-shrink: 0;
+}
+.yt-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff0000;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 14px rgba(255,0,0,0.35);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.yt-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255,0,0,0.45);
+    background: #dc2626;
+}
+
+/* ── SECTION CARDS ── */
+.sec {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    display: none;
+}
+.sec.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.sec-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 20px;
+}
+.sec-icon {
+    font-size: 32px;
+}
+.sec-title h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text);
+}
+.lesson-tag {
+    font-size: 12px;
+    font-weight: 800;
+    background: rgba(79,70,229,0.1);
+    color: var(--primary);
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-right: auto;
+}
+
+/* Book Replica Frame */
+.book-replica-box {
+    background: #fdfbf7;
+    color: #1e1b4b;
+    border: 2px solid #fed7aa;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+[data-theme=dark] .book-replica-box {
+    background: #192033;
+    border-color: #3b4261;
+    color: #f1f5f9;
+}
+.book-header-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px dashed #fed7aa;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+/* ── DIALOGUE SPEECH CARDS ── */
+.dialogue-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+.speech-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    gap: 14px;
+    transition: var(--tr);
+}
+.speech-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+.speaker-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.25);
+    flex-shrink: 0;
+}
+.speaker-avatar.girl { background: linear-gradient(135deg, #ec4899, #db2777); }
+.speaker-avatar.labeeba { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.speaker-avatar.labeeb { background: linear-gradient(135deg, #10b981, #059669); }
+
+.speech-texts {
+    flex: 1;
+}
+.speech-speaker-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.speech-en {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 2px;
+}
+.speech-ar {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+.speech-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.btn-speech-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: var(--tr);
+}
+.btn-speech-play:hover { background: var(--primary-light); transform: scale(1.05); }
+
+.btn-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    color: var(--text-muted);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: var(--tr);
+}
+.btn-copy:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--bg-card);
+}
+
+/* ── WORDS WITH EMOJI TILES & COPY ── */
+.word-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.word-tile {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    transition: var(--tr);
+}
+.word-tile:hover {
+    border-color: var(--primary);
+    background: var(--bg-card);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.tile-emoji { font-size: 48px; line-height: 1; }
+.tile-en { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 900; color: var(--primary); }
+.tile-ar { font-size: 15px; font-weight: 700; color: var(--text-muted); }
+.tile-btns {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    margin-top: 6px;
+}
+.tile-btns button {
+    flex: 1;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+}
+.btn-t-speak { background: var(--primary); color: #fff; }
+.btn-t-copy { background: var(--bg-card); border: 1px solid var(--border); color: var(--text); }
+
+/* ── STRATEGY PEDAGOGY BOX ── */
+.strategy-box {
+    background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(79,70,229,0.05));
+    border: 2px solid rgba(16,185,129,0.3);
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+    margin-bottom: 24px;
+}
+.strat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+/* ── ALPHABET CHANT & COLORING STYLES ── */
+.letter-bubble {
+    width: 48px;
+    height: 52px;
+    border-radius: 12px;
+    border: 2.5px solid #0f172a;
+    background: #ffffff;
+    color: #0f172a;
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, background 0.25s ease, color 0.25s ease;
+}
+.letter-bubble:hover {
+    transform: scale(1.15) translateY(-2px);
+}
+.color-pick-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.color-pick-btn:hover, .color-pick-btn.active {
+    transform: scale(1.25);
+    outline: 3px solid var(--primary);
+}
+
+/* ── MEMORY GAME STYLES ── */
+.mem-tab {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--tr);
+}
+.mem-tab:hover, .mem-tab.active {
+    background: #0284c7;
+    color: #fff;
+    border-color: #0284c7;
+}
+.mem-card {
+    aspect-ratio: 1 / 1;
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, background 0.2s ease;
+    user-select: none;
+    padding: 8px;
+    text-align: center;
+}
+.mem-card:hover { transform: scale(1.05); }
+.mem-card.flipped { background: #e0f2fe; border-color: #0284c7; }
+.mem-card.matched { background: #dcfce7; border-color: #10b981; cursor: default; }
+
+/* ── SPELLING GAME STYLES ── */
+.spell-slot {
+    width: 48px;
+    height: 54px;
+    border: 2.5px dashed #db2777;
+    border-radius: 12px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #9d174d;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.spell-letter-btn {
+    width: 48px;
+    height: 52px;
+    border-radius: 12px;
+    background: #db2777;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(219,39,119,0.3);
+    transition: transform 0.15s ease;
+}
+.spell-letter-btn:hover { transform: scale(1.15); }
+.spell-letter-btn.used { opacity: 0.3; pointer-events: none; }
+
+/* ── QUIZ OPTION BUTTONS ── */
+.quiz-opt-btn {
+    padding: 14px 20px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-card);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+    cursor: pointer;
+    text-align: right;
+    transition: var(--tr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.quiz-opt-btn:hover { border-color: #16a34a; background: #f0fdf4; transform: translateX(-4px); }
+
+/* Toast notification */
+.toast-msg {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #0f172a;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.toast-msg.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .ls { display: none; }
+    .main-wrap { margin-top: 76px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-right">
+    <a href="index.html" class="back-btn-top">↩️ قائمة الصفوف</a>
+    <div class="tlogo">Smart<span>.</span>Learning</div>
+  </div>
+  <div class="topbar-left" style="direction: ltr;">
+    <a href="https://wordwall.net/ar/resource/26103918/we-can-1-u2-my-body/review-we-can-1" target="_blank" rel="noopener noreferrer" class="back-btn-top" style="border-color:#0284c7; color:#0284c7; background:rgba(2,132,199,0.06);">
+      🎮 لعبة Wordwall
+    </a>
+    <a href="grade1-unit1-presentation.html" target="_blank" class="back-btn-top" style="border-color:var(--primary-light); color:var(--primary-light);">
+      💻 عرض PowerPoint
+    </a>
+    <a href="wheel.html" target="_blank" class="back-btn-top" style="border-color:#f59e0b; color:#f59e0b;">
+      🎯 عجلة الأسماء
+    </a>
+    <a href="grade1-unit1-worksheets.html" target="_blank" class="back-btn-top" style="border-color:#ec4899; color:#ec4899;">
+      📝 أوراق العمل
+    </a>
+    <a href="grade1-unit1-printables.html" target="_blank" class="back-btn-top" style="border-color:#3b82f6; color:#3b82f6;">
+      🧩 وسائل ومطبوعات المعلم
+    </a>
+    <button class="back-btn-top" onclick="toggleTheme()" aria-label="تبديل الوضع">🌙</button>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="ls">
+    <div class="ls-hd">📂 دروس الوحدة 1: أصدقائي (My Friends)</div>
+    <div class="toc active" onclick="sw(0)"><span class="toc-n">1</span>الدرس 1: Talk Time (المحادثة والتعارف)</div>
+    <div class="toc" onclick="sw(1)"><span class="toc-n">2</span>الدرس 2: Rhythms & Sounds (الأنشودة)</div>
+    <div class="toc" onclick="sw(2)"><span class="toc-n">3</span>الدرس 3: Words in Action (التطبيق العملي)</div>
+    <div class="toc" onclick="sw(3)"><span class="toc-n">4</span>الدرس 4: Phonics (الحروف Aa إلى Dd)</div>
+    <div class="toc" onclick="sw(4)"><span class="toc-n">5</span>🎯 الألعاب والاختبار التفاعلي</div>
+    <hr style="border:none; border-top:1px solid var(--border); margin:12px 0;">
+    <a href="https://wordwall.net/ar/resource/26103918/we-can-1-u2-my-body/review-we-can-1" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:800; color:#0284c7; background:rgba(2,132,199,0.08); margin-bottom:8px;">
+      🎮 لعبة Wordwall التفاعلية ↗
+    </a>
+    <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%A7%D9%88%D9%84-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7%D9%84/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:800; color:var(--primary); background:rgba(79,70,229,0.06); margin-bottom:8px;">
+      📘 حل كتاب الطالب ↗
+    </a>
+    <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D9%86%D8%B4%D8%A7%D8%B7-%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%A7%D9%88%D9%84-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:800; color:#10b981; background:rgba(16,185,129,0.06); margin-bottom:8px;">
+      📗 حل كتاب النشاط ↗
+    </a>
+    <a href="grade1-unit1-worksheets.html" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:800; color:#ec4899; background:rgba(236,72,153,0.06); margin-bottom:8px;">
+      📝 أوراق العمل التفاعلية
+    </a>
+    <a href="grade1-unit1-printables.html" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:var(--radius-sm); font-size:14px; font-weight:800; color:#3b82f6; background:rgba(59,130,246,0.06);">
+      🧩 وسائل ومطبوعات المعلم
+    </a>
+  </aside>
+
+  <!-- CONTENT COLUMN -->
+  <main class="lc">
+
+    <!-- HERO -->
+    <div class="hero">
+      <span class="hero-badge">إنجليزي الصف الأول الابتدائي | We Can 1</span>
+      <h1>Unit 1: My Friends (الوحدة الأولى: أصدقائي)</h1>
+      <p>محاكاة كاملة ودقيقة لصفحة كتاب الطالب المعتمدة، مع شروحات الفيديو الرسمية، أزرار نطق صوتي فوري، وإمكانية نسخ الكلمات بنقرة واحدة!</p>
+      
+      <!-- Quick Solutions Bar -->
+      <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+        <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%A7%D9%88%D9%84-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81%D8%B5%D9%84-%D8%A7%D9%84/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:var(--primary); color:#fff; padding:8px 16px; border-radius:30px; font-size:13px; font-weight:800; text-decoration:none; box-shadow:0 3px 10px rgba(79,70,229,0.25);">
+          <span>📘 حل كتاب الطالب (كامل) ↗</span>
+        </a>
+        <a href="https://www.wajibati.net/%D8%AD%D9%84-%D9%83%D8%AA%D8%A7%D8%A8-%D8%A7%D9%84%D9%86%D8%B4%D8%A7%D8%B7-%D8%A7%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A-%D8%A7%D9%88%D9%84-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A-%D8%A7%D9%84%D9%81/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:#10b981; color:#fff; padding:8px 16px; border-radius:30px; font-size:13px; font-weight:800; text-decoration:none; box-shadow:0 3px 10px rgba(16,185,129,0.25);">
+          <span>📗 حل كتاب النشاط (كامل) ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- LESSON 1: Talk Time -->
+    <section class="sec active" id="s0">
+      
+      <!-- YouTube Video Button Card -->
+      <div class="youtube-action-card">
+        <div class="yt-info">
+          <div class="yt-icon-box">▶</div>
+          <div>
+            <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 2px;">شرح الفيديو المعتمد للدرس الأول (YouTube)</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin: 0;">تابع الشرح المرئي لدرس Talk Time بصوت وصورة فائقة الوضوح</p>
+          </div>
+        </div>
+        <a href="https://youtu.be/zcACcnRYNik?si=uWZNR7vGmk_34ysQ" target="_blank" rel="noopener noreferrer" class="yt-btn-primary">
+          <span>🎬 فتح شرح الدرس 1 على يوتيوب ↗</span>
+        </a>
+      </div>
+
+      <!-- Wordwall Interactive Game Banner -->
+      <div class="wordwall-action-card" style="background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(99,102,241,0.08)); border: 2px solid rgba(14,165,233,0.4); border-radius: var(--radius-sm); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; box-shadow: var(--shadow);">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg, #0284c7, #0369a1); color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow:0 4px 14px rgba(2,132,199,0.35); flex-shrink:0;">
+            🎮
+          </div>
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:2px;">
+              <span style="background:rgba(2,132,199,0.15); color:#0284c7; font-size:11px; font-weight:900; padding:2px 8px; border-radius:6px;">نشاط ألعاب تفاعلي • Wordwall 🌟</span>
+            </div>
+            <h4 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text);">لعبة Wordwall التفاعلية (مراجعة وتمارين الدرس 1)</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin: 0;">العب وتدرب على محادثات التعارف وأسئلة الوحدة الأولى مباشرة</p>
+          </div>
+        </div>
+        <a href="https://wordwall.net/ar/resource/26103918/we-can-1-u2-my-body/review-we-can-1" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg, #0284c7, #0369a1); color:#ffffff !important; font-size:14px; font-weight:900; padding:10px 22px; border-radius:50px; box-shadow:0 4px 14px rgba(2,132,199,0.35); transition:all 0.25s ease; text-decoration:none; white-space:nowrap;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 18px rgba(2,132,199,0.45)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(2,132,199,0.35)'">
+          <span>🎮 العب الآن على Wordwall ↗</span>
+        </a>
+      </div>
+
+      <div class="sec-title">
+        <span class="sec-icon">🤝</span>
+        <h2>الدرس 1: Talk Time (وقت المحادثة)</h2>
+        <span class="lesson-tag">كتاب الطالب - صفحة 2</span>
+      </div>
+
+      <!-- Strategy 1: Listen and Do -->
+      <div class="strategy-box">
+        <div class="strat-header">
+          <span>💡 1. Listen and do. (استمع وافعل)</span>
+        </div>
+        <p style="font-size: 15px; color: var(--text);">
+          <b>استراتيجية المعلم:</b> يقوم المعلم بالترحيب بالطلاب بابتسامة قائلاً (Hello) ويلوح بيده، ثم يسأل الطالب عن اسمه (What's your name?) ويجيب الطالب (My name's...).
+        </p>
+      </div>
+
+      <!-- Dialogue with Labeeba and Girl -->
+      <div class="book-replica-box">
+        <div class="book-header-badge">
+          <span style="font-weight:900; font-size:16px; color:#c2410c;">👩‍🦰 محادثة البنات (Teacher & Labeeba):</span>
+          <span style="font-size:13px; font-weight:700;">🔊 اضغط على أي جملة للاستماع الفوري أو نسخها</span>
+        </div>
+
+        <div class="dialogue-grid">
+          
+          <div class="speech-card">
+            <div class="speaker-avatar girl">👩‍🦰</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name">المعلمة / الصديقة (Girl)</div>
+              <div class="speech-en">Hello.</div>
+              <div class="speech-ar">مرحباً.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" onclick="speak('Hello')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Hello', 'تم نسخ: Hello')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card">
+            <div class="speaker-avatar labeeba">🐱</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name">لبيبة (Labeeba)</div>
+              <div class="speech-en">Hi. My name's Labeeba.</div>
+              <div class="speech-ar">أهلاً. اسمي لبيبة.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" onclick="speak('Hi. My name is Labeeba.')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Hi. My name\'s Labeeba.', 'تم نسخ: Hi. My name\'s Labeeba.')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card">
+            <div class="speaker-avatar girl">👩‍🦰</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name">المعلمة / الصديقة (Girl)</div>
+              <div class="speech-en">What's your name?</div>
+              <div class="speech-ar">ما اسمكِ؟</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" onclick="speak('What is your name?')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('What\'s your name?', 'تم نسخ: What\'s your name?')">📋 نسخ</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dialogue with Labeeb and Boy -->
+      <div class="book-replica-box">
+        <div class="book-header-badge">
+          <span style="font-weight:900; font-size:16px; color:#047857;">👦 محادثة الأولاد (Boy & Labeeb):</span>
+          <span style="font-size:13px; font-weight:700;">2. Practice the talks in pairs (تدرب في ثنائيات)</span>
+        </div>
+
+        <div class="dialogue-grid">
+
+          <div class="speech-card">
+            <div class="speaker-avatar">👦</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name">الطالب (Boy)</div>
+              <div class="speech-en">What's your name?</div>
+              <div class="speech-ar">ما هو اسمك؟</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" onclick="speak('What is your name?')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('What\'s your name?', 'تم نسخ: What\'s your name?')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card">
+            <div class="speaker-avatar labeeb">🐺</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name">لبيب (Labeeb)</div>
+              <div class="speech-en">My name's Labeeb.</div>
+              <div class="speech-ar">إسمي لبيب.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" onclick="speak('My name is Labeeb.')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('My name\'s Labeeb.', 'تم نسخ: My name\'s Labeeb.')">📋 نسخ</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Strategy 3: Practice with Actions -->
+      <div class="strategy-box" style="border-color: rgba(79,70,229,0.3); background: rgba(79,70,229,0.05);">
+        <div class="strat-header" style="color: var(--primary);">
+          <span>🏃 3. Practice with actions. (تدرب مع الحركة)</span>
+        </div>
+        <p style="font-size: 15px; color: var(--text);">
+          <b>طريقة التطبيق:</b> يصافح الطالب زميله أو يلوح بيده 👋 مبتسماً ويسأله: <i>What's your name?</i> فيجيب زميله مصافحاً: <i>My name's [Ali / Sarah]</i>.
+        </p>
+      </div>
+
+      <!-- Key Words Tiles with Copy & Audio -->
+      <h3 style="font-size: 18px; font-weight: 900; margin-bottom: 14px;">🔤 الكلمات الأساسية للدرس (انقر للاستماع أو النسخ):</h3>
+      <div class="word-tiles-grid">
+        
+        <div class="word-tile">
+          <div class="tile-emoji">👋</div>
+          <div class="tile-en">Hello</div>
+          <div class="tile-ar">مرحباً (هيلو)</div>
+          <div class="tile-btns">
+            <button class="btn-t-speak" onclick="speak('Hello')">🔊 استمع</button>
+            <button class="btn-t-copy" onclick="copyText('Hello', 'تم نسخ: Hello')">📋 نسخ</button>
+          </div>
+        </div>
+
+        <div class="word-tile">
+          <div class="tile-emoji">✨</div>
+          <div class="tile-en">Hi</div>
+          <div class="tile-ar">أهلاً (هاي)</div>
+          <div class="tile-btns">
+            <button class="btn-t-speak" onclick="speak('Hi')">🔊 استمع</button>
+            <button class="btn-t-copy" onclick="copyText('Hi', 'تم نسخ: Hi')">📋 نسخ</button>
+          </div>
+        </div>
+
+        <div class="word-tile">
+          <div class="tile-emoji">❓</div>
+          <div class="tile-en">What's your name?</div>
+          <div class="tile-ar">ما اسمك؟</div>
+          <div class="tile-btns">
+            <button class="btn-t-speak" onclick="speak('What is your name?')">🔊 استمع</button>
+            <button class="btn-t-copy" onclick="copyText('What\'s your name?', 'تم نسخ: What\'s your name?')">📋 نسخ</button>
+          </div>
+        </div>
+
+        <div class="word-tile">
+          <div class="tile-emoji">🏷️</div>
+          <div class="tile-en">My name's...</div>
+          <div class="tile-ar">اسمي هو...</div>
+          <div class="tile-btns">
+            <button class="btn-t-speak" onclick="speak('My name is')">🔊 استمع</button>
+            <button class="btn-t-copy" onclick="copyText('My name\'s', 'تم نسخ: My name\'s')">📋 نسخ</button>
+          </div>
+        </div>
+
+        <div class="word-tile">
+          <div class="tile-emoji">🐱</div>
+          <div class="tile-en">Labeeba</div>
+          <div class="tile-ar">لبيبة (شخصية الكتاب)</div>
+          <div class="tile-btns">
+            <button class="btn-t-speak" onclick="speak('Labeeba')">🔊 استمع</button>
+            <button class="btn-t-copy" onclick="copyText('Labeeba', 'تم نسخ: Labeeba')">📋 نسخ</button>
+          </div>
+        </div>
+
+        <div class="word-tile">
+          <div class="tile-emoji">🐺</div>
+          <div class="tile-en">Labeeb</div>
+          <div class="tile-ar">لبيب (شخصية الكتاب)</div>
+          <div class="tile-btns">
+            <button class="btn-t-speak" onclick="speak('Labeeb')">🔊 استمع</button>
+            <button class="btn-t-copy" onclick="copyText('Labeeb', 'تم نسخ: Labeeb')">📋 نسخ</button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- LESSON 2: Rhythms & Sounds (إيقاعات وأصوات) -->
+    <section class="sec" id="s1">
+      
+      <!-- YouTube Video Button Card -->
+      <div class="youtube-action-card">
+        <div class="yt-info">
+          <div class="yt-icon-box">▶</div>
+          <div>
+            <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 2px;">شرح الفيديو المعتمد للدرس الثاني (YouTube)</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin: 0;">تابع الشرح المرئي لدرس Rhythms and Sounds والأناشيد التفاعلية</p>
+          </div>
+        </div>
+        <a href="https://youtu.be/LsV7JZBGQOM?si=hSx4YIUkuLtCROOA" target="_blank" rel="noopener noreferrer" class="yt-btn-primary">
+          <span>🎬 فتح شرح الدرس 2 على يوتيوب ↗</span>
+        </a>
+      </div>
+
+      <div class="sec-title">
+        <span class="sec-icon">🎶</span>
+        <h2>الدرس 2: Rhythms and Sounds (إيقاعات وأصوات)</h2>
+        <span class="lesson-tag">كتاب الطالب - صفحة 6</span>
+      </div>
+
+      <!-- PART 1: Hello Chant -->
+      <div class="book-replica-box" style="border-color: #93c5fd; background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);">
+        <div class="book-header-badge" style="border-color: #bfdbfe;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#2563eb; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">1</span>
+            <span style="font-weight:900; font-size:17px; color:#1e40af;">Listen and chant. • Hello Chant (أنشودة مرحباً)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(37,99,235,0.1); color:#2563eb; padding:3px 10px; border-radius:20px;">CD1 05 🎧</span>
+        </div>
+
+        <div style="margin-bottom:14px; color:#1e3a8a; font-size:14px; font-weight:700;">
+          🌲 غناء لبيبة 🐱 ولبيب 🐺 مع أصدقاء الغابة (البومة 🦉، الطائر 🐦، الخروف 🐑):
+        </div>
+
+        <div class="dialogue-grid">
+          
+          <div class="speech-card" style="border-color:#bfdbfe;">
+            <div class="speaker-avatar labeeba">🐱</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#2563eb;">لبيبة والصديقة (سؤال التحية)</div>
+              <div class="speech-en">Hello, hello, hello. How are you?</div>
+              <div class="speech-ar">مرحباً، مرحباً، مرحباً. كيف حالك؟</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#2563eb;" onclick="speak('Hello, hello, hello. How are you?')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Hello, hello, hello. How are you?', 'تم نسخ: Hello, hello, hello. How are you?')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card" style="border-color:#bfdbfe;">
+            <div class="speaker-avatar labeeb">🐺</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#059669;">لبيب وأصدقاء الصف (الجواب)</div>
+              <div class="speech-en">I'm fine. I'm fine. I'm fine, thank you. And you?</div>
+              <div class="speech-ar">أنا بخير، أنا بخير، أنا بخير شكراً لك. وأنت؟</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#059669;" onclick="speak('I am fine. I am fine. I am fine, thank you. And you?')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('I\'m fine. I\'m fine. I\'m fine, thank you. And you?', 'تم نسخ الجواب')">📋 نسخ</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:14px;">
+          <button style="background:linear-gradient(135deg, #2563eb, #1d4ed8); color:#fff; padding:10px 24px; border-radius:30px; font-weight:900; font-size:14px; box-shadow:0 4px 14px rgba(37,99,235,0.35); display:inline-flex; align-items:center; gap:8px;" onclick="speak('Hello, hello, hello. How are you? I am fine. I am fine. I am fine, thank you. And you?')">
+            <span>🎵 تشغيل أنشودة Hello Chant كاملة 🔊</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PART 2: Listen and Pronounce -->
+      <div class="book-replica-box" style="border-color: #fed7aa; background: #fffdfa;">
+        <div class="book-header-badge" style="border-color: #fed7aa;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#ea580c; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">2</span>
+            <span style="font-weight:900; font-size:17px; color:#c2410c;">Listen and pronounce. (استمع وأنطق الكلمات بالدوائر الملونة)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(234,88,12,0.1); color:#ea580c; padding:3px 10px; border-radius:20px;">CD1 06 🎧</span>
+        </div>
+
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">
+          انقر على الدائرة الملونة للاستماع إلى النطق النموذجي وتكراره:
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:18px;">
+          
+          <!-- Circle 1: I'm -->
+          <div style="background:#fff; border:2px solid #ef4444; border-radius:18px; padding:20px; text-align:center; box-shadow:0 4px 14px rgba(239,68,68,0.15); transition:var(--tr); cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'" onclick="speak('I am')">
+            <div style="width:70px; height:70px; border-radius:50%; background:#ef4444; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Outfit', sans-serif; font-size:24px; font-weight:900; margin:0 auto 10px; box-shadow:0 4px 10px rgba(239,68,68,0.35);">
+              I'm
+            </div>
+            <div style="font-size:13px; font-weight:800; color:#ef4444; margin-bottom:2px;">1. الكلمة الأولى</div>
+            <div style="font-size:18px; font-weight:900; color:#0f172a; margin-bottom:2px;">أنا (آيم)</div>
+            <div style="display:flex; gap:6px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#ef4444; padding:5px 12px; font-size:12px;" onclick="speak('I am')">🔊 نطق</button>
+              <button class="btn-copy" style="padding:5px 10px; font-size:12px;" onclick="copyText('I\'m', 'تم نسخ: I\'m')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <!-- Circle 2: fine -->
+          <div style="background:#fff; border:2px solid #f97316; border-radius:18px; padding:20px; text-align:center; box-shadow:0 4px 14px rgba(249,115,22,0.15); transition:var(--tr); cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'" onclick="speak('fine')">
+            <div style="width:70px; height:70px; border-radius:50%; background:#f97316; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Outfit', sans-serif; font-size:24px; font-weight:900; margin:0 auto 10px; box-shadow:0 4px 10px rgba(249,115,22,0.35);">
+              fine
+            </div>
+            <div style="font-size:13px; font-weight:800; color:#f97316; margin-bottom:2px;">2. الكلمة الثانية</div>
+            <div style="font-size:18px; font-weight:900; color:#0f172a; margin-bottom:2px;">بخير (فاين)</div>
+            <div style="display:flex; gap:6px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#f97316; padding:5px 12px; font-size:12px;" onclick="speak('fine')">🔊 نطق</button>
+              <button class="btn-copy" style="padding:5px 10px; font-size:12px;" onclick="copyText('fine', 'تم نسخ: fine')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <!-- Circle 3: thank you -->
+          <div style="background:#fff; border:2px solid #eab308; border-radius:18px; padding:20px; text-align:center; box-shadow:0 4px 14px rgba(234,179,8,0.15); transition:var(--tr); cursor:pointer;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'" onclick="speak('thank you')">
+            <div style="width:70px; height:70px; border-radius:50%; background:#eab308; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Outfit', sans-serif; font-size:16px; font-weight:900; text-align:center; margin:0 auto 10px; box-shadow:0 4px 10px rgba(234,179,8,0.35); line-height:1.2;">
+              thank<br>you
+            </div>
+            <div style="font-size:13px; font-weight:800; color:#ca8a04; margin-bottom:2px;">3. العبارة الثالثة</div>
+            <div style="font-size:18px; font-weight:900; color:#0f172a; margin-bottom:2px;">شكراً لك (ثانك يو)</div>
+            <div style="display:flex; gap:6px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#ca8a04; padding:5px 12px; font-size:12px;" onclick="speak('thank you')">🔊 نطق</button>
+              <button class="btn-copy" style="padding:5px 10px; font-size:12px;" onclick="copyText('thank you', 'تم نسخ: thank you')">📋 نسخ</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PART 3: Good-bye Chant -->
+      <div class="book-replica-box" style="border-color: #bbf7d0; background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);">
+        <div class="book-header-badge" style="border-color: #bbf7d0;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#16a34a; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">3</span>
+            <span style="font-weight:900; font-size:17px; color:#15803d;">Listen and chant. • Good-bye Chant (أنشودة وداعاً)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(22,163,74,0.1); color:#16a34a; padding:3px 10px; border-radius:20px;">CD1 07 🎧</span>
+        </div>
+
+        <div style="margin-bottom:14px; color:#166534; font-size:14px; font-weight:700;">
+          👋 وداع لبيبة 🐱 ولبيب 🐺 مع التلويح باليد في نهاية اليوم الدراسي:
+        </div>
+
+        <div class="dialogue-grid">
+          
+          <div class="speech-card" style="border-color:#bbf7d0;">
+            <div class="speaker-avatar labeeba">🐱</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#16a34a;">لبيبة تودع أصدقاءها</div>
+              <div class="speech-en">Good-bye, good-bye. Good-bye to you.</div>
+              <div class="speech-ar">وداعاً، وداعاً. وداعاً لك.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#16a34a;" onclick="speak('Good-bye, good-bye. Good-bye to you.')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Good-bye, good-bye. Good-bye to you.', 'تم نسخ: Good-bye chant')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card" style="border-color:#bbf7d0;">
+            <div class="speaker-avatar labeeb">🐺</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#059669;">لبيب يرد التحية والوداع</div>
+              <div class="speech-en">Good-bye, good-bye. Oh, see you again.</div>
+              <div class="speech-ar">وداعاً، وداعاً. أوه، أراك لاحقاً.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#059669;" onclick="speak('Good-bye, good-bye. Oh, see you again.')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Good-bye, good-bye. Oh, see you again.', 'تم نسخ الوداع')">📋 نسخ</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:14px;">
+          <button style="background:linear-gradient(135deg, #16a34a, #15803d); color:#fff; padding:10px 24px; border-radius:30px; font-weight:900; font-size:14px; box-shadow:0 4px 14px rgba(22,163,74,0.35); display:inline-flex; align-items:center; gap:8px;" onclick="speak('Good-bye, good-bye. Good-bye to you. Good-bye, good-bye. Oh, see you again.')">
+            <span>👋 تشغيل أنشودة Good-bye Chant كاملة 🔊</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pedagogical Strategy Box for Teacher -->
+      <div class="strategy-box" style="border-color: rgba(37,99,235,0.3); background: rgba(37,99,235,0.04);">
+        <div class="strat-header" style="color:#2563eb;">
+          <span>💡 استراتيجية تدريس الأناشيد في الصف (Classroom Chanting Strategy)</span>
+        </div>
+        <p style="font-size: 15px; color: var(--text);">
+          <b>1. النشيد التبادلي (Call and Response):</b> ينشد المعلم أو المجموعة الأولى شطر السؤال (Hello, hello, how are you?) وترد المجموعة الثانية بالشطر المقابل (I'm fine, thank you!).<br>
+          <b>2. النشيد الحركي مع الإشارة:</b> يلوح الطلاب بأيديهم 👋 عند قول (Good-bye)، ويضعون أيديهم على صدورهم عند قول (I'm fine) للدلالة على المعنى والشعور بالسعادة.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- LESSON 3: Words - Colors (درس الألوان وأنشودة قوس قزح) -->
+    <section class="sec" id="s2">
+      
+      <!-- YouTube & Wordwall Action Cards -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin-bottom:24px;">
+        <div class="youtube-action-card" style="margin-bottom:0;">
+          <div class="yt-info">
+            <div class="yt-icon-box">▶</div>
+            <div>
+              <h4 style="font-size: 15px; font-weight: 800; margin-bottom: 2px;">شرح الفيديو المعتمد لدرس الألوان (YouTube)</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin: 0;">شرح معاني الألوان وأنشودة قوس قزح على يوتيوب</p>
+            </div>
+          </div>
+          <a href="https://youtu.be/T6MJdhGGzVY?si=HiQ0o3cMESpEi7Zd" target="_blank" rel="noopener noreferrer" class="yt-btn-primary">
+            <span>🎬 فتح شرح الدرس 3 ↗</span>
+          </a>
+        </div>
+
+        <div class="wordwall-action-card" style="background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(234,179,8,0.1)); border: 2px solid rgba(14,165,233,0.4); border-radius: var(--radius-sm); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; box-shadow: var(--shadow); margin-bottom:0;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg, #0284c7, #eab308); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:0 3px 10px rgba(2,132,199,0.35); flex-shrink:0;">
+              🎨
+            </div>
+            <div>
+              <h4 style="font-size: 15px; font-weight: 800; margin: 0; color: var(--text);">لعبة Wordwall التفاعلية للألوان</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin: 0;">العب وطابق الألوان العشرة مع التمارين التفاعلية</p>
+            </div>
+          </div>
+          <a href="https://wordwall.net/ar/resource/23852647?wwmethod=link" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0284c7, #0369a1); color:#ffffff !important; font-size:13px; font-weight:900; padding:8px 18px; border-radius:30px; box-shadow:0 3px 10px rgba(2,132,199,0.35); text-decoration:none; white-space:nowrap;">
+            <span>🎮 العب Wordwall ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sec-title">
+        <span class="sec-icon">🎨</span>
+        <h2>الدرس 3: Words - Colors (كلمات: الألوان العشرة وأنشودة قوس قزح)</h2>
+        <span class="lesson-tag">كتاب الطالب - صفحة 8</span>
+      </div>
+
+      <!-- PART 1: 10 Colors Jellybeans -->
+      <div class="book-replica-box" style="border-color: #fbcfe8; background: #fffdfa;">
+        <div class="book-header-badge" style="border-color: #fbcfe8;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#db2777; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">1</span>
+            <span style="font-weight:900; font-size:17px; color:#9d174d;">Chant and point. • What's this color? (أنشد وأشر: ما هو اللون؟)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(219,39,119,0.1); color:#db2777; padding:3px 10px; border-radius:20px;">CD1 09 🎧</span>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#fff; border:1.5px solid #fbcfe8; border-radius:12px; padding:12px 18px; margin-bottom:18px;">
+          <div style="font-size:16px; font-weight:800; color:#9d174d;">
+            ❓ السؤال الأساسي: <b>What's this color?</b> (ما هو هذا اللون؟)
+          </div>
+          <button class="btn-speech-play" style="background:#db2777;" onclick="speak('What is this color?')">🔊 استمع للسؤال</button>
+        </div>
+
+        <!-- 10 Colors Grid -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:14px;">
+          
+          <!-- 1. Red -->
+          <div style="background:#fff; border:2px solid #ef4444; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(239,68,68,0.1); cursor:pointer;" onclick="speak('One. Red')">
+            <div style="font-size:12px; font-weight:800; color:#ef4444; margin-bottom:4px;">1.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#ef4444; margin:0 auto 8px; box-shadow:0 3px 8px rgba(239,68,68,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#ef4444;">Red</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أحمر</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#ef4444; padding:3px 8px; font-size:11px;" onclick="speak('Red')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Red', 'تم نسخ: Red')">📋</button>
+            </div>
+          </div>
+
+          <!-- 2. Orange -->
+          <div style="background:#fff; border:2px solid #f97316; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(249,115,22,0.1); cursor:pointer;" onclick="speak('Two. Orange')">
+            <div style="font-size:12px; font-weight:800; color:#f97316; margin-bottom:4px;">2.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#f97316; margin:0 auto 8px; box-shadow:0 3px 8px rgba(249,115,22,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#f97316;">Orange</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">برتقالي</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#f97316; padding:3px 8px; font-size:11px;" onclick="speak('Orange')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Orange', 'تم نسخ: Orange')">📋</button>
+            </div>
+          </div>
+
+          <!-- 3. Yellow -->
+          <div style="background:#fff; border:2px solid #eab308; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(234,179,8,0.1); cursor:pointer;" onclick="speak('Three. Yellow')">
+            <div style="font-size:12px; font-weight:800; color:#ca8a04; margin-bottom:4px;">3.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#eab308; margin:0 auto 8px; box-shadow:0 3px 8px rgba(234,179,8,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#ca8a04;">Yellow</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أصفر</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#ca8a04; padding:3px 8px; font-size:11px;" onclick="speak('Yellow')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Yellow', 'تم نسخ: Yellow')">📋</button>
+            </div>
+          </div>
+
+          <!-- 4. Green -->
+          <div style="background:#fff; border:2px solid #10b981; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(16,185,129,0.1); cursor:pointer;" onclick="speak('Four. Green')">
+            <div style="font-size:12px; font-weight:800; color:#059669; margin-bottom:4px;">4.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#10b981; margin:0 auto 8px; box-shadow:0 3px 8px rgba(16,185,129,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#059669;">Green</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أخضر</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#10b981; padding:3px 8px; font-size:11px;" onclick="speak('Green')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Green', 'تم نسخ: Green')">📋</button>
+            </div>
+          </div>
+
+          <!-- 5. Blue -->
+          <div style="background:#fff; border:2px solid #3b82f6; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(59,130,246,0.1); cursor:pointer;" onclick="speak('Five. Blue')">
+            <div style="font-size:12px; font-weight:800; color:#2563eb; margin-bottom:4px;">5.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#3b82f6; margin:0 auto 8px; box-shadow:0 3px 8px rgba(59,130,246,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#2563eb;">Blue</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أزرق</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#3b82f6; padding:3px 8px; font-size:11px;" onclick="speak('Blue')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Blue', 'تم نسخ: Blue')">📋</button>
+            </div>
+          </div>
+
+          <!-- 6. Purple -->
+          <div style="background:#fff; border:2px solid #a855f7; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(168,85,247,0.1); cursor:pointer;" onclick="speak('Six. Purple')">
+            <div style="font-size:12px; font-weight:800; color:#9333ea; margin-bottom:4px;">6.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#a855f7; margin:0 auto 8px; box-shadow:0 3px 8px rgba(168,85,247,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#9333ea;">Purple</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أرجواني / بنفسجي</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#9333ea; padding:3px 8px; font-size:11px;" onclick="speak('Purple')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Purple', 'تم نسخ: Purple')">📋</button>
+            </div>
+          </div>
+
+          <!-- 7. Pink -->
+          <div style="background:#fff; border:2px solid #ec4899; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(236,72,153,0.1); cursor:pointer;" onclick="speak('Seven. Pink')">
+            <div style="font-size:12px; font-weight:800; color:#db2777; margin-bottom:4px;">7.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#ec4899; margin:0 auto 8px; box-shadow:0 3px 8px rgba(236,72,153,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#db2777;">Pink</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">زهري / وردي</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#db2777; padding:3px 8px; font-size:11px;" onclick="speak('Pink')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Pink', 'تم نسخ: Pink')">📋</button>
+            </div>
+          </div>
+
+          <!-- 8. White -->
+          <div style="background:#fff; border:2px solid #cbd5e1; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.06); cursor:pointer;" onclick="speak('Eight. White')">
+            <div style="font-size:12px; font-weight:800; color:#64748b; margin-bottom:4px;">8.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#ffffff; border:2px solid #cbd5e1; margin:0 auto 8px;"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#334155;">White</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أبيض</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#64748b; padding:3px 8px; font-size:11px;" onclick="speak('White')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('White', 'تم نسخ: White')">📋</button>
+            </div>
+          </div>
+
+          <!-- 9. Black -->
+          <div style="background:#fff; border:2px solid #0f172a; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,0.15); cursor:pointer;" onclick="speak('Nine. Black')">
+            <div style="font-size:12px; font-weight:800; color:#0f172a; margin-bottom:4px;">9.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#0f172a; margin:0 auto 8px; box-shadow:0 3px 8px rgba(0,0,0,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#0f172a;">Black</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">أسود</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#0f172a; padding:3px 8px; font-size:11px;" onclick="speak('Black')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Black', 'تم نسخ: Black')">📋</button>
+            </div>
+          </div>
+
+          <!-- 10. Brown -->
+          <div style="background:#fff; border:2px solid #854d0e; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(133,77,14,0.15); cursor:pointer;" onclick="speak('Ten. Brown')">
+            <div style="font-size:12px; font-weight:800; color:#854d0e; margin-bottom:4px;">10.</div>
+            <div style="width:50px; height:28px; border-radius:30px; background:#854d0e; margin:0 auto 8px; box-shadow:0 3px 8px rgba(133,77,14,0.4);"></div>
+            <div style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:900; color:#854d0e;">Brown</div>
+            <div style="font-size:13px; font-weight:700; color:#475569;">بني</div>
+            <div style="display:flex; gap:4px; justify-content:center; margin-top:8px;" onclick="event.stopPropagation();">
+              <button class="btn-speech-play" style="background:#854d0e; padding:3px 8px; font-size:11px;" onclick="speak('Brown')">🔊</button>
+              <button class="btn-copy" style="padding:3px 8px; font-size:11px;" onclick="copyText('Brown', 'تم نسخ: Brown')">📋</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PART 2: Rainbow Chant 🌈 -->
+      <div class="book-replica-box" style="border-color: #a7f3d0; background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);">
+        <div class="book-header-badge" style="border-color: #a7f3d0;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#059669; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">2</span>
+            <span style="font-weight:900; font-size:17px; color:#065f46;">Listen and chant. • Rainbow Chant 🌈 (أنشودة قوس قزح)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(5,150,105,0.1); color:#059669; padding:3px 10px; border-radius:20px;">CD1 10 🎧</span>
+        </div>
+
+        <div style="margin-bottom:16px; text-align:center; font-size:36px;">
+          🌈✨🌟
+        </div>
+
+        <div class="dialogue-grid">
+
+          <div class="speech-card" style="border-color:#6ee7b7;">
+            <div class="speaker-avatar" style="background:linear-gradient(135deg, #ef4444, #3b82f6);">🌈</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#059669;">السطر الأول (الألوان الأربعة الأولى)</div>
+              <div class="speech-en" style="font-size:22px;">
+                <span style="color:#ef4444;">Red</span> and <span style="color:#ca8a04;">yellow</span> and <span style="color:#db2777;">pink</span> and <span style="color:#2563eb;">blue</span>,
+              </div>
+              <div class="speech-ar">أحمر و أصفر و زهري و أزرق،</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#059669;" onclick="speak('Red and yellow and pink and blue')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Red and yellow and pink and blue,', 'تم نسخ السطر 1')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card" style="border-color:#6ee7b7;">
+            <div class="speaker-avatar" style="background:linear-gradient(135deg, #9333ea, #10b981);">🎨</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#059669;">السطر الثاني (الألوان الثلاثة)</div>
+              <div class="speech-en" style="font-size:22px;">
+                <span style="color:#9333ea;">Purple</span> and <span style="color:#ea580c;">orange</span> and <span style="color:#10b981;">green</span>.
+              </div>
+              <div class="speech-ar">أرجواني و برتقالي و أخضر.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#059669;" onclick="speak('Purple and orange and green')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('Purple and orange and green.', 'تم نسخ السطر 2')">📋 نسخ</button>
+            </div>
+          </div>
+
+          <div class="speech-card" style="border-color:#6ee7b7;">
+            <div class="speaker-avatar" style="background:linear-gradient(135deg, #2563eb, #a855f7);">👀</div>
+            <div class="speech-texts">
+              <div class="speech-speaker-name" style="color:#059669;">السطر الثالث والرابع والخامس (رؤية قوس قزح)</div>
+              <div class="speech-en" style="font-size:20px;">
+                I can see a <span style="background:linear-gradient(90deg, #ef4444, #eab308, #10b981, #3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:900;">rainbow</span>,<br>
+                See a <span style="background:linear-gradient(90deg, #ef4444, #eab308, #10b981, #3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:900;">rainbow</span>,<br>
+                See a <span style="background:linear-gradient(90deg, #ef4444, #eab308, #10b981, #3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:900;">rainbow</span> now.
+              </div>
+              <div class="speech-ar">أنا أستطيع رؤية قوس قزح، رؤية قوس قزح، رؤية قوس قزح الآن.</div>
+            </div>
+            <div class="speech-actions">
+              <button class="btn-speech-play" style="background:#059669;" onclick="speak('I can see a rainbow, See a rainbow, See a rainbow now.')">🔊 استمع</button>
+              <button class="btn-copy" onclick="copyText('I can see a rainbow, See a rainbow, See a rainbow now.', 'تم نسخ المقطع')">📋 نسخ</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:16px;">
+          <button style="background:linear-gradient(135deg, #059669, #047857); color:#fff; padding:12px 28px; border-radius:30px; font-weight:900; font-size:15px; box-shadow:0 4px 14px rgba(5,150,105,0.35); display:inline-flex; align-items:center; gap:8px;" onclick="speak('Red and yellow and pink and blue, Purple and orange and green. I can see a rainbow, See a rainbow, See a rainbow now.')">
+            <span>🌈 تشغيل أنشودة Rainbow Chant كاملة بنطق بطيء 🔊</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Teaching Strategy -->
+      <div class="strategy-box" style="border-color: rgba(5,150,105,0.3); background: rgba(5,150,105,0.04);">
+        <div class="strat-header" style="color:#059669;">
+          <span>💡 استراتيجية النجوم الملونة الصفيّة (Teacher with Colored Stars ⭐)</span>
+        </div>
+        <p style="font-size: 15px; color: var(--text);">
+          <b>طريقة التطبيق (محاكاة رسمة المعلم بالصفحة 8):</b><br>
+          يمسك المعلم نجوم كرتونية ملونة (Red Star ⭐, Blue Star 🌟, Yellow Star ✨) ويسأل الطلاب: <i>What's this color?</i> ويشير الطلاب إلى النجمة ويجيبون باللون المناسب بحماس وسرعة!
+        </p>
+      </div>
+
+    </section>
+
+    <!-- LESSON 4: Phonics - Alphabet Chant (نطق الحروف: أنشودة الحروف الأبجدية وتلوينها) -->
+    <section class="sec" id="s3">
+      
+      <!-- YouTube Video Button Card -->
+      <div class="youtube-action-card">
+        <div class="yt-info">
+          <div class="yt-icon-box">▶</div>
+          <div>
+            <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 2px;">شرح الفيديو المعتمد لدرس الحروف الأبجدية (YouTube)</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin: 0;">تابع الشرح المرئي لدرس Alphabet Chant وتلوين الحروف على يوتيوب</p>
+          </div>
+        </div>
+        <a href="https://youtu.be/Jz5Jx_krhlY?si=yYH-Y962KVJ17Gz7" target="_blank" rel="noopener noreferrer" class="yt-btn-primary">
+          <span>🎬 فتح شرح درس الحروف 4 على يوتيوب ↗</span>
+        </a>
+      </div>
+
+      <div class="sec-title">
+        <span class="sec-icon">🔤</span>
+        <h2>الدرس 4: Phonics - Alphabet Chant (نطق الحروف: أنشودة الحروف وتلوينها)</h2>
+        <span class="lesson-tag">كتاب الطالب - صفحة 10</span>
+      </div>
+
+      <!-- PART 1: Alphabet Chant with groups -->
+      <div class="book-replica-box" style="border-color: #c7d2fe; background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%);">
+        <div class="book-header-badge" style="border-color: #c7d2fe;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#7c3aed; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">1</span>
+            <span style="font-weight:900; font-size:17px; color:#5b21b6;">Chant and point. • Alphabet Chant (أنشد وأشر: أنشودة الحروف الأبجدية)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(124,58,237,0.1); color:#7c3aed; padding:3px 10px; border-radius:20px;">CD1 12 🎧</span>
+        </div>
+
+        <p style="font-size:14px; color:var(--text-muted); margin-bottom:18px;">
+          💡 استمع لكل حرف بالضغط عليه، أو اختر لوناً من لوحة الألوان بالأسفل لتلوين الحروف تفاعلياً:
+        </p>
+
+        <!-- Alphabet Rows Matching Book Page 10 -->
+        <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:20px;">
+          
+          <!-- Row 1: A B C D E F G -->
+          <div style="background:#fff; border:2px solid #e2e8f0; border-radius:16px; padding:14px 18px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:12px; font-weight:800; color:#7c3aed; margin-bottom:8px;">المجموعة الأولى: A B C D E F G</div>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button class="letter-bubble" id="let_A" onclick="handleLetterClick('A')">A</button>
+              <button class="letter-bubble" id="let_B" onclick="handleLetterClick('B')">B</button>
+              <button class="letter-bubble" id="let_C" onclick="handleLetterClick('C')">C</button>
+              <button class="letter-bubble" id="let_D" onclick="handleLetterClick('D')">D</button>
+              <button class="letter-bubble" id="let_E" onclick="handleLetterClick('E')">E</button>
+              <button class="letter-bubble" id="let_F" onclick="handleLetterClick('F')">F</button>
+              <button class="letter-bubble" id="let_G" onclick="handleLetterClick('G')">G</button>
+            </div>
+          </div>
+
+          <!-- Row 2: H I J K L M N -->
+          <div style="background:#fff; border:2px solid #e2e8f0; border-radius:16px; padding:14px 18px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:12px; font-weight:800; color:#7c3aed; margin-bottom:8px;">المجموعة الثانية: H I J K L M N</div>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button class="letter-bubble" id="let_H" onclick="handleLetterClick('H')">H</button>
+              <button class="letter-bubble" id="let_I" onclick="handleLetterClick('I')">I</button>
+              <button class="letter-bubble" id="let_J" onclick="handleLetterClick('J')">J</button>
+              <button class="letter-bubble" id="let_K" onclick="handleLetterClick('K')">K</button>
+              <button class="letter-bubble" id="let_K" onclick="handleLetterClick('L')">L</button>
+              <button class="letter-bubble" id="let_M" onclick="handleLetterClick('M')">M</button>
+              <button class="letter-bubble" id="let_N" onclick="handleLetterClick('N')">N</button>
+            </div>
+          </div>
+
+          <!-- Row 3: O P Q -->
+          <div style="background:#fff; border:2px solid #e2e8f0; border-radius:16px; padding:14px 18px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:12px; font-weight:800; color:#7c3aed; margin-bottom:8px;">المجموعة الثالثة: O P Q</div>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button class="letter-bubble" id="let_O" onclick="handleLetterClick('O')">O</button>
+              <button class="letter-bubble" id="let_P" onclick="handleLetterClick('P')">P</button>
+              <button class="letter-bubble" id="let_Q" onclick="handleLetterClick('Q')">Q</button>
+            </div>
+          </div>
+
+          <!-- Row 4: R S T -->
+          <div style="background:#fff; border:2px solid #e2e8f0; border-radius:16px; padding:14px 18px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:12px; font-weight:800; color:#7c3aed; margin-bottom:8px;">المجموعة الرابعة: R S T</div>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button class="letter-bubble" id="let_R" onclick="handleLetterClick('R')">R</button>
+              <button class="letter-bubble" id="let_S" onclick="handleLetterClick('S')">S</button>
+              <button class="letter-bubble" id="let_T" onclick="handleLetterClick('T')">T</button>
+            </div>
+          </div>
+
+          <!-- Row 5: U V W X Y Z -->
+          <div style="background:#fff; border:2px solid #e2e8f0; border-radius:16px; padding:14px 18px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div style="font-size:12px; font-weight:800; color:#7c3aed; margin-bottom:8px;">المجموعة الخامسة: U V W X Y Z</div>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+              <button class="letter-bubble" id="let_U" onclick="handleLetterClick('U')">U</button>
+              <button class="letter-bubble" id="let_V" onclick="handleLetterClick('V')">V</button>
+              <button class="letter-bubble" id="let_W" onclick="handleLetterClick('W')">W</button>
+              <button class="letter-bubble" id="let_X" onclick="handleLetterClick('X')">X</button>
+              <button class="letter-bubble" id="let_Y" onclick="handleLetterClick('Y')">Y</button>
+              <button class="letter-bubble" id="let_Z" onclick="handleLetterClick('Z')">Z</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PART 2: Color the Letters Palette -->
+        <div style="background:#faf5ff; border:2px dashed #a855f7; border-radius:16px; padding:16px 20px; text-align:center;">
+          <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:10px;">
+            <span style="background:#9333ea; color:#fff; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:12px;">2</span>
+            <span style="font-weight:900; font-size:16px; color:#6b21a8;">Color the letters. (لوّن الحروف بالألوان التفاعلية 🎨):</span>
+          </div>
+          
+          <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:12px;">
+            <button class="color-pick-btn active" style="background:#ef4444;" onclick="setColor('#ef4444', this)" title="أحمر"></button>
+            <button class="color-pick-btn" style="background:#3b82f6;" onclick="setColor('#3b82f6', this)" title="أزرق"></button>
+            <button class="color-pick-btn" style="background:#eab308;" onclick="setColor('#eab308', this)" title="أصفر"></button>
+            <button class="color-pick-btn" style="background:#10b981;" onclick="setColor('#10b981', this)" title="أخضر"></button>
+            <button class="color-pick-btn" style="background:#f97316;" onclick="setColor('#f97316', this)" title="برتقالي"></button>
+            <button class="color-pick-btn" style="background:#a855f7;" onclick="setColor('#a855f7', this)" title="بنفسجي"></button>
+            <button class="color-pick-btn" style="background:#ec4899;" onclick="setColor('#ec4899', this)" title="زهري"></button>
+            <button style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:8px; padding:4px 10px; font-size:12px; font-weight:800; color:#475569;" onclick="resetColors()">🧹 مسح التلوين</button>
+          </div>
+          <div style="font-size:13px; color:#7e22ce; font-weight:700;">
+            🎨 اختر لوناً من الأعلى ثم اضغط على أي حرف لتلوينه تماماً كما في كراسة الطالب!
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:16px;">
+          <button style="background:linear-gradient(135deg, #7c3aed, #6d28d9); color:#fff; padding:12px 28px; border-radius:30px; font-weight:900; font-size:15px; box-shadow:0 4px 14px rgba(124,58,237,0.35); display:inline-flex; align-items:center; gap:8px;" onclick="speakAlphabetChant()">
+            <span>🎵 تشغيل أنشودة Alphabet Chant كاملة بالتناغم الإيقاعي 🔊</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pedagogical Strategy -->
+      <div class="strategy-box" style="border-color: rgba(124,58,237,0.3); background: rgba(124,58,237,0.04);">
+        <div class="strat-header" style="color:#7c3aed;">
+          <span>💡 استراتيجية التلوين والإيقاع الحركي (Color & Rhythm Strategy)</span>
+        </div>
+        <p style="font-size: 15px; color: var(--text);">
+          <b>1. نشيد الحروف الإيقاعي:</b> يصفق الطلاب تصفيقتين 👏 بعد كل سطر (A-B-C-D-E-F-G 👏.. H-I-J-K-L-M-N 👏).<br>
+          <b>2. نشاط التلوين الفردي:</b> يطلب المعلم من الطالب: <i>Color letter A in red, Color letter B in orange</i> لربط درس الألوان بالحروف الأبجدية.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- LESSON 5: Gamified Learning Hub (ألعاب الذاكرة، اختبار السبيلينج، والاختبار الشامل) -->
+    <section class="sec" id="s4">
+      <div class="sec-title">
+        <span class="sec-icon">🎮</span>
+        <h2>القسم 5: مركز الألعاب التفاعلية واختبار السبيلينج لدروس الوحدة</h2>
+        <span class="lesson-tag">تفاعلي شامل • We Can 1</span>
+      </div>
+
+      <!-- 1. MEMORY MATCH GAME (ألعاب الذاكرة لجميع الدروس) -->
+      <div class="book-replica-box" style="border-color: #38bdf8; background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%); margin-bottom: 30px;">
+        <div class="book-header-badge" style="border-color: #bae6fd;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#0284c7; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">1</span>
+            <span style="font-weight:900; font-size:17px; color:#0369a1;">🧠 لعبة الذاكرة التفاعلية (Memory Match Game)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(2,132,199,0.1); color:#0284c7; padding:3px 10px; border-radius:20px;">اختر الدرس والعب</span>
+        </div>
+
+        <!-- Lesson Selector for Memory Game -->
+        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:18px;">
+          <button class="mem-tab active" onclick="initMemoryGame('l1', this)">🤝 الدرس 1: Talk Time</button>
+          <button class="mem-tab" onclick="initMemoryGame('l2', this)">🎵 الدرس 2: Rhythms</button>
+          <button class="mem-tab" onclick="initMemoryGame('l3', this)">🎨 الدرس 3: Colors</button>
+          <button class="mem-tab" onclick="initMemoryGame('l4', this)">🔤 الدرس 4: Alphabet</button>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding:0 8px;">
+          <span style="font-size:14px; font-weight:800; color:#0369a1;" id="mem-status">المطابقات: 0 / 4</span>
+          <button style="background:#f1f5f9; border:1.5px solid #cbd5e1; border-radius:8px; padding:4px 12px; font-size:12px; font-weight:800; color:#475569;" onclick="restartMemoryGame()">🔄 إعادة اللعبة</button>
+        </div>
+
+        <!-- Memory Grid -->
+        <div id="memory-board" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; max-width:640px; margin:0 auto 16px;">
+          <!-- Generated via JS -->
+        </div>
+        <div id="mem-win-msg" style="text-align:center; font-weight:900; font-size:16px; color:#059669; display:none; padding:10px; background:#dcfce7; border-radius:10px;">
+          🎉 مبروك يا بطل! لقد طابقت جميع البطاقات بنجاح!
+        </div>
+      </div>
+
+      <!-- 2. SPELLING & LETTER SLOTS GAME (اختبار السبيلينج ونقل الحروف) -->
+      <div class="book-replica-box" style="border-color: #f472b6; background: linear-gradient(180deg, #fdf2f8 0%, #ffffff 100%); margin-bottom: 30px;">
+        <div class="book-header-badge" style="border-color: #fbcfe8;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#db2777; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">2</span>
+            <span style="font-weight:900; font-size:17px; color:#9d174d;">🔤 اختبار السبيلينج ونقل الحروف إلى أماكنها (Spelling Builder)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(219,39,119,0.1); color:#db2777; padding:3px 10px; border-radius:20px;">انقر على الحرف لنقله</span>
+        </div>
+
+        <div style="text-align:center; margin-bottom:16px;">
+          <div id="spell-word-clue" style="font-size:38px; margin-bottom:4px;">👋</div>
+          <div id="spell-word-ar" style="font-size:16px; font-weight:800; color:#9d174d;">مرحباً (هيلو)</div>
+        </div>
+
+        <!-- Target Slots -->
+        <div id="spell-slots" style="display:flex; gap:10px; justify-content:center; margin-bottom:20px;">
+          <!-- Generated via JS -->
+        </div>
+
+        <!-- Scrambled Letter Badges -->
+        <div id="spell-pool" style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:18px;">
+          <!-- Generated via JS -->
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:10px;">
+          <button style="background:#f1f5f9; border:1.5px solid #cbd5e1; border-radius:8px; padding:6px 16px; font-size:13px; font-weight:800; color:#475569;" onclick="resetCurrentSpellWord()">🧹 مسح الحروف</button>
+          <button style="background:#db2777; color:#fff; border-radius:8px; padding:6px 18px; font-size:13px; font-weight:800;" onclick="nextSpellWord()">الكلمة التالية ◀</button>
+        </div>
+
+        <div id="spell-fb" style="text-align:center; font-weight:900; font-size:15px; margin-top:14px; min-height:24px;"></div>
+      </div>
+
+      <!-- 3. COMPREHENSIVE MULTI-QUESTION QUIZ (الاختبار التفاعلي الشامل) -->
+      <div class="book-replica-box" style="border-color: #86efac; background: #ffffff;">
+        <div class="book-header-badge" style="border-color: #bbf7d0;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="background:#16a34a; color:#fff; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:14px;">3</span>
+            <span style="font-weight:900; font-size:17px; color:#15803d;">🎯 الاختبار التفاعلي الذكي الشامل (الوحدة الأولى)</span>
+          </div>
+          <span style="font-size:12px; font-weight:800; background:rgba(22,163,74,0.1); color:#16a34a; padding:3px 10px; border-radius:20px;" id="quiz-progress">سؤال 1 من 4</span>
+        </div>
+
+        <div id="quiz-container" style="text-align:center; padding:16px;">
+          <div id="q-text" style="font-size:20px; font-weight:900; margin-bottom:20px; color:#0f172a;"></div>
+          <div id="q-options" style="display:flex; flex-direction:column; gap:10px; max-width:480px; margin:0 auto 16px;"></div>
+          <div id="q-fb-msg" style="font-weight:800; font-size:16px; margin-bottom:14px; min-height:24px;"></div>
+          <button id="q-next-btn" style="background:#16a34a; color:#fff; padding:10px 24px; border-radius:24px; font-weight:800; font-size:14px; display:none; margin:0 auto;" onclick="nextQuizQuestion()">السؤال التالي ◀</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast notification element -->
+<div id="toast" class="toast-msg">📋 تم النسخ بنجاح!</div>
+
+<script>
+// Web Speech API
+function speak(text) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = 0.82; // سرعة نطق بطيئة ومريحة لطلاب الصف الأول
+        window.speechSynthesis.speak(u);
+    }
+}
+
+// Copy to clipboard with toast
+function copyText(text, msg) {
+    navigator.clipboard.writeText(text).then(() => {
+        showToast(msg || 'تم النسخ إلى الحافظة بنجاح ✅');
+    }).catch(() => {
+        // Fallback
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        showToast(msg || 'تم النسخ إلى الحافظة بنجاح ✅');
+    });
+}
+
+function showToast(text) {
+    const toast = document.getElementById('toast');
+    toast.innerText = text;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2200);
+}
+
+// Tab navigation
+function sw(idx) {
+    document.querySelectorAll('.toc').forEach((el, i) => el.classList.toggle('active', i === idx));
+    document.querySelectorAll('.sec').forEach((el, i) => el.classList.toggle('active', i === idx));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Quiz check
+function checkAns(btn, isCorrect) {
+    const fb = document.getElementById('qfb');
+    if (isCorrect) {
+        btn.style.background = 'var(--accent)';
+        btn.style.color = '#fff';
+        fb.style.color = 'var(--accent)';
+        fb.innerHTML = '🎉 إجابة نموذجية ممتازة! نقول: My name\'s [الاسم]';
+        speak('Excellent! My name is Ali.');
+    } else {
+        btn.style.background = 'var(--danger)';
+        btn.style.color = '#fff';
+        fb.style.color = 'var(--danger)';
+        fb.innerHTML = 'حاول ثانية يا بطل! عند السؤال عن الاسم نجيب بـ My name\'s.';
+        speak('Try again!');
+    }
+}
+
+// Alphabet Coloring & Speech Functions
+let activeColor = '#ef4444';
+
+function setColor(color, btn) {
+    activeColor = color;
+    document.querySelectorAll('.color-pick-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+}
+
+function handleLetterClick(letter) {
+    const el = document.getElementById('let_' + letter);
+    if (el) {
+        el.style.backgroundColor = activeColor;
+        el.style.borderColor = activeColor;
+        el.style.color = '#ffffff';
+    }
+    speak('Letter ' + letter);
+}
+
+function resetColors() {
+    document.querySelectorAll('.letter-bubble').forEach(el => {
+        el.style.backgroundColor = '#ffffff';
+        el.style.borderColor = '#0f172a';
+        el.style.color = '#0f172a';
+    });
+    showToast('تمت إعادة ضبط تلوين الحروف 🧹');
+}
+
+function speakAlphabetChant() {
+    speak('A B C D E F G. H I J K L M N. O P Q. R S T. U V W X Y Z.');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   1. MEMORY MATCH GAME ENGINE (محرك ألعاب الذاكرة لجميع الدروس)
+══════════════════════════════════════════════════════════════ */
+const memoryData = {
+    l1: [
+        { id: 1, text: 'Hello', sub: 'مرحباً', icon: '👋' },
+        { id: 2, text: 'Hi', sub: 'أهلاً', icon: '✨' },
+        { id: 3, text: 'Labeeba', sub: 'لبيبة', icon: '🐱' },
+        { id: 4, text: 'Labeeb', sub: 'لبيب', icon: '🐺' }
+    ],
+    l2: [
+        { id: 1, text: 'How are you?', sub: 'كيف حالك؟', icon: '❓' },
+        { id: 2, text: "I'm fine", sub: 'أنا بخير', icon: '😊' },
+        { id: 3, text: 'Thank you', sub: 'شكراً لك', icon: '💛' },
+        { id: 4, text: 'Good-bye', sub: 'وداعاً', icon: '👋' }
+    ],
+    l3: [
+        { id: 1, text: 'Red', sub: 'أحمر', icon: '🔴' },
+        { id: 2, text: 'Blue', sub: 'أزرق', icon: '🔵' },
+        { id: 3, text: 'Yellow', sub: 'أصفر', icon: '🟡' },
+        { id: 4, text: 'Green', sub: 'أخضر', icon: '🟢' }
+    ],
+    l4: [
+        { id: 1, text: 'A - Apple', sub: 'تفاحة', icon: '🍎' },
+        { id: 2, text: 'B - Bear', sub: 'دب', icon: '🐻' },
+        { id: 3, text: 'C - Cat', sub: 'قطة', icon: '🐱' },
+        { id: 4, text: 'D - Duck', sub: 'بطة', icon: '🦆' }
+    ]
+};
+
+let currentMemLesson = 'l1';
+let memFlippedCards = [];
+let memMatchedCount = 0;
+
+function initMemoryGame(lessonKey, tabBtn) {
+    currentMemLesson = lessonKey;
+    if (tabBtn) {
+        document.querySelectorAll('.mem-tab').forEach(t => t.classList.remove('active'));
+        tabBtn.classList.add('active');
+    }
+    restartMemoryGame();
+}
+
+function restartMemoryGame() {
+    const board = document.getElementById('memory-board');
+    if (!board) return;
+    board.innerHTML = '';
+    memFlippedCards = [];
+    memMatchedCount = 0;
+    document.getElementById('mem-status').innerText = 'المطابقات: 0 / 4';
+    document.getElementById('mem-win-msg').style.display = 'none';
+
+    const items = memoryData[currentMemLesson];
+    // Create pair of cards (Text card and Icon/Sub card)
+    let deck = [];
+    items.forEach(item => {
+        deck.push({ id: item.id, display: item.text, sub: item.sub, type: 'text', icon: item.icon });
+        deck.push({ id: item.id, display: item.icon, sub: item.text, type: 'icon', icon: item.icon });
+    });
+
+    // Shuffle
+    deck.sort(() => Math.random() - 0.5);
+
+    deck.forEach((cardData, idx) => {
+        const card = document.createElement('div');
+        card.className = 'mem-card';
+        card.dataset.id = cardData.id;
+        card.dataset.idx = idx;
+        card.innerHTML = `<div style="font-size:28px;">❓</div><div style="font-size:11px; color:#64748b; font-weight:800; margin-top:2px;">انقر</div>`;
+        card.onclick = () => handleCardClick(card, cardData);
+        board.appendChild(card);
+    });
+}
+
+function handleCardClick(cardEl, cardData) {
+    if (cardEl.classList.contains('flipped') || cardEl.classList.contains('matched') || memFlippedCards.length >= 2) return;
+
+    cardEl.classList.add('flipped');
+    cardEl.innerHTML = `<div style="font-size:26px;">${cardData.display}</div><div style="font-size:12px; font-weight:800; color:#0369a1; margin-top:2px;">${cardData.sub}</div>`;
+    speak(cardData.sub || cardData.display);
+    memFlippedCards.push({ el: cardEl, data: cardData });
+
+    if (memFlippedCards.length === 2) {
+        const [c1, c2] = memFlippedCards;
+        if (c1.data.id === c2.data.id) {
+            // Matched!
+            setTimeout(() => {
+                c1.el.classList.add('matched');
+                c2.el.classList.add('matched');
+                memFlippedCards = [];
+                memMatchedCount++;
+                document.getElementById('mem-status').innerText = `المطابقات: ${memMatchedCount} / 4`;
+                speak('Great match!');
+                if (memMatchedCount === 4) {
+                    document.getElementById('mem-win-msg').style.display = 'block';
+                    speak('Excellent! You won the game!');
+                }
+            }, 500);
+        } else {
+            // Not match
+            setTimeout(() => {
+                c1.el.classList.remove('flipped');
+                c2.el.classList.remove('flipped');
+                c1.el.innerHTML = `<div style="font-size:28px;">❓</div><div style="font-size:11px; color:#64748b; font-weight:800; margin-top:2px;">انقر</div>`;
+                c2.el.innerHTML = `<div style="font-size:28px;">❓</div><div style="font-size:11px; color:#64748b; font-weight:800; margin-top:2px;">انقر</div>`;
+                memFlippedCards = [];
+            }, 900);
+        }
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2. SPELLING & LETTER SLOTS GAME (اختبار السبيلينج ونقل الحروف)
+══════════════════════════════════════════════════════════════ */
+const spellWords = [
+    { word: 'HELLO', clue: '👋', ar: 'مرحباً (هيلو)', lesson: 'الدرس 1: Talk Time' },
+    { word: 'FINE', clue: '😊', ar: 'بخير (فاين)', lesson: 'الدرس 2: Rhythms' },
+    { word: 'RED', clue: '🔴', ar: 'أحمر (ريد)', lesson: 'الدرس 3: Colors' },
+    { word: 'BLUE', clue: '🔵', ar: 'أزرق (بلو)', lesson: 'الدرس 3: Colors' },
+    { word: 'PINK', clue: '🌸', ar: 'زهري (بينك)', lesson: 'الدرس 3: Colors' },
+    { word: 'CAT', clue: '🐱', ar: 'قطة (كات)', lesson: 'الدرس 4: Alphabet' },
+    { word: 'DUCK', clue: '🦆', ar: 'بطة (دك)', lesson: 'الدرس 4: Alphabet' }
+];
+
+let currentSpellIdx = 0;
+let userSpellSlots = [];
+
+function initSpellWord(idx) {
+    currentSpellIdx = idx % spellWords.length;
+    const item = spellWords[currentSpellIdx];
+    document.getElementById('spell-word-clue').innerText = item.clue;
+    document.getElementById('spell-word-ar').innerText = `${item.ar} • (${item.lesson})`;
+    document.getElementById('spell-fb').innerText = '';
+
+    const slotsContainer = document.getElementById('spell-slots');
+    slotsContainer.innerHTML = '';
+    userSpellSlots = new Array(item.word.length).fill(null);
+
+    for (let i = 0; i < item.word.length; i++) {
+        const slot = document.createElement('div');
+        slot.className = 'spell-slot';
+        slot.id = 'slot_' + i;
+        slot.onclick = () => removeLetterFromSlot(i);
+        slotsContainer.appendChild(slot);
+    }
+
+    const poolContainer = document.getElementById('spell-pool');
+    poolContainer.innerHTML = '';
+    // Scramble letters
+    let letters = item.word.split('').map((char, index) => ({ char, id: index }));
+    letters.sort(() => Math.random() - 0.5);
+
+    letters.forEach(l => {
+        const btn = document.createElement('button');
+        btn.className = 'spell-letter-btn';
+        btn.id = 'pool_btn_' + l.id;
+        btn.innerText = l.char;
+        btn.onclick = () => placeLetterInSlot(l.char, l.id);
+        poolContainer.appendChild(btn);
+    });
+}
+
+function placeLetterInSlot(char, btnId) {
+    const emptyIndex = userSpellSlots.findIndex(val => val === null);
+    if (emptyIndex === -1) return;
+
+    userSpellSlots[emptyIndex] = { char, btnId };
+    const slotEl = document.getElementById('slot_' + emptyIndex);
+    slotEl.innerText = char;
+    slotEl.style.borderStyle = 'solid';
+    slotEl.style.background = '#fce7f3';
+
+    const btn = document.getElementById('pool_btn_' + btnId);
+    if (btn) btn.classList.add('used');
+
+    speak(char);
+
+    // Check if filled
+    if (!userSpellSlots.includes(null)) {
+        checkSpellWord();
+    }
+}
+
+function removeLetterFromSlot(index) {
+    const entry = userSpellSlots[index];
+    if (!entry) return;
+
+    const btn = document.getElementById('pool_btn_' + entry.btnId);
+    if (btn) btn.classList.remove('used');
+
+    userSpellSlots[index] = null;
+    const slotEl = document.getElementById('slot_' + index);
+    slotEl.innerText = '';
+    slotEl.style.borderStyle = 'dashed';
+    slotEl.style.background = '#ffffff';
+    document.getElementById('spell-fb').innerText = '';
+}
+
+function resetCurrentSpellWord() {
+    initSpellWord(currentSpellIdx);
+}
+
+function nextSpellWord() {
+    initSpellWord(currentSpellIdx + 1);
+}
+
+function checkSpellWord() {
+    const target = spellWords[currentSpellIdx].word;
+    const built = userSpellSlots.map(s => s ? s.char : '').join('');
+    const fb = document.getElementById('spell-fb');
+
+    if (built === target) {
+        fb.style.color = '#059669';
+        fb.innerHTML = `🎉 أحسنت صنعاً! تهجئة صحيحة 100%: <b>${target}</b>`;
+        speak(`Excellent! ${target}. ${spellWords[currentSpellIdx].ar}`);
+    } else {
+        fb.style.color = '#ef4444';
+        fb.innerHTML = `⚠️ حاول مرة أخرى يا بطل! اضغط على الحرف لمسحه.`;
+        speak('Try again!');
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3. COMPREHENSIVE MULTI-QUESTION QUIZ (الاختبار الشامل)
+══════════════════════════════════════════════════════════════ */
+const quizQuestions = [
+    {
+        q: "1. عندما يسألك صديقك: What's your name? ماذا تجيب؟",
+        options: ["My name's Ali. 👦", "Good-bye! 👋", "Apple 🍎"],
+        correct: 0,
+        fb: "🎉 إجابة صحيحة! عند السؤال عن الاسم نقول My name's."
+    },
+    {
+        q: "2. عندما يسألك المعلم: How are you? ماذا تجيب؟",
+        options: ["I'm fine, thank you. 😊", "Hi! 🐱", "Blue 🔵"],
+        correct: 0,
+        fb: "🎉 إجابة ممتازة! نقول I'm fine, thank you."
+    },
+    {
+        q: "3. ما هو اسم هذا اللون: 🔴 ؟",
+        options: ["Blue", "Red", "Yellow"],
+        correct: 1,
+        fb: "🎉 بطل! 🔴 هو Red."
+    },
+    {
+        q: "4. في أنشودة الحروف، ما هو الحرف الذي يلي A B C D E F [ ... ] ؟",
+        options: ["Z", "G", "M"],
+        correct: 1,
+        fb: "🎉 رائع 100%! المجموعة الأولى تنتهي بالحرف G."
+    }
+];
+
+let currentQuizIdx = 0;
+let quizScore = 0;
+
+function initQuiz() {
+    currentQuizIdx = 0;
+    quizScore = 0;
+    renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+    const q = quizQuestions[currentQuizIdx];
+    document.getElementById('quiz-progress').innerText = `سؤال ${currentQuizIdx + 1} من ${quizQuestions.length}`;
+    document.getElementById('q-text').innerText = q.q;
+    document.getElementById('q-fb-msg').innerHTML = '';
+    document.getElementById('q-next-btn').style.display = 'none';
+
+    const optsContainer = document.getElementById('q-options');
+    optsContainer.innerHTML = '';
+
+    q.options.forEach((optText, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt-btn';
+        btn.innerHTML = `<span>${optText}</span> <span>👉</span>`;
+        btn.onclick = () => handleQuizOption(i, btn);
+        optsContainer.appendChild(btn);
+    });
+}
+
+function handleQuizOption(selectedIdx, btnEl) {
+    const q = quizQuestions[currentQuizIdx];
+    const fb = document.getElementById('q-fb-msg');
+    const allBtns = document.querySelectorAll('.quiz-opt-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    if (selectedIdx === q.correct) {
+        btnEl.style.background = '#dcfce7';
+        btnEl.style.borderColor = '#16a34a';
+        fb.style.color = '#16a34a';
+        fb.innerHTML = q.fb;
+        quizScore++;
+        speak('Correct! ' + q.options[selectedIdx]);
+    } else {
+        btnEl.style.background = '#fee2e2';
+        btnEl.style.borderColor = '#ef4444';
+        fb.style.color = '#ef4444';
+        fb.innerHTML = '⚠️ إجابة غير صحيحة، حاول التركيز في السؤال التالي.';
+        speak('Incorrect. Try the next question.');
+    }
+
+    const nextBtn = document.getElementById('q-next-btn');
+    if (currentQuizIdx < quizQuestions.length - 1) {
+        nextBtn.style.display = 'block';
+        nextBtn.innerText = 'السؤال التالي ◀';
+    } else {
+        nextBtn.style.display = 'block';
+        nextBtn.innerText = '🏁 عرض النتيجة النهائية';
+    }
+}
+
+function nextQuizQuestion() {
+    if (currentQuizIdx < quizQuestions.length - 1) {
+        currentQuizIdx++;
+        renderQuizQuestion();
+    } else {
+        // Show Final Result
+        const container = document.getElementById('quiz-container');
+        container.innerHTML = `
+            <div style="font-size:48px; margin-bottom:12px;">🏆</div>
+            <h3 style="font-size:24px; font-weight:900; color:#15803d; margin-bottom:8px;">أحسنت يا بطل الصف الأول!</h3>
+            <p style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:20px;">
+                درجتك النهائية: <b>${quizScore} من ${quizQuestions.length}</b> (${quizScore === quizQuestions.length ? 'درجة كاملة 100% 🌟' : 'أداء رائع 👏'})
+            </p>
+            <button style="background:#16a34a; color:#fff; padding:12px 28px; border-radius:30px; font-weight:900; font-size:15px;" onclick="initQuiz()">🔄 إعادة الاختبار التفاعلي</button>
+        `;
+        speak(`Congratulations! Your score is ${quizScore} out of ${quizQuestions.length}.`);
+    }
+}
+
+// Auto init games on page load
+window.addEventListener('DOMContentLoaded', () => {
+    initMemoryGame('l1');
+    initSpellWord(0);
+    initQuiz();
+});
+
+// Theme
+function toggleTheme() {
+    const c = document.documentElement.getAttribute('data-theme');
+    const n = c === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+    localStorage.setItem('theme', n);
+}
+</script>
+</body>
+</html>
