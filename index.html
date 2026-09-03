@@ -1398,6 +1398,75 @@
                 termsContainer.appendChild(g2HubBanner);
             }
 
+            // إذا كان الصف السادس الابتدائي، أضف شريط شروحات يوتيوب وحلول كتب الطالب والنشاط المعتمدة
+            if (gradeId === "primary-6") {
+                const g6HubBanner = document.createElement('div');
+                g6HubBanner.style.cssText = 'grid-column: 1 / -1; display:flex; flex-direction:column; gap:14px; margin-bottom: 12px;';
+                g6HubBanner.innerHTML = `
+                    <!-- شريط شروحات يوتيوب المباشرة لكل درس -->
+                    <div style="background:linear-gradient(135deg, rgba(255,0,0,0.08), rgba(16,185,129,0.06)); border:2px solid rgba(255,0,0,0.3); border-radius:16px; padding:18px 24px; box-shadow:var(--shadow-md);">
+                        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="width:42px; height:42px; border-radius:10px; background:#ff0000; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 10px rgba(255,0,0,0.3);">🎬</div>
+                                <div>
+                                    <h4 style="font-size:17px; font-weight:800; margin:0; color:var(--text-primary);">شروحات الفيديو المعتمدة لدروس الصف السادس (YouTube)</h4>
+                                    <span style="font-size:12px; color:var(--text-light); font-weight:600;">اختر الدرس لمشاهدة الشرح التفاعلي للوحدة الأولى:</span>
+                                </div>
+                            </div>
+                            <span style="background:rgba(255,0,0,0.12); color:#dc2626; font-size:12px; font-weight:800; padding:4px 10px; border-radius:20px;">الوحدة الأولى مفتوحة 📺</span>
+                        </div>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
+                            <a href="https://youtu.be/RXvjySF28X0?si=tmHt7PggNYdl9ZiG" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#f59e0b; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">★</span>
+                                <span>مقدمة المنهج والترحيب ↗</span>
+                            </a>
+                            <a href="https://youtu.be/3FDZMBXLJNs?si=5NPIAwc2Cm9AQxSp" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">1</span>
+                                <span>الدرس 1: كائنات العالم والحشرات ↗</span>
+                            </a>
+                            <a href="https://youtu.be/ZEjEYAW5CM8?si=nvY85UeHRKWpDbTq" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">2</span>
+                                <span>الدرس 2: أنشودة الكائنات ↗</span>
+                            </a>
+                            <a href="https://youtu.be/1TCLF5EqJZE?si=lEtPd6FfccrwQTL4" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg-card); border:1px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text-primary); font-size:13px; font-weight:700; transition:all 0.2s ease;" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                                <span style="background:#ff0000; color:#fff; width:24px; height:24px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">3</span>
+                                <span>الدرس 3: المبني للمجهول Passive ↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- بانرات حلول كتاب الطالب وكتاب النشاط المعتمدة للصف السادس -->
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px;">
+                        <a href="https://www.wajibati.net/5-we-can-%D8%B3%D8%A7%D8%AF%D8%B3-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg, rgba(79,70,229,0.1), rgba(99,102,241,0.04)); border:2px solid rgba(79,70,229,0.35); border-radius:16px; padding:16px 20px; text-decoration:none; color:var(--text-primary); transition:all 0.3s ease; box-shadow:var(--shadow-md);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                            <div style="display:flex; align-items:center; gap:14px;">
+                                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, var(--primary), var(--primary-light)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 12px rgba(79,70,229,0.3); flex-shrink:0;">📘</div>
+                                <div>
+                                    <span style="display:inline-block; font-size:11px; font-weight:800; color:var(--primary); background:rgba(79,70,229,0.12); padding:2px 8px; border-radius:6px; margin-bottom:3px;">حل معتمد 💯 • واجباتي</span>
+                                    <h4 style="font-size:15px; font-weight:800; margin:0; color:var(--text-primary);">حل كتاب الطالب <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:var(--primary);">(Student's Book)</bdi></h4>
+                                </div>
+                            </div>
+                            <div style="display:inline-flex; align-items:center; gap:4px; background:var(--primary); color:#fff; font-size:13px; font-weight:800; padding:8px 14px; border-radius:20px; box-shadow:0 3px 10px rgba(79,70,229,0.25); white-space:nowrap; flex-shrink:0;">
+                                <span>فتح الحلول ↗</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.wajibati.net/nshat-we-can5/" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.04)); border:2px solid rgba(16,185,129,0.35); border-radius:16px; padding:16px 20px; text-decoration:none; color:var(--text-primary); transition:all 0.3s ease; box-shadow:var(--shadow-md);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'">
+                            <div style="display:flex; align-items:center; gap:14px;">
+                                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, #10b981, #059669); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 12px rgba(16,185,129,0.3); flex-shrink:0;">📗</div>
+                                <div>
+                                    <span style="display:inline-block; font-size:11px; font-weight:800; color:#059669; background:rgba(16,185,129,0.12); padding:2px 8px; border-radius:6px; margin-bottom:3px;">حل معتمد 💯 • واجباتي</span>
+                                    <h4 style="font-size:15px; font-weight:800; margin:0; color:var(--text-primary);">حل كتاب النشاط <bdi style="font-family:'Outfit', sans-serif; font-size:13px; color:#059669;">(Workbook)</bdi></h4>
+                                </div>
+                            </div>
+                            <div style="display:inline-flex; align-items:center; gap:4px; background:#10b981; color:#fff; font-size:13px; font-weight:800; padding:8px 14px; border-radius:20px; box-shadow:0 3px 10px rgba(16,185,129,0.25); white-space:nowrap; flex-shrink:0;">
+                                <span>فتح الحلول ↗</span>
+                            </div>
+                        </a>
+                    </div>
+                `;
+                termsContainer.appendChild(g6HubBanner);
+            }
+
             grade.terms.forEach((term, index) => {
                 const termCard = document.createElement('div');
                 termCard.className = 'term-card';

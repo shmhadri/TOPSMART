@@ -694,6 +694,58 @@ body {
     color: var(--text);
 }
 
+/* YOUTUBE VIDEO BANNER & CARDS */
+.youtube-action-card {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(16, 185, 129, 0.05));
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: var(--shadow);
+}
+.yt-card-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.yt-icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #ff0000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+.yt-btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ff0000;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    transition: var(--tr);
+}
+.yt-btn-link:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 0, 0, 0.4);
+}
+
 @media (max-width: 900px) {
     .sidebar { display: none; }
     .mobile-nav-select { display: block; }
@@ -719,6 +771,12 @@ body {
     <div class="topbar-left">
         <a href="index.html" class="top-action-btn" style="background:#047857; color:#fff; font-weight:800; border-color:#047857;" title="العودة للصفحة الرئيسية">
             <span>🏠</span> الرئيسية
+        </a>
+        <a href="https://www.wajibati.net/5-we-can-%D8%B3%D8%A7%D8%AF%D8%B3-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A/" target="_blank" rel="noopener noreferrer" class="top-action-btn" style="border-color:#4f46e5; color:#4f46e5; font-weight:800;" title="حل كتاب الطالب كاملاً على موقع واجباتي">
+            <span>📘</span> حل كتاب الطالب
+        </a>
+        <a href="https://www.wajibati.net/nshat-we-can5/" target="_blank" rel="noopener noreferrer" class="top-action-btn" style="border-color:#10b981; color:#047857; font-weight:800;" title="حل كتاب النشاط كاملاً على موقع واجباتي">
+            <span>📗</span> حل كتاب النشاط
         </a>
         <a href="wheel.html" target="_blank" class="top-action-btn" title="عجلة الأسماء التفاعلية">
             <span>🎡</span> عجلة الأسماء
@@ -789,6 +847,54 @@ body {
             </div>
         </div>
 
+        <!-- SOLVED BOOKS & YOUTUBE VIDEO HUB BANNER -->
+        <div style="background:var(--bg-card); border:2px solid var(--accent); border-radius:var(--radius); padding:20px 24px; margin-bottom:24px; box-shadow:var(--shadow);">
+            <!-- Top: Solved Books -->
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px; padding-bottom:14px; border-bottom:1.5px dashed var(--border);">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:24px;">📚</span>
+                    <div>
+                        <h4 style="font-size:17px; font-weight:900; margin:0; color:#047857;">حلول الكتب المعتمدة للصف السادس الابتدائي (الفصل الأول)</h4>
+                        <span style="font-size:13px; color:var(--text-muted);">حلول نموذجية معتمدة عبر موقع واجباتي لكتاب الطالب وكتاب النشاط:</span>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <a href="https://www.wajibati.net/5-we-can-%D8%B3%D8%A7%D8%AF%D8%B3-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, var(--primary), var(--primary-light)); color:#fff; padding:8px 16px; border-radius:25px; font-size:13px; font-weight:800; text-decoration:none; box-shadow:0 3px 10px rgba(79,70,229,0.3);">
+                        <span>📘 حل كتاب الطالب ↗</span>
+                    </a>
+                    <a href="https://www.wajibati.net/nshat-we-can5/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #10b981, #059669); color:#fff; padding:8px 16px; border-radius:25px; font-size:13px; font-weight:800; text-decoration:none; box-shadow:0 3px 10px rgba(16,185,129,0.3);">
+                        <span>📗 حل كتاب النشاط ↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom: Video Lessons Hub -->
+            <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                    <span style="color:#ff0000; font-size:20px;">🎬</span>
+                    <span style="font-weight:900; font-size:15px; color:var(--text);">قائمة شروحات الفيديو المعتمدة لدروس الصف السادس (YouTube):</span>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:10px;">
+                    <a href="https://youtu.be/RXvjySF28X0?si=tmHt7PggNYdl9ZiG" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg); border:1.5px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text); font-size:13px; font-weight:700; transition:var(--tr);" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <span style="background:#f59e0b; color:#fff; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">★</span>
+                        <span>مقدمة المنهج والترحيب ↗</span>
+                    </a>
+                    <a href="https://youtu.be/3FDZMBXLJNs?si=5NPIAwc2Cm9AQxSp" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg); border:1.5px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text); font-size:13px; font-weight:700; transition:var(--tr);" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <span style="background:#ff0000; color:#fff; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">1</span>
+                        <span>الدرس 1: كائنات العالم والحشرات ↗</span>
+                    </a>
+                    <a href="https://youtu.be/ZEjEYAW5CM8?si=nvY85UeHRKWpDbTq" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg); border:1.5px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text); font-size:13px; font-weight:700; transition:var(--tr);" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <span style="background:#ff0000; color:#fff; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">2</span>
+                        <span>الدرس 2: أنشودة الكائنات ↗</span>
+                    </a>
+                    <a href="https://youtu.be/1TCLF5EqJZE?si=lEtPd6FfccrwQTL4" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; gap:10px; background:var(--bg); border:1.5px solid var(--border); padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text); font-size:13px; font-weight:700; transition:var(--tr);" onmouseover="this.style.borderColor='#ff0000'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'">
+                        <span style="background:#ff0000; color:#fff; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;">3</span>
+                        <span>الدرس 3: المبني للمجهول Passive ↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- ==================== SECTION 1: LESSON 1 (PAGE 10) ==================== -->
         <section class="sec active" id="sec1">
             <div class="sec-hd">
@@ -797,6 +903,20 @@ body {
                     <h3>الدرس 1: كائنات العالم والحشرات الصغيرة (Tiny Insects & Dinosaurs - Page 10)</h3>
                 </div>
                 <span class="sec-badge">Lesson 1 • Page 10</span>
+            </div>
+
+            <!-- YOUTUBE LESSON 1 CARD -->
+            <div class="youtube-action-card">
+                <div class="yt-card-info">
+                    <div class="yt-icon-badge">🎬</div>
+                    <div>
+                        <h4 style="font-size:16px; font-weight:900; margin-bottom:2px; color:var(--text);">شرح الفيديو النموذجي المعتمد للدرس الأول (Page 10)</h4>
+                        <span style="font-size:13px; color:var(--text-muted);">شاهد شرح كائنات العالم والمفردات ونطقها على YouTube</span>
+                    </div>
+                </div>
+                <a href="https://youtu.be/3FDZMBXLJNs?si=5NPIAwc2Cm9AQxSp" target="_blank" rel="noopener noreferrer" class="yt-btn-link">
+                    <span>تشغيل الشرح على YouTube ↗</span>
+                </a>
             </div>
 
             <div class="book-explanation-box">
@@ -1038,6 +1158,20 @@ body {
                 <span class="sec-badge">Lesson 2 • Page 11 Master</span>
             </div>
 
+            <!-- YOUTUBE LESSON 2 CARD -->
+            <div class="youtube-action-card">
+                <div class="yt-card-info">
+                    <div class="yt-icon-badge">🎬</div>
+                    <div>
+                        <h4 style="font-size:16px; font-weight:900; margin-bottom:2px; color:var(--text);">شرح الفيديو النموذجي المعتمد للدرس الثاني (Page 11)</h4>
+                        <span style="font-size:13px; color:var(--text-muted);">شاهد شرح تدريبات Look and write وأنشودة الكائنات على YouTube</span>
+                    </div>
+                </div>
+                <a href="https://youtu.be/ZEjEYAW5CM8?si=nvY85UeHRKWpDbTq" target="_blank" rel="noopener noreferrer" class="yt-btn-link">
+                    <span>تشغيل الشرح على YouTube ↗</span>
+                </a>
+            </div>
+
             <!-- ACTIVITY 3: LOOK AND WRITE (a to n) -->
             <div class="book-explanation-box">
                 <h4>🖼️ النشاط 3 بالكتاب المدرسي: انظر واكتب الجملة المناسبة لكل صورة (Look and write - a to n)</h4>
@@ -1238,6 +1372,20 @@ body {
                     <h3>الدرس 3: معمل قواعد المبني للمجهول الموسع (Simple Present Passive - Pages 12-13)</h3>
                 </div>
                 <span class="sec-badge">Grammar Master Lab</span>
+            </div>
+
+            <!-- YOUTUBE LESSON 3 CARD -->
+            <div class="youtube-action-card">
+                <div class="yt-card-info">
+                    <div class="yt-icon-badge">🎬</div>
+                    <div>
+                        <h4 style="font-size:16px; font-weight:900; margin-bottom:2px; color:var(--text);">شرح الفيديو النموذجي لقواعد المبني للمجهول (Pages 12-13)</h4>
+                        <span style="font-size:13px; color:var(--text-muted);">شاهد شرح وتحويلات قواعد Passive Voice التفاعلية على YouTube</span>
+                    </div>
+                </div>
+                <a href="https://youtu.be/1TCLF5EqJZE?si=lEtPd6FfccrwQTL4" target="_blank" rel="noopener noreferrer" class="yt-btn-link">
+                    <span>تشغيل الشرح على YouTube ↗</span>
+                </a>
             </div>
 
             <!-- ACTIVITY 1: READ THE CHART -->
