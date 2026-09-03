@@ -772,6 +772,9 @@ body {
         <a href="index.html" class="top-action-btn" style="background:#047857; color:#fff; font-weight:800; border-color:#047857;" title="العودة للصفحة الرئيسية">
             <span>🏠</span> الرئيسية
         </a>
+        <a href="grade6-unit1-scope-sequence.html" class="top-action-btn" style="border-color:#0f766e; color:#0f766e; font-weight:800; background:rgba(15,118,110,0.06);" title="تحليل المحتوى وجدول المدى والتتابع المعتمد من وزارة التعليم">
+            <span>📊</span> تحليل المحتوى (Scope & Sequence)
+        </a>
         <a href="https://www.wajibati.net/5-we-can-%D8%B3%D8%A7%D8%AF%D8%B3-%D8%A7%D8%A8%D8%AA%D8%AF%D8%A6%D9%8A/" target="_blank" rel="noopener noreferrer" class="top-action-btn" style="border-color:#4f46e5; color:#4f46e5; font-weight:800;" title="حل كتاب الطالب كاملاً على موقع واجباتي">
             <span>📘</span> حل كتاب الطالب
         </a>
@@ -798,19 +801,23 @@ body {
         <div class="sidebar-title">
             <span>🌿</span> دروس الوحدة 1 (Living Things)
         </div>
+        <div style="margin-bottom:12px;">
+            <a href="grade6-unit1-scope-sequence.html" class="toc-item" style="background:linear-gradient(135deg, rgba(15,118,110,0.12), rgba(2,132,199,0.08)); border:1.5px solid #0f766e; color:#0f766e; font-weight:900;">
+                <span>📊 تحليل المحتوى (Scope & Sequence)</span>
+                <span class="toc-badge" style="background:#0f766e;">جديد</span>
+            </a>
+        </div>
         <ul class="toc-list">
             <li><a class="toc-item active" id="toc1" onclick="showSec(1)">1. كائنات العالم والحشرات (ص 10) <span class="toc-badge">Lesson 1</span></a></li>
             <li><a class="toc-item" id="toc2" onclick="showSec(2)">2. أنشودة الكائنات والحيوانات (ص 11) <span class="toc-badge">Chant</span></a></li>
             <li><a class="toc-item" id="toc3" onclick="showSec(3)">3. المبني للمجهول في المضارع (ص 12-13) <span class="toc-badge">Passive</span></a></li>
             <li><a class="toc-item" id="toc4" onclick="showSec(4)">4. قصة حديقة المرح (ص 14) <span class="toc-badge">Fun Park</span></a></li>
-            <li><a class="toc-item" id="toc5" onclick="showSec(5)">5. علماء الحيوان وإدارة الغضب (ص 15) <span class="toc-badge">SEL</span></a></li>
-            <li><a class="toc-item" id="toc6" onclick="showSec(6)">6. مركز حماية الحياة الفطرية (ص 16) <span class="toc-badge">Conservation</span></a></li>
-            <li><a class="toc-item" id="toc7" onclick="showSec(7)">7. قواعد الجمل المكانية Where (ص 17) <span class="toc-badge">Where</span></a></li>
-            <li><a class="toc-item" id="toc8" onclick="showSec(8)">8. بيئات الكائنات وتحويلات Passive (ص 18-19) <span class="toc-badge">Reading</span></a></li>
-            <li><a class="toc-item" id="toc9" onclick="showSec(9)">9. العلوم الطبيعية وسمات الحيوانات (ص 20) <span class="toc-badge">Science</span></a></li>
-            <li><a class="toc-item" id="toc10" onclick="showSec(10)">10. معمل سحب وترتيب الحروف الناقصة <span class="toc-badge">Word Builder</span></a></li>
-            <li><a class="toc-item" id="toc11" onclick="showSec(11)">11. الاختبار الشامل والشهادة الذهبية <span class="toc-badge">Mastery Exam</span></a></li>
-            <li><a class="toc-item" id="toc12" onclick="showSec(12)">12. ألعاب الوحدة الأولى التفاعلية <span class="toc-badge">Arcade Games</span></a></li>
+            <li><a class="toc-item" id="toc5" onclick="showSec(5)">5. مركز حماية البيئة والتحدي (ص 15) <span class="toc-badge">Protect</span></a></li>
+            <li><a class="toc-item" id="toc6" onclick="showSec(6)">6. السؤال المكاني Where (ص 16-17) <span class="toc-badge">Where</span></a></li>
+            <li><a class="toc-item" id="toc7" onclick="showSec(7)">7. القراءة والاستيعاب الشامل (ص 18-19) <span class="toc-badge">Reading</span></a></li>
+            <li><a class="toc-item" id="toc8" onclick="showSec(8)">8. الأصوات والتهجئة Phonics (ص 20-21) <span class="toc-badge">Phonics</span></a></li>
+            <li><a class="toc-item" id="toc9" onclick="showSec(9)">9. معمل ترتيب وسحب الكلمات <span class="toc-badge">Drag & Drop</span></a></li>
+            <li><a class="toc-item" id="toc10" onclick="showSec(10)">10. الاختبار الختامي الشامل (20 سؤال) <span class="toc-badge">Final Quiz</span></a></li>
         </ul>
     </aside>
 
@@ -818,19 +825,18 @@ body {
     <main class="content-area">
 
         <!-- MOBILE SELECT -->
-        <select class="mobile-nav-select" id="mobileSelect" onchange="showSec(parseInt(this.value))">
+        <select class="mobile-nav-select" id="mobileSelect" onchange="if(this.value==='scope'){window.location.href='grade6-unit1-scope-sequence.html'}else{showSec(parseInt(this.value))}">
+            <option value="scope">📊 فتح تحليل المحتوى وجدول المدى والتتابع (Scope & Sequence)</option>
             <option value="1">1. كائنات العالم والحشرات (ص 10)</option>
             <option value="2">2. أنشودة الكائنات والحيوانات (ص 11)</option>
             <option value="3">3. المبني للمجهول في المضارع (ص 12-13)</option>
             <option value="4">4. قصة حديقة المرح (ص 14)</option>
-            <option value="5">5. علماء الحيوان وإدارة الغضب (ص 15)</option>
-            <option value="6">6. مركز حماية الحياة الفطرية (ص 16)</option>
-            <option value="7">7. قواعد الجمل المكانية Where (ص 17)</option>
-            <option value="8">8. بيئات الكائنات وتحويلات Passive (ص 18-19)</option>
-            <option value="9">9. العلوم الطبيعية وسمات الحيوانات (ص 20)</option>
-            <option value="10">10. معمل سحب وترتيب الحروف الناقصة</option>
-            <option value="11">11. الاختبار الشامل والشهادة الذهبية</option>
-            <option value="12">12. ألعاب الوحدة الأولى التفاعلية (الذاكرة والبالون)</option>
+            <option value="5">5. مركز حماية البيئة والتحدي (ص 15)</option>
+            <option value="6">6. السؤال المكاني Where (ص 16-17)</option>
+            <option value="7">7. القراءة والاستيعاب الشامل (ص 18-19)</option>
+            <option value="8">8. الأصوات والتهجئة Phonics (ص 20-21)</option>
+            <option value="9">9. معمل ترتيب وسحب الكلمات</option>
+            <option value="10">10. الاختبار الختامي الشامل (20 سؤال)</option>
         </select>
 
         <!-- HERO BANNER -->
@@ -841,6 +847,7 @@ body {
                 المنظومة التعليمية الكاملة للوحدة الأولى من كتاب الطالب المعتمد: الحشرات والكائنات الحية، قواعد المبني للمجهول (Passive Voice)، قصة حديقة المرح، مركز حماية البيئة، وجمل Where المكانية مع معمل سحب وترتيب الحروف!
             </p>
             <div class="hero-buttons">
+                <a href="grade6-unit1-scope-sequence.html" class="hero-btn" style="background:#0f766e; color:#fff; font-weight:800;">📊 تحليل المحتوى (Scope & Sequence)</a>
                 <button onclick="showSec(3)" class="hero-btn accent">⚡ قواعد المبني للمجهول (Passive)</button>
                 <button onclick="showSec(9)" class="hero-btn">🔤 معمل سحب وترتيب الكلمات</button>
                 <button onclick="showSec(10)" class="hero-btn" style="background:#f59e0b; color:#fff;">🏆 الاختبار الشامل</button>
