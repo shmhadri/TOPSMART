@@ -523,6 +523,9 @@ body {
 .rep-input:focus {
     outline: none;
 }
+.rep-header input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
 
 .rep-field-full {
     border: 2px solid #b2dfdb;
@@ -669,6 +672,42 @@ body {
     to { opacity: 1; }
 }
 
+@media (max-width: 600px) {
+    .wheel-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .wheel-section {
+        padding: 20px 10px;
+    }
+    .wheel-container {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+    .report-paper-container {
+        padding: 12px 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .tabs-nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+    .report-tools-bar {
+        flex-direction: column;
+    }
+    .report-tools-bar button {
+        width: 100%;
+    }
+}
+
 @media print {
     body {
         background: #fff;
@@ -811,8 +850,7 @@ body {
       <div class="rep-header">
         <div class="rep-header-right">
           <div contenteditable="true">وزارة التعليم</div>
-          <div contenteditable="true">الإدارة العامة للتعليم بالمنطقة الشمالية</div>
-          <div contenteditable="true">مكتب التعليم</div>
+          <div contenteditable="true">الإدارة العامة للتعليم بـ ................</div>
         </div>
         <div class="rep-header-center">
           <h1 contenteditable="true">نموذج تنفيذ استراتيجية مختصرة</h1>
@@ -820,7 +858,7 @@ body {
         <div class="rep-header-left">
           <div style="display:flex; align-items:center; gap:6px;">
             <span contenteditable="true">المدرسة:</span>
-            <input type="text" class="rep-input" value="مدرسة أسامة بن زيد" style="background:transparent; color:#fff; width:150px">
+            <input type="text" class="rep-input" value="" placeholder="اكتب اسم المدرسة..." style="background:transparent; color:#fff; width:160px; border-bottom:1px dashed rgba(255,255,255,0.4);">
           </div>
         </div>
       </div>
@@ -929,15 +967,15 @@ body {
       <div class="rep-footer" style="flex-wrap: wrap; gap: 15px;">
         <div class="sig-block">
           <div class="sig-title" contenteditable="true">اسم المعلم المنفذ</div>
-          <input type="text" class="rep-input" value="تركي فهد خالد" style="text-align:center;">
+          <input type="text" class="rep-input" value="" placeholder="اسم المعلم/ـة" style="text-align:center;">
         </div>
         <div class="sig-block">
           <div class="sig-title" contenteditable="true">قائد / مدير المدرسة</div>
-          <input type="text" class="rep-input" value="سلطان الفيصل" style="text-align:center;">
+          <input type="text" class="rep-input" value="" placeholder="اسم المدير/ة" style="text-align:center;">
         </div>
         <div class="sig-block">
           <div class="sig-title" contenteditable="true">اسم آخر (دور آخر)</div>
-          <input type="text" class="rep-input" value="المشرف التربوي" style="text-align:center;">
+          <input type="text" class="rep-input" value="" placeholder="الصفة / الاسم" style="text-align:center;">
         </div>
         
         <div style="width: 100%; display: flex; justify-content: center; margin-top: 15px; border-top: 1px dashed #e2e8f0; padding-top: 10px;">
