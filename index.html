@@ -1398,6 +1398,42 @@
                 termsContainer.appendChild(g2HubBanner);
             }
 
+            // إذا كان الصف الخامس الابتدائي، أضف شريط شروحات يوتيوب المعتمدة للوحدة الأولى كاملة
+            if (gradeId === "primary-5") {
+                const g5HubBanner = document.createElement('div');
+                g5HubBanner.style.cssText = 'grid-column: 1 / -1; display:flex; flex-direction:column; gap:14px; margin-bottom: 12px;';
+                g5HubBanner.innerHTML = `
+                    <!-- شريط شروحات يوتيوب المباشرة للوحدة كاملة -->
+                    <div style="background:linear-gradient(135deg, rgba(255,0,0,0.08), rgba(79,70,229,0.06)); border:2px solid rgba(255,0,0,0.3); border-radius:16px; padding:18px 24px; box-shadow:var(--shadow-md);">
+                        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <div style="width:42px; height:42px; border-radius:10px; background:#ff0000; color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 4px 10px rgba(255,0,0,0.3);">🎬</div>
+                                <div>
+                                    <h4 style="font-size:17px; font-weight:800; margin:0; color:var(--text-primary);">شرح الفيديو المعتمد لمنهج الصف الخامس (YouTube)</h4>
+                                    <span style="font-size:12px; color:var(--text-light); font-weight:600;">شرح شامل ومتكامل لجميع دروس الوحدة الأولى (Unit 1):</span>
+                                </div>
+                            </div>
+                            <span style="background:rgba(255,0,0,0.12); color:#dc2626; font-size:12px; font-weight:800; padding:4px 10px; border-radius:20px;">الوحدة 1 كاملة 📺</span>
+                        </div>
+                        <div style="display:grid; grid-template-columns:1fr; gap:10px;">
+                            <a href="https://youtu.be/E--dct5hElQ?si=hnN0Mbd4elhfmFzm" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:space-between; background:var(--bg-card); border:2px solid #ff0000; padding:14px 20px; border-radius:14px; text-decoration:none; color:var(--text-primary); font-size:14px; font-weight:800; transition:all 0.2s ease; box-shadow:0 4px 12px rgba(255,0,0,0.15);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 18px rgba(255,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(255,0,0,0.15)'">
+                                <div style="display:flex; align-items:center; gap:12px;">
+                                    <span style="background:#ff0000; color:#fff; width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; flex-shrink:0;">▶</span>
+                                    <div>
+                                        <div style="font-size:15px; font-weight:900; color:var(--text-primary);">شرح الوحدة الأولى كاملة: We have different interests (من ص 10 إلى 20)</div>
+                                        <div style="font-size:12px; color:var(--text-light); font-weight:600;">شرح الدروس والقواعد والأنشطة والقصة والاستماع كاملاً بجودة عالية</div>
+                                    </div>
+                                </div>
+                                <div style="display:inline-flex; align-items:center; gap:6px; background:#ff0000; color:#fff; font-size:13px; font-weight:800; padding:8px 16px; border-radius:20px; white-space:nowrap; flex-shrink:0;">
+                                    <span>مشاهدة الفيديو على YouTube ↗</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                termsContainer.appendChild(g5HubBanner);
+            }
+
             // إذا كان الصف السادس الابتدائي، أضف شريط شروحات يوتيوب وحلول كتب الطالب والنشاط المعتمدة
             if (gradeId === "primary-6") {
                 const g6HubBanner = document.createElement('div');
