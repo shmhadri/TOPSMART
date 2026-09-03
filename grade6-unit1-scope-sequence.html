@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تحليل المحتوى وجدول المدى والتتابع (Scope & Sequence) - الصف السادس Unit 1 | SmartLearning</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- html2pdf for high quality client-side PDF download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 :root {
     --primary: #4f46e5;
@@ -685,17 +687,42 @@ button, input, textarea, select { font-family: inherit; }
         <a href="grade6-unit1-presentation.html" class="top-action-btn">
             <span>💻</span> العرض التقديمي
         </a>
-        <button onclick="window.print()" class="top-action-btn success" title="طباعة فورية صفحة واحدة A4 عرضية بدون تجاوز">
-            <span>🖨️</span> طباعة صفحة واحدة كاملة (A4)
+        <button onclick="downloadPDF()" id="pdfDownloadBtn" class="top-action-btn" style="background:#dc2626; color:#fff; border-color:#dc2626; font-weight:800; box-shadow:0 3px 10px rgba(220,38,38,0.25);" title="تنزيل ملف PDF فوري عالي الجودة">
+            <span>📥</span> تحميل PDF (A4)
         </button>
-        <button onclick="exportToWord()" class="top-action-btn" style="border-color:#2563eb; color:#2563eb;">
-            <span>📄</span> تصدير Word
+        <button onclick="exportToWord()" class="top-action-btn" style="background:#2563eb; color:#fff; border-color:#2563eb; font-weight:800; box-shadow:0 3px 10px rgba(37,99,235,0.25);" title="تصدير جدول Word منظم">
+            <span>📄</span> تصدير Word (.doc)
+        </button>
+        <button onclick="window.print()" class="top-action-btn success" title="طباعة فورية صفحة واحدة A4 عرضية بدون تجاوز">
+            <span>🖨️</span> طباعة (A4)
         </button>
         <button class="top-action-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
     </div>
 </header>
 
 <div class="page-wrapper">
+
+    <!-- QUICK ACTIONS BANNER (NO-PRINT) -->
+    <div class="no-print" style="background:var(--bg-card); border:1.5px solid var(--border); border-radius:12px; padding:12px 18px; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; box-shadow:var(--shadow);">
+        <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:20px;">⚡</span>
+            <div>
+                <b style="font-size:14px; color:var(--primary);">خيارات التحميل والطباعة الرسمية (Scope & Sequence):</b>
+                <div style="font-size:12px; color:var(--text-muted);">يمكنك تحميل الملف بصيغة PDF صفحة واحدة أو تصدير ملف Word منظم بالكامل أو الطباعة الفورية:</div>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <button onclick="downloadPDF()" class="top-action-btn" style="background:#dc2626; color:#fff; border-color:#dc2626; font-weight:800; padding:8px 16px;">
+                <span>📥 تحميل ملف PDF مباشر</span>
+            </button>
+            <button onclick="exportToWord()" class="top-action-btn" style="background:#2563eb; color:#fff; border-color:#2563eb; font-weight:800; padding:8px 16px;">
+                <span>📄 تنزيل ملف Word منسق</span>
+            </button>
+            <button onclick="window.print()" class="top-action-btn success" style="padding:8px 16px;">
+                <span>🖨️ طباعة صفحة واحدة (A4)</span>
+            </button>
+        </div>
+    </div>
 
     <!-- MAIN POSTER SHEET -->
     <div class="poster-sheet" id="printContent">
@@ -1427,29 +1454,205 @@ loadChecks();
     }
 });
 
-// EXPORT TO WORD (.DOC)
+// DOWNLOAD DIRECT HIGH QUALITY A4 LANDSCAPE PDF
+function downloadPDF() {
+    const btn = document.getElementById('pdfDownloadBtn');
+    const oldText = btn ? btn.innerHTML : '';
+    if(btn) {
+        btn.innerHTML = '⏳ جاري إنشاء PDF...';
+        btn.disabled = true;
+    }
+
+    const element = document.getElementById('printContent');
+    const opt = {
+        margin: [3, 4, 3, 4],
+        filename: 'Grade6_Unit1_Scope_and_Sequence_Ministry.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+            scale: 2.2, 
+            useCORS: true, 
+            letterRendering: true,
+            logging: false,
+            scrollY: 0
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+        if(btn) {
+            btn.innerHTML = oldText;
+            btn.disabled = false;
+        }
+    }).catch(err => {
+        console.error(err);
+        if(btn) {
+            btn.innerHTML = oldText;
+            btn.disabled = false;
+        }
+        window.print();
+    });
+}
+
+// EXPORT STRUCTURED MICROSOFT WORD (.DOC)
 function exportToWord() {
-    const content = document.getElementById('printContent').innerHTML;
-    const header = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-    <head><meta charset='utf-8'><title>Scope and Sequence Grade 6 Unit 1</title>
+    const school = document.getElementById('schoolInput')?.value || '....................';
+    const office = document.getElementById('officeInput')?.value || '....................';
+    const date = document.getElementById('dateInput')?.value || '....................';
+    const notes = document.getElementById('teacherNotes')?.value || '';
+
+    // Collect 8 columns items
+    const cols = document.querySelectorAll('.scope-col-box');
+    const colHeaders = [];
+    const colData = [];
+
+    cols.forEach((col, idx) => {
+        const thEn = col.querySelector('.th-en')?.textContent.trim() || '';
+        const thAr = col.querySelector('.th-ar')?.textContent.trim() || '';
+        const bg = ['#16a34a', '#d97706', '#e11d48', '#7c3aed', '#2563eb', '#db2777', '#0d9488', '#ea580c'][idx] || '#4f46e5';
+        colHeaders.push({ thEn, thAr, bg });
+
+        const items = [];
+        col.querySelectorAll('.obj-item-box').forEach(box => {
+            const en = box.querySelector('.item-en-txt')?.textContent.trim() || '';
+            const ar = box.querySelector('.item-ar-txt')?.textContent.trim() || '';
+            const checked = box.querySelector('.item-chk')?.checked;
+            items.push({ en, ar, checked });
+        });
+        colData.push(items);
+    });
+
+    // Build Word HTML table
+    let tableRows = '';
+    // 8 items per column
+    for (let r = 0; r < 8; r++) {
+        tableRows += '<tr>';
+        for (let c = 0; c < colData.length; c++) {
+            const item = colData[c][r] || { en: '', ar: '', checked: false };
+            const checkMark = item.checked ? '☑ ' : '☐ ';
+            tableRows += `
+                <td style="border:1px solid #94a3b8; padding:5px; vertical-align:top; background:#ffffff;">
+                    <div style="font-family:Arial, sans-serif; font-size:8.5pt; font-weight:bold; color:#0f172a; direction:ltr; text-align:left; margin-bottom:3px;">
+                        ${checkMark}${item.en}
+                    </div>
+                    <div style="font-family:'Simplified Arabic', Tahoma, sans-serif; font-size:8pt; color:#475569; direction:rtl; text-align:right;">
+                        ${item.ar}
+                    </div>
+                </td>
+            `;
+        }
+        tableRows += '</tr>';
+    }
+
+    let thCells = '';
+    colHeaders.forEach(h => {
+        thCells += `
+            <th style="background-color:${h.bg}; color:#ffffff; padding:6px 4px; font-size:9pt; text-align:center; border:1px solid #000;">
+                <div style="font-family:Arial, sans-serif; font-weight:bold; font-size:9.5pt;">${h.thEn}</div>
+                <div style="font-family:'Simplified Arabic', Tahoma, sans-serif; font-size:8.5pt;">${h.thAr}</div>
+            </th>
+        `;
+    });
+
+    const docContent = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office'
+          xmlns:w='urn:schemas-microsoft-com:office:word'
+          xmlns='http://www.w3.org/TR/REC-html40'>
+    <head>
+    <meta charset='utf-8'>
+    <title>Scope and Sequence Grade 6 Unit 1</title>
+    <!--[if gte mso 9]>
+    <xml>
+    <w:WordDocument>
+    <w:View>Print</w:View>
+    <w:Zoom>100</w:Zoom>
+    <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+    </xml>
+    <![endif]-->
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #999; padding: 4px; font-size: 10px; }
-        .scope-table-grid { display: flex; flex-direction: row; }
-        .item-en-txt { direction: ltr; text-align: left; font-weight: bold; }
-        .item-ar-txt { direction: rtl; text-align: right; color: #555; }
+    @page Section1 {
+        size: 841.9pt 595.3pt;
+        mso-page-orientation: landscape;
+        margin: 0.3in 0.3in 0.3in 0.3in;
+    }
+    div.Section1 { page: Section1; }
+    body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
     </style>
-    </head><body dir='rtl'>`;
-    const footer = "</body></html>";
-    const sourceHTML = header + content + footer;
-    const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-    const fileDownload = document.createElement("a");
-    document.body.appendChild(fileDownload);
-    fileDownload.href = source;
-    fileDownload.download = 'Grade6_Unit1_Scope_and_Sequence.doc';
-    fileDownload.click();
-    document.body.removeChild(fileDownload);
+    </head>
+    <body dir='rtl'>
+    <div class="Section1">
+        <!-- HEADER -->
+        <table style="width:100%; border:none; margin-bottom:8px;">
+            <tr>
+                <td style="width:30%; text-align:right; vertical-align:top; border:none; font-size:9pt;">
+                    <b>المملكة العربية السعودية • وزارة التعليم</b><br>
+                    <span style="font-size:8pt; color:#555;">Ministry of Education</span><br>
+                    <b>Education Office:</b> ${office}<br>
+                    <b>Date:</b> ${date}
+                </td>
+                <td style="width:40%; text-align:center; vertical-align:top; border:none;">
+                    <h2 style="margin:0; font-size:16pt; color:#0f172a; font-family:Arial;">SCOPE & SEQUENCE</h2>
+                    <div style="font-size:10pt; color:#0284c7; font-weight:bold;">ENGLISH LANGUAGE – GRADE 6</div>
+                    <div style="background:#0f766e; color:#fff; display:inline-block; padding:2px 12px; border-radius:10px; font-weight:bold; font-size:9pt; margin-top:2px;">UNIT 1: LIVING THINGS</div>
+                </td>
+                <td style="width:30%; text-align:left; vertical-align:top; border:none; font-size:9pt; direction:ltr;">
+                    <b>School Name:</b> ${school}<br>
+                    <b>Grade:</b> Sixth Grade (Primary)<br>
+                    <b>Subject:</b> English Language (Top Goal 3)<br>
+                    <b>Term:</b> First Term
+                </td>
+            </tr>
+        </table>
+
+        <!-- MAIN 8-COLUMN TABLE -->
+        <table style="width:100%; border-collapse:collapse; border:1.5px solid #000; margin-bottom:10px;">
+            <thead>
+                <tr>${thCells}</tr>
+            </thead>
+            <tbody>
+                ${tableRows}
+            </tbody>
+        </table>
+
+        <!-- BOTTOM SECTION -->
+        <table style="width:100%; border-collapse:collapse; border:none;">
+            <tr>
+                <td style="width:55%; vertical-align:top; border:1px solid #000; padding:6px; background:#f8fafc;">
+                    <b style="color:#4f46e5; font-size:9pt;">BLOOM'S TAXONOMY LEVELS • مستويات بلوم المعرفية</b>
+                    <table style="width:100%; border-collapse:collapse; margin-top:4px; font-size:7.5pt;">
+                        <tr><td style="background:#6366f1; color:#fff; font-weight:bold; width:80px; text-align:center;">6 Create ابتكار</td><td>Create something new, design, plan</td><td style="direction:rtl;">ابتكار شيء جديد، تصميم، تخطيط</td></tr>
+                        <tr><td style="background:#0ea5e9; color:#fff; font-weight:bold; text-align:center;">5 Evaluate تقويم</td><td>Judge or justify based on criteria</td><td style="direction:rtl;">إصدار حكم أو تبرير</td></tr>
+                        <tr><td style="background:#10b981; color:#fff; font-weight:bold; text-align:center;">4 Analyze تحليل</td><td>Break info into parts, find connections</td><td style="direction:rtl;">تفكيك المعلومات وإيجاد العلاقات</td></tr>
+                        <tr><td style="background:#eab308; color:#fff; font-weight:bold; text-align:center;">3 Apply تطبيق</td><td>Use knowledge in new situations</td><td style="direction:rtl;">استخدام المعرفة في مواقف جديدة</td></tr>
+                        <tr><td style="background:#f97316; color:#fff; font-weight:bold; text-align:center;">2 Understand فهم</td><td>Explain ideas or concepts</td><td style="direction:rtl;">شرح الأفكار أو المفاهيم</td></tr>
+                        <tr><td style="background:#ef4444; color:#fff; font-weight:bold; text-align:center;">1 Remember تذكر</td><td>Recall facts and basic information</td><td style="direction:rtl;">استرجاع الحقائق والمعلومات</td></tr>
+                    </table>
+                </td>
+                <td style="width:45%; vertical-align:top; border:1px solid #000; padding:6px; background:#f8fafc;">
+                    <b style="color:#0f172a; font-size:9pt;">TEACHER NOTES • ملاحظات وتوجيهات المعلم</b>
+                    <div style="min-height:70px; font-size:8.5pt; color:#333; margin-top:4px; border:1px solid #cbd5e1; background:#fff; padding:6px; white-space:pre-wrap;">${notes || 'اكتب ملاحظات التدريس وتوجيهات الفروق الفردية هنا...'}</div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- FOOTER -->
+        <div style="margin-top:6px; font-size:8pt; text-align:center; color:#0284c7; border-top:1px dashed #999; padding-top:4px;">
+            <b>Learn • Explore • Respect • Protect</b> | نتعلم • نستكشف • نحترم • نحمي — <b>VISION 2030 المملكة العربية السعودية</b>
+        </div>
+    </div>
+    </body>
+    </html>
+    `;
+
+    const blob = new Blob(['\ufeff' + docContent], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Grade6_Unit1_Scope_and_Sequence_Ministry.doc';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
 }
 </script>
 </body>
